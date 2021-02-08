@@ -28,7 +28,7 @@ When you launch the application, you will see something like this:
 
 ![](`r url1`)
 
-Windows users will use an application called Git Bash. Instructions for installing Git Bash are available [here](https://ucdavisdatalab.github.io/workshop-introduction-to-git/complete.html#git-on-windows). Please note that you are only required to complete a single section of these instructions ("Git on Windows"); no other sections are relevant for this particular workshop and you can disregard them.
+**Windows** users will use an application called Git Bash. Instructions for installing Git Bash are available [here](https://ucdavisdatalab.github.io/workshop-introduction-to-git/complete.html#git-on-windows). Please note that you are only required to complete a single section of these instructions ("Git on Windows"); no other sections are relevant for this particular workshop and you can disregard them.
 
 To launch Git Bash, go to:
 
