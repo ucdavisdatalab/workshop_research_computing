@@ -3,7 +3,7 @@
 
 ## Common links:
 
-* Workshop reader: https://ucdavisdatalab.github.io/adventures_in_data_science/
+* Workshop reader: https://ucdavisdatalab.github.io/workshop_introduction_to_the_command_line/
 * Workshop event page: https://datalab.ucdavis.edu/eventscalendar/introduction-to-command-line/
 
 ## Protocols:
