@@ -42,7 +42,7 @@ When you launch the application, you will see something like this:
 
 ![](./img/bash.png)
 
-## Interacting with the command line ##
+## Interacting with the command line
 
 While it can look intimidating to those raised on the GUI, working with the command line is actually quite simple. 
 Instead of pointing and clicking on things to make them happen, you type written commands.
@@ -121,11 +121,13 @@ Table: (\#tab:unnamed-chunk-1)
 
 For a more complete list of Unix Commands, see the [Unix Cheat Sheet](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html).
 
-## Command Line Text Editors
+# Text Editing on/and the Command Line
 
 The command line also features a variety of different text editors, similar in nature to Microsoft Word or Mac 
 Pages but much more stripped down. These editors are only accessible from the command line and it is important to 
 know how to use them so that you can open, read, and write directly in the command line window.
+
+## Accessing Command Line Text Editors
 
 Macs and Git Bash both ship with a text editor called **Vim** (other common editors include Emacs and Nano). To 
 open a file with vim, type `vi` in a command line window, followed by the filename. If you want to create a new 
