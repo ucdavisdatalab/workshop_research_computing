@@ -1,7 +1,7 @@
 ---
 title: Introduction to the Command Line
 author: [Dr. Carl Stahmer and Dr. Tyler Shoemaker]
-date: "2021-02-08"
+date: "2021-02-09"
 url: "https://ucdavisdatalab.github.io/adventures_in_data_science/"
 github-repo: ucdavisdatalab/workshop_introduction_to_the_command_line
 site: bookdown::bookdown_site
