@@ -1,0 +1,55 @@
+Open and Merge a Pull Request
+=============================
+
+This last part of the workshop will be demo-only. Now that some changes have 
+been made to various branches, we're going to merge one of those branches back 
+into the main branch using a **pull request** (the instructor will demo this so 
+that we don't run into several conflicts). A pull request... [MORE].
+
+Opening a Pull Request
+----------------------
+
+You can open a pull request by clicking on the "Pull requests" tab.
+
+![](./img/github_pull_requests.png)
+
+From here, click on the green "New pull request."
+
+Under the "Comparing changes" heading, select two branches from the drop down 
+menus. The branch on the right will be the branch you're merging _into_ the 
+branch on the left. Once you've made your selection, GitHub will scan through 
+the branches and identify any differences between them.
+
+![](./img/github_compare_changes.png)
+
+If the branches are able to be merged, click "Create pull request." You'll be 
+taken to a new page, which looks quite similar to the what you'd see if you 
+opened an issue. Just like an issue, a pull request should have a title and a 
+description. You can assign yourself the role of making the request and, if 
+applicable, you can ask someone to review the changes before you implement them 
+(using the "Reviewers" function on the right).
+
+![](./img/github_write_a_pull_request.png)
+
+Opening a pull request does not automatically implement a merge. Rather, the 
+pull request stays open, providing a space for people to discuss the changes, 
+make revisions if need be, etc.
+
+Merging a Pull Request
+----------------------
+
+Once your team is happy with the changes, and once GitHub has verified that 
+there are no conflicts between the branches, you can click "Merge pull request".
+Alternatively, you can merge the pull request on the command line by following 
+the instructions listed below.
+
+![](./img/github_no_conflicts.png)
+
+For our purposes, we'll just click the button. GitHub will then register that 
+the merge has been made:
+
+![](./img/github_successful_pull_merge.png)
+
+If you went back to the main page, you'd see that your changes are implemented. 
+From here, you can delete your branch (if you'd like) and then start on the 
+next changes you'd like to make.
