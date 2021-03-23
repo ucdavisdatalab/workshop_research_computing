@@ -154,3 +154,56 @@ You'll be taken to another page, which shows you the differences between your
 old version and the new one:
 
 ![](./img/github_vdiff.png)
+
+Pulling Changes from a Remote Directory
+---------------------------------------
+
+Before moving on, it's also worth noting that we can pull changes directly from 
+GitHub. If a file has been altered on the remote version of a project, GitHub 
+offers functionality for syncing that file with your local copy (or creating a 
+new file altogether, if need be).
+
+For example, if you return to the main page of "my_first_remote_directory", you 
+can alter the README directly on GitHub. Click the pencil in the right-hand 
+corner of the rendered file.
+
+![](./img/new_repository_pencil_highlight.png)
+
+This will open up a text editor interface. Using it, add "What's yours?" on the 
+fifth line of the document. The complete document should look like this:
+
+```
+Hello world!
+
+My name is <your name>
+
+What's yours?
+```
+
+Scroll to the bottom and click the green "Commit changes" button. This is the 
+equivalent of doing `git add <file>` and `git commit -m <message>` on the 
+command line.
+
+You'll see something like the following:
+
+![](./img/updated_readme.png)
+
+Back on the command line, if you type `git status`, you'll see that your local 
+repository is now out of sync.
+
+![](./img/branch_behind.png)
+
+If you haven't made any changes to your directory, syncing it with the remote 
+version can be achieved with a straighforward pull command:
+
+```
+git pull
+```
+
+Once you enter this command, your command line should look something like this:
+
+![](./img/git_pull.png)
+
+Your files are now synced. A later portion of this reader will discuss how to 
+handle this process when you _have_ made changes to your directory between the 
+time the remote was altered and the time you go to make a pull.
