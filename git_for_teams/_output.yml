@@ -8,5 +8,5 @@ bookdown::gitbook:
         <li><a href="./">Reproducible Research for Teams with GitHub</a></li>
       collapse: section
     sharing: no
-    view: https://github.com/ucdavisdatalab/workshop_introduction_to_version_control/blob/main/%s
-    edit: https://github.com/ucdavisdatalab/workshop_introduction_to_version_control/edit/main/%s
+    view: https://github.com/ucdavisdatalab/workshop_git_for_teams/blob/main/%s
+    edit: https://github.com/ucdavisdatalab/workshop_git_for_teams/edit/main/%s

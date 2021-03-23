@@ -45,7 +45,7 @@ By the end of this workshop, learners will be able to:
 Prerequisites
 -------------
 
-Familiarity with Command Line and Git version control software is required. 
+**Familiarity with Command Line and Git version control software is required.** 
 Participants should be proficient in navigating their machine and executing
 basic Git commands using a shell scripting program (Terminal, Bash, etc.). 
 Before attending this workshop, learners should be able to create, modify and 

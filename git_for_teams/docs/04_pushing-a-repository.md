@@ -20,7 +20,7 @@ cd ~/my_first_remote_directory
 git init
 ```
 
-With vim, make a README markdown file:
+With Vim, make a README markdown file:
 
 ```
 vim README.md
@@ -31,7 +31,7 @@ following:
 
 ![](./img/hello_world.png)
 
-Exit vim. Then, add README.md to Git and commit your changes. Don't forget to 
+Exit Vim. Then, add README.md to Git and commit your changes. Don't forget to 
 write a short note in the commit message.
 
 ```
@@ -57,19 +57,20 @@ button. You'll be taken to this page:
 
 There are a few things of note here:
 
-* Repository name:
-* Description:
-* Public/private setting:
+* Repository name: your repository's name, which should be the same as what's on your computer
+* Description: a short (1-2 sentence) explanation of what's in this repository
+* Public/private setting: repositories may be either "public" (viewable by anyone) or "private" (only viewable by you and those to whom you grant access)
 * Initialize with details, including:
-  * A README file
-  * A .gitignore file
-  * A license
+  * A README file: a form of documentation; provides information about the files in the repository
+  * A .gitignore file: instructs Git to ignore specific files or filetypes
+  * A license: governs the use or redistribution of your files
   
 Because we're initializing this repository from an existing directory, we won't 
-bother with the extra details. But we do need a title, which should be the same 
-as what's on your local computer ("my_first_remote_directory"). A description is 
-helpful but not necessary for our purposes. Finally, we will choose to make this 
-a public repository (meaning anyone can see it).
+bother with most of the extra details. But we do need a title, which should be 
+the same as what's on your local computer ("my_first_remote_directory"). A 
+description is helpful but not necessary for our purposes; the same goes for a 
+license. Finally, we will choose to make this a public repository (meaning 
+anyone can see it).
 
 ![](./img/new_repository_details.png)
 
@@ -104,6 +105,12 @@ you'll see that the repository has been synced and your README.md file is now
 online.
 
 ![](./img/new_repository_synced.png)
+
+Note that GitHub automatically looks for a README file in your repository. If it 
+finds one that contains renderable [markdown](https://guides.github.com/features/mastering-markdown/) code, it will 
+render the file on your repository's main page. (More information about writing 
+effective README files is available through the DataLab's data documentation 
+[workshop](https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/).)
 
 Tracking Files Remotely
 -----------------------
