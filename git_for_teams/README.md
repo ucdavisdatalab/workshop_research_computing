@@ -1,12 +1,18 @@
-# Workshop: Introduction to Version Control
-## UC Davis DataLab, Winter 2021
+Workshop: Reproducible Research for Teams with GitHub
+=====================================================
 
-## Common links:
+UC Davis DataLab
 
-* Workshop reader: https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/
-* Workshop event page: https://datalab.ucdavis.edu/eventscalendar/introduction-to-version-control-with-git-2/
+Spring 2021
 
-## Protocols:
+Common links:
+-------------
+
+* Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
+* Workshop event page: https://datalab.ucdavis.edu/eventscalendar/reproducible-research-for-teams-with-github/
+
+Protocols:
+----------
 
 The course reader is a live webpage, hosted through GitHub, where you can enter curriculum content and 
 post it to a public-facing site for learners. Supplementary examples for other readings are also 
@@ -29,12 +35,10 @@ To make alterations to the reader:
 Follow the established style and formatting conventions in chapter files,
 including those for linking to media on the `ds.lib` server. On the `ds.lib`
 server, the course media directory is in the public-facing portion of the
-DataLab website (`ds.lib.ucdavis.edu`). Outbound URLs that point to course
-media should be given their own, sequentially numbered variable (`url1`,
-`url2`, ..., `url26`, etc.) in the file `_common.R` and should then be called
-from that variable in the body text of the chapter files.
+DataLab website (`ds.lib.ucdavis.edu`).
 
 Summary of important files:
+---------------------------
 
 * `docs` -- output HTML files
 * `img` -- image files used in chapters
