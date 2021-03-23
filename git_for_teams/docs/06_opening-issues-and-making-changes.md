@@ -141,9 +141,3 @@ view. Finally, you'll see in the commit message view that the message has turned
 your issue number into a hyperlink.
 
 ![](./img/github_pushed_branch_changes.png)
-
-Closing an Issue
-----------------
-
-If you click on that hyperlink, you'll be taken directly to the issue you 
-created. 
