@@ -37,8 +37,8 @@ like the following:
 [Image source.](https://gist.github.com/fentontaylor/c6110b2e20e29a656645ce03d1848964)
 </center>
 
-Communicating with GitHub
--------------------------
+Communicating Through GitHub
+----------------------------
 
 So far, however, this whole process could be implemented with other version 
 control software. What makes GitHub special is the fact that, more than being 
@@ -69,3 +69,22 @@ includes:
 Additionally, GitHub users can monitor and modify other teams' code using 
 "Watch", "Star", and "Fork" functionalities. The service also provides teams 
 with the ability to specify licensing information for their projects.
+
+What Should I Push to GitHub?
+-----------------------------
+
+A quick word about what should and shouldn't be pushed to a remote repository, 
+especially with an eye toward what we've said about communication. You can, of 
+course, host large data files on GitHub, but there are a few caveats. For one, 
+the site does have a storage limit, and it can also become quite inefficient to 
+have team members constantly push/pull large files to/from GitHub. Further, 
+hosting data files might not be particularly relevant to what a team might need 
+to discuss. Data may change often over the course of a project, but tracking 
+individual observations might not be necessary---more meaningful would be a 
+conversation about how code has made, or might make, such changes. The latter 
+is likely something that GitHub is better suited to facilitate.
+
+It's best, then, to host your data files separately from GitHub, either by way 
+of a remote database or some kind of cloud service like Google Drive. Exceptions 
+may come up, however, so the decision about what to track should ultimately be 
+one made by the team.
