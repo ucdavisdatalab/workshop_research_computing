@@ -1,8 +1,8 @@
 Pushing a Repository
 ====================
 
-Now that you're able to use SSH keys with GitHub, it's time to sync the website 
-with a local repository on your computer.
+Now that you're all set up with GitHub, it's time to sync the website with a 
+local repository on your computer.
 
 Making a Test Repository
 ------------------------
