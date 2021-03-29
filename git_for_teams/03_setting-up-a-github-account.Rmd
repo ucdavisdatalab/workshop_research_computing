@@ -7,11 +7,10 @@ Basic GitHub Account Setup
 To use GitHub, you need to make a (free) account. You can do so by going to 
 [github.com](https://github.com/). Once you're there, click "Sign Up" in the 
 top-right corner of the page. This should take you to a form, which asks you to 
-enter a **username**, **email address**, and **password**.
-
-After you've entered in this information (and completed a quick CAPTCHA), GitHub 
-will make you an account. Then, the site will prompt you to complete an 
-optional survey. Fill it out, or scroll to the bottom to skip it.
+enter a **username**, **email address**, and **password**. After you've entered 
+in this information (and completed a quick CAPTCHA), GitHub will make you an 
+account. Then, the site will prompt you to complete an optional survey. Fill it 
+out, or scroll to the bottom to skip it.
 
 Either way, you'll need to then verify your email address. Go to your inbox and 
 look for an email from GitHub. Click the "Verify email address" button. Doing so 
