@@ -82,7 +82,7 @@ hosting data files might not be particularly relevant to what a team might need
 to discuss. Data may change often over the course of a project, but tracking 
 individual observations might not be necessary---more meaningful would be a 
 conversation about how code has made, or might make, such changes. The latter 
-is likely something that GitHub is better suited to facilitate.
+is likely to be something that GitHub is better suited to facilitate.
 
 It's best, then, to host your data files separately from GitHub, either by way 
 of a remote database or some kind of cloud service like Google Drive. Exceptions 
