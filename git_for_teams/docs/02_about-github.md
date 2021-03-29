@@ -66,7 +66,7 @@ includes:
 * Project boards for long-term planning
 * Various graph visualizations for project overview
 
-Additionally, GitHub users can monitor and modify other teams' code using 
+Additionally, GitHub users can monitor and modify other projects' code using 
 "Watch", "Star", and "Fork" functionalities. The service also provides teams 
 with the ability to specify licensing information for their projects.
 
@@ -82,9 +82,21 @@ hosting data files might not be particularly relevant to what a team might need
 to discuss. Data may change often over the course of a project, but tracking 
 individual observations might not be necessary---more meaningful would be a 
 conversation about how code has made, or might make, such changes. The latter 
-is likely something that GitHub is better suited to facilitate.
+is likely to be something that GitHub is better suited to facilitate.
 
 It's best, then, to host your data files separately from GitHub, either by way 
 of a remote database or some kind of cloud service like Google Drive. Exceptions 
 may come up, however, so the decision about what to track should ultimately be 
 one made by the team.
+
+Examples of what should be tracked with GitHub:
+
+* Code
+* Documentation
+* Make files
+* Some supporting media (small images, for example)
+
+Finally, note that even though you can set a repository to either "Public" or 
+"Private" (which controls who can see your project), it's recommended that you 
+refrain from uploading various access credentials (API keys, database passwords, 
+etc.) to GitHub.
