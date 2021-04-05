@@ -2,11 +2,11 @@ Cloning a Repository
 ====================
 
 While tracking your own files remotely with GitHub is great for managing and 
-storing your files, the service is above all a communication channel, in which 
-people can share and discuss the code/files they're working on. We haven't yet 
-taken advantage of much of what makes GitHub useful: getting files for a project, 
-modifying them, discussing changes with team members, and implementing those
-changes.
+storing your files, this doesn't quite tap into the full use of the service. 
+Remember, GitHub is above all a communication channel, in which people can share 
+and discuss the code/files they're working on. We haven't yet taken advantage of 
+much of what makes GitHub useful: getting files for a project, modifying them, 
+discussing the changes with team members, and implementing those changes.
 
 Cloning
 -------
@@ -27,12 +27,10 @@ Once there, click on the green "Code" button, which should show the following:
 
 ![](./img/clone_repository_github_view.png)
 
-Select the "SSH" option (you could also retrieve this repository with GitHub 
-Desktop or download it as a .zip file). Copy the text GitHub provides to your 
-clipboard.
-
-In the command line, type `git clone`, add a space, and then paste in the above 
-text. The full line should look like this:
+Since you have SSH keys, select the "SSH" option. Copy the text GitHub provides 
+to your clipboard. Then, in the command line, type `git clone`, add a space, 
+and paste in the line of text GitHub generated for you. The full command should 
+look like this:
 
 ```
 git clone git@github.com:ucdavisdatalab/workshop_git_for_teams_sandbox.git
@@ -57,11 +55,14 @@ changes your team members may be making. This is where branching steps in.
 Version control systems like Git help you avoid major change conflicts (and thus 
 lost or redundant work) by letting you "branch" a repository to complete tasks 
 in parallel with others working on the project. Usually, teams will have a stable, 
-"Main" branch, which serves as an enduring reference point for 
-subsequent modifications. [MORE]
+"Main" branch, which serves as an enduring reference point for subsequent 
+modifications. When people want to make changes to that stable code, they'll 
+make a new copy of the main branch, implement their changes, and then commit 
+their changes back the main one. 
 
-Given all this, we need to branch the repository we've just cloned. We'll do 
-so locally and then we'll push that branch to the remote repository.
+In a moment, we'll see how GitHub helps us manage the above process. First, 
+however, we'll need to branch the repository we've just cloned. We'll do so 
+locally and then we'll push that branch to the remote repository.
 
 First, check whether the cloned repository has any branches with `git branch`:
 

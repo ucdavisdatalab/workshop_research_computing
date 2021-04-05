@@ -83,7 +83,7 @@ uploading new files to the repository.
 
 ![](./img/new_repository_options.png)
 
-Since we already have a repository made, we'll choose "Push an existing 
+Since we already have a repository made, we need to use the "Push an existing 
 repository from the command line." Pushing our repository is as easy as 
 sequentially entering into the command line the three commands GitHub provides.
 
@@ -97,12 +97,21 @@ On the command line, that looks like this:
 
 ![](./img/push_repository_command_line.png)
 
-[NOTE A FEW THINGS WE'VE DONE IN THE ABOVE]
+To summarize the above, we've done the following:
 
-The GitHub site won't immediately refresh itself once you've entered the above 
-commands, but if you click on the "< > Code" tab or on the name of the directory, 
-you'll see that the repository has been synced and your README.md file is now 
-online.
+1. Associated GitHub's remote repository with our local repository (`git remote` etc.)
+2. Made a new branch in our local repository called "main" (`git branch -M main`)
+3. Pushed the contents of main (from `origin`) to a new, corresponding remote branch on GitHub
+
+From here on out, when you want to update the remote repository with further 
+changes, you can simply use the shorthand `git push` after the usual save, add, 
+commit steps. Importantly, Git will only update the branch you're on when you 
+enter `git push`, so before making any pushes, it's a good idea to run a quick 
+`git status` command to make sure you're on the branch you want to be on.
+
+When you make your changes, the GitHub site won't immediately refresh itself, 
+but if you click on the "< > Code" tab or on the name of the directory, you'll 
+see that the repository has been synced and your README.md file is now online.
 
 ![](./img/new_repository_synced.png)
 
@@ -129,13 +138,7 @@ Then, add the file and commit your changes.
 
 ![](./img/commit_readme_update.png)
 
-If you want to push these changes to your remote repository, simply type the 
-following in the command line:
-
-```
-git push
-```
-
+If you want to push these changes to your remote repository, simply enter `git push`. 
 You'll see a similar message appear about enumerating, counting, and writing 
 objects to GitHub. Afterwards, if you refresh your file on GitHub, you should 
 see your changes:

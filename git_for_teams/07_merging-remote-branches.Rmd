@@ -22,26 +22,24 @@ your change of plans. Tag the person whose branch you'll be merging with using
 
 ![](./img/github_leave_a_comment.png)
 
-In a real-world project, you might also edit the title of your issue, but for 
-now, you can leave it as is.
+In a real-world project, you might also edit the title of your issue to reflect 
+your changes, but for now, you can leave it as is.
 
 Fetching a Remote Branch
 ------------------------
 
-Now it's time to **fetch** the remote branch. This will download a copy of the 
-branch but it won't implement any changes that that branch might contain. You 
+Now it's time to make a copy of the remote branch on your local computer. You 
 can find the branch on the command line with `git branch -a` (it'll be in red 
-text).
-
-To fetch the branch and begin tracking any future changes that might occur on 
-that branch, simply type:
+text). To get the branch and begin tracking any future changes that might occur 
+on that branch, simply type:
 
 ```
 git switch <remote-branch>
 ```
 
 (Note: in the past, Git has used other commands like `fetch` and `track` to 
-perform these operations, but the new `switch` is much easier.)
+perform these operations, but `switch` is a nice shorthand, especially for 
+smaller projects like this.)
 
 You should see something like this:
 
@@ -101,9 +99,7 @@ Closing an Issue
 ----------------
 
 Your task is done, so you can close your issue. Return to the "Issues" tab, find 
-your issue, and close it. If you'd like, you can leave a comment when you close, 
-but this is a pretty straightforward change, so in this case it's not necessary.
-
-The issue should look like this:
+your issue, and close it. If you'd like, you can leave a comment when you close. 
+Afterwards, the issue should look like this:
 
 ![](./img/closed_issue.png)

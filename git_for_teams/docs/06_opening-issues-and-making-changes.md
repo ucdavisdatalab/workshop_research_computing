@@ -49,13 +49,8 @@ title should reflect this task.
 
 ![](./img/new_issue_title_description.png)
 
-With this information entered, assign yourself to this issue:
-
-<center>
-![](./img/new_issue_assigned.png)
-</center>
-
-Click the green "Submit new issue" button. GitHub will take you to a new page:
+With this information entered, assign yourself to this issue (by clicking the 
+little gear button next to "Assignees"). Then, click the green "Submit new issue" button. GitHub will take you to a new page:
 
 ![](./img/new_issue_submitted.png)
 
