@@ -105,5 +105,27 @@ with a key. **We will not go through this process during the workshop, so you **
 
 [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
+The following steps at the link above are required:
+
+* Checking for existing SSH keys
+* Generating a new SSH key and adding it to the ssh-agent
+* Adding a new SSH key to your GitHub account
+* Testing your SSH connection
+
+Once you have completed these steps, be sure you can successfully run the 
+following command: 
+
+```
+ssh -T git@github.com
+```
+
+If your connection is successful, you will see this message (a warning may first 
+appear---see the documentation on GitHub for more information):
+
+```
+Hi <your username>! You've successfully authenticated, but GitHub does not 
+provide shell access.
+```
+
 Need help? DataLab offers office hours sessions on Mondays, from 1:30-3:00pm 
 PST. Check the calender for more information [here](https://datalab.ucdavis.edu/eventscalendar/).
