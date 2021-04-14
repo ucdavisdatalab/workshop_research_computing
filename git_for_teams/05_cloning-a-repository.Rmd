@@ -21,7 +21,7 @@ command line speak, the repository will be a "child" of Home).
 cd ~
 ```
 
-Then, go to the following link: [https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox](https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox)
+Then, go to the following link: [https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox](https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox)
 
 Once there, click on the green "Code" button, which should show the following:
 
