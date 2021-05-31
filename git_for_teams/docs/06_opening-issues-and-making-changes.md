@@ -39,7 +39,7 @@ Opening an Issue
 ----------------
 
 Before we make any changes to our cloned repository, let's open an issue. Go to 
-the "Issues" tab at [https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox](https://github.com/ucdavisdatalab/workshop_git_for_teams_sandbox) 
+the "Issues" tab at [https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox](https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox) 
 and click the green "New issue" button. It should take you to the following page: 
 
 ![](./img/new_issue.png)

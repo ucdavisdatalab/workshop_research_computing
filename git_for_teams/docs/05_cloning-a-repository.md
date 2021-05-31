@@ -33,7 +33,7 @@ and paste in the line of text GitHub generated for you. The full command should
 look like this:
 
 ```
-git clone git@github.com:ucdavisdatalab/workshop_git_for_teams_sandbox.git
+git clone git@github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
 ```
 
 Hit "Enter". If you'd like, you can use `ls` to see the newly made directory. 

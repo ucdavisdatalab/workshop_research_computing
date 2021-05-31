@@ -1,7 +1,7 @@
 ---
 title: Reproducible Research for Teams with GitHub
 author: [Dr. Tyler Shoemaker]
-date: "2021-04-14"
+date: "2021-05-31"
 url: "https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/"
 github-repo: ucdavisdatalab/workshop_introduction_to_version_control
 site: bookdown::bookdown_site
