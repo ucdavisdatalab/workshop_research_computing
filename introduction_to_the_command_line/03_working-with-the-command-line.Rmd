@@ -56,7 +56,7 @@ When you launch the application, you will see something like this:
 The Anatomy of the Command Line
 -------------------------------
 
-While the command line can look intimidating to those raised on the GUI, using 
+While the command line can look intimidating to those raised on a GUI, using 
 it is actually quite simple. Instead of pointing and clicking on things to make 
 them happen, you type in your commands.
 
@@ -77,6 +77,7 @@ just keep in mind that you can look here to find your current location. In this
 case, `~` means you are in your **home** directory.
 
 ![](img/prompt_home_highlight.png)
+
 After the location, we see the `$` character. It is an indicator that lets you 
 know the command line application is waiting for you to enter something. (Note 
 that you do not need to type this character, it will appear automatically, but 
@@ -87,7 +88,7 @@ see a solid or flashing box that appears after the prompt character. This is a
 **cursor position indicator** and it tells you where the current cursor is in 
 the terminal. This is useful if you need to go back and correct and error. 
 Generally speaking, you can't click around with a mouse in this kind of interface. 
-Instead, you'll use your computer's `left` and `right` arrows to move the cursor 
+Instead, you'll use your computer's `Left` and `Right` arrows to move the cursor 
 to the correct location and make any changes from there.
 
 Interacting with the Command Line
@@ -105,7 +106,7 @@ $ echo
 echoes your text:
 
 ```
-$ echo Hello world!
+$ echo "Hello world!"
 Hello world!
 $
 ```
@@ -119,6 +120,50 @@ Note that depending on your particular system and/or command line interface,
 things might look slightly different on your computer. However, the basic 
 presentation and function as described above will be the same.
 
+Command Line Syntax
+-------------------
+
+The syntax of commands is relatively straightforward. Commands use a space to 
+delimit their different components, and you can add optional **flags** to modify 
+how a command runs (more on these flags below). When put together, these 
+components look like so:
+
+```
+$ [command] [optional flags] [file, data, or other pointer on which to run the command]
+```
+
+There is one caveat to this: because commands use spaces to delimit their 
+components, you can run into problems when running commands on files with spaces 
+in their names. Your command line interface program will interpret that file's 
+spaces as separate components and an error will almost surely result. If you're 
+running a command on a file with a space in its name, you'll need to **escape** 
+that space with `\`.
+
+This will throw an error:
+
+```
+$ [command] file name.txt
+```
+
+This will not:
+
+```
+$ [command] file\ name.txt
+```
+
+Stopping a Command
+------------------
+
+Did you do something that causes your computer to print a million lines on screen? 
+Did you decide you don't want that file copied to a new location, and it's still 
+in the midst of transferring? You can **interrupt** any command with `CTRL+C`. 
+This will stop whatever current process is running in your interface.
+
+While you can stop a command, for the most part *it isn't possible to undo a 
+command*. Please take special care to know exactly what you're running and what 
+you're running it on, especially when it comes to modifying or deleting things 
+on your computer.
+
 Common Command Line Commands
 ----------------------------
 
@@ -127,7 +172,7 @@ Be prepared to have this page ready as a reference during class to make things
 easier.
 
 ```{r, echo=FALSE}
-command <- c("ls", "ls -l", "ls -a", "pwd", "mkdir", "cd", "mv", "cp", "rm")
+command <- c("ls", "ls -l", "ls -a", "pwd", "mkdir", "cd", "mv", "cp", "rm", "man")
 command_fullname <- c(
   "List",
   "List with Long flag",
@@ -137,7 +182,8 @@ command_fullname <- c(
   "Change Directory",
   "Move",
   "Copy",
-  "Remove/delete")
+  "Remove/delete",
+  "Manual")
 explanation <- c(
   "Lists all files in the current directory.", 
   "Lists additional information about each file.",
@@ -147,7 +193,8 @@ explanation <- c(
   "Navigates to another directory on the file system.",
   "Moves files.",
   "Copies files.",
-  "Deletes files.")
+  "Deletes files.",
+  "Opens the manual page for another command.")
 
 command_table <- data.frame(command_fullname, explanation)
 colnames(command_table) <- c("Command Name", "Function")

@@ -14,8 +14,8 @@ Accessing Command Line Text Editors
 
 Macs and [PROGRAM] both ship with a text editor called **Vim** (other common 
 editors include Emacs and Nano). To open a file with vim, type `vi` in a 
-command line window, followed by the filen ame. If you want to create a new 
-file, simply type the filen ame you'd like to use for that file after `vi`.
+command line window, followed by the file name. If you want to create a new 
+file, simply type the file name you'd like to use for that file after `vi`.
 
 ![](img/new_vim_file.png)
 
@@ -41,7 +41,7 @@ from Normal mode.
 
 To save a file in Vim, make sure you are in Normal mode and then enter `:w`. Note 
 the colon, which must be included.After you've entered this key sequence, in the 
-bottom left hand corner of your window you should see "[filename] XL, XC written" 
+bottom left hand corner of your window you should see "[file name] XL, XC written" 
 (*L* stands for "lines" and *C* stands for "characters").
 
 ![](img/saving_vim.png)
