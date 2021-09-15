@@ -1,0 +1,160 @@
+Working with the Command Line
+=============================
+
+Most people interact with their computer through a graphical user interface, or 
+GUI, which allows them to use a mouse, keyboard, and graphical elements on screen 
+(such as file menus, pictures of folders and files, etc.) as they do their work. 
+We tend to conflate our operating systems and their GUIs because computer 
+hardware and software manufacturers tightly pack these two things together as a 
+convenience to users. But the operating system that makes your computer work 
+(Windows 10, Mac Big Sur, etc.) and the GUI that you interact with are, in fact, 
+completely different and separable software packages; it is possible to use 
+different methods/software to interact with your computer than the stock GUI that 
+launches automatically when you turn it on.
+
+On such method is the "command line" interface. The command line offers a 
+text-only, non-graphical means of interacting with your computer, acting somewhat 
+like a typewriter (rather than a *window* or *desktop*, as the prevailing 
+metaphors for GUIs go). In the early days of computing, all user interaction with 
+your computer happened at the command line. But during the 1980s, computer 
+manufacturers---with Apple at the lead---made a big push to convert their machines 
+to the windowing systems we know today. The command line, they felt, was too 
+difficult for users to understand and this, in turn, would hamper computer sales.
+
+Nowadays, there are few viable (and at present, almost no commercially available) 
+GUIs that can compete with the predominant systems of Macs and PCs. While this is 
+not the case for Linux machines, people are by and large locked into the GUIs that 
+come pre-installed on their machines. Command line interfaces are, however, 
+available, and some are even still installed on popular computer hardware.
+
+Using these interfaces require you to launch a special program.
+ 
+**Mac users** will use an application called "Terminal," which ships by default 
+on macOS. To launch Terminal, go to:
+
+> Applications -> Utilities -> Terminal
+
+When you launch the application, you will see something like this:
+
+![](img/prompt.png)
+
+**Windows** users will use an application called [PROGRAM]. Instructions for 
+installing this program are on the previous page.
+
+To launch [PROGRAM], go to:
+
+> Click on the Windows Start Menu and search for "[PROGRAM]"
+
+Alternatively,
+
+> Click on the Windows Start Menu, select Programs, and browse to [PROGRAM]
+
+When you launch the application, you will see something like this:
+
+![](img/bash.png)
+
+The Anatomy of the Command Line
+-------------------------------
+
+While the command line can look intimidating to those raised on the GUI, using 
+it is actually quite simple. Instead of pointing and clicking on things to make 
+them happen, you type in your commands.
+
+Let's return to the window that opens when you start Terminal or [PROGRAM].
+
+![](img/prompt.png)
+
+Here, we see the command line **prompt**. You'll enter your commands here. But 
+before doing so, let's point out some valuable information contained within 
+the prompt itself. The beginning of the line, `tshoe@ds`, tells us the current 
+user (`tshoe`) and current computer (`ds`). This may seem redundant, but with the 
+command line it is possible to interact with remote computers via a network, so 
+it's helpful to have this information displayed as a reference point.
+
+The bit of information after the colon (in this example, the `~` character) tells 
+us where in the computer's filesystem we are. We'll discuss this later. For now, 
+just keep in mind that you can look here to find your current location. In this 
+case, `~` means you are in your **home** directory.
+
+![](img/prompt_home_highlight.png)
+After the location, we see the `$` character. It is an indicator that lets you 
+know the command line application is waiting for you to enter something. (Note 
+that you do not need to type this character, it will appear automatically, but 
+the examples below include it to emulate what you'll see onscreen)
+
+Depending on your system and/or command line interface, you may or may not also 
+see a solid or flashing box that appears after the prompt character. This is a 
+**cursor position indicator** and it tells you where the current cursor is in 
+the terminal. This is useful if you need to go back and correct and error. 
+Generally speaking, you can't click around with a mouse in this kind of interface. 
+Instead, you'll use your computer's `left` and `right` arrows to move the cursor 
+to the correct location and make any changes from there.
+
+Interacting with the Command Line
+---------------------------------
+
+As noted earlier, we interact with the command line by typing in our commands. 
+For example:
+
+```
+$ echo
+```
+
+
+...will print back to screen any text that you supply to the command. It literally 
+echoes your text:
+
+```
+$ echo Hello world!
+Hello world!
+$
+```
+
+To execute this, or any command, you simply hit the `Return`/`Enter` key on your 
+keyboard. You'll see that when you execute a command, the system will perform the 
+indicated operation, print any output from that operation to screen, and deliver 
+a new command line prompt.
+
+Note that depending on your particular system and/or command line interface, 
+things might look slightly different on your computer. However, the basic 
+presentation and function as described above will be the same.
+
+Common Command Line Commands
+----------------------------
+
+During our hands-on workshop session we will practice using several commands. 
+Be prepared to have this page ready as a reference during class to make things 
+easier.
+
+```{r, echo=FALSE}
+command <- c("ls", "ls -l", "ls -a", "pwd", "mkdir", "cd", "mv", "cp", "rm")
+command_fullname <- c(
+  "List",
+  "List with Long flag",
+  "List with All flag",
+  "Print Working Directory",
+  "Make Directory",
+  "Change Directory",
+  "Move",
+  "Copy",
+  "Remove/delete")
+explanation <- c(
+  "Lists all files in the current directory.", 
+  "Lists additional information about each file.",
+  "Lists all files, including hidden files.",
+  "Prints the current working directory.",
+  "Creates a new file directory.",
+  "Navigates to another directory on the file system.",
+  "Moves files.",
+  "Copies files.",
+  "Deletes files.")
+
+command_table <- data.frame(command_fullname, explanation)
+colnames(command_table) <- c("Command Name", "Function")
+rownames(command_table) <- command
+knitr::kable(command_table[,], caption = "")
+```
+
+For a more complete list of Unix Commands, see the [Unix Cheat Sheet][].
+
+[Unix Cheat Sheet]: http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html.
