@@ -37,7 +37,8 @@ computer branches off from it.
 
 A complication arises from the fact that directories can also  branch off from 
 each other. Whenever you make a folder within another folder---or a 
-**subdirectory**---you've created another branch in the tree, one which is at the same time a branch of `root` *and* a branch of whatever directory you're 
+**subdirectory**---you've created another branch in the tree, one which is at 
+the same time a branch of `root` *and* a branch of whatever directory you're 
 currently in. For example, this is the structure of the practice exercise we'll 
 be using during our live session:
 

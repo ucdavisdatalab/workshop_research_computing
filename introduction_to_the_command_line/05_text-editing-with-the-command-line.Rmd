@@ -62,7 +62,7 @@ Basic Vim Commands
 ------------------
 
 ```{r, echo=FALSE}
-vim_command <- c("esc", "i", ":w", ":q", ":q!")
+vim_command <- c("ESC", "i", ":w", ":q", ":q!")
 vim_explanation <- c(
   "Enter Normal mode.", 
   "Enter Insert mdoe.",
@@ -70,8 +70,9 @@ vim_explanation <- c(
   "Quit.",
   "Quit without saving.")
 
-vim_command_table <- data.frame(vim_command, vim_explanation)
-colnames(vim_command_table) <- c("Command", "Function")
+vim_command_table <- data.frame(
+  `Command`=vim_command,
+  `Function`=vim_explanation)
 knitr::kable(vim_command_table[,], caption = "")
 ```
 
