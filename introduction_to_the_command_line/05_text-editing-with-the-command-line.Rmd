@@ -12,7 +12,7 @@ that you can open, read, and write directly in the command line window.
 Accessing Command Line Text Editors
 -----------------------------------
 
-Macs and [PROGRAM] both ship with a text editor called **Vim** (other common 
+Macs and WSL/Ubuntu both ship with a text editor called **Vim** (other common 
 editors include Emacs and Nano). To open a file with vim, type `vi` in a 
 command line window, followed by the file name. If you want to create a new 
 file, simply type the file name you'd like to use for that file after `vi`.

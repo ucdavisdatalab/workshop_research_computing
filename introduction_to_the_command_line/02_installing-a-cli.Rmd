@@ -2,14 +2,34 @@ Installing a Command Line Interface
 ===================================
 
 The following instructions are for **Windows users only**. Mac and Linux both 
-come pre-installed with command line interfaces, whereas Windows does not. 
-Interested to know why? [This article][] offers a nice overview of the history of 
-different operating systems.
+come pre-installed with Unix-ready command line interfaces, whereas Windows 
+does not. Interested to know why? [This article][] offers a nice overview of the 
+history of different operating systems.
 
 [This article]: https://www.howtogeek.com/182649/htg-explains-what-is-unix/
 
-PROGRAM
--------
+Windows Subsystem for Linux
+---------------------------
 
-PROGRAM INSTALLATION INSTRUCTIONS
----------------------------------
+If you're on Windows, you'll need to enable the Windows Subsystem for Linux 
+(WSL) and install Ubuntu, which is available through the Windows Store. 
+WSL/Ubuntu provides a small, Linux-based operating system on your computer, 
+which gives you a full-featured Linux environment that can interact with your 
+normal files.
+
+Enabling the Windows Subsystem for Linux
+----------------------------------------
+
+The DataLab has a short, 10-minute tutorial on setting up a WSL on a Windows 
+computer. It walks through some brief configuration options and then shows you 
+how to get Ubuntu. You can find this tutorial at the [DataLab Install Guides page][]. 
+Under "1. Command Line Tools," you'll want to skip down to 1.2: "Linux Subsystem 
+for Windows (Ubuntu)."
+
+[DataLab Install Guides page]: https://datalab.ucdavis.edu/install-guide/
+
+If you are not able to successfully install the WSL on your own machine, please 
+attend DataLab’s Virtual Office Hours. Click [here][] for more information and to 
+receive a Zoom link.
+
+[here]: https://datalab.ucdavis.edu/office-hours/

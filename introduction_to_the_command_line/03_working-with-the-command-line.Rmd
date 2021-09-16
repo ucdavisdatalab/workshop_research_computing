@@ -38,20 +38,20 @@ When you launch the application, you will see something like this:
 
 ![](img/prompt.png)
 
-**Windows** users will use an application called PROGRAM. Instructions for 
-installing this program are on the previous page.
+**Windows** users will use WSL and Ubuntu. Instructions for installing this 
+program are on the previous page.
 
-To launch PROGRAM, go to:
+To launch WSL/Ubuntu, go to:
 
-> Click on the Windows Start Menu and search for "PROGRAM"
+> Click on the Windows Start Menu and search for "Ubuntu"
 
 Alternatively,
 
-> Click on the Windows Start Menu, select Programs, and browse to PROGRAM
+> Click on the Windows Start Menu, select Programs, and browse to Ubuntu
 
 When you launch the application, you will see something like this:
 
-![](img/bash.png)
+![](img/wsl_command_line.jpg)
 
 The Anatomy of the Command Line
 -------------------------------
@@ -60,7 +60,7 @@ While the command line can look intimidating to those raised on a GUI, using
 it is actually quite simple. Instead of pointing and clicking on things to make 
 them happen, you type in your commands.
 
-Let's return to the window that opens when you start Terminal or [PROGRAM].
+Let's return to the window that opens when you start Terminal or Ubuntu.
 
 ![](img/prompt.png)
 
