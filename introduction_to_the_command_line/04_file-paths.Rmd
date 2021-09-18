@@ -111,4 +111,6 @@ This would take you three directories up from `computer`, which, as you can see
 above, is `located` (count the names between backslashes). That's much shorter, 
 but there's a downside: those `..` sequences are pretty hard to read without 
 context, and it's easy to get confused. Clearly, there can sometimes be a 
-trade-off between using absolute and relative paths.
+trade-off between using absolute and relative paths, and in the workshop, we'll 
+talk about how to weigh such options (particularly when first beginning to use 
+the command line).

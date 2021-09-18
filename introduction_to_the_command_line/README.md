@@ -63,7 +63,7 @@ _Fall 2021_
 _Instructor: Tyler Shoemaker <<tshoemaker@ucdavis.edu>>_  
 
 * [Reader](https://ucdavisdatalab.github.io/workshop_introduction_to_the_command_line/)
-* [Event Page](https://datalab.ucdavis.edu/eventscalendar/YOUR_EVENT/)
+* [Event Page](https://datalab.ucdavis.edu/eventscalendar/introduction-to-the-unix-command-line/)
 
 Learn and practice how to talk directly to your computer via the command line. 
 The Unix shell is a powerful tool for using scientific software, working with 
