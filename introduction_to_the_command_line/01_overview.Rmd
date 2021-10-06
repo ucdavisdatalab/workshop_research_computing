@@ -32,7 +32,7 @@ By the end of the workshop, learners should be able to:
 
 + Explain the directory structure of their computers
 + Navigate across and within files and directories
-+ Create, copy, and delete files
++ Create, copy, move, and delete files
 + Use command line tools to edit files
 + Identify where to go for help and to learn more
 
