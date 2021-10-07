@@ -2,7 +2,8 @@ Command Line Basics
 ===================
 
 To use the command line, we need to launch a special program. **Mac users** will 
-use an application called "Terminal," which ships by default on macOS.
+use a terminal application called -- fittingly -- "Terminal." It ships by default 
+on macOS.
 
 To launch Terminal, go to:
 
@@ -12,8 +13,8 @@ When you launch the application, you will see something like this:
 
 ![](img/prompt.png)
 
-**Windows** users will use WSL and Ubuntu. Instructions for installing this 
-program are in the second section of this workshop reader.
+**Windows** users will use WSL and an Ubuntu terminal. Instructions for installing 
+this program are in the second section of this workshop reader.
 
 To launch WSL/Ubuntu, go to:
 
@@ -96,9 +97,9 @@ Hello world!
 ```
 
 To execute this, or any command, you simply hit the `Return`/`Enter` key on your 
-keyboard. You'll see that when you execute a command, the system will perform the 
-indicated operation, print any output from that operation to screen, and deliver 
-a new command line prompt.
+keyboard. You'll see that when you execute a command, your computer's shell 
+program will interpret and execute the indicated operation, print any output from 
+that operation to screen, and deliver a new command line prompt.
 
 If you want to see what files and folders are in your home directory, you can
 use `ls` ("list"):

@@ -23,7 +23,7 @@ fall under the heading of plain text.
 
 Binary data, on the other hand, is not human-readable. It is not stored in a way 
 that cleanly translates to various alphanumeric characters; rather, it stores 
-data as sequences of 0/1 bits without reference to characters. Often, such 
+data as sequences of 0/1 bits without reference to characters. Often such 
 representations are used for data storage. Common file types for binary data 
 include ones for images (`.jpg`, `.png`), for sound (`.mp3`), and for various 
 executables (`.exe`).
@@ -97,8 +97,8 @@ data.csv: CSV text
 We would be able to open this as well.
 
 There are two other commands that are useful for inspecting files on the 
-command line. `cat` ("concatenate") will print the entirety of a file's contents 
-on screen:
+command line. `cat` ("concatenate") will print (or attempt to print) in plain text 
+the entirety of a file's contents on screen:
 
 ```
 $ cat file.txt
@@ -114,7 +114,8 @@ IHDR?.???
 [...]
 ```
 
-`head` will print the first `N` lines on screen (its default is 10 lines):
+On the other hand, `head` will print the first `N` lines on screen (its default 
+is 10 lines):
 
 ```
 $ head moby_dick.txt
@@ -137,7 +138,8 @@ on your computer.
 complication to all of the above. Word docs are actually comprised of a number of 
 different, associated files under the hood. It's technically possible to alter 
 the text of such files, but finding the location where you'd like to make your 
-changes can be a big pain. Welcome to the world of proprietary software!
+change can be a big pain, so it's often just easier to use an application that 
+has been made to interact with them. Welcome to the world of proprietary software!
 
 Accessing Command Line Text Editors
 -----------------------------------

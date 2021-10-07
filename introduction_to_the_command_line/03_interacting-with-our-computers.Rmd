@@ -13,23 +13,31 @@ hardware and software manufacturers tightly pack these two things together as a
 convenience to users. But the operating system that makes your computer work 
 (Windows 10, Mac Big Sur, etc.) and the GUI that you interact with are, in fact, 
 completely different and separable software packages. It is possible to use 
-different methods/software, or **shells**, to interact with your computer other 
-than the stock GUI that launches automatically when you turn it on.
+different methods/software to interact with your computer other than the stock 
+GUI that launches automatically when you turn it on.
 
-On such method is the "command line" interface (CLI). The command line offers a 
-text-only, non-graphical means of interacting with your computer, acting somewhat 
-like a typewriter (rather than a *window* or *desktop*, as the prevailing 
-metaphors for GUIs go). In the early days of computing, all user interaction with 
-your computer happened at the command line. But during the 1980s, computer 
-manufacturers---with Apple at the lead---made a big push to convert their machines 
-to the windowing systems we know today. A CLI, they felt, was too difficult for 
-to understand and this, in turn, would hamper computer sales.
+One such method is the **command line interface** (CLI). The command line offers 
+a text-only means of interacting with your computer, acting somewhat like a 
+typerwriter (rather than a *window* or *desktop*, as the prevailing metaphors for 
+GUIs go). You can think of this interface as having three main parts:
 
-Nowadays there are few viable (and at present, almost no commercially available) 
-shells that can compete with the predominant systems of Macs and PCs. While this 
-is less the case for Linux machines, people are by and large locked into the GUIs 
-that come pre-installed on their machines. CLIs are, however, available, and 
-some are even installed on popular computer hardware.
+1. A **terminal**: an environment (like a window) with which to send/receive 
+information to/from your computer
+2. A **shell**: a program that interprets and executes commands you enter into 
+the terminal (common programs include Bash and Zsh)
+3. The **command line**: where you enter commands that a shell interprets and 
+executes; a form of interaction that involves typing commands into a terminal
+
+In the early days of computing, all user interaction with your computer happened 
+at the command line. But during the 1980s, computer manufacturers---with Apple at 
+the lead---made a big push to convert their machines to the windowing systems we 
+know today. A CLI, they felt, was too difficult for to understand and this, in 
+turn, would hamper computer sales. Nowadays there are few viable (and at present, 
+almost no commercially available) programs that can compete with the predominant 
+systems of Macs and PCs. While this is less the case for Linux machines, people 
+are by and large locked into the GUIs that come pre-installed on their machines. 
+CLIs are, however, available, and some are even installed on popular computer 
+hardware.
 
 To the Command Line: A Mentality Shift
 --------------------------------------
