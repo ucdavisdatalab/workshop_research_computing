@@ -12,19 +12,30 @@ on the command line.
 Plain Text vs. Binary Files
 ---------------------------
 
-Before continuing, it's important to distinguish plain text from **binary** data. 
+Before continuing, we'll briefly distinguish plain text from **binary** data. 
 This distinction bears directly on what we can and cannot edit using a text 
 editor. In computing, plain text has multiple fuzzy, interlocking meanings, but 
-generally it means some kind of data that is *human readable*, which is to say 
-it is comprised of a collection of text characters (ASCII, usually). A common 
-way to store this data is with a `.txt` file, though code files (`.py`, `.R`) 
-and tabular data (`.csv`) also fall under the plain text heading.
+generally it refers to some kind of data that is stored in a *human readable* 
+form, which is to say, it is comprised of a collection of text characters 
+(usually ASCII, but increasingly UTF-8). A common way to store this data is with 
+a `.txt` file, though code files (`.py`, `.R`) and tabular data (`.csv`) also 
+fall under the heading of plain text.
 
-Binary data, on the other hand, is comprised of a series of bytes and is not 
-human-readable. It is often used for data storage. Common file types include ones 
-for images (`.jpg`, `.png`), for sound (`.mp3`), and various executables (`.exe`). 
+Binary data, on the other hand, is not human-readable. It is not stored in a way 
+that cleanly translates to various alphanumeric characters; rather, it stores 
+data as sequences of 0/1 bits without reference to characters. Often, such 
+representations are used for data storage. Common file types for binary data 
+include ones for images (`.jpg`, `.png`), for sound (`.mp3`), and for various 
+executables (`.exe`).
 
-If you try to open a binary file, for example this image:
+We should note however that, at base, this distinction is somewhat false, in that 
+all files are ultimately just binary data. The plain text/binary distinction is 
+thus more a matter of how computers *represent* data: bits in plain text represent 
+characters, while bits in binary files represent some kind of custom data format, 
+which often requires special encoding/decoding protocols to use it.
+
+We can see how all this works if we try to open a binary file with an application 
+that doesn't expect this kind of format. For example, if you open this image:
 
 ![](img/prompt.png)
 
@@ -40,32 +51,33 @@ If you try to open a binary file, for example this image:
 A complete mess! We're seeing this because text editors aren't able to interpret 
 data streams from binary files. There would be no way to edit this kind of file 
 in a text editor -- you'd simply have no idea where to start. And more, making 
-any such changes would likely cause problems in the file data itself. If we 
+any such changes would likely cause problems in the file data itself, since it 
+contains custom encodings that don't correspond to plain text characters. If we 
 deleted the output above from this image, resaved it, and reopened it in an 
 image viewer...
 
 <center>
   ![](img/broken_image.png)
-</center>
+</center><br>
 
 ...we'll see that it's been corrupted.
 
-If you need to get a sense of what kind of data is stored in a file, the `file` 
-function is useful. Here's an image:
+If, while working on the command line, you need to get a sense of what kind of 
+data is stored in a file, the `file` function is useful. Here's an image:
 
 ```
 $ file broken_image.png
 broken_image.png: PNG image data, 520 x 470, 8-bit/color RGBA, non-interlaced
 ```
 
-That won't work for us. On the other hand, here's a plain text:
+That won't work for us. On the other hand:
 
 ```
 $ file README.md
 01_overview.Rmd: ASCII text
 ```
 
-The `ASCII text` readout lets us know we can open it with a text editor.
+...will. The `ASCII text` message lets us know we can open it with a text editor.
 
 The same goes for a `.csv`:
 
