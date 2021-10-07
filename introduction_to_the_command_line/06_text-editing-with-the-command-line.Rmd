@@ -4,18 +4,87 @@ Text Editing with the Command Line
 Beyond the basic commands and navigation functions we've discussed so far, the 
 command line also features the ability to edit files directly, usually by means 
 of a text editor. These editors are similar in nature to Microsoft Word or Mac 
-Pages but they're much more stripped down and tend to work best with plain text 
-files (`.txt` files, code files like `.R` or `.py`, etc.). These editors are only 
-accessible from the command line and it is important to know how to use them so 
-that you can open, read, and write directly in the command line window.
+Pages but they're much more stripped down and tend to work best with **plain text** 
+files. These editors are only accessible from the command line and it is 
+important to know how to use them so that you can open, read, and write directly 
+on the command line.
+
+Plain Text vs. Binary Files
+---------------------------
+
+Before continuing, it's important to distinguish plain text from **binary** data. 
+This distinction bears directly on what we can and cannot edit using a text 
+editor. In computing, plain text has multiple fuzzy, interlocking meanings, but 
+generally it means some kind of data that is *human readable*, which is to say 
+it is comprised of a collection of text characters (ASCII, usually). A common 
+way to store this data is with a `.txt` file, though code files (`.py`, `.R`) 
+and tabular data (`.csv`) also fall under the plain text heading.
+
+Binary data, on the other hand, is comprised of a series of bytes and is not 
+human-readable. It is often used for data storage. Common file types include ones 
+for images (`.jpg`, `.png`), for sound (`.mp3`), and various executables (`.exe`). 
+
+If you try to open a binary file, for example this image:
+
+![](img/prompt.png)
+
+...with a text editor, you'll see something like this:
+
+```
+<89>PNG^M
+^Z
+^@^@^@^MIHDR^@^@^F<86>^@^@^C<9e>^H^F^@^@^@.¡¢¹^@^@^LliCCPICC                                                            Profile^@^@H<89><95>W^GXSÉ^V<9e>[RIh<81>P¤<84>Þ^DéUJ^H-<82><80>TÁFH^B    %Æ<84> bg]Tpí"<8a>^U]^UQt-<80>,*b/             <8b>bï<8b>^E<95><95>u± (*oB^Bºî+ß;ß7wþ{æÌ^?Ê<9d>¹÷^N^@Z½<©4^OÕ^F _R K<88>^Le<8d>MKg<91>:^@^Y0^@^S<98>^C?^^_.            eÇÇÇ^@(<83>ýßåÝ^M<80>(û«ÎJ®^?<8e>ÿWÑ^U^Hå|^@<90>ñ^Pg
+[...]
+```
+
+A complete mess! We're seeing this because text editors aren't able to interpret 
+data streams from binary files. There would be no way to edit this kind of file 
+in a text editor -- you'd simply have no idea where to start. And more, making 
+any such changes would likely cause problems in the file data itself. If we 
+deleted the output above from this image, resaved it, and reopened it in an 
+image viewer...
+
+<center>
+  ![](img/broken_image.png)
+</center>
+
+...we'll see that it's been corrupted.
+
+If you need to get a sense of what kind of data is stored in a file, the `file` 
+function is useful. Here's an image:
+
+```
+$ file broken_image.png
+broken_image.png: PNG image data, 520 x 470, 8-bit/color RGBA, non-interlaced
+```
+
+That won't work for us. On the other hand, here's a plain text:
+
+```
+$ file README.md
+01_overview.Rmd: ASCII text
+```
+
+The `ASCII text` readout lets us know we can open it with a text editor.
+
+The same goes for a `.csv`:
+
+```
+$ file data.csv
+data.csv: CSV text
+```
+
+We would be able to open this as well.
 
 Accessing Command Line Text Editors
 -----------------------------------
 
-Macs and WSL/Ubuntu both ship with a text editor called **Vim** (other common 
-editors include Emacs and Nano). To open a file with vim, type `vi` in a 
-command line window, followed by the file name. If you want to create a new 
-file, simply type the file name you'd like to use for that file after `vi`.
+To open such files on the command line, we'll use a text editor called **Vim**. 
+Macs and WSL/Ubuntu both ship with this application, so no need to download it 
+(other command editors include Emacs and Nano). If you'd like to open a file with 
+vim, type `vi` in a command line window, followed by the filename. You can also 
+create a new file this way, simply by typing the name you'd like to use for that 
+file after `vi`.
 
 ![](img/new_vim_file.png)
 
