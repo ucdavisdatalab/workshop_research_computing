@@ -291,7 +291,7 @@ engine, or visit Stack Exchange and search there. CLIs are widely used software,
 and chances are incredibly good that someone else has had the same question you 
 want to ask.
 
-[Unix Cheat Sheet]: http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html.
+[Unix Cheat Sheet]: http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html
 
 When Problems Arise
 -------------------

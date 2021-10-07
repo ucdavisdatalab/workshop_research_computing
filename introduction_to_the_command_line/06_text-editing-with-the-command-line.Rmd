@@ -44,9 +44,11 @@ that doesn't expect this kind of format. For example, if you open this image:
 ```
 <89>PNG^M
 ^Z
-^@^@^@^MIHDR^@^@^F<86>^@^@^C<9e>^H^F^@^@^@.¡¢¹^@^@^LliCCPICC                                                            Profile^@^@H<89><95>W^GXSÉ^V<9e>[RIh<81>P¤<84>Þ^DéUJ^H-<82><80>TÁFH^B    
+^@^@^@^MIHDR^@^@^F<86>^@^@^C<9e>^H^F^@^@^@.¡¢¹^@^@^LliCCPICC
+Profile^@^@H<89><95>W^GXSÉ^V<9e>[RIh<81>P¤<84>Þ^DéUJ^H-<82><80>TÁFH^B    
 %Æ<84> bg]Tpí"<8a>^U]^UQt-<80>,*b/             
-<8b>bï<8b>^E<95><95>u± (*oB^Bºî+ß;ß7wþ{æÌ^?Ê<9d>¹÷^N^@Z½<©4^OÕ^F _R K<88>^Le<8d>MKg<91>:^@^Y0^@^S<98>^C?^^_.            eÇÇÇ^@(<83>ýßåÝ^M<80>(û«ÎJ®^?<8e>ÿWÑ^U^Hå|^@<90>ñ^Pg
+<8b>bï<8b>^E<95><95>u± (*oB^Bºî+ß;ß7wþ{æÌ^?Ê<9d>¹÷^N^@Z½<©4^OÕ^F _R K<88>^Le<8d>MKg<91>:^@^Y0^@^S<98>^C?^^_.
+eÇÇÇ^@(<83>ýßåÝ^M<80>(û«ÎJ®^?<8e>ÿWÑ^U^Hå|^@<90>ñ^Pg
 [...]
 ```
 
@@ -160,7 +162,7 @@ more likely to edit text on the command line than we are to write it).
 
 To insert text in your document, switch to Insert mode by pressing `i`. You can 
 check whether you're in Insert mode by looking at the bottom left hand portion 
-of the window, which should read `-- INSERT --`.
+of the window. You should see an `-- INSERT --` string.
 
 ![](img/hello_world_vim.png)
 
@@ -192,6 +194,12 @@ text editor can be found [here](https://vim.fandom.com/wiki/Vim_Tips_Wiki).
 Basic Vim Commands
 ------------------
 
+As before with the CLI commands, we'll only cover a small portion of Vim commands 
+in the workshop. The table below summarizes them, but a more complete list may be 
+found on this [cheat sheet][].
+
+[cheat sheet]: https://vim.rtorr.com/
+
 ```{r, echo=FALSE}
 vim_command <- c("ESC", "i", ":w", ":q", ":q!")
 vim_explanation <- c(
@@ -207,6 +215,41 @@ vim_command_table <- data.frame(
 knitr::kable(vim_command_table[,], caption = "")
 ```
 
-For a more complete list of Vim commands, see this [Cheat Sheet][].
+Cleaning Up
+-----------
 
-[Cheat Sheet]: https://vim.rtorr.com/
+Assuming we did save our text file, let's clean up our directory another way. 
+The last command we'll discuss is `rm` ("remove"). You can use it to delete files 
+and from your computer:
+
+```
+$ ls
+data.csv  hello.txt  moby_dick.txt  project_folder
+$ rm hello.txt
+$ ls
+data.csv  moby_dick.txt  project_folder
+```
+
+Using the `-r` flag (which stands for "recursive"), you can also delete folders:
+
+```
+$ rm -r project_folder
+$ ls
+data.csv  moby_dick.txt
+```
+
+Please note that this command, like many such commands on the command line, has 
+no undo. It's also a particularly mute command, giving little in the way of an 
+indication about what it's doing. If you have multiple files to delete, or if 
+you're worried that it might delete something you don't want to remove, you may 
+consider putting `rm` in interactive mode with `-i`. This will prompt you with a 
+yes/no query for every file the command may remove:
+
+```
+$ ls 
+data.csv  moby_dick.txt
+$ rm -i moby_dick.txt
+remove moby_dick.txt? <- enter "no" and press Return/Enter
+$ ls
+data.csv  moby_dick.txt
+```
