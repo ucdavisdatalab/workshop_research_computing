@@ -93,7 +93,6 @@ echoes your text:
 ```
 $ echo "Hello world!"
 Hello world!
-$
 ```
 
 To execute this, or any command, you simply hit the `Return`/`Enter` key on your 
@@ -107,7 +106,6 @@ use `ls` ("list"):
 ```
 $ ls
 backups  data.csv  jupyter_notebook.ipynb  project_folder
-$
 ```
 
 Want some more information about those files and folders? You can modify the base 

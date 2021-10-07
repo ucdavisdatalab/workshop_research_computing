@@ -44,23 +44,29 @@ that doesn't expect this kind of format. For example, if you open this image:
 ```
 <89>PNG^M
 ^Z
-^@^@^@^MIHDR^@^@^F<86>^@^@^C<9e>^H^F^@^@^@.¡¢¹^@^@^LliCCPICC                                                            Profile^@^@H<89><95>W^GXSÉ^V<9e>[RIh<81>P¤<84>Þ^DéUJ^H-<82><80>TÁFH^B    %Æ<84> bg]Tpí"<8a>^U]^UQt-<80>,*b/             <8b>bï<8b>^E<95><95>u± (*oB^Bºî+ß;ß7wþ{æÌ^?Ê<9d>¹÷^N^@Z½<©4^OÕ^F _R K<88>^Le<8d>MKg<91>:^@^Y0^@^S<98>^C?^^_.            eÇÇÇ^@(<83>ýßåÝ^M<80>(û«ÎJ®^?<8e>ÿWÑ^U^Hå|^@<90>ñ^Pg
+^@^@^@^MIHDR^@^@^F<86>^@^@^C<9e>^H^F^@^@^@.¡¢¹^@^@^LliCCPICC                                                            Profile^@^@H<89><95>W^GXSÉ^V<9e>[RIh<81>P¤<84>Þ^DéUJ^H-<82><80>TÁFH^B    
+%Æ<84> bg]Tpí"<8a>^U]^UQt-<80>,*b/             
+<8b>bï<8b>^E<95><95>u± (*oB^Bºî+ß;ß7wþ{æÌ^?Ê<9d>¹÷^N^@Z½<©4^OÕ^F _R K<88>^Le<8d>MKg<91>:^@^Y0^@^S<98>^C?^^_.            eÇÇÇ^@(<83>ýßåÝ^M<80>(û«ÎJ®^?<8e>ÿWÑ^U^Hå|^@<90>ñ^Pg
 [...]
 ```
 
 A complete mess! We're seeing this because text editors aren't able to interpret 
-data streams from binary files. There would be no way to edit this kind of file 
-in a text editor -- you'd simply have no idea where to start. And more, making 
-any such changes would likely cause problems in the file data itself, since it 
-contains custom encodings that don't correspond to plain text characters. If we 
-deleted the output above from this image, resaved it, and reopened it in an 
-image viewer...
+data streams from binary files. They'll do their best to try and parse the stream, 
+but that process won't ultimately work. There is thus no way to edit this kind 
+of file in a text editor -- you'd simply have no idea where to start. And more, 
+making any such changes would likely cause problems with the file data itself, 
+since it contains custom encodings that don't correspond to plain text 
+characters. If we deleted a snippet of "text" from the output above, resaved it, 
+and reopened it in an image viewer...
 
 <center>
   ![](img/broken_image.png)
 </center><br>
 
 ...we'll see that it's been corrupted.
+
+Inspecting Files
+----------------
 
 If, while working on the command line, you need to get a sense of what kind of 
 data is stored in a file, the `file` function is useful. Here's an image:
@@ -70,16 +76,16 @@ $ file broken_image.png
 broken_image.png: PNG image data, 520 x 470, 8-bit/color RGBA, non-interlaced
 ```
 
-That won't work for us. On the other hand:
+Based on this information, we can see that that won't work for us. On the other 
+hand, this information:
 
 ```
 $ file README.md
 01_overview.Rmd: ASCII text
 ```
 
-...will. The `ASCII text` message lets us know we can open it with a text editor.
-
-The same goes for a `.csv`:
+...shows us that `README.md` will. The `ASCII text` message lets us know we can 
+open it with a text editor. The same goes for a `.csv`:
 
 ```
 $ file data.csv
@@ -88,15 +94,59 @@ data.csv: CSV text
 
 We would be able to open this as well.
 
+There are two other commands that are useful for inspecting files on the 
+command line. `cat` ("concatenate") will print the entirety of a file's contents 
+on screen:
+
+```
+$ cat file.txt
+I'm written in plain text!
+```
+
+```
+$ cat prompt.png
+?PNG
+
+IHDR?.???
+         liCCPICC ProfileH??WXS??[RIh?P????U-??T?FH	%Ƅ?bg]Tp?"?]Qt-?,*b/?b???u??(*oB??+?;?7w?{??ʝ??Z?<?4? _R K?
+[...]
+```
+
+`head` will print the first `N` lines on screen (its default is 10 lines):
+
+```
+$ head moby_dick.txt
+CHAPTER 1. Loomings.
+
+Call me Ishmael. Some years ago—never mind how long precisely—having
+little or no money in my purse, and nothing particular to interest me
+on shore, I thought I would sail about a little and see the watery part
+of the world. It is a way I have of driving off the spleen and
+regulating the circulation. Whenever I find myself growing grim about
+the mouth; whenever it is a damp, drizzly November in my soul; whenever
+I find myself involuntarily pausing before coffin warehouses, and
+bringing up the rear of every funeral I meet; and especially whenever
+```
+
+Both commands offer you a method to get an easy glimpse at the contents of files 
+on your computer.
+
+**Note:** common word processing software like Microsoft Word poses an interesting 
+complication to all of the above. Word docs are actually comprised of a number of 
+different, associated files under the hood. It's technically possible to alter 
+the text of such files, but finding the location where you'd like to make your 
+changes can be a big pain. Welcome to the world of proprietary software!
+
 Accessing Command Line Text Editors
 -----------------------------------
 
-To open such files on the command line, we'll use a text editor called **Vim**. 
-Macs and WSL/Ubuntu both ship with this application, so no need to download it 
-(other command editors include Emacs and Nano). If you'd like to open a file with 
-vim, type `vi` in a command line window, followed by the filename. You can also 
-create a new file this way, simply by typing the name you'd like to use for that 
-file after `vi`.
+Now that we know what we can and can't edit on the command line, we can start 
+generating some text. To do so, we'll use a text editor called **Vim**. Macs and 
+WSL/Ubuntu both ship with this application, so there's no need to download it 
+(other command line editors include Emacs and Nano). If you'd like to open a file 
+with vim, type `vi` in a command line window, followed by the filename. You can 
+also create a new file this way, simply by typing the name you'd like to use for 
+that file after `vi`.
 
 ![](img/new_vim_file.png)
 
