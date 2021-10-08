@@ -175,7 +175,7 @@ with Vim works through a sequence of key commands (or chords), which you enter
 from Normal mode.
 
 To save a file in Vim, make sure you are in Normal mode and then enter `:w`. Note 
-the colon, which must be included.After you've entered this key sequence, in the 
+the colon, which must be included. After you've entered this key sequence, in the 
 bottom left hand corner of your window you should see "[file name] XL, XC written" 
 (*L* stands for "lines" and *C* stands for "characters").
 
@@ -245,7 +245,8 @@ no undo. It's also a particularly mute command, giving little in the way of an
 indication about what it's doing. If you have multiple files to delete, or if 
 you're worried that it might delete something you don't want to remove, you may 
 consider putting `rm` in interactive mode with `-i`. This will prompt you with a 
-yes/no query for every file the command may remove:
+yes/no query for every file the command would remove, given the information you 
+supplied it with:
 
 ```
 $ ls 
