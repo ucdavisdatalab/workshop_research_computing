@@ -42,9 +42,9 @@ Directories nest inside one another. Each `/` in the path above denotes a new
 directories are "above" or "below" the present file path to navigate with the
 command line.
 
-The top-most directory in your computer is called the *root*. Unix systems denote 
-it with the `/` character. It's like the trunk of a tree: every directory in your 
-computer branches off from it.
+The top-most directory in your computer is called the **root**. Unix systems 
+denote it with the `/` character. It's like the trunk of a tree: every directory 
+in your computer branches off from it.
 
 A complication arises from the fact that directories can also  branch off from 
 each other. Whenever you make a folder within another folder -- or a 

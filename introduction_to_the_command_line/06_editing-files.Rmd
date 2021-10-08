@@ -1,5 +1,5 @@
-Text Editing with the Command Line
-==================================
+Editing Files
+=============
 
 Beyond the basic commands and navigation functions we've discussed so far, the 
 command line also features the ability to edit files directly, usually by means 
@@ -12,14 +12,14 @@ on the command line.
 Plain Text vs. Binary Files
 ---------------------------
 
-Before continuing, we'll briefly distinguish plain text from **binary** data. 
-This distinction bears directly on what we can and cannot edit using a text 
-editor. In computing, plain text has multiple fuzzy, interlocking meanings, but 
-generally it refers to some kind of data that is stored in a *human readable* 
-form, which is to say, it is comprised of a collection of text characters 
-(usually ASCII, but increasingly UTF-8). A common way to store this data is with 
-a `.txt` file, though code files (`.py`, `.R`) and tabular data (`.csv`) also 
-fall under the heading of plain text.
+Before continuing on to these editors, we'll briefly distinguish plain text from 
+**binary** data. This distinction bears directly on what we can and cannot edit 
+using a text editor. In computing, plain text has multiple fuzzy, interlocking 
+meanings, but generally it refers to some kind of data that is stored in a 
+*human readable* form, which is to say, it is comprised of a collection of text 
+characters (usually ASCII, but increasingly UTF-8). A common way to store this 
+data is with a `.txt` file, though code files (`.py`, `.R`) and tabular data 
+(`.csv`) also fall under the heading of plain text.
 
 Binary data, on the other hand, is not human-readable. It is not stored in a way 
 that cleanly translates to various alphanumeric characters; rather, it stores 
@@ -144,13 +144,13 @@ has been made to interact with them. Welcome to the world of proprietary softwar
 Accessing Command Line Text Editors
 -----------------------------------
 
-Now that we know what we can and can't edit on the command line, we can start 
-generating some text. To do so, we'll use a text editor called **Vim**. Macs and 
-WSL/Ubuntu both ship with this application, so there's no need to download it 
-(other command line editors include Emacs and Nano). If you'd like to open a file 
-with vim, type `vi` in a command line window, followed by the filename. You can 
-also create a new file this way, simply by typing the name you'd like to use for 
-that file after `vi`.
+Now that we know what we can and can't edit on the command line, we can make a 
+file. To do so, we'll use a text editor called **Vim**. Macs and WSL/Ubuntu both 
+ship with this application, so there's no need to download it (other command line 
+editors include Emacs and Nano). If you'd like to open a file with vim, type `vi` 
+in a command line window, followed by the filename. You can also create a new 
+file this way, simply by typing the name you'd like to use for that file 
+after `vi`.
 
 ![](img/new_vim_file.png)
 
