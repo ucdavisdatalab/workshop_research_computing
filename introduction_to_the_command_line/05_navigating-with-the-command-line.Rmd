@@ -42,14 +42,14 @@ Directories nest inside one another. Each `/` in the path above denotes a new
 directories are "above" or "below" the present file path to navigate with the
 command line.
 
-The top-most directory in your computer is called `root`. Unix systems denote it 
-with the `/` character. It's like the trunk of a tree: every directory in your 
+The top-most directory in your computer is called the *root*. Unix systems denote 
+it with the `/` character. It's like the trunk of a tree: every directory in your 
 computer branches off from it.
 
 A complication arises from the fact that directories can also  branch off from 
 each other. Whenever you make a folder within another folder -- or a 
 **subdirectory** -- you've created another branch in the tree, one which is at 
-the same time a branch of `root` *and* a branch of whatever directory you're 
+the same time a branch of root *and* a branch of whatever directory you're 
 currently in. For example, this is the structure of the practice exercise we'll 
 be using during our live session:
 
@@ -71,21 +71,49 @@ As you can see, this can get complicated! When you're first getting started with
 the command line, it's easy to feel a little lost and forget where you are in 
 your computer. We'll discuss some strategies to help with this in the live 
 session, but know for the moment that the `pwd` command will always tell you where 
-you are relative to `root`:
+you are relative to the root:
 
 ```
 $ pwd
 /here/is/where/you/are/located/in/your/computer
 ```
 
+**Note:** on Windows, the root is usually called `C:` or `D:` and is designated 
+as such in file paths. In Unix environments (like WSL/Ubuntu), we'd write the 
+above file path like so:
+
+```
+$ pwd
+C:/here/is/where/you/are/located/in/your/computer
+```
+
+Outside Unix (i.e. for DOS-style environments), the same path would be:
+
+```
+$ pwd
+C:\here\is\where\you\are\located\in\your\computer
+```
+
+The root on Windows machines also refers to the physical drive in which your 
+files are stored. Because of this, a computer with multiple drives has multiple 
+roots -- something you'd need to be aware of when specifying your file paths.
+
 Absolute vs. Relative Paths
 ---------------------------
 
-The path above begins with `/`, which, remember, is `root`. When you see a path 
-that begins with `/`, it's showing you the full, or **absolute** location of a 
-directory or file. No matter where you are in your computer, no matter how deep 
-into a series of subdirectories you may be, if you used this absolute path with 
-a navigation command, you could go straight to the location it indicates.
+Regardless of your operating system, there are two different ways to specify a 
+file path on the command line. Recall that the Unix-style path above:
+
+```
+$ pwd
+/here/is/where/you/are/located/in/your/computer
+```
+
+begins with `/`, which, again, is root. When you see a path that begins with `/`, 
+it's showing you the full, or **absolute** location of a directory or file. No 
+matter where you are in your computer, no matter how deep into a series of 
+subdirectories you may be, if you used this absolute path with a navigation 
+command, you could go straight to the location it indicates.
 
 By contrast, a **relative path** is context-specific. It depends on wherever you 
 are in your computer. Unix uses some shorthand for this: 

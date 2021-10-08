@@ -2,10 +2,10 @@ Preliminaries
 =============
 
 This workshop covers the basics of using the Unix command line interface. It is 
-a **hybrid workshop**. First, independently work through this online tutorial at 
-your own pace. Next, join us for the live interactive session (details below), 
-during which we will learn to interact with the files and file structures of our 
-computers in new ways.
+a **hybrid workshop**. First, independently work through sections 1-3 of this 
+online reader at your own pace. Next, join us for the live interactive session 
+(details below), during which we will learn to interact with the files and file 
+structures of our computers in new ways.
 
 Interactive Session Information
 -------------------------------
