@@ -154,7 +154,7 @@ root
 │       └── where
 │           └── you
 │               └── are
-└─────────────────> └── located
+└──────────────────>└── located
                         └── in
                             └── your
                                 └── computer
@@ -176,10 +176,10 @@ root
             └── you
                 └── are
                     └── located
-                    ^    └── in
-                    │        └── your
-                    │            └── computer
-                    └────────────────┘
+                    ^   └── in
+                    │       └── your
+                    │           └── computer
+                    └───────────────┘
 ```
 
 The relative path would take you three directories up from `computer`, which, as 
