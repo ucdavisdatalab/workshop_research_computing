@@ -73,6 +73,14 @@ workshop is a prerequisite for many of DataLab's workshops, including
 Introduction to Version Control with Git, Reproducible Research for Teams with 
 GitHub, and the Remote Computing series.
 
+## Assessment
+
+To earn a micro-badge for this workshop, view or download a) this assignment sheet: 
+[assessment][assessment]; and b) [this][] `.zip` folder. Follow the instructions 
+in the assignment sheet.
+
+[assessment]: https://github.com/ucdavisdatalab/workshop_introduction_to_the_command_line/blob/main/unix_command_line_assignment_instructions.pdf
+[this]: https://github.com/ucdavisdatalab/workshop_introduction_to_the_command_line/blob/main/command_line_assignment.zip
 
 ## Contributing
 
