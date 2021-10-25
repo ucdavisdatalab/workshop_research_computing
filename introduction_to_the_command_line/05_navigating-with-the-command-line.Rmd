@@ -121,13 +121,12 @@ are in your computer. Unix uses some shorthand for this:
 + `.` denotes the current location in your computer; while 
 + `..` denotes the directory above that location.
 
-We can use this shorthand to avoid having to type out the entire path to a file 
-or directory. (Remember seeing `.` and `..` in the previous chapter with `ls -lha`?
-Your computer keeps track of its directories by placing these two symbols in 
-every folder you create.) This shorthand is useful if you're far away from `root`, 
-or if, in a coding project, you are using files that are encapsulated in a 
-specific directory structure. To continue with the example from above, if you're 
-at `computer`:
+Remember seeing these in the previous chapter with `ls -lha`? Your computer keeps 
+track of its directories by placing these two symbols in every folder you create. 
+You can thus use this shorthand to avoid having to type out the entire file path 
+to a file. This is useful if you're far away from `root`, or if, in a coding 
+project, you are using files that are encapsulated in a specific directory 
+structure. To continue with the example from above, if you're at `computer`:
 
 ```
 /here/is/where/you/are/located/in/your/computer
