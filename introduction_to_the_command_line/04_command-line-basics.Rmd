@@ -109,28 +109,64 @@ $ ls
 backups  data.csv  jupyter_notebook.ipynb  project_folder
 ```
 
-Want some more information about those files and folders? You can modify the base 
+You can also use `ls` on a subfolder to show its contents:
+
+```
+$ ls project_folder
+file_1.txt  file_2.txt
+```
+
+Want some more information about your files and folders? You can modify the base 
 functionality of the `ls` command -- and in fact you can do this for many such 
-commands -- with a **flag**. We do this by adding a dash (`-`) and then a letter, 
-or a combination of letters.
+commands -- with **flags**. We do this by adding a dash (`-`) and then a letter, 
+or a combination of letters, directly after the dash.
 
 ```
-ls -lh
+ls -lha
 ```
 
-...will print out information about the permissions, size, and date of directory 
-contents, as well as the user(s) who created them:
+...will print out information about the permissions, size, and date of the current 
+directory's contents, as well as the user(s) who created them:
 
 ```
-$ ls -lh
-drwxrwxr-x 2 tshoe tshoe 4.0K Jun 21 23:30 backups
--rw-rw-r-- 1 tshoe tshoe  28K Oct  4 20:42 data.csv
--rw-rw-r-- 1 tshoe tshoe 6.2K Aug 27 22:44 jupyter_notebook.ipynb
-drwxrwxr-x 8 tshoe tshoe 4.0K Oct  4 21:44 project_folder
+$ ls -lha
+.
+..
+.config_file
+drwxrwxr-x 2 tshoe staff 4.0K Jun 21 23:30 backups
+-rw-rw-r-- 1 tshoe staff  28K Oct  4 20:42 data.csv
+-rw-rw-r-- 1 tshoe staff 6.2K Aug 27 22:44 jupyter_notebook.ipynb
+drwxrwxr-x 8 root  root  4.0K Oct  4 21:44 project_folder
 ```
 
-Depending on your particular system and/or command line interface, things might 
-look slightly different on your computer. However, the basic presentation and 
+It's worth walking through this output, because it demonstrates how we can bring 
+important information into view with just a few keystrokes. For beginners, the 
+most relevant portions of `ls -lha` are likely to be toward the end of the output, 
+where the file sizes are listed along with the date each file was last modified. 
+To the left of this information are listings for the file owner/file group 
+(respectively, `tshoe`/`staff` and `root`/`root`). These listings help us make 
+some sense of the most confusing part of the above output: those strings of `r`'s, 
+`w`'s, and `x`'s. These represent the various **permissions** for each file. 
+Permissions are specific file attributes that control which users can read (`r`), 
+change (`w`), or execute (`x`) a file. Depending on what level of permissions 
+you, or the user group to which you belong, have been assigned, you may or may 
+not be able to work with certain files (if you're on your personal computer, 
+you likely have full permissions).
+
+Besides outputting file information, `ls -lha` also shows us three things in 
+our folder that were otherwise hidden with just `ls`: `.`, `..`, and 
+`.config_file`. The first two are special notation for navigating your 
+computer, which we'll discuss in a later section. The last, `.config_file`, is 
+a **dotfile**. Dotfiles (named for the `.` that prefaces them) are hidden by 
+default on your computer. They often contain various configuration settings 
+that people use to customize their computers. Some will also log the history of 
+commands you've sent via a CLI (for example, `.bash_history` or `.python_history`). 
+We can't discuss these files in depth, but for the moment it's worth 
+recognizing that they exist and that you'll occasionally encounter them when 
+working on the command lie.
+
+Depending on your particular system and/or CLI, all of the above might look 
+slightly different on your computer. However, the basic presentation and 
 functionality as described above will be the same. Typing is the predominant 
 way of using a CLI, and the results of sending in commands with a CLI are 
 text-only representations of your computer and your files.
@@ -179,30 +215,52 @@ Common Command Line Commands (and More!)
 ----------------------------------------
 
 During our hands-on workshop session we will practice using several commands, 
-which are listed below.
+which are listed below (along with a few other supplementary ones).
 
 ```{r, echo=FALSE}
-command <- c("ls", "ls -l", "ls -a", "pwd", "mkdir", "cd", "mv", "cp", "rm", "man")
+command <- c(
+  "ls",
+  "ls -l",
+  "ls -h",
+  "ls -a",
+  "file",
+  "cat",
+  "pwd",
+  "mkdir",
+  "cd",
+  "mv",
+  "cp",
+  "unzip",
+  "rm",
+  "man")
 command_fullname <- c(
   "List",
   "List with Long flag",
+  "List with Human-Readable flag",
   "List with All flag",
+  "File",
+  "Concatenate",
   "Print Working Directory",
   "Make Directory",
   "Change Directory",
   "Move",
   "Copy",
-  "Remove/delete",
+  "Unzip",
+  "Remove/Delete",
   "Manual")
 explanation <- c(
   "Lists all files in the current directory.", 
   "Lists additional information about each file.",
+  "Lists file information in a human-readable format.",
   "Lists all files, including hidden files.",
+  "Determines the type of file.",
+  "Prints the contents of a file to screen.",
   "Prints the current working directory.",
   "Creates a new file directory.",
   "Navigates to another directory on the file system.",
   "Moves files.",
   "Copies files.",
+  "Decompresses file archives.",
   "Deletes files.",
   "Opens the manual page for another command.")
 

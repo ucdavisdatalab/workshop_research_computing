@@ -96,6 +96,25 @@ data.csv: CSV text
 
 We would be able to open this as well.
 
+Finally, `file` can also tell us whether a file is in an archive format (like 
+`.zip`):
+
+```
+$ file archived_file.csv.zip
+archived_file.csv.zip: Zip archive data, at least v2.0 to extract
+```
+
+Before opening this, we'd need to use the `unzip` command:
+
+```
+$ unzip archived_file.csv.zip
+  inflating: archived_file.csv.zip
+$ ls
+archived_file.csv  archived_file.csv.zip
+$ file archived_file.csv
+archived_file.csv: CSV text
+```
+
 There are two other commands that are useful for inspecting files on the 
 command line. `cat` ("concatenate") will print (or attempt to print) in plain text 
 the entirety of a file's contents on screen:
