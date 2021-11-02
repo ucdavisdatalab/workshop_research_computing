@@ -23,8 +23,8 @@ Enabling the Windows Subsystem for Linux
 The DataLab has a short, 10-minute tutorial on setting up a WSL on a Windows 
 computer. It walks through some brief configuration options and then shows you 
 how to get Ubuntu. You can find this tutorial at the [DataLab Install Guides page][]. 
-Under "1. Command Line Tools," you'll want to skip down to 1.2: "Linux Subsystem 
-for Windows (Ubuntu)."
+Under "1. Command Line Tools," you'll want to skip down to 1.2: "Windows Subsystem 
+for Linux."
 
 [DataLab Install Guides page]: https://datalab.ucdavis.edu/install-guide/
 
