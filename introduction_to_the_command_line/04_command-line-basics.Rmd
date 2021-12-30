@@ -13,16 +13,16 @@ When you launch the application, you will see something like this:
 
 ![](img/prompt.png)
 
-**Windows** users will use WSL and an Ubuntu terminal. Instructions for installing 
+**Windows** users will use the Git Bash terminal. Instructions for installing 
 this program are in the second section of this workshop reader.
 
-To launch WSL/Ubuntu, go to:
+To launch Git Bash, go to:
 
-> Click on the Windows Start Menu and search for "Ubuntu"
+> Click on the Windows Start Menu and search for "Git Bash"
 
 Alternatively,
 
-> Click on the Windows Start Menu, select Programs, and browse to Ubuntu
+> Click on the Windows Start Menu, select Programs, and browse to Git Bash
 
 When you launch the application, you will see something like this:
 

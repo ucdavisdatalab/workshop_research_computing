@@ -79,7 +79,7 @@ $ pwd
 ```
 
 **Note:** on Windows, the root is usually called `C:` or `D:` and is designated 
-as such in file paths. In Unix environments (like WSL/Ubuntu), we'd write the 
+as such in file paths. In Unix environments (like Git Bash), we'd write the 
 above file path like so:
 
 ```

@@ -164,7 +164,7 @@ Accessing Command Line Text Editors
 -----------------------------------
 
 Now that we know what we can and can't edit on the command line, we can make a 
-file. To do so, we'll use a text editor called **Vim**. Macs and WSL/Ubuntu both 
+file. To do so, we'll use a text editor called **Vim**. Macs and Git Bash both 
 ship with this application, so there's no need to download it (other command line 
 editors include Emacs and Nano). If you'd like to open a file with vim, type `vi` 
 in a command line window, followed by the filename. You can also create a new 
