@@ -3,13 +3,13 @@ Workshop: Reproducible Research for Teams with GitHub
 
 UC Davis DataLab
 
-Spring 2021
+Winter 2022
 
 Common links:
 -------------
 
 * Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
-* Workshop event page: https://datalab.ucdavis.edu/eventscalendar/reproducible-research-for-teams-with-github/
+* Workshop event page: https://datalab.ucdavis.edu/eventscalendar/reproducible-research-for-teams-with-github-2/
 
 Protocols:
 ----------
