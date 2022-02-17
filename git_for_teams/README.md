@@ -47,3 +47,7 @@ Summary of important files:
 * `gen_html.R` -- R script to generate the HTML files
 * `index.Rmd` -- index page
 * `_output.yml` -- bookdown settings (mostly formatting)
+
+License:
+---------------------------
+CC BY-NC 2.0
