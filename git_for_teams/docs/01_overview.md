@@ -16,11 +16,10 @@ The full workshop description can be found [here](https://datalab.ucdavis.edu/ev
 Interactive Session Information
 -------------------------------
 
-The workshop includes a live, interactive session to be held via Zoom on 
-**Friday, May 28, 2021 from 10:00am to 12:00pm**. Zoom login information 
-will be sent to all registered participants via email; reach out to [datalab-training@ucdavis.edu](mailto:datalab-training@ucdavis.edu) the day 
-prior if you received a registration confirmation but have not received your 
-Zoom link.
+The workshop includes a live, interactive session. Zoom login information will be 
+sent to all registered participants via email; reach out to 
+[datalab-training@ucdavis.edu](mailto:datalab-training@ucdavis.edu) the day prior 
+if you received a registration confirmation but have not received your Zoom link.
 
 About this Tutorial
 -------------------

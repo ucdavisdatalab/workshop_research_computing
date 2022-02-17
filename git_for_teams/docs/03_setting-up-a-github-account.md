@@ -127,5 +127,4 @@ Hi <your username>! You've successfully authenticated, but GitHub does not
 provide shell access.
 ```
 
-Need help? DataLab offers office hours sessions on Mondays, from 1:30-3:00pm 
-PST. Check the calender for more information [here](https://datalab.ucdavis.edu/eventscalendar/).
+Need help? DataLab offers weekly open office hours sessions. Check the [DataLab Calender](https://datalab.ucdavis.edu/eventscalendar/) for specific dates and times.
