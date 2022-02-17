@@ -210,3 +210,45 @@ Once you enter this command, your command line should look something like this:
 Your files are now synced. A later portion of this reader will discuss how to 
 handle this process when you _have_ made changes to your directory between the 
 time the remote was altered and the time you go to make a pull.
+
+
+.gitignore
+---------------------------------------
+
+An issue that most users encounter when they start using Git and GitHub for team 
+development and research is that it is common to have files in a version controlled 
+directory that you do not want to distribute to the cloud or other users.  As noted 
+earlier in the workshop, it is good practice, for examle, to exclude any files that 
+contain system configuration, password, or sensitive data from the cloud repository. 
+Most modern operating systems (such as Mac or Windows) also automatically create and 
+store a lot of hidden configuration files within the coputer's directory structure.  
+For example, below is the directory listing for a directory on my system that contains 
+resources for a workshop we offer in basic text mining using the R programming language:
+
+```
+(base) n98558:text_mining_with_r cstahmer$ ls
+D3VIS   data   gephi_tutorial   kumu_tutorial   r_networks   readme.txt   scraping   text_mining
+```
+
+And here is the same directory listing showing hidden files"
+
+```
+(base) n98558:text_mining_with_r cstahmer$ ls -a
+.   .DS_Store   D3VIS   gephi_tutorial   r_networks   scraping
+..  .git        data    kumu_tutorial    readme.txt   text_mining
+```
+
+Note the appearance of the previousl hidden .DS_Store and .git directories when we run 
+"ls -a".  Git is pretty smart, and it knows to ignore its own hidden configuration files. 
+But we need to tell Git explicitly to do this using a special file called ".gitignore".  You can 
+create a .gitignore file from scratch using vim by typing "vim .gitignore" on the command line.  
+When you do this, vim will open a new file.  Then, you simply add the names of files and 
+directories that you want git to ignore, one each per line of the new file. 
+
+![](./img/gitignore.png)
+
+Generally speaking, you should place your .gitignore file in the root of your repository, where 
+it will control .git behavior for the repository.  You can create a global .gitignore file, but 
+this requires you to run various system configurations on .git itself.  Information on this process 
+can be found [here](https://git-scm.com/docs/gitignore).  GitHub also provides a nice repository 
+of template .gitignore files for various types of development [here](https://github.com/github/gitignore).  
