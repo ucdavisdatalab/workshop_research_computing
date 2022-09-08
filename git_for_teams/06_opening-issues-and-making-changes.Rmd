@@ -24,8 +24,10 @@ Issues contain the following parts:
 * A title: a brief summary of the task, bug, or request
 * A description: space for additional information about the task, bug, or request
 * Assignees: information about which team member is working on the issue
-* Labels: projects might ask team members to specify an issue type with a tag (e.g. "bug", "enhancement")
-* Milestones: teams can set larger goals for a project, of which a given issue might be a part
+* Labels: projects might ask team members to specify an issue type with a tag 
+  (e.g. "bug", "enhancement")
+* Milestones: teams can set larger goals for a project, of which a given issue 
+  might be a part
 * Comments: space where team members can discuss issues
 
 Typically, a team member will **open** an issue, enter the above information, 
@@ -39,18 +41,20 @@ Opening an Issue
 ----------------
 
 Before we make any changes to our cloned repository, let's open an issue. Go to 
-the "Issues" tab at [https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox](https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox) 
+the "Issues" tab at 
+[https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox](https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox) 
 and click the green "New issue" button. It should take you to the following page: 
 
 ![](./img/new_issue.png)
 
-You'll be adding your name to the repository's README.md file. Your issue's 
+You'll be adding your name to the repository's `README.md` file. Your issue's 
 title should reflect this task.
 
 ![](./img/new_issue_title_description.png)
 
 With this information entered, assign yourself to this issue (by clicking the 
-little gear button next to "Assignees"). Then, click the green "Submit new issue" button. GitHub will take you to a new page:
+little gear button next to "Assignees"). Then, click the green "Submit new issue" 
+button. GitHub will take you to a new page:
 
 ![](./img/new_issue_submitted.png)
 
@@ -59,10 +63,25 @@ Making Changes
 
 With your issue open, it's now time to make your changes.
 
-In the command line, open the README.md file with Vim. Go to line 12 and enter 
-your first name and the first initial of your last name.
+In the command line, open the `README.md` file with Vim. Go to line 12 and enter 
+your first name and the first initial of your last name. The file should look 
+like this:
 
-![](./img/name_to_readme.png)
+```
+$ cat README.md
+Practice Repository: Reproducible Research for Teams with GitHub
+================================================================
+
+Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
+
+Instructions:
+-------------
+
+Clone this repository, make a new branch named with your first name and last initial
+(e.g. `first-name_last-initial`) and write your name below.
+
+Name: <firstname lastinitial>
+```
 
 Save the file and quit Vim. Add the file to the Git staging area with `git add`.
 
@@ -71,12 +90,16 @@ working on a specific issue, it would be helpful to reference that issue in your
 commit message. That way, your team can associate specific changes made to a 
 project with the issues that discuss those changes.
 
-GitHub makes tracking issues easier by assigning each issue a number. In the 
-example above, "Add 'Tyler S.' to README" is issue #1 (yours will be something 
-different). To reference this issue in a commit, simply type the issue number in 
-the commit message:
+GitHub makes tracking issues easier by assigning each issue a number. To 
+reference an issue in a commit, simply type the issue number in the commit message, 
+prepending it with #:
 
-![](./img/reference_an_issue.png)
+```
+$ git add README.md
+$ git commit -m 'adding <your name> to README (resolves #<your issue>)
+[<first-name_last-initial> e257f92] adding <your name>. to README (resolves #<your issue>)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
 
 Pushing Changes on a Branch
 ---------------------------
@@ -84,17 +107,29 @@ Pushing Changes on a Branch
 To see how GitHub makes reference to this commit, we'll need to push our changes. 
 But if you try `git push` from here, you'll get the following error message:
 
-![](./img/no_upstream_branch.png)
+```
+$ git push
+fatal: The current branch <first-name_last-initial> has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin <first-name_last-initial>
+```
 
 Here, Git is telling you that the remote repository doesn't have a branch to 
 associate your changes with; you've made a _local_ branch, but that doesn't 
 automatically create a _remote_ branch. We can see what branches are 
 available on the remote repository with `git branch -a`:
 
-![](./img/see_all_branches.png)
+<pre style="font-size: small;">
+$ git branch -a
+  main
+* first-name_last-initial
+  <span style="color:red;">remotes/origin/HEAD</span> -> origin/main
+  <span style="color:red;">remotes/origin/carl_s</span>
+</pre>
 
-The text in green lists local branches, while the red text lists remote 
-branches. The "->" arrow that points from a red remote with a green local tells 
+The text in black lists local branches, while the red text lists remote 
+branches. The "->" arrow that points from a red remote with a black local tells 
 you which remote branch your own main branch is synced with.
 
 From this list, you can see that the remote repository doesn't have your branch. 
@@ -116,7 +151,23 @@ git push -u origin <branch-name>
 
 Once you press "Enter", you should see something like this:
 
-![](./img/push_branch_to_remote.png)
+```
+$ git push -u origin <first-name_last-initial>
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for '<first-name_last-initial>' on GitHub by visiting:
+remote:      https://github.com/ucdavis-datalab-training/workshop_git_for_teams_sandbox/pull/new/<first-name_last-initial>
+remote: 
+To github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
+ * [new branch]      <first-name_last-initial> -> <first-name_last-initial>
+Branch '<first-name_last-initial>' set up to track remote branch '<first-name_last-initial>' from 'origin'.
+```
 
 Now, if you type `git branch -a`, you'll see a remote copy of your branch. You 
 can also visit the repository page on GitHub, where you'll see a notice that a 

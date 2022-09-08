@@ -49,7 +49,8 @@ Participants should be proficient in navigating their machine and executing
 basic Git commands using a shell scripting program (Terminal, Bash, etc.). 
 Before attending this workshop, learners should be able to create, modify and 
 navigate to a directory, place a directory under version control, and make, 
-stage and commit changes using Command Line. Need to brush up? Preparatory 
-workshops include DataLab’s Introduction to Command Line and Introduction to Git 
-for Version Control (winter 2021: see materials at 
+stage and commit changes using Command Line.
+
+Need to brush up? Preparatory workshops include DataLab’s Introduction to 
+Command Line and Introduction to Git for Version Control (See materials at 
 https://datalab.ucdavis.edu/archive/).
