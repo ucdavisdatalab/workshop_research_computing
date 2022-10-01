@@ -11,7 +11,7 @@ To launch Terminal, go to:
 
 When you launch the application, you will see something like this:
 
-![](img/prompt.png)
+![Mac Terminal window](img/prompt.png)
 
 **Windows** users will use the Git Bash terminal. Instructions for installing 
 this program are in the second section of this workshop reader.
@@ -26,7 +26,7 @@ Alternatively,
 
 When you launch the application, you will see something like this:
 
-![](img/wsl_command_line.jpg)
+![Git Bash terminal window](img/wsl_command_line.jpg)
 
 The Anatomy of the Command Line
 -------------------------------
@@ -47,7 +47,7 @@ like a typewriter than it is a desktop (an even better analogue would be a
 
 To see this, let's return to the window that opens when you start Terminal or Ubuntu.
 
-![](img/prompt.png)
+![Mac Terminal window](img/prompt.png)
 
 Everything that will happen in this window happens on a line-by-line basis. Here, 
 we see the command line **prompt**, where you'll type your commands. The prompt 
@@ -62,7 +62,7 @@ us where in the computer's filesystem we are. We'll discuss this later. For now,
 just keep in mind that you can look here to find your current location. In this 
 case, `~` means you are in your **home** directory.
 
-![](img/prompt_home_highlight.png)
+![Mac Terminal with the Home symbol highlighted](img/prompt_home_highlight.png)
 
 After the location, we see the `$` character. It is an indicator that lets you 
 know the command line application is waiting for you to enter something. (Note 

@@ -3,14 +3,14 @@ title: Introduction to the Unix Command Line
 author: [Tyler Shoemaker, Carl Stahmer]
 date: "`r Sys.Date()`"
 url: "https://ucdavisdatalab.github.io/workshop_introduction_to_the_command_line/"
-github-repo: ucdavisdatalab/workshop_introduction_to_the_command_line
-site: bookdown::bookdown_site
-knit: "bookdown::render_book"
+output:
+  bookdown::gitbook:
+    fig_caption: false
 ---
 
-# Overview {-}
+# Overview
 
-![](img/datalab-logo-full-color-rgb.png)
+![DataLab logo](img/datalab-logo-full-color-rgb.png)
 
 Learn and practice how to talk directly to your computer via the command line. 
 The Unix shell is a powerful tool for using scientific software, working with 
