@@ -6,6 +6,7 @@ url: "https://ucdavisdatalab.github.io/workshop_introduction_to_the_command_line
 output:
   bookdown::gitbook:
     fig_caption: false
+lang: en-us
 ---
 
 # Overview
