@@ -45,10 +45,3 @@ installed and the latest version of Zoom. Windows users will need to install a
 Unix terminal ahead of the session. Instructions for doing so are on the 
 following page.
 
-Assessment
-----------
-
-If you are taking this workshop to complete a GradPathways 
-[micro-credential track](https://gradpathways.ucdavis.edu/micro-credentials), 
-you can download the assignment instructions [here](https://github.com/ucdavisdatalab/workshop_introduction_to_the_command_line/blob/main/unix_command_line_assignment_instructions.pdf) 
-and the data [here](https://github.com/ucdavisdatalab/workshop_introduction_to_the_command_line/blob/main/command_line_assignment.zip).

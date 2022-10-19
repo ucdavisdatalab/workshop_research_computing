@@ -1,7 +1,7 @@
 ---
 title: Introduction to the Unix Command Line
 author: [Tyler Shoemaker, Carl Stahmer]
-date: "2022-10-18"
+date: "2022-10-19"
 url: "https://ucdavisdatalab.github.io/workshop_introduction_to_the_command_line/"
 output:
   bookdown::gitbook:
