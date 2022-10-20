@@ -57,5 +57,5 @@ stage and commit changes using Command Line.
 
 Need to brush up? Preparatory workshops include DataLab’s Introduction to 
 Command Line and Introduction to Git for Version Control (See materials at 
-https://datalab.ucdavis.edu/archive/).
+https://datalab.ucdavis.edu/workshops/).
 
