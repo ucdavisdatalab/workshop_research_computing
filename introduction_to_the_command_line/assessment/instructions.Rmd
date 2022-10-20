@@ -42,9 +42,12 @@ Rubric
 Prompts
 -------
 
-1. Unzip `command_line_assignment.zip` and put it in your Home directory. Open
-   a terminal window and navigate to the unzipped directory. Once there, clear
-   your shell history with the following:
+1. Unzip `command_line_assignment.zip` and put it in your Home directory. You
+   can do so on the command line or with your computer's windowing system. Once
+   you've put the directory in Home, navigate to it via the command line.
+
+2. Clear your shell history with the following:
+
     + If you are using Bash, use:
 
         ```{bash, eval=F}
@@ -64,35 +67,33 @@ Prompts
         $ echo $0
         ```
   
-2. From the top level of `command_line_assignment`, navigate to the lowest
+3. From the top level of `command_line_assignment`, navigate to the lowest
    subdirectory. Move `1.txt` up to the top of the directory.
 
-3. Navigate to `level_2a` and remove `extra_file.txt`. Then, copy the other
+4. Navigate to `level_2a` and remove `extra_file.txt`. Then, copy the other
    file, `2.txt`, to the top of the directory.
 
-4. Navigate up one subdirectory from `level_2a` and rename `wrong_name.txt` to
+5. Navigate up one subdirectory from `level_2a` and rename `wrong_name.txt` to
    `3.txt`. Move `3.txt` to the top level of `command_line_assignment`.
 
-5. Navigate to `level_2b`. Make note of the name of the dotfile in this folder.
+6. Navigate to `level_2b`. Make note of the name of the dotfile in this folder.
 
-6. Return to the top level of `command_line_assignment`. Using Vim, create and
+7. Return to the top level of `command_line_assignment`. Using Vim, create and
    open a new file titled `4.txt`. Enter `Insert` mode and press
    `Return/Enter`. On a second line, type the following (do not include
    quotations): “::::FINISHED!::::”.
 
-7. Skip two lines in Vim. Write the name of the dotfile in `level_2b`. Then,
+8. Skip two lines in Vim. Write the name of the dotfile in `level_2b`. Then,
    skip another two lines. In a few sentences, explain the difference between a
-   relative and absolute path. Given an example of each.
-
-8. Save `4.txt` and exit the file.
+   relative and absolute path. Given an example of each. When you are finished,
+   save `4.txt` and exit the file.
 
 9. There should now be four `.txt` files in the top level of
-   `command_line_assignment`. Use a command to print the directory contents to
-   screen and make sure. Then, print the _contents_ of these files to the
-   terminal window.
-    + You can use `*.txt` to apply a command to all text files in a folder +
-      Remember that there are two different commands for inspecting directory
-      contents and file contents
+   `command_line_assignment`. Use a command to list the _directory_ content and
+   make sure. Then, with a different command, print the _file_ content of each
+   of these files to your terminal window.
+
+    + You can use `*.txt` to apply a command to all text files in a folder 
   
 10. Send the output of the file contents to a new file titled `complete.txt`.
    You can do so with the following:
@@ -100,19 +101,15 @@ Prompts
     ```{bash, eval=F}
     $ [command] *.txt > complete.txt
     ```
+    
+    Be sure to check your work. Open `complete.txt` with Vim. If you do not see
+    your answers from above in this file, you will need to try this step again.
 
-    + Hint: normally the above command is the one you would use to print the
-      contents of a file to screen.
-
-11. Open `complete.txt` with Vim. If you do not see your answers from above in
-   this file, you will need to try this step again (perhaps with a different
-   command).
-
-12. Export your command line history with:
+11. Export your command line history with:
 
     ```{bash, eval=F}
     $ `history > command_line_history.txt`
     ```
 
-13. Submit `complete.txt` and `command_line_history.txt` to the GradPathways
+12. Submit `complete.txt` and `command_line_history.txt` to the GradPathways
    portal.
