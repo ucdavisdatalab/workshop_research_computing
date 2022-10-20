@@ -1,0 +1,118 @@
+---
+output:
+    pdf_document:
+        highlight: tango
+urlcolor: blue
+---
+
+\raggedright
+
+```{=latex}
+\definecolor{codegray}{gray}{0.96}
+\let\textttOrig\texttt
+\renewcommand{\texttt}[1]{\textttOrig{\colorbox{codegray}{#1}}}
+```
+
+Assessment: Introduction to the Unix Command Line
+=================================================
+
+To earn a micro-badge for this workshop, follow the prompts on the next page.
+You will do all of your work on the command line, after which you will export
+your command history and submit it to GradPathways.
+
+For questions marked "Short answer", record your notes directly in the files
+you've created. Submit these files in addition to your command history.
+
+Links
+-----
+
++ [GradPathways badge](https://gradpathways.ucdavis.edu/microbadge-unix-command-line-submission-guide)
++ [Event page](https://datalab.ucdavis.edu/eventscalendar/introduction-to-the-unix-command-line-2/)
++ [Reader](https://ucdavisdatalab.github.io/workshop_introduction_to_the_command_line/)
+
+Rubric
+------
+
+1. Working code: were you able to complete each prompt successfully?
+2. Understanding your actions: can you explain what your actions do and why you
+   implemented them?
+
+\pagebreak
+
+Prompts
+-------
+
+1. Unzip `command_line_assignment.zip` and put it in your Home directory. Open
+   a terminal window and navigate to the unzipped directory. Once there, clear
+   your shell history with the following:
+    + If you are using Bash, use:
+
+        ```{bash, eval=F}
+        $ history -c
+        ```
+
+    + If you are using Zsh, use:
+
+        ```{bash, eval=F}
+        $  history -p
+        ```
+
+    + If you don't know what shell you're using, run the following command,
+      which will display your current shell:
+
+        ```{bash, eval=F}
+        $ echo $0
+        ```
+  
+2. From the top level of `command_line_assignment`, navigate to the lowest
+   subdirectory. Move `1.txt` up to the top of the directory.
+
+3. Navigate to `level_2a` and remove `extra_file.txt`. Then, copy the other
+   file, `2.txt`, to the top of the directory.
+
+4. Navigate up one subdirectory from `level_2a` and rename `wrong_name.txt` to
+   `3.txt`. Move `3.txt` to the top level of `command_line_assignment`.
+
+5. Navigate to `level_2b`. Make note of the name of the dotfile in this folder.
+
+6. Return to the top level of `command_line_assignment`. Using Vim, create and
+   open a new file titled `4.txt`. Enter `Insert` mode and press
+   `Return/Enter`. On a second line, type the following (do not include
+   quotations): “::::FINISHED!::::”.
+
+7. Skip two lines in Vim. Write the name of the dotfile in `level_2b`. Then,
+   skip another two lines. In a few sentences, explain the difference between a
+   relative and absolute path. Given an example of each.
+
+8. Save `4.txt` and exit the file.
+
+9. There should now be four `.txt` files in the top level of
+   `command_line_assignment`. Use a command to print the directory contents to
+   screen and make sure. Then, print the _contents_ of these files to the
+   terminal window.
+    + You can use `*.txt` to apply a command to all text files in a folder +
+      Remember that there are two different commands for inspecting directory
+      contents and file contents
+  
+10. Send the output of the file contents to a new file titled `complete.txt`.
+   You can do so with the following:
+
+    ```{bash, eval=F}
+    $ [command] *.txt > complete.txt
+    ```
+
+    + Hint: normally the above command is the one you would use to print the
+      contents of a file to screen.
+
+11. Open `complete.txt` with Vim. If you do not see your answers from above in
+   this file, you will need to try this step again (perhaps with a different
+   command).
+
+12. Export your command line history with:
+
+    ```{bash, eval=F}
+    $ `history > command_line_history.txt`
+    ```
+
+13. Submit `complete.txt` and `command_line_history.txt` to the GradPathways
+   portal.
