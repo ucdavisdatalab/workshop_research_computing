@@ -25,13 +25,15 @@ your change of plans. Tag the person whose branch you'll be merging with using
 In a real-world project, you might also edit the title of your issue to reflect
 your changes, but for now, you can leave it as is.
 
-Fetching a Remote Branch
+Tracking a Remote Branch
 ------------------------
 
 Now it's time to make a copy of the remote branch on your local computer. You
 can find the branch on the command line with `git branch -a` (it'll be in red
-text). To get the branch and begin tracking any future changes that might occur
-on that branch, simply type:
+text). If you don't see extra branches listed when you enter this command, run
+`git fetch` and try again.
+
+There are a few ways to get the branch itself. Newer versions of Git use:
 
 ```
 $ git switch <remote-branch>
@@ -39,14 +41,22 @@ Branch '<remote-branch>' set up to track remote branch '<remote-branch>' from 'o
 Switched to a new branch '<remote-branch>'
 ```
 
-(Note: in the past, Git has used other commands like `fetch` and `track` to
-perform these operations, but `switch` is a nice shorthand, especially for
-smaller projects like this.)
+If you have an older version of Git on your computer, you'll need to use a
+checkout:
 
-If you open the `README.md` file, you'll find that your name has disappeared
-and the other person's name is there instead. With that, you should now have
-_three_ branches on your local machine: the main branch, the one you created,
-and the branch you've just fetched from GitHub.
+```
+$ git checkout <remote-branch>
+Branch '<remote-branch>' set up to track remote branch '<remote-branch>' from 'origin'.
+Switched to a new branch '<remote-branch>'
+```
+
+In either case, Git will pull down a local copy of a remote branch and begin
+tracking it.
+
+Now, if you open the `README.md` file, you'll find that your name has
+disappeared and the other person's name is there instead. With that, you should
+now have _three_ branches on your local machine: the main branch, the one you
+created, and the branch you've just fetched from GitHub.
 
 Merging Branches
 ----------------

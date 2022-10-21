@@ -1,7 +1,7 @@
 ---
 title: Reproducible Research for Teams with GitHub
 author: [Tyler Shoemaker, Carl Stahmer]
-date: "2022-10-19"
+date: "2022-10-21"
 url: "https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/"
 output:
     bookdown::gitbook:
