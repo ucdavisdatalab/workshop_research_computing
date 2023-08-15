@@ -4,9 +4,15 @@
 format: jb-book
 root: chapters/index
 
-options:
-  numbered: true
-
 # Chapters may be written in either Markdown or as Jupyter Notebooks
-chapters:
-  - file: chapters/01_example
+parts:
+  - caption: "Reproducibility Principles and Practices"
+    numbered: true
+    chapters:
+      - file: chapters/01_principles
+      - file: chapters/02_core
+      - file: chapters/03_case_by_case_core
+      - file: chapters/04_case_by_case
+  - caption: Afterword
+    chapters:
+      - file: chapters/references

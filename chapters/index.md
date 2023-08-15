@@ -1,7 +1,20 @@
 Overview
 ========
 
-YOUR DESCRIPTION
+A research project is **reproducible** if a different researcher can carry out
+the same analysis with the same data and produce the same overall result. To do
+so, they need transparent, detailed documentation about _all_ of the steps in
+the research process and access to the tools---especially code---with which the
+steps were carried out. Reproducibility enables independent verification, a
+touchstone for all research.
+
+There are myriad practices, often accompanied by software tools, that can help
+ensure research projects are reproducible. This overview workshop will help you
+decipher which to adopt and when to adopt them. The workshop also highlights
+additional benefits many of these practices confer, such as making it easier to
+collaborate with others. As an overview, this workshop is relatively
+non-technical, but provides technical references, including other DataLab
+workshops, for all of the practices covered.
 
 
 Learning Goals
@@ -9,59 +22,34 @@ Learning Goals
 
 After completing this workshop, learners should be able to:
 
-LEARNING GOALS
++ Describe widely-used practices and tools for ensuring that research projects
+  are reproducible, such as:
+     - Writing documentation
+     - File and directory naming conventions
+     - Version control systems
+     - Software environment management
+     - Build systems
+     - Packaging
+     - Software testing
+     - Virtualization and containerization
++ Explain the advantages and disadvantages of these reproducibility practices
++ Evaluate whether a given reproducibility practice is relevant to their
+  research project
++ Identify references they can consult to learn technical details about
+  reproducibility practices
++ Explain the ways in which reproducibility practices can facilitate
+  collaboration for active research projects
 
 
 Prerequisites
 -------------
 
-<!--
-No prior programming experience is necessary. Learners should commit to
-attending all four sessions of this series.
-
-These workshops are not an introduction to Python. Learners must have taken
-[DataLab’s Python Basics workshop series][basics] or have equivalent prior
-experience using Python.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_python_basics/
-
-These workshops are not an introduction to R. Learners must have taken
-[DataLab’s R Basics workshop series][basics] or have equivalent prior
-experience using R.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_r_basics/
--->
-
-
-YOUR PREQUISITES
+This workshop is intended for learners of at all experience levels, and may
+benefit learners at different experience levels in different ways. There are no
+prerequisites and no prior programming experience is necessary.
 
 
 Computing Requirements
 ----------------------
 
-<!--
-Before the workshop, please make sure your computer has a working internet
-connection and the most recent versions of the following software:
-
-* [Anaconda Distribution][anaconda], which by default includes:
-  + [Python 3][python]
-  + [conda][]
-  + [JupyterLab][jupyter]
-
-* [R][r]
-
-You can find step-by-step installation instructions in [DataLab's Python
-Install Guide][install-guide]. If you need additional help, come chat with us
-in [DataLab's Office Hours][oh].
-
-[anaconda]: https://www.anaconda.com/
-[python]: https://www.python.org/
-[conda]: https://docs.conda.io/en/latest/
-[jupyter]: https://jupyter.org/
-
-[r]: https://www.r-project.org/
-[rstudio]: https://posit.co/products/open-source/rstudio/
-
-[install-guide]: https://ucdavisdatalab.github.io/install_guides/python-and-python-tools.html#python-and-python-tools
-[oh]: https://datalab.ucdavis.edu/office-hours/
--->
+No specific hardware or software is required.
