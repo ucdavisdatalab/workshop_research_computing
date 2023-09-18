@@ -182,11 +182,11 @@ A manifest should also show the directory hierarchy through indentation,
 symbols, or both. Here's an example of a manifest from a DataLab project:
 
 ```
-data/           [Untracked] Models and images
+data/           Models and images
 docs/           Notes on the project as well as environment setup
-log/            [Untracked] Slurm log files
+log/            Slurm log files
 src/            Image preprocessing, model training, and analysis
-STEGO/          !! [Untracked] Code for creating STEGO models
+STEGO/          Code for creating STEGO models
 tests/          Scripts for testing workflows, examining outputs, etc.
 toy_data/       Very (very!) small pieces of data for dev testing
 ```
@@ -357,11 +357,13 @@ Project Organization
 > There are only two hard things in Computer Science: cache invalidation and
 > naming things.
 >
-> -- Phil Karlton
+> -- [Phil Karlton][phil-karlton], software engineer at Netscape
+
+[phil-karlton]: https://www.karlton.org/
 
 Names are the first thing you see when you skim through the files in a
-directory or the expressions in a snippet of code. Well-chosen names serve as
-simple documentation, making it easier to guess the purpose of each file or
+directory or the expressions in a snippet of code. Well-chosen names serve as a
+form of documentation, making it easier to guess the purpose of each file or
 expression. With that in mind, naming things amounts to summarizing (often
 complex) concepts in one or two words---so it's no surprise that it can be
 challenging and easy to neglect.
@@ -467,7 +469,7 @@ code harder to read. Here's one code organization expert's recommendation:
 > The length of function and class names should be inversely proportional to
 > their scope. Small scopes imply long names.
 >
-> -- [Robert "Uncle Bob" Martin][bob-martin]
+> -- [Robert "Uncle Bob" Martin][bob-martin], software engineer and author
 
 [bob-martin]: https://en.wikipedia.org/wiki/Robert_C._Martin
 

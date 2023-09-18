@@ -22,7 +22,7 @@ Reproducibility enables independent verification, a touchstone for all
 research.
 
 Almost all contemporary research projects involve computing---whether that
-simply means creating and storing digital documents, developing code for small
+means creating and storing digital documents, developing code for small
 analyses that run for a few minutes on a laptop, or developing code for large
 analyses that run for a few days on a high-performance computing cluster.
 Consequently, this reader focuses on practices related to computing. Many are
