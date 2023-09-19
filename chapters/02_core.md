@@ -33,6 +33,13 @@ Documentation explains how a project works, the assumptions the project makes,
 and how to actually use the included artifacts (data, code, figures, etc.). 
 -->
 
+> Writing is a primary mechanism for *doing* research, not just for reporting
+> it.
+>
+> – paraphrased from [Simon Peyton Jones][peyton-jones], computer scientist
+
+[peyton-jones]: https://simon.peytonjones.org/
+
 
 ### Start with the Scope
 
@@ -255,6 +262,13 @@ Hard drives can and do fail. Store at least one backup copy of each project on
 a different computer, on an external hard drive, or in the cloud. This way, if
 your hard drive stops working, you won't lose everything. Make a schedule for
 when you'll update the backups, either daily or weekly, and stick to it.
+
+:::{important}
+For projects which involve data, it's especially important to keep backup
+copies of the original or source data sets. This way you can experiment with
+multiple approaches to data processing and can recover if you accidentally
+corrupt or delete a data set.
+:::
 
 Cloud services such as [Google Drive][gdrive], [Dropbox][], [Box][], and
 [OneDrive][] are convenient for backups because you can also easily share the

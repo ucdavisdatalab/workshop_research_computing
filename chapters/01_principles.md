@@ -59,7 +59,8 @@ alt:
 
 [phd]: https://www.phdcomics.com/
 
-2. **Artifact preservation**: Keep records so that you can revisit old results
+2. **Artifact preservation**: Every file you produce is an **artifact** of your
+   research. Keep records so that you can revisit old results
    or even "rewind" a project to an earlier state. Some things you might want
    records of include:
 
@@ -112,26 +113,29 @@ Caption: never look in someone else's documents folder."
     and reuse.
 
 4. **Workflow automation**: Even when a project is well-documented and
-   organized, the steps to reproduce a particular result can be complicated: it
-   may be necessary to run several different scripts in a specific order and
-   with specific settings. Workflow automation tools can turn a complicated
-   series of steps---a workflow---into a single convenient command. You can
-   also use workflow automation tools to run commands every time you take a
+   organized, reproducing particular result can be complicated: it may be
+   necessary to run several different steps in a specific order and with
+   specific settings. You can use programming languages and other workflow
+   automation tools to automate a collection of steps, or **workflow**, so that
+   it's easy to run. You can also use workflow automation tools to avoid doing
+   tedious, repetitive tasks by hand and to run commands every time you take a
    particular action. For example, you might want to run tests on your code
-   each time you upload it to share with collaborators.
+   each time you upload it to share with collaborators. By using programming
+   languages and other workflow automation tools, you create an unambiguous
+   record of the steps in each computation and make it easier to reuse parts of
+   a project.
 
-5. **Environment management**: Make the hardware and software requirements for
-   your project crystal clear and as easy as possible to recreate. Environment
-   management tools are especially helpful here, since they allow you to
-   install different versions of software for different projects
-   simultaneously, can record the software you install as you install it, and
-   can recreate recorded environments. It's much easier to start working on a
-   new machine, bring a new collaborator on board, or assist other people
-   interested in using your project when you can deploy the required computing
-   environment in just one or two commands.
+5. **Environment management**: Make the hardware and software requirements, or
+   **environment**, for your project explicit and as easy as possible to
+   recreate. Environment management tools are especially helpful here, since
+   they allow you to install different versions of software for different
+   projects simultaneously, can record the software you install as you install
+   it, and can recreate recorded environments. It's much easier to start
+   working on a new machine, bring a new collaborator on board, or assist other
+   people interested in using your project when you can deploy the required
+   computing environment in just one or two commands.
 
-These principles are approximately ordered from most to least critical,
-although all of them are important. You can make sure your projects are
+All of these principles are important. You can make sure your projects are
 reproducible by adopting various practices that each address one or more of
 these principles. The principles are often symbiotic: a good practice for one
 may also be a good practice for others.

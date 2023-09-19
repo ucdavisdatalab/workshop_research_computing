@@ -109,6 +109,46 @@ For licensing data, writing, art, or other materials, see Creative Commons'
 [cc-cal]: https://creativecommons.org/choose/
 
 
+Artifact Preservation
+---------------------
+
+### Use Configuration Files
+
+A **configuration file** is a file that stores accessory parameters for a
+computation. Configuration files are distinct from data sets in that the data
+they contain is usually under your control and not of primary interest. For
+example, a configuration file for code that trains a statistical model might
+specify where to find training data, where to find test data, which features to
+include in the model, and where to save predictions. All of these could be
+embedded in the code, but using a configuration file makes the code more
+flexible.
+
+Configuration files also have another benefit: they serve as a record of your
+parameter settings. When parameter settings are embedded in code, then you have
+to edit the code each time you want to run it with different settings. Unless
+you're meticulous about version control, it may be difficult to determine which
+settings you used for past computations. Configuration files eliminate this
+problem: when you want to use a new settings, create a new configuration file
+(possibly by copying one you already have). Then you can easily find the
+settings for any computation in its respective configuration file.
+
+<!-- also hard to share with collaborators and may introduce bugs -->
+
+:::{tip}
+If you also {ref}`document-every-experiment`, include the name of the
+configuration file(s) for each experiment in your documentation.
+:::
+
+Plain-text formats are a good choice for configuration files because they can
+be edited by anyone with a text editor. At DataLab, we particularly like to use
+[TOML][] and [YAML][] formats for configuration files because they're
+widely-used, human-readable, and there are well-supported functions for reading
+them in R, Python, and Julia.
+
+[TOML]: https://toml.io/
+[YAML]: https://yaml.org/
+
+
 Project Organization
 --------------------
 
@@ -156,46 +196,6 @@ stable.
 [feather]: https://arrow.apache.org/docs/python/feather.html
 [parquet]: https://parquet.apache.org/
 
-
-
-Artifact Preservation
----------------------
-
-### Use Configuration Files
-
-A **configuration file** is a file that stores accessory parameters for a
-computation. Configuration files are distinct from data sets in that the data
-they contain is usually under your control and not of primary interest. For
-example, a configuration file for code that trains a statistical model might
-specify where to find training data, where to find test data, which features to
-include in the model, and where to save predictions. All of these could be
-embedded in the code, but using a configuration file makes the code more
-flexible.
-
-Configuration files also have another benefit: they serve as a record of your
-parameter settings. When parameter settings are embedded in code, then you have
-to edit the code each time you want to run it with different settings. Unless
-you're meticulous about version control, it may be difficult to determine which
-settings you used for past computations. Configuration files eliminate this
-problem: when you want to use a new settings, create a new configuration file
-(possibly by copying one you already have). Then you can easily find the
-settings for any computation in its respective configuration file.
-
-<!-- also hard to share with collaborators and may introduce bugs -->
-
-:::{tip}
-If you also {ref}`document-every-experiment`, include the name of the
-configuration file(s) for each experiment in your documentation.
-:::
-
-Plain-text formats are a good choice for configuration files because they can
-be edited by anyone with a text editor. At DataLab, we particularly like to use
-[TOML][] and [YAML][] formats for configuration files because they're
-widely-used, human-readable, and there are well-supported functions for reading
-them in R, Python, and Julia.
-
-[TOML]: https://toml.io/
-[YAML]: https://yaml.org/
 
 
 Workflow Automation

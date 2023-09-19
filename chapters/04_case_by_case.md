@@ -1,7 +1,21 @@
 Case-by-case Practices
 ======================
 
-This chapter
+:::{attention}
+This chapter is still a work-in-progress and will be completed when DataLab
+next offers Intermediate R workshops (approximately Winter Quarter 2024). Check
+back when you've got some experience with research computing and are ready to
+learn more.
+:::
+
+This chapter covers case-by-case practices for reproducibility. Many of these
+practices require substantial effort to adopt or require specific technical
+knowledge. They can be important and even essential for certain kinds of
+projects, but we feel they aren't broadly applicable in the ways that core and
+case-by-case core practices are. DataLab occasionally adopts these practices.
+Read this chapter when you feel like you've mastered the practices in the
+previous chapters and want to learn even more.
+
 
 
 Documentation
@@ -28,12 +42,6 @@ about how to make a data management plan.
 :::
 
 [datalab-dmp]: https://datalab.ucdavis.edu/data-management-plans/
-
-
-Project Organization
---------------------
-
-### Make a Package
 
 
 Artifact Preservation
@@ -71,16 +79,10 @@ overview of how to manage log files in Python.
 [datalab-py-output]: https://ucdavisdatalab.github.io/workshop_intermediate_python/chapters/04_debugging.html#logging
 
 
-Environment Management
-----------------------
+Project Organization
+--------------------
 
-### Use Virtualization
-
-#### Containers
-
-#### Virtual Machines
-
-### Go to the Cloud
+### Make a Package
 
 
 Workflow Automation
@@ -120,3 +122,17 @@ introduction to snakemake.
 #### Lint the Code
 
 #### GitHub Actions
+
+
+Environment Management
+----------------------
+
+### Use Virtualization
+
+#### Containers
+
+#### Virtual Machines
+
+### Go to the Cloud
+
+
