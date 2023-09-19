@@ -101,12 +101,15 @@ searching references.
 
 [Zotero]: https://www.zotero.org/
 
-We recommend keeping notes digitally rather than on paper because editing,
-searching, and copying are all much easier, although paper notes are better
-than no notes, and there are ways to digitize them later. If you do keep
-digital notes, consider whether you'll need to include figures, code, or other
-media in the notes, and choose an appropriate format. At DataLab, two formats
-we frequently use are Google Docs and [Markdown][].
+
+Whether you take notes on paper or digitally, the important thing is that you
+take notes. Paper notes are convenient for diagramming and doodling, and can be
+digitized after the fact to share with the team. Digital notes are convenient
+for collaborating with team members who aren't physically present, and can be
+shared as they are being written. When you start a notes document, make sure to
+consider whether you'll need to include figures, code, or other media, and
+choose an appropriate format. At DataLab, we frequently use paper notes, Google
+Docs, and [Markdown][].
 
 [Markdown]: https://commonmark.org/
 
@@ -134,13 +137,30 @@ Markdown or other plain-text formats.
 
 ### Write READMEs
 
+:::{margin}
+```{note}
+A **directory** or folder is a container for files (and other directories) on a
+computer's file system. It can be helpful to think of directories like folders
+in a filing cabinet.
+```
+:::
+
 A **README** is a document that introduces and explains a project or directory
 within a project. READMEs should generally be plain-text (`.txt`) or Markdown
 (`.md`) files, because these are non-proprietary formats accessible to anyone
 with a text editor. READMEs help people---including future you---find and use
 your project.
 
-A project should always have a README in the top level directory to serve as an
+```{tip}
+Each time you start a new project, create a new directory for the project. Use
+this **project directory** to store all files related to the project. This
+directory is sometimes also called the **top-level** directory for the project,
+since all files for the project exist beneath it.
+
+{numref}`establish-directory-structure` elaborates on this idea.
+```
+
+A project should always have a README in the top-level directory to serve as an
 introduction. The top-level README will often be the first thing someone new to
 the project sees. At a minimum, the top-level README should contain:
 
@@ -154,6 +174,12 @@ the project sees. At a minimum, the top-level README should contain:
 
 For projects with data or code, the top-level README should also contain
 instructions for installation and use (more about this in {numref}`workflows`).
+
+:::{margin}
+```{note}
+A directory structure is **shallow** if there are not many sub-directories.
+```
+:::
 
 A top-level README is usually sufficient documentation for projects with a
 shallow directory structure and where methodology is published elsewhere (such
@@ -391,18 +417,6 @@ and for code.
 
 #### File and Directory Names
 
-```{figure} ../img/xkcd_iso_8601.png
----
-figclass: margin
-name: xkcd-iso-8601
-alt:
----
-"ISO 8601" from ["xkcd"][xkcd] by Randall Munroe ([license][xkcd-license]).
-```
-
-[xkcd]: https://xkcd.com/
-[xkcd-license]: https://xkcd.com/license.html
-
 Choose filenames that are human-readable, machine-readable, and have a
 meaningful order when sorted alphabetically. Many data scientists recommend the
 following rules for naming files:
@@ -413,7 +427,8 @@ following rules for naming files:
 + Use underscores `_` to separate fields (distinct pieces of information, such
   as dates and descriptions)
 + Use dashes `-` to separate words within fields
-+ Write dates and times in [ISO 8601 format][iso-8601] (see 
++ Write dates and times in [ISO 8601 format][iso-8601], which orders units from
+  largest to smallest (for example, year-month-day as in `2023-09-20`; also see
   {numref}`Figure %s<xkcd-iso-8601>`)
 + Pad numbers with leading zeros to the width of the largest number you
   anticipate
@@ -422,6 +437,17 @@ following rules for naming files:
 
 At DataLab, we follow these rules for almost all of our projects, with some
 simplifying exceptions around how we use underscores and dashes.
+
+```{figure} ../img/xkcd_iso_8601.png
+---
+name: xkcd-iso-8601
+alt:
+---
+"ISO 8601" from ["xkcd"][xkcd] by Randall Munroe ([license][xkcd-license]).
+```
+
+[xkcd]: https://xkcd.com/
+[xkcd-license]: https://xkcd.com/license.html
 
 :::{seealso}
 The rules in this section are based on Jenny Bryan's [How to Name Files
@@ -514,6 +540,7 @@ for Felienne Hermans' perspective as a computer science education researcher.
 [how-patterns]: https://youtu.be/z7w2lKG8zWM
 
 
+(establish-directory-structure)=
 ### Establish a Directory Structure
 
 Create a separate, dedicated directory, often called a **repository**, for each
@@ -524,9 +551,9 @@ minimum, we recommend these directories:
 
 * `data/` for data sets
 * `docs/` for documents
-* `src/` for code in scripts (such as `.R` or `.py` files). R scripts
-  conventionally belong in `R/` instead, because of how R's packaging
-  mechanisms work
+* `src/` for code in scripts (such as `.R` or `.py` files). The abbreviation
+  `src` is short for "source code". R scripts conventionally belong in `R/`
+  instead, because of how R's packaging mechanisms work
 * `notebooks/` for code in notebooks (such as RMarkdown or Jupyter notebooks)
 * `outputs/` for results (data, models, figures, etc.)
 
@@ -690,14 +717,17 @@ Workflow Automation
 This practice is recommended for projects that involve computations. If your
 project doesn't, or if all computations are handled by specialized software,
 then you might not need a programming language.
+
+Nevertheless, we've included writing code as a core practice to emphasize that
+it's uniquely important for reproducibility if your project does involve
+computations.
 :::
 
-Programming is often perceived as difficult compared to using point-and-click
-applications. Perhaps part of the reason for this is that programming languages
-demand strict attention to detail: code is an explicit, unambiguous record of
-every step in a computation. This is a major benefit for reproducible research.
-You can share your code with someone else, and if they run it with all of the
-same inputs, they'll get the same outputs.
+Code is an explicit, unambiguous record of every step in a computation. This is
+a major benefit for reproducible research. You can share your code with someone
+else, and if they run it with all of the same inputs, they'll get the same
+outputs. The same is difficult or impossible to achieve using software that has
+a graphical user interface.
 
 Another benefit of programming is that code is reusable and often scalable. If
 you write code to solve a general problem, you can then apply it to any number

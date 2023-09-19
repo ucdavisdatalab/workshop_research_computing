@@ -19,7 +19,15 @@ Principles of Reproducibility
 A research project is **reproducible** if a different researcher can carry out
 the same analysis with the same data and produce the same overall result.
 Reproducibility enables independent verification, a touchstone for all
-research.
+research. Adopting good practices can also make it easier to collaborate on,
+distribute, and reuse research.
+
+:::{tip}
+You always have at least one collaborator: future you! Work you did in the past
+can be as challenging to navigate as work from someone else. So even if you
+don't plan to collaborate with anyone else, it can still be helpful to adopt
+good practices for reproducible and collaborative research.
+:::
 
 Almost all contemporary research projects involve computing---whether that
 means creating and storing digital documents, developing code for small
