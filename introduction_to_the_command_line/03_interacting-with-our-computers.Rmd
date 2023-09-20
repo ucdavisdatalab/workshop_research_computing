@@ -18,7 +18,7 @@ than the stock GUI that launches automatically when you turn it on.
 
 One such method is the **command line interface** (CLI). The command line
 offers a text-only means of interacting with your computer, acting somewhat
-like a typerwriter (rather than a *window* or *desktop*, as the prevailing
+like a typewriter (rather than a *window* or *desktop*, as the prevailing
 metaphors for GUIs go). You can think of this interface as having three main
 parts:
 
