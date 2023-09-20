@@ -149,6 +149,22 @@ them in R, Python, and Julia.
 [YAML]: https://yaml.org/
 
 
+### Use Version Control for Data
+
+(databases)=
+#### Databases
+
+:::{seealso}
+See DataLab's [Introduction to SQL for Querying Databases workshop
+reader][datalab-sql] to learn how to query data in databases.
+:::
+
+[datalab-sql]: https://ucdavisdatalab.github.io/workshop_intro_to_sql/
+
+
+#### Data Version Control Systems
+
+
 Project Organization
 --------------------
 
