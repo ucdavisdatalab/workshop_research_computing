@@ -11,3 +11,4 @@ version = "0.1.0"
 
 [dependencies]
 jupyter-book = ">=1.0.2,<2"
+ghp-import = ">=2.1.0,<3"
