@@ -155,10 +155,13 @@ them in R, Python, and Julia.
 #### Databases
 
 :::{seealso}
-See DataLab's [Introduction to SQL for Querying Databases workshop
-reader][datalab-sql] to learn how to query data in databases.
+See DataLab's [An Overview of Databases and Data Storage workshop
+reader][datalab-db] for an introduction to the topic. Then see DataLab's
+[Introduction to SQL for Querying Databases workshop reader][datalab-sql] to
+learn how to query data in databases.
 :::
 
+[datalab-db]: https://ucdavisdatalab.github.io/workshop_intro_to_databases/
 [datalab-sql]: https://ucdavisdatalab.github.io/workshop_intro_to_sql/
 
 
