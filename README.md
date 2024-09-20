@@ -64,15 +64,45 @@ To make alterations to the reader:
 
 ## Setup
 
-### Python Packages
+We *strongly recommend* using [pixi][], a fast package manager based on the
+conda ecosystem, to install the packages required to build this reader. To
+install pixi, follow [the official instructions][pixi]. If you prefer not to
+use pixi, it's also possible to manually install the packages using conda or
+mamba.
 
-We recommend using [conda][] to manage Python dependencies. The `env.yaml` file
-in this repo contains a list of packages necessary to build the reader. You can
-create a new conda environment with all of the packages listed in that file
-with this shell command:
+[pixi]: https://pixi.sh/
+
+The `pixi.toml` file in this repo lists required packages, while the
+`pixi.lock` file lists package versions for each platform. When the lock file
+is present, pixi will attempt to install the exact versions listed. Deleting
+the lock file allows pixi to install other versions, which might help if
+installation fails (but beware of inconsistencies between package versions).
+
+To install the required packages, open a terminal and navigate to this repo's
+directory. Then run:
 
 ```sh
-conda env create --file env.yaml
+pixi install
 ```
 
-[conda]: https://docs.conda.io/en/latest/
+This will automatically create a virtual environment and install the packages.
+
+To open a shell in the virtual environment, run:
+
+```sh
+pixi shell
+```
+
+You can run the `pixi shell` command from the repo directory or any of its
+subdirectories. Use the virtual environment to run any commands related to
+building the reader. When you're finished using the virtual environment, you
+can use the `exit` command to exit the shell.
+
+> [!NOTE]
+> If you're using Windows and Git Bash, the `pixi shell` command is [not yet
+> supported][pixi-shell-win]. Instead, you can use the `pixi run` command to
+> run commands in the virtual environment. See [the pixi
+> documentation][pixi-basics] for examples of how to use `pixi run`.
+
+[pixi-shell-win]: https://github.com/prefix-dev/pixi/issues/417
+[pixi-basics]: https://pixi.sh/latest/basic_usage/
