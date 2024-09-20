@@ -1,0 +1,13 @@
+[project]
+authors = ["Nick Ulle <nick.ulle@gmail.com>"]
+channels = ["conda-forge"]
+description = """Reader for the Reproducibility Principles and Practices \
+  workshop."""
+name = "workshop_reproducible_research"
+platforms = ["linux-64", "osx-64", "win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+jupyter-book = ">=1.0.2,<2"
