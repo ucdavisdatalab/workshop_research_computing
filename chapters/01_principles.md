@@ -1,26 +1,12 @@
-<!--
 (introduction)=
-Introduction
-============
-
-This chapter introduces reproducibility and puts forward five principles for
-reproducibility. It also briefly addresses how reproducibility relates to and
-facilitates collaboration.
-
-
-Principles of Reproducibility
------------------------------
--->
-
-(introduction)=
-Principles of Reproducibility
-=============================
+# Principles of Reproducibility
 
 A research project is **reproducible** if a different researcher can carry out
-the same analysis with the same data and produce the same overall result.
-Reproducibility enables independent verification, a touchstone for all
-research. Adopting good practices can also make it easier to collaborate on,
-distribute, and reuse research.
+the same analysis with the same data and produce the same overall result. A
+reproducible project is transparent about the research process and facilitates
+independent verification, the gold standard for research. Best practices for
+reproducible research can also make it easier to collaborate and to distribute
+and reuse products of research.
 
 :::{tip}
 You always have at least one collaborator: future you! Work you did in the past
@@ -75,7 +61,7 @@ alt:
    + Changes you make to (or different versions of) documents, code, and data
    + Settings and other inputs you use to run computations such as analyses,
      experiments, and simulations
-   + Outputs from computations---especially ones which are easy to overlook,
+   + Outputs from computations---especially outputs that are easy to overlook,
      such as diagnostic information printed while a computation runs
 
    You never know what you'll need later, and digital file storage is cheap.
@@ -96,9 +82,9 @@ Caption: never look in someone else's documents folder."
 [xkcd]: https://xkcd.com/
 [xkcd-license]: https://xkcd.com/license.html
 
-3. **Project organization**: Set conventions for how you'll organize a project
-   (often these should be documented) and then make sure to follow them.
-   These conventions should address details such as:
+3. **Project organization**: Establish conventions for how you'll organize a
+   project. Document these and then make sure to follow them. They should
+   address details such as:
 
     + How you'll name things like files, functions, and modules
     + Which directories you'll create and which kinds of files belong in each
@@ -155,10 +141,10 @@ groups:
 1. **Primary practices** are the ones you should always adopt for every
    project. For example, you should always keep notes (documentation).
 2. **Secondary practices** are the ones that are generally a good idea, but
-   aren't relevant to every project. For example, you don't need to use a
-   Python environment manager if you aren't writing any Python code, but you
-   almost always should if you are.
-3. **Case-by-case practices** are the ones that have a low benefit-to-cost
+   aren't relevant to every project. For example, if your project includes a
+   lot of Python code, you should use an environment manager, but if your
+   project doesn't include any code, you might not need one.
+3. **Case-by-case practices** are the ones that have a high cost-to-benefit
    ratio, so you should consider the details of your project carefully before
    adopting them. For certain kinds of projects, they can be very important,
    but for others, not so much. For example, turning your code into a
