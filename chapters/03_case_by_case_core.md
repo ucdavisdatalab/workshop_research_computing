@@ -378,12 +378,21 @@ languages such as R and Julia.
 
 [conda]: https://docs.conda.io/
 
+:::{tip}
+A relatively new package manager, [pixi][], is faster and is better at
+accurately reproducing environments than conda, while maintaining compatibility
+with conda packages. Pixi also provides several other features that make it
+pleasant to use. At DataLab, we are just starting to switch over to pixi.
+
+[pixi]: https://pixi.sh/
+:::
+
 :::{note}
 If you exclusively use R and prefer to use an environment manager developed
 specifically for R, check out the [renv][] package.
-:::
 
 [renv]: https://rstudio.github.io/renv/
+:::
 
 By using an environment manager like conda, you can ensure that the versions of
 packages and software your projects depend on are recorded. Generally you
@@ -395,11 +404,16 @@ make sure it has the correct software environment.
 
 
 :::{seealso}
-See DataLab's [Making Python Projects & Environments Reproducible workshop
-reader][datalab-conda] for a technical introduction to conda. Then see
+See [the Setting Up Software chapter][datalab-micromamba] in DataLab's
+Introduction to Remote Computing workshop reader for a technical introduction
+to micromamba, a fast and efficient drop-in replacement for conda.
+
+If you prefer to use the original conda, instead see DataLab's [Making Python
+Projects & Environments Reproducible workshop reader][datalab-conda]. Then see
 DataLab's and DIB Lab's [Installing Software on Remote Computers with Conda
 workshop reader][datalab-conda-remote] for even more technical details.
 :::
 
+[datalab-micromamba]: https://ucdavisdatalab.github.io/workshop_intro_to_remote_computing/chapters/02_environment-setup.html
 [datalab-conda]: https://ucdavisdatalab.github.io/workshop_intermediate_python/chapters/02_reproducible.html
 [datalab-conda-remote]: https://ngs-docs.github.io/2021-august-remote-computing/installing-software-on-remote-computers-with-conda.html
