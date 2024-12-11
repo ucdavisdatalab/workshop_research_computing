@@ -85,6 +85,7 @@ tables, consider using a {ref}`database<databases>` to store the data.
 [datalab-excel]: https://ucdavisdatalab.github.io/workshop_keeping_data_tidy/
 
 
+(keep-running-notes)=
 ### Keep Running Notes
 
 Set up one or more running notes documents when you set up your project. Use
@@ -135,6 +136,7 @@ access and edit; some collaborators may not be comfortable working with
 Markdown or other plain-text formats.
 
 
+(write-readmes)=
 ### Write READMEs
 
 :::{margin}

@@ -73,6 +73,7 @@ they're convenient for data entry.
 :::
 
 
+(choose-a-license)=
 ### Choose a License
 
 A **license** is a legal document that grants others permission to do, use, or
@@ -151,6 +152,39 @@ them in R, Python, and Julia.
 
 ### Release the Data
 
+Publish or share your research data, so that other researchers can use it to
+reproduce your work and possibly even do new work. In 2016, [Wilkinson et
+al][wilkinson] suggested researchers should make their data **FAIR**:
+
+* Findable: uniquely identifiable and citable, such as with a DOI
+* Accessible: freely and publicly available
+* Interoperable: saved in open, non-proprietary formats
+* Reusable: well-documented and with a clear license
+
+[wilkinson]: https://doi.org/10.1038/sdata.2016.18
+
+The FAIR standards are now widely recommended as best practices.
+
+You can satisfy the "F" and "A" standards by publishing your data to an
+[open-access repository][oar]. For example, UC Davis is a partner of the
+[Dryad][] open-access repository, and all UC Davis researchers can use Dryad
+for free to publish their data.
+
+[oar]: https://en.wikipedia.org/wiki/Open-access_repository
+[Dryad]: https://datadryad.org/stash
+
+To satisfy the "I" standard, {ref}`use-file-formats-effectively`. To satisfy
+the "R" standard, a good start is to {ref}`keep-running-notes`,
+{ref}`write-readmes` and {ref}`choose-a-license`.
+
+:::{seealso}
+See UC Davis Library's [Publish, Share, and Preserve Your Data
+guide][library-publish-data] to learn more about how to release your data.
+:::
+
+[library-publish-data]: https://library.ucdavis.edu/data-analysis-and-management/publish-share-and-preserve-your-data/
+
+
 
 Project Organization
 --------------------
@@ -194,7 +228,7 @@ reader][datalab-r-clean] to learn how to clean data in R.
 
 [datalab-r-clean]: https://ucdavisdatalab.github.io/workshop_intermediate_r/string-date-processing.html
 
-
+(use-file-formats-effectively)=
 ### Use File Formats Effectively
 
 Store data sets in file formats that:
