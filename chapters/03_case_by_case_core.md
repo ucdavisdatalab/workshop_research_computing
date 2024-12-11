@@ -157,10 +157,38 @@ Project Organization
 
 ### Save Clean Data
 
+Treat data cleaning and data analysis as distinct and equally important steps
+in the research process. Write code to clean the data, and document *why* each
+cleaning step was taken, so that cleaning is reproducible. Save a copy of the
+clean data to use in analyses. This way:
 
+* Cleaning is consistent across all analyses.
+* You only need to run the cleaning step once. For some data sets, cleaning is
+  a time-consuming and expensive computation.
+* Cleaning and analysis concerns are kept separate, which makes it easier to
+  write simple code with clear goals.
+* You can use different languages or software for the cleaning step and the
+  analyses.
+
+What it means for data to be "clean" will depend on your project's specific
+data sources and analysis goals. Nevertheless, here are some things you should
+almost always do:
+
+* Check that the structure of the data is appropriate. For instance, many tools
+  for analyzing tabular data require **tidy data**, where each row is an
+  observation and each column is a feature.
+* Check that the types of the data are appropriate. In other words, make sure
+  the language or software you plan to use recognizes data for what they are.
+  For instance, dates often need to be explicitly converted to a date type.
+* Investigate missing data. It's crucial to have a thorough understanding of
+  what's missing before moving to analysis. If you decide to remove or fill in
+  missing data, do so cautiously; it's not always necessary and can bias
+  analyses.
+* Investigate extreme data and erroneous data. As with missing data, it's
+  important to understand the outliers in your data.
 
 :::{seealso}
-See DataLab's [Intermediate R: Cleaning Data & Automating Tasks workshop
+See DataLab's [Intermediate R: Cleaning & Reshaping Data workshop
 reader][datalab-r-clean] to learn how to clean data in R.
 :::
 
