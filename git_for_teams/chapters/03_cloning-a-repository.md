@@ -18,8 +18,8 @@ repository. This will create a local copy of project files.
 First, go back to your Home directory. You'll be putting a repository here (in
 command line speak, the repository will be a "child" of Home).
 
-```
-$ cd ~
+```sh
+cd ~
 ```
 
 Now go to the following link:
@@ -39,8 +39,10 @@ to your clipboard. Then, in the command line, type `git clone`, add a space,
 and paste in the line of text GitHub generated for you. Press Enter when you've
 entered this information. The full command should look like this:
 
+```sh
+git clone git@github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
 ```
-$ git clone git@github.com:ucdavis-datalab-training/workshop_git_for_teams_sandbox.git
+```text
 Cloning into 'workshop_git_for_teams_sandbox'...
 remote: Enumerating objects: 63, done.
 remote: Counting objects: 100% (6/6), done.
@@ -53,21 +55,25 @@ Resolving deltas: 100% (18/18), done.
 If you'd like, you can use `ls` to see the newly made directory. You should see
 something like the following:
 
+```sh
+ls
 ```
-$ ls
+```text
 Desktop                     Music
-Documents                   Pictures                      
-Downloads                   Public    
+Documents                   Pictures
+Downloads                   Public
 Library                     workshop_git_for_teams_sandbox
-Movies   
+Movies
 ```
 
 If you `cd` into the directory and then type `ls -a`, you'll see a `README.md`
 file and a `.git` file, which contains all the logging info for the repository.
 
+```sh
+cd workshop_git_for_teams_sandbox 
+ls -a
 ```
-$ cd workshop_git_for_teams_sandbox 
-$ ls -a
+```text
 .          ..         .git       .gitignore README.md
 ```
 
@@ -91,22 +97,26 @@ locally and then we'll push that branch to the remote repository.
 
 First, check whether the cloned repository has any branches with `git branch`:
 
+```sh
+git branch
 ```
-$ git branch
+```text
 * main
 ```
 
 Just `main` so far. Let's make a new one. Recall that you can make and switch
 to a new branch with one command:
 
-```
-git checkout -b <branch-name>
+```sh
+git checkout -b BRANCH_NAME
 ```
 
 Use this command to branch from the main one. Name your branch with your first
 name and the first initial of your last name.
 
+```sh
+git checkout -b FIRST_NAME_LAST_INITIAL
 ```
-$ git checkout -b <first-name_last-initial>
-Switched to a new branch '<first-name_last-initial>'
+```text
+Switched to a new branch 'FIRST_NAME_LAST_INITIAL'
 ```
