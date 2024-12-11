@@ -4,7 +4,7 @@ About GitHub
 The Basics
 ----------
 
-At its simplest, GitHub is a hosting service for Git repositories. Much like
+At its simplest, GitHub is a hosting service for git repositories. Much like
 Dropbox or Google Drive, it gives you a space to remotely store your code and
 related files. This can be useful when working on projects that require, for
 example, some kind of server, whether for the purposes of running large,
@@ -32,7 +32,7 @@ multiple parts of a project could be under development simultaneously, and any
 such changes made to that project would be trackable according to the logic of
 version control.
 
-Simultaneously pushing and pulling on multiple computers would look something
+Simultaneously pushing and pulling from multiple computers would look something
 like the following:
 
 ```{figure} ../img/github_as_hub.png
