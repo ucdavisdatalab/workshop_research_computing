@@ -2,11 +2,11 @@ Case-by-case Core Practices
 ===========================
 
 This chapter covers case-by-case core practices for reproducibility. These are
-practices for which the benefits outweigh the costs, but which don't apply to
-every project. For instance, projects that will never be distributed do not
-necessarily need a license, so choosing a license is listed here. DataLab
-adopts these practices for all projects for which they are relevant, and we
-recommend you do too.
+practices which don't apply to every project, but are beneficial or even
+essential when they do apply. For instance, projects that will never be
+distributed do not necessarily need a license, so choosing a license is listed
+here. DataLab adopts these practices for all projects for which they are
+relevant, and we recommend you do too.
 
 
 Documentation
