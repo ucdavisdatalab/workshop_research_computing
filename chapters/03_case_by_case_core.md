@@ -149,23 +149,7 @@ them in R, Python, and Julia.
 [YAML]: https://yaml.org/
 
 
-### Use Version Control for Data
-
-(databases)=
-#### Databases
-
-:::{seealso}
-See DataLab's [An Overview of Databases and Data Storage workshop
-reader][datalab-db] for an introduction to the topic. Then see DataLab's
-[Introduction to SQL for Querying Databases workshop reader][datalab-sql] to
-learn how to query data in databases.
-:::
-
-[datalab-db]: https://ucdavisdatalab.github.io/workshop_intro_to_databases/
-[datalab-sql]: https://ucdavisdatalab.github.io/workshop_intro_to_sql/
-
-
-#### Data Version Control Systems
+### Release the Data
 
 
 Project Organization
@@ -214,6 +198,29 @@ stable.
 [arrow]: https://arrow.apache.org/
 [feather]: https://arrow.apache.org/docs/python/feather.html
 [parquet]: https://parquet.apache.org/
+
+
+(databases)=
+#### Databases
+
+A **database** is a data set together with specialized software to help you
+organize, query, and update that data set. Databases are usually more
+computationally efficient than languages like R and Python. Most databases also
+support querying large data sets (hundreds of gigabytes) without any extra
+setup. Some databases support multiple users, which can be convenient for
+collaborative work (this is also one reason why databases are widely used for
+data storage in web applications).
+
+
+:::{seealso}
+See DataLab's [An Overview of Databases and Data Storage workshop
+reader][datalab-db] for an introduction to the topic. Then see DataLab's
+[Introduction to SQL for Querying Databases workshop reader][datalab-sql] to
+learn how to query data in databases.
+:::
+
+[datalab-db]: https://ucdavisdatalab.github.io/workshop_intro_to_databases/
+[datalab-sql]: https://ucdavisdatalab.github.io/workshop_intro_to_sql/
 
 
 
