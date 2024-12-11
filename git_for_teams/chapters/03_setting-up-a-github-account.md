@@ -17,7 +17,11 @@ look for an email from GitHub. Click the "Verify email address" button. Doing
 so will take you to your homepage, where, if you'd like, you can add a few
 details about yourself.
 
-![An newly created GitHub account page](./img/github_new_homepage.png)
+```{figure} ../img/github_new_homepage.png
+---
+alt: "A newly created GitHub account page."
+---
+```
 
 You now have a GitHub account!
 

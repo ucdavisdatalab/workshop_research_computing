@@ -47,19 +47,30 @@ the "Issues" tab at
 and click the green "New issue" button. It should take you to the following
 page: 
 
-![A new issue template on GitHub](./img/new_issue.png)
+```{figure} ../img/new_issue.png
+---
+alt: "A new issue template on GitHub."
+---
+```
 
 You'll be adding your name to the repository's `README.md` file. Your issue's 
 title should reflect this task.
 
-![A new issue with the title and comment fields filled
-in](./img/new_issue_title_description.png)
+```{figure} ../img/new_issue_title_description.png
+---
+alt: "A new issue with the title and comment fields filled in."
+---
+```
 
 With this information entered, assign yourself to this issue (by clicking the
 little gear button next to "Assignees"). Then, click the green "Submit new
 issue" button. GitHub will take you to a new page:
 
-![A submitted issue](./img/new_issue_submitted.png)
+```{figure} ../img/new_issue_submitted.png
+---
+alt: "A submitted issue."
+---
+```
 
 Making Changes
 --------------
@@ -178,13 +189,21 @@ Now, if you type `git branch -a`, you'll see a remote copy of your branch. You
 can also visit the repository page on GitHub, where you'll see a notice that a
 branch has "recent pushes".
 
-![The sandbox repository with a message showing recent pushes to the tyler\_s
-branch](./img/github_recent_pushes.png)
+```{figure} ../img/github_recent_pushes.png
+---
+alt: "The sandbox repository with a message showing recent pushes to the
+tyler_s branch."
+---
+```
 
 Click on the "branches" icon:
 
-![The sandbox repository with a red box around the branches
-button](./img/github_recent_pushes_focus.png)
+```{figure} ../img/github_recent_pushes_focus.png
+---
+alt: "The sandbox repository with a red box around the branches
+button."
+---
+```
 
 ...and you'll see a list of branches.
 
@@ -193,5 +212,8 @@ branch by 1 commit. You'll also see that your change has appeared down in the
 README view. Finally, you'll see in the commit message view that the message
 has turned your issue number into a hyperlink.
 
-![The tyler\_s branch of the sandbox
-repository](./img/github_pushed_branch_changes.png)
+```{figure} ../img/github_pushed_branch_changes.png
+---
+alt: "The tyler_s branch of the sandbox repository."
+---
+```

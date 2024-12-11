@@ -24,8 +24,11 @@ Opening a Pull Request
 
 You can open a pull request by clicking on the "Pull requests" tab.
 
-![The sandbox repository on GitHub with the pull requests tab
-activated](./img/github_pull_requests.png)
+```{figure} ../img/github_pull_requests.png
+---
+alt: "The sandbox repository on GitHub with the pull requests tab activated."
+---
+```
 
 From here, click on the green "New pull request."
 
@@ -35,9 +38,13 @@ branch on the left (i.e., the branch on the right is probably the one you've
 been working on). Once you've made your selection, GitHub will scan through the
 branches and identify any differences between them.
 
-![Pull request comparison on GitHub, which shows the listing of the commits
+```{figure} ../img/github_compare_changes.png
+---
+alt: "Pull request comparison on GitHub, which shows the listing of the commits
 made to each branch and a side-by-side view of the differences between the
-branches](./img/github_compare_changes.png)
+branches."
+---
+```
 
 If the branches are able to be merged, click "Create pull request." You'll be
 taken to a new page, which looks quite similar to the what you'd see if you
@@ -46,8 +53,12 @@ description. You can assign yourself the role of making the request and, if
 applicable, you can ask someone to review the changes before you implement them
 (using the "Reviewers" function on the right).
 
-![Entering information into the pull request template, which includes a title
-and comment](./img/github_write_a_pull_request.png)
+```{figure} ../img/github_write_a_pull_request.png
+---
+alt: "Entering information into the pull request template, which includes a
+title and comment."
+---
+```
 
 Opening a pull request does not automatically implement a merge. Rather, the
 pull request stays open, providing a space for people to discuss the changes,
@@ -61,14 +72,21 @@ there are no conflicts between the branches, you can click "Merge pull
 request". Alternatively, you can merge the pull request on the command line by
 following the instructions listed below.
 
-![A pull request on GitHub that is ready to be
-merged](./img/github_no_conflicts.png)
+```{figure} ../img/github_no_conflicts.png
+---
+alt: "A pull request on GitHub that is ready to be merged."
+---
+```
 
 For our purposes, we'll just click the button. GitHub will then register that
 the merge has been made:
 
-![A merged pull request on GitHub, showing each of its commits and a message
-saying the pull request was successful](./img/github_successful_pull_merge.png)
+```{figure} ../img/github_successful_pull_merge.png
+---
+alt: "A merged pull request on GitHub, showing each of its commits and a
+message saying the pull request was successful."
+---
+```
 
 If you went back to the main page, you'd see that your changes are implemented.
 From here, you can delete your branch (if you'd like) and then start on the

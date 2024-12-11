@@ -48,7 +48,11 @@ moment and prepare a space for receiving this repository on GitHub.
 To do so, go to github.com and, on your homepage, click the "Create repository"
 button. You'll be taken to this page:
 
-![GitHub's new repository template page](./img/new_repository.png)
+```{figure} ../img/new_repository.png
+---
+alt: "GitHub's new repository template page."
+---
+```
 
 There are a few things of note here:
 
@@ -71,8 +75,12 @@ description is helpful but not necessary for our purposes; the same goes for a
 license. Finally, we will choose to make this a public repository (meaning
 anyone can see it).
 
-![A repository template with the repository name filled out and the public
-setting on](./img/new_repository_details.png)
+```{figure} ../img/new_repository_details.png
+---
+alt: "A repository template with the repository name filled out and the public
+setting on."
+---
+```
 
 Pushing a Local Repository
 --------------------------
@@ -81,8 +89,12 @@ Once you've entered the above information, click "Create repository." GitHub
 will take you to a new screen, which gives you a number of options for making
 or uploading new files to the repository.
 
-![GitHub's template code for syncing the remote repository with your local
-copy. The text for this code is below](./img/new_repository_options.png)
+```{figure} ../img/new_repository_options.png
+---
+alt: "GitHub's template code for syncing the remote repository with your local
+copy. The text for this code is below."
+---
+```
 
 Since we already have a repository made, we need to use the "Push an existing
 repository from the command line." Pushing our repository is as easy as
@@ -120,7 +132,11 @@ When you make your changes, the GitHub site won't immediately refresh itself,
 but if you click on the "Code" tab or on the name of the directory, you'll see
 that the repository has been synced and your `README.md` file is now online.
 
-![A GitHub repository showing the README.md file](./img/new_repository_synced.png)
+```{figure} ../img/new_repository_synced.png
+---
+alt: "A GitHub repository showing the README.md file."
+---
+```
 
 Note that GitHub automatically looks for a README file in your repository. If
 it finds one that contains renderable [markdown][] code, it will render the
@@ -177,25 +193,39 @@ To github.com:<your username>/my_first_remote_directory.git
 Afterwards, if you refresh your file's page on GitHub, you should see your
 changes:
 
-![The remote README.md file with Tyler's name on it](./img/new_repository_synced_updated.png)
+```{figure} ../img/new_repository_synced_updated.png
+---
+alt: "The remote README.md file with Tyler's name on it."
+---
+```
 
 Note that your commit message appears here as well:
 
-![README.md remote page with a red box around the commit information for the
-file, which shows the message for the
-commit](./img/new_repository_synced_message_highlight.png)
+```{figure} ../img/new_repository_synced_message_highlight.png
+---
+alt: "README.md remote page with a red box around the commit information for
+the file, which shows the message for the commit."
+---
+```
 
 If you click the commit tag:
 
-![README.md remote page with a red box around the commit
-hash](./img/new_repository_synced_commit_tag.png)
+```{figure} ../img/new_repository_synced_commit_tag.png
+---
+alt: "README.md remote page with a red box around the commit hash."
+---
+```
 
 You'll be taken to another page, which shows you the differences between your
 old version and the new one. This is like running `git diff <commit a> <commit
 b>` on your local computer.
 
-![A side-by-side view of the file as it currently exists and its previous
-version](./img/github_vdiff.png)
+```{figure} ../img/github_vdiff.png
+---
+alt: "A side-by-side view of the file as it currently exists and its previous
+version."
+---
+```
 
 Pulling Changes from a Remote Directory
 ---------------------------------------
@@ -209,8 +239,11 @@ For example, if you return to the main page of "my\_first\_remote\_directory",
 you can alter the README directly on GitHub. Click the pencil in the right-hand
 corner of the rendered file.
 
-![README.md remote page with a red box around the pencil-shaped edit
-icon](./img/new_repository_pencil_highlight.png)
+```{figure} ../img/new_repository_pencil_highlight.png
+---
+alt: "README.md remote page with a red box around the pencil-shaped edit icon."
+---
+```
 
 This will open up a text editor interface. Using it, add "What's yours?" on the
 fifth line of the document. The complete document should look like this:
@@ -229,8 +262,11 @@ command line.
 
 You'll see something like the following:
 
-![The remote copy of README.md updated with new
-information](./img/updated_readme.png)
+```{figure} ../img/updated_readme.png
+---
+alt: "The remote copy of README.md updated with new information."
+---
+```
 
 Back on the command line, you can run `git fetch` to see whether any changes
 have been made to the remote repository.

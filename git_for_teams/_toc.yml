@@ -1,0 +1,20 @@
+format: jb-book
+root: chapters/index
+parts:
+  - caption: Reproducible Research for Teams with GitHub
+    numbered: true
+    chapters:
+      - file: chapters/01_overview
+      - file: chapters/02_about-github
+      - file: chapters/03_setting-up-a-github-account
+      - file: chapters/04_pushing-a-repository
+      - file: chapters/05_cloning-a-repository
+      - file: chapters/06_opening-issues-and-making-changes
+      - file: chapters/07_merging-remote-branches
+      - file: chapters/08_open-and-merge-pull-requests
+  - caption: Back Matter
+    chapters:
+      - file: chapters/09_assessment.md
+  #     - file: chapters/references
+  #     - file: chapters/acknowledgements
+

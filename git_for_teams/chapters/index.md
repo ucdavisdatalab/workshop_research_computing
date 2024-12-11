@@ -1,17 +1,10 @@
----
-title: Reproducible Research for Teams with GitHub
-author: [Tyler Shoemaker, Carl Stahmer]
-date: "`r Sys.Date()`"
-url: "https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/"
-output:
-    bookdown::gitbook:
-        fig_caption: false
-lang: en-us
----
+# Overview
 
-# Overview {-}
-
-![A diagram of multi-branching in Git](./img/git_branching_and_its_options.png)
+```{figure} ../img/git_branching_and_its_options.png
+---
+alt: A diagram of multi-branching in Git
+---
+```
 
 GitHub is an online platform for software development using Git for version
 control. During this hands-on workshop we'll practice setting up, sharing, and
