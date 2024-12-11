@@ -43,19 +43,23 @@ text). If you don't see extra branches listed when you enter this command, run
 
 There are a few ways to get the branch itself. Newer versions of Git use:
 
+```sh
+git switch REMOTE_BRANCH
 ```
-$ git switch <remote-branch>
-Branch '<remote-branch>' set up to track remote branch '<remote-branch>' from 'origin'.
-Switched to a new branch '<remote-branch>'
+```text
+Branch 'REMOTE_BRANCH' set up to track remote branch 'REMOTE_BRANCH' from 'origin'.
+Switched to a new branch 'REMOTE_BRANCH'
 ```
 
 If you have an older version of Git on your computer, you'll need to use a
 checkout:
 
+```sh
+git checkout REMOTE_BRANCH
 ```
-$ git checkout <remote-branch>
-Branch '<remote-branch>' set up to track remote branch '<remote-branch>' from 'origin'.
-Switched to a new branch '<remote-branch>'
+```text
+Branch 'REMOTE_BRANCH' set up to track remote branch 'REMOTE_BRANCH' from 'origin'.
+Switched to a new branch 'REMOTE_BRANCH'
 ```
 
 In either case, Git will pull down a local copy of a remote branch and begin
@@ -70,18 +74,22 @@ Merging Branches
 ----------------
 
 From here, we can merge branches as we normally would. Switch to your own
-branch: 
+branch:
 
+```sh
+git checkout FIRST_NAME_LAST_INITIAL
 ```
-$ git checkout <first-name_last-initial>
-Switched to branch '<first-name_last-initial>'
-Your branch is up to date with 'origin/<first-name_last-initial>'.
+```text
+Switched to branch 'FIRST_NAME_LAST_INITIAL'
+Your branch is up to date with 'origin/FIRST_NAME_LAST_INITIAL'.
 ```
 
 Now, try merge the other branch into your own. You should see an error.
 
+```sh
+git merge OTHER_BRANCH
 ```
-$ git merge <other-branch>
+```text
 Auto-merging README.md
 CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
@@ -91,8 +99,10 @@ This is because both you and the other person have put your names on the same
 line. If you open `README.md` with Vim, or simply `cat` to screen, you'll see
 where the problem is:
 
+```sh
+cat README.md
 ```
-$ cat README.md
+```text
 Practice Repository: Reproducible Research for Teams with GitHub
 ================================================================
 
@@ -101,8 +111,8 @@ Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
 Instructions:
 -------------
 
-Clone this repository, make a new branch named with your first name and last initial 
-(e.g. `first-name_last-initial`) and write your name below.
+Clone this repository, make a new branch named with your first name and last
+initial (e.g. `FIRST_NAME_LAST_INITIAL`) and write your name below.
 
 <<<<<<< HEAD
 Name: <your name>
@@ -112,12 +122,14 @@ Name: <other person's name>
 >>>>>>> <other-branch>
 ```
 
-Fix this conflict by deleting the conflict markers (everything between the 
-`<<<<<<<` and `>>>>>>>` marks) and the other person's changes. Add their name 
+Fix this conflict by deleting the conflict markers (everything between the
+`<<<<<<<` and `>>>>>>>` marks) and the other person's changes. Add their name
 after your own. The file should now look like this:
 
+```sh
+cat README.md
 ```
-$ cat README.md
+```text
 Practice Repository: Reproducible Research for Teams with GitHub
 ================================================================
 
@@ -126,8 +138,8 @@ Workshop reader: https://ucdavisdatalab.github.io/workshop_git_for_teams/
 Instructions:
 -------------
 
-Clone this repository, make a new branch named with your first name and last initial 
-(e.g. `first-name_last-initial`) and write your name below.
+Clone this repository, make a new branch named with your first name and last
+initial (e.g. `FIRST_NAME_LAST_INITIAL`) and write your name below.
 
 Name: <your name>, <other person's name>
 ```
@@ -135,18 +147,22 @@ Name: <your name>, <other person's name>
 Save and quit Vim. Then, add `README.md` to your staging area and commit your
 changes. Your command line should look something like this when you're done:
 
+```sh
+git add README.md
+git commit -m "resolve conflicts with <other person's> branch"
 ```
-$ git add README.md
-$ git commit -m "resolve conflicts with <other person's> branch"
-[<first-name_last-initial> 1d00b8f] resolve conflicts with <other person's> branch
+```text
+[<FIRST_NAME_LAST_INITIAL> 1d00b8f] resolve conflicts with <other person's> branch
 ```
 
 If you type `git status`, you'll see that your local repository is now ahead of
 the remote one.
 
+```sh
+git status
 ```
-$ git status
-On branch <first-name_last-initial>
+```text
+On branch FIRST_NAME_LAST_INITIAL
 Your branch is ahead of 'origin/<first-name_last-initial>' by 1 commit.
   (use "git push" to publish your local commits)
 
