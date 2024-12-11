@@ -62,6 +62,11 @@ overview of how to manage log files in Python.
 [datalab-py-output]: https://ucdavisdatalab.github.io/workshop_intermediate_python/chapters/04_debugging.html#logging
 
 
+### Use Version Control for Data
+
+
+
+
 Project Organization
 --------------------
 
