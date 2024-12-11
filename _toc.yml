@@ -10,9 +10,9 @@ parts:
     numbered: true
     chapters:
       - file: chapters/01_principles
-      - file: chapters/02_core
-      - file: chapters/03_case_by_case_core
-      - file: chapters/04_case_by_case
+      - file: chapters/02_primary_practices
+      - file: chapters/03_secondary_practices
+      - file: chapters/04_case_by_case_practices
   - caption: Afterword
     chapters:
       - file: chapters/references
