@@ -2,9 +2,8 @@ Case-by-case Practices
 ======================
 
 :::{attention}
-This chapter is still a work-in-progress and will be completed sometime in Fall
-Quarter 2024. Check back when you've got some experience with research
-computing and are ready to learn more.
+This chapter is still a work-in-progress. Check back when you've got some
+experience with research computing and are ready to learn more.
 :::
 
 This chapter covers case-by-case practices for reproducibility. Many of these
