@@ -1,7 +1,7 @@
-Case-by-case Core Practices
-===========================
+Secondary Practices
+===================
 
-This chapter covers case-by-case core practices for reproducibility. These are
+This chapter covers secondary practices for reproducibility. These are
 practices which don't apply to every project, but are beneficial or even
 essential when they do apply. For instance, projects that will never be
 distributed do not necessarily need a license, so choosing a license is listed

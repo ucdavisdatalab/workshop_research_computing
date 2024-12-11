@@ -1,7 +1,7 @@
-Core Practices
-==============
+Primary Practices
+=================
 
-This chapter covers core practices for reproducibility. At DataLab, we adopt
+This chapter covers primary practices for reproducibility. At DataLab, we adopt
 these practices for every project, and we recommend that you do too.  They'll
 ensure that you can work on projects efficiently, without being slowed down by
 trying to remember what you did last week, find that one file with the code
@@ -720,8 +720,8 @@ This practice is recommended for projects that involve computations. If your
 project doesn't, or if all computations are handled by specialized software,
 then you might not need a programming language.
 
-Nevertheless, we've included writing code as a core practice to emphasize that
-it's uniquely important for reproducibility if your project does involve
+Nevertheless, we've included writing code as a primary practice to emphasize
+that it's uniquely important for reproducibility if your project does involve
 computations.
 :::
 

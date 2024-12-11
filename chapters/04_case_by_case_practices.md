@@ -9,10 +9,10 @@ experience with research computing and are ready to learn more.
 This chapter covers case-by-case practices for reproducibility. Many of these
 practices require substantial effort to adopt or require specific technical
 knowledge. They can be important and even essential for certain kinds of
-projects, but we feel they aren't broadly applicable in the ways that core and
-case-by-case core practices are. DataLab occasionally adopts these practices.
-Read this chapter when you feel like you've mastered the practices in the
-previous chapters and want to learn even more.
+projects, but we feel they aren't broadly applicable in the ways that primary
+and secondary practices are. DataLab occasionally adopts these practices. Read
+this chapter when you feel like you've mastered the practices in the previous
+chapters and want to learn even more.
 
 
 

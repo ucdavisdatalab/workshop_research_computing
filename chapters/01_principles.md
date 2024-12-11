@@ -152,10 +152,10 @@ Many different practices and tools exist, so it can be difficult to determine
 which ones are the most important. In this reader, they're divided into three
 groups:
 
-1. **Core practices** are the ones you should always adopt for every project.
-   For example, you should always keep notes (documentation).
-2. **Case-by-case core practices** are the ones that are generally a good idea,
-   but aren't relevant to every project. For example, you don't need to use a
+1. **Primary practices** are the ones you should always adopt for every
+   project. For example, you should always keep notes (documentation).
+2. **Secondary practices** are the ones that are generally a good idea, but
+   aren't relevant to every project. For example, you don't need to use a
    Python environment manager if you aren't writing any Python code, but you
    almost always should if you are.
 3. **Case-by-case practices** are the ones that have a low benefit-to-cost
