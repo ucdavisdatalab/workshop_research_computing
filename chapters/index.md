@@ -16,10 +16,11 @@ collaborate with others. As an overview, this workshop is relatively
 non-technical, but provides technical references, including other DataLab
 workshops, for all of the practices covered.
 
+This workshop is intended for learners of at all experience levels, and may
+benefit learners at different experience levels in different ways.
 
-Learning Goals
---------------
-
+:::{admonition} Learning Goals
+:class: note dropdown
 After completing this workshop, learners should be able to:
 
 + Describe widely-used practices and tools for ensuring that research projects
@@ -39,17 +40,14 @@ After completing this workshop, learners should be able to:
   reproducibility practices
 + Explain the ways in which reproducibility practices can facilitate
   collaboration for active research projects
+:::
 
+:::{important}
+We use [this slide deck][slides] when we present this workshop.
 
-Prerequisites
--------------
+[slides]: https://docs.google.com/presentation/d/1uez0jDi5itswL6La3hj9DUucjNR30EKLCeh8KIzK2WA/edit?usp=sharing
 
-This workshop is intended for learners of at all experience levels, and may
-benefit learners at different experience levels in different ways. There are no
-prerequisites and no prior programming experience is necessary.
+The entire workshop is summarized by [this cheat sheet][cheat].
 
-
-Computing Requirements
-----------------------
-
-No specific hardware or software is required.
+[cheat]: https://docs.google.com/document/d/1Ris4HHFZz_3yPJxvVw8vt_qS6WFxV9SlFQ86oznece8/edit?usp=sharing
+:::
