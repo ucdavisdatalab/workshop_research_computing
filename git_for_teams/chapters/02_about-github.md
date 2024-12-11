@@ -15,12 +15,14 @@ down, or **pull** them, onto another. The process would look something like the
 following, where pushing and pulling from a remote branch entails keeping a
 reference point for a project that you're developing locally:
 
-![Diagram showing the five areas of version control: your working tree, index,
-local branch, remote reference, and remote branch. Git add, commit, push,
-fetch, pull, and checkout mediate these areas](./img/github_workflow.png)
-<center>
-[Image source.](https://www.reddit.com/r/git/comments/99ul9f/git_workflow_diagram_showcasing_the_role_of/)
-</center><br>
+```{figure} ../img/github_workflow.png
+---
+alt: "Diagram showing the five areas of version control: your working tree,
+index, local branch, remote reference, and remote branch. Git add, commit,
+push, fetch, pull, and checkout mediate these areas."
+---
+[Image source](https://www.reddit.com/r/git/comments/99ul9f/git_workflow_diagram_showcasing_the_role_of/)
+```
 
 With this diagram in mind, it's not much of a conceptual leap to imagine how
 two or more people could work from the same remote repository. Each would pull
@@ -33,11 +35,14 @@ version control.
 Simultaneously pushing and pulling on multiple computers would look something
 like the following:
 
-![Diagram of two computers linked with GitHub. Each computer has local commits
-that are pushed to GitHub and pulled down to the other computer.](./img/github_as_hub.png)
-<center>
+```{figure} ../img/github_as_hub.png
+---
+alt: "Diagram of two computers linked with GitHub. Each computer has local
+commits that are pushed to GitHub and pulled down to the other computer."
+---
 [Image source.](https://gist.github.com/fentontaylor/c6110b2e20e29a656645ce03d1848964)
-</center>
+```
+
 
 Communicating Through GitHub
 ----------------------------

@@ -14,13 +14,21 @@ A Quick Change of Plans
 First, on the "branches" page, find another branch with which to merge your
 own. You should select a branch made by another workshop participant.
 
-![All available branches on the sandbox repository](./img/github_branches_page.png)
+```{figure} ../img/github_branches_page.png
+---
+alt: "All available branches on the sandbox repository."
+---
+```
 
 When you've decided on a branch, go to your issue and, in a comment, explain
 your change of plans. Tag the person whose branch you'll be merging with using
 "@". Click the green "Comment" button.
 
-![A comment stream below an open issue](./img/github_leave_a_comment.png)
+```{figure} ../img/github_leave_a_comment.png
+---
+alt: "A comment stream below an open issue."
+---
+```
 
 In a real-world project, you might also edit the title of your issue to reflect
 your changes, but for now, you can leave it as is.
@@ -148,8 +156,11 @@ nothing to commit, working tree clean
 Go ahead and `push` your changes. If you go back to GitHub, you should now see
 the modified README file rendered to the page.
 
-![A README.md file showing the new changes on
-GitHub](./img/github_resolved_changes_rendered.png)
+```{figure} ../img/github_resolved_changes_rendered.png
+---
+alt: "A README.md file showing the new changes on GitHub."
+---
+```
 
 Closing an Issue
 ----------------
@@ -158,4 +169,8 @@ Your task is done, so you can close your issue. Return to the "Issues" tab,
 find your issue, and close it. If you'd like, you can leave a comment when you
 close. Afterwards, the issue should look like this:
 
-![A closed issue on GitHub](./img/closed_issue.png)
+```{figure} ../img/closed_issue.png
+---
+alt: "A closed issue on GitHub."
+---
+```

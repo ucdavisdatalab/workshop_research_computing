@@ -28,7 +28,11 @@ Now go to the following link:
 Once there, click on the green "Code" button, which should show the
 following:
 
-![The sandbox repository on GitHub](./img/clone_repository_github_view.png)
+```{figure} ../img/clone_repository_github_view.png
+---
+alt: "The sandbox repository on GitHub."
+---
+```
 
 Since you have SSH keys, select the "SSH" option. Copy the text GitHub provides
 to your clipboard. Then, in the command line, type `git clone`, add a space,
