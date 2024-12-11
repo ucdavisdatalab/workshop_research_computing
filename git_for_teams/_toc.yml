@@ -4,7 +4,6 @@ parts:
   - caption: Reproducible Research for Teams with GitHub
     numbered: true
     chapters:
-      - file: chapters/01_overview
       - file: chapters/02_about-github
       - file: chapters/03_setting-up-a-github-account
       - file: chapters/04_pushing-a-repository
