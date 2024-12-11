@@ -81,8 +81,10 @@ In the command line, open the `README.md` file with Vim. Go to line 12 and
 enter your first name and the first initial of your last name. The file should
 look like this:
 
+```sh
+cat README.md
 ```
-$ cat README.md
+```text
 Practice Repository: Reproducible Research for Teams with GitHub
 ================================================================
 
@@ -94,7 +96,7 @@ Instructions:
 Clone this repository, make a new branch named with your first name and last initial
 (e.g. `first-name_last-initial`) and write your name below.
 
-Name: <firstname lastinitial>
+Name: FIRST_NAME LAST_INITIAL
 ```
 
 Save the file and quit Vim. Add the file to the Git staging area with `git
@@ -109,10 +111,13 @@ GitHub makes tracking issues easier by assigning each issue a number. To
 reference an issue in a commit, simply type the issue number in the commit
 message, prepending it with #:
 
+```sh
+git add README.md
+git commit -m 'adding NAME to README (resolves #ISSUE_NUMBER)'
 ```
-$ git add README.md
-$ git commit -m 'adding <your name> to README (resolves #<your issue>)
-[<first-name_last-initial> e257f92] adding <your name>. to README (resolves #<your issue>)
+
+```
+[FIRST_NAME_LAST_INITIAL e257f92] adding NAME to README (resolves #ISSUE_NUMBER)
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -123,12 +128,14 @@ To see how GitHub makes reference to this commit, we'll need to push our
 changes. But if you try `git push` from here, you'll get the following error
 message:
 
+```sh
+git push
 ```
-$ git push
-fatal: The current branch <first-name_last-initial> has no upstream branch.
+```text
+fatal: The current branch FIRST_NAME_LAST_INITIAL has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
-    git push --set-upstream origin <first-name_last-initial>
+    git push --set-upstream origin FIRST_NAME_LAST_INITIAL
 ```
 
 Here, Git is telling you that the remote repository doesn't have a branch to
@@ -136,13 +143,15 @@ associate your changes with; you've made a _local_ branch, but that doesn't
 automatically create a _remote_ branch. We can see what branches are available
 on the remote repository with `git branch -a`:
 
-<pre style="font-size: small;">
-$ git branch -a
+```sh
+git branch -a
+```
+```text
   main
 * first-name_last-initial
-  <span style="color:red;">remotes/origin/HEAD</span> -> origin/main
-  <span style="color:red;">remotes/origin/carl_s</span>
-</pre>
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/carl_s
+```
 
 The text in black lists local branches, while the red text lists remote
 branches. The "->" arrow that points from a red remote with a black local tells
@@ -153,22 +162,24 @@ branch. You'll need to push it.
 
 To do so, type the following into your command line:
 
-```
-git push --set-upstream origin <branch-name>
+```sh
+git push --set-upstream origin BRANCH_NAME
 ```
 
 There's also a bit of shorthand for this command:
 
-```
-git push -u origin <branch-name>
+```sh
+git push -u origin BRANCH_NAME
 ```
 
 (Note: here "origin" references your local repository.)
 
 Once you press "Enter", you should see something like this:
 
+```sh
+git push -u origin FIRST_NAME_LAST_INITIAL
 ```
-$ git push -u origin <first-name_last-initial>
+```text
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 12 threads
