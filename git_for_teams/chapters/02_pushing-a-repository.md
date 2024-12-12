@@ -1,38 +1,45 @@
-Pushing a Repository
-====================
+Pushing Commits
+===============
 
-Now that you're all set up with GitHub, it's time to sync the website with a 
+This chapter explains how to create a repository on GitHub and sync it with a
 local repository on your computer.
 
 Making a Test Repository
 ------------------------
 
-First, use the command line to make a new directory in your Home folder:
+First, use the command line to make and change to a new directory in your home
+folder (`~`):
 
-```
-$ mkdir ~/my_first_remote_directory
+```sh
+mkdir ~/my_first_remote_directory
+cd ~/my_first_remote_directory
 ```
 
-Put this directory under version control with Git:
+Then initialize a Git repository in the directory:
 
+```sh
+git init
 ```
-$ cd ~/my_first_remote_directory
-$ git init
+
+```text
 Initialized empty Git repository in <path>/<to>/my_first_remote_directory/.git/
 ```
 
-Now let's create a new file, called:
+Now let's create a new file, called `README.md`:
 
-```
-$ echo 'Hello world!' > README.md
+```sh
+echo 'Hello world!' > README.md
 ```
 
 Time to add and commit our file with Git. Don't forget to write a short note in
 the commit message.
 
+```sh
+git add README.md
+git commit -m 'Added a README file'
 ```
-$ git add README.md
-$ git commit -m 'Added a README file'
+
+```text
 main (root-commit) cad7867] Added a README file
  1 file changed, 1 insertion(+)
  create mode 100644 README.md
@@ -41,12 +48,14 @@ main (root-commit) cad7867] Added a README file
 Preparing to Sync Your Repository
 ---------------------------------
 
-So far so good! All we've done is repeat the normal workflow for putting files
+So far so good! All we've done is repeat the usual workflow for putting files
 under version control. But now we need to step away from the command line for a
 moment and prepare a space for receiving this repository on GitHub.
 
-To do so, go to github.com and, on your homepage, click the "Create repository"
-button. You'll be taken to this page:
+To do so, go to [GitHub][] and click the "+" button in the top right corner.
+Select the "New repository" option. You'll be taken to a page like this:
+
+[GitHub]: https://github.com/
 
 ```{figure} ../img/new_repository.png
 ---
@@ -59,15 +68,15 @@ There are a few things of note here:
 * Repository name: your repository's name, which should be the same as what's
   on your computer
 * Description: a short (1-2 sentence) explanation of what's in this repository
-* Public/private setting: repositories may be either "public" (viewable by 
+* Public/private setting: repositories may be either "public" (viewable by
   anyone) or "private" (only viewable by you and those to whom you grant
   access)
-* Initialize with details, including:
+* "Initialize this repository with":
   * A README file: a form of documentation; provides information about the
   files in the repository
   * A .gitignore file: instructs Git to ignore specific files or filetypes
   * A license: governs the use or redistribution of your files
-  
+
 Because we're initializing this repository from an existing directory, we won't
 bother with most of the extra details. But we do need a title, which should be
 the same as what's on your local computer (`my_first_remote_directory`). A
@@ -96,14 +105,22 @@ copy. The text for this code is below."
 ---
 ```
 
-Since we already have a repository made, we need to use the "Push an existing
-repository from the command line." Pushing our repository is as easy as
-sequentially entering into the command line the three commands GitHub provides.
+Since we already have a local copy of the repository, we need to use the "Push
+an existing repository from the command line." In your terminal, enter the
+three commands GitHub recommends. First:
 
+```sh
+git remote add origin REPOSITORY_URL
 ```
-$ git remote add origin git@github.com:<your username>/my_first_remote_directory.git
-$ git branch -M main
-$ git push -u origin
+
+Here `REPOSITORY_URL` is unique to your repository (copy it from GitHub).
+
+```sh
+git branch -M main
+git push -u origin
+```
+
+```text
 Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 239 bytes | 239.00 KiB/s, done.
@@ -144,7 +161,7 @@ file on your repository's main page. (More information about writing effective
 README files is available through the DataLab's data documentation
 [workshop][].)
 
-[markdown]: https://guides.github.com/features/mastering-markdown/ 
+[markdown]: https://guides.github.com/features/mastering-markdown/
 [workshop]: https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/
 
 Tracking Files Remotely
@@ -155,23 +172,29 @@ files, much as Git does locally. The process works exactly like the one you do
 for Git, though it requires one more step.
 
 First, we'll alter our `README.md`. Reopen the file with Vim, skip a line down
-from the line you've already written, and add "My name is <your name>." Save
-and quit.
+from the line you've already written, and add `My name is NAME.`, where `NAME`
+is your name. Save and quit.
 
 Your file should look like the following:
 
+```sh
+cat README.md
 ```
-$ cat README.md
+
+```text
 Hello world!
 
-My name is <your name>.
+My name is NAME.
 ```
 
 Then, add the file and commit your changes.
 
+```sh
+git add README.md
+git commit -m 'Added my name to README'
 ```
-$ git add README.md
-$ git commit -m 'Added my name to README'
+
+```text
 [main 78bf509] Added my name to README
  1 file changed, 2 insertions(+)
 ```
@@ -180,8 +203,11 @@ If you want to push these changes to your remote repository, simply enter `git
 push`. Just as when you first linked your local repository to GitHub, you'll
 see a message appear about enumerating, counting, and writing objects.
 
+```sh
+git push
 ```
-$ git push
+
+```text
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Writing objects: 100% (3/3), 292 bytes | 292.00 KiB/s, done.
@@ -248,7 +274,7 @@ alt: "README.md remote page with a red box around the pencil-shaped edit icon."
 This will open up a text editor interface. Using it, add "What's yours?" on the
 fifth line of the document. The complete document should look like this:
 
-```
+```text
 Hello world!
 
 My name is <your name>
@@ -271,8 +297,11 @@ alt: "The remote copy of README.md updated with new information."
 Back on the command line, you can run `git fetch` to see whether any changes
 have been made to the remote repository.
 
+```sh
+git fetch
 ```
-$ git fetch
+
+```text
 remote: Enumerating objects: 5, done.
 remote: Counting objects: 100% (5/5), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -285,8 +314,10 @@ With this information about your remote repository pulled down to your
 computer, you can run a status check. If you do so, you'll see that your local
 repository is now out of sync with the remote one.
 
+```sh
+git status
 ```
-$ git status
+```text
 On branch main
 Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
   (use "git pull" to update your local branch)
@@ -297,8 +328,10 @@ nothing to commit, working tree clean
 If you haven't made any changes to your directory, syncing it with the remote
 version can be achieved with a straightforward `pull` command:
 
+```sh
+git pull
 ```
-$ git pull
+```text
 Updating 78bf509..2335530
 Fast-forward
  README.md | 2 ++
@@ -323,15 +356,19 @@ computer's directory structure. For example, below is a file listing for a
 directory containing resources for a workshop the DataLab offers about text
 mining and R:
 
+```sh
+ls
 ```
-$ ls
+```
 D3VIS   data   gephi_tutorial   kumu_tutorial   r_networks   readme.txt   scraping   text_mining
 ```
 
 And here is the same directory listing showing hidden files:
 
+```sh
+ls -a
 ```
-$ ls -a
+```text
 .   .DS_Store   D3VIS   gephi_tutorial   r_networks   scraping
 ..  .git        data    kumu_tutorial    readme.txt   text_mining
 ```
@@ -345,7 +382,7 @@ from scratch using Vim by typing `vim .gitignore` on the command line. When you
 do this, Vim will open a new file. Then, you simply add the names of files and
 directories that you want Git to ignore, putting one per line of the new file.
 
-```
+```text
 .httr-oauth
 .DS_Store
 .config
@@ -365,4 +402,4 @@ create a global `.gitignore` file, but this requires you to run various system
 configurations on Git itself. Information on this process can be found
 [here](https://git-scm.com/docs/gitignore). GitHub also provides a nice
 repository of template `.gitignore` files for various types of development
-[here](https://github.com/github/gitignore).  
+[here](https://github.com/github/gitignore).
