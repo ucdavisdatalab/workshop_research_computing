@@ -9,4 +9,4 @@ options:
 
 # Chapters may be written in either Markdown or as Jupyter Notebooks
 chapters:
-  - file: chapters/01_example
+  - file: chapters/01_installing-software
