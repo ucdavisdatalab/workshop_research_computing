@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: chapters/index
+
+options:
+  numbered: true
+
+# Chapters may be written in either Markdown or as Jupyter Notebooks
+chapters:
+  - file: chapters/01_example
