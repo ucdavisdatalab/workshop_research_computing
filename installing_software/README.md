@@ -149,14 +149,14 @@ To make alterations to the reader:
       of your chapter. Subsequent section headers should be second-level
       headers (like `## This`) or below.
 
-    Put any supporting resources in `data/` or `img/`.
+    Put any supporting resources in `data/` or `images/`.
 
 4.  Run the command `jupyter-book build .` in a shell at the top level of the
     repo to regenerate the HTML files in the `_build/`.
 
 5.  When you're finished, `git add`:
     - Any files you edited directly
-    - Any supporting media you added to `img/`
+    - Any supporting media you added to `images/`
 
     Then `git commit` and `git push`. This updates the `main` branch of the
     repo, which contains source materials for the web page (but not the web

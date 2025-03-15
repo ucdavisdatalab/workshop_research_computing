@@ -4,7 +4,7 @@
 title: WORKSHOP TITLE
 author: YOUR NAME
 copyright: "202X"
-logo: img/datalab-logo-full-color-rgb-1.png
+logo: images/datalab-logo-full-color-rgb-1.png
 exclude_patterns: [_build, .pixi]
 only_build_toc_files: true
 
