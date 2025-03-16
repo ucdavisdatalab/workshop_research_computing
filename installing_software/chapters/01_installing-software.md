@@ -4,8 +4,10 @@
 :class: note
 After this lesson, you should be able to:
 
+* Explain what computing environments are
 * Explain what virtual environments are and why they're useful
 * List popular tools for installing software on POSIX computers
+* Create and organize project directories for projects
 * Explain the difference between conda and mamba
 * Install mamba via miniforge
 * Create virtual environments with mamba
@@ -17,6 +19,7 @@ After this lesson, you should be able to:
 This chapter will show you how to set up a computer so that it has the software
 you need. You'll learn how to install software whether or not you have
 administrator access.
+
 
 ## What's an Environment?
 
@@ -55,8 +58,38 @@ Chapter 4 addresses ways to choose the hardware environment on compute clusters
 and cloud computing services.
 -->
 
+---
+
+In a high-level programming language like Python, details of the hardware are
+mostly hidden away. That is, hardware has little to no impact on how you write
+Python code, with the exception of a few specific applications such as GPU
+computing. Hardware may affect how quickly your Python code runs, but usually
+not the final result. As a consequence, for Python projects (and many
+scientific computing projects in general) the hardware environment is generally
+less of a concern than the software environment.
+
+One of the major advantages of Python over other programming languages is the
+massive number of packages developed and published by members the community. As
+Python and Python packages are updated, code designed for older versions may
+need to be edited to continue to work correctly with the newer versions. So for
+most Python projects, keeping track of the software environment means keeping
+track of the specific versions of Python and Python packages for which the code
+was designed.
+
+
 
 ## Environment Managers
+
+A **package manager** is a program that can install, update, and remove
+packages.
+
+A **virtual environment** is a computing environment with specific software
+versions that can coexist alongside other virtual environments with different
+software versions. Virtual environments make it possible to work on several
+different projects at once, even if they require different computing
+environments.
+
+---
 
 A **package manager** is a software tool that downloads and installs software
 packages. If you've used R or Python, you may already be familiar with the
@@ -141,6 +174,37 @@ flexibility and reproducibility.
 [Podman]: https://podman.io/
 [Docker]: https://www.docker.com/
 [VirtualBox]: https://www.virtualbox.org/
+
+
+## What's a Project Directory?
+
+Whenever you start a new computing project, no matter how small, I recommend
+that you create a new **project directory** as a centralized place to store all
+of the project's files. As you produce or download new files, make sure that
+they're also stored in the project directory.
+
+Some examples of files you should store in a project directory are:
+
+* Documentation, such as a file manifest and instructions for use
+* Code, such as notebooks and scripts
+* Inputs, such as data sets and configuration files
+* Outputs, such as reports, figures, and intermediate data sets
+* License information (if the project will be shared with anyone)
+
+By using a project directory to centralize all of the files in a project, it's
+easier to:
+
+* Find files, because you know where to look or to run search software
+* Move or copy the project to other computers
+* Share the project with collaborators, colleagues, or the public
+* Create backup copies of the project to protect your work
+* Access and run files with Python and other command-line tools
+* Use version control software to manage different versions of project files
+
+The gold standard is for a project directory to be completely **portable**,
+meaning you can copy the directory to another computer, follow included
+instructions to setup necessary software (such as Python), and then run the
+code *without any modifications* to get the expected result.
 
 
 (micromamba)=
