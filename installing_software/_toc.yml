@@ -14,3 +14,4 @@ parts:
   - caption: Appendices
     chapters:
       - file: chapters/03_ucdavis-hpc-modules.md
+      - file: chapters/04_python-projects.md
