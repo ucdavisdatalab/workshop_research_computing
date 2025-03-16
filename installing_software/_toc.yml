@@ -4,9 +4,13 @@
 format: jb-book
 root: chapters/index
 
-options:
-  numbered: true
-
 # Chapters may be written in either Markdown or as Jupyter Notebooks
-chapters:
-  - file: chapters/01_installing-software
+parts:
+  - caption: Installing Software with Pixi
+    numbered: true
+    chapters:
+      - file: chapters/01_installing-software
+      - file: chapters/02_editing-configuration-files
+  - caption: Appendices
+    chapters:
+      - file: chapters/03_ucdavis-hpc-modules.md
