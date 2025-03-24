@@ -1,45 +1,85 @@
 # Python Projects
 
-This chapter focuses on strategies and advice to make your Python projects
-well-organized and **reproducible**&mdash;minimizing the obstacles for people
-interested in understanding, reproducing results, contributing, or
-collaborating. Doing so encourages community engagement, makes it easier for
-you to expand upon or reuse parts of the project in the future, and is a
-cornerstone of responsible scientific research.
+## PyPI Packages
 
-Most of this chapter is broadly applicable to any computing project, including
-projects which don't use Python.
-
-
-## Virtual Environments
-
-Python's built-in package manager is [`pip`][pip]. Even if you use an
-alternative package manager, it's good to know the basics of pip in order to
-troubleshoot problems with package installations.
+Python's built-in package manager is [`pip`][pip]. It installs packages from
+the [Python Package Index][pypi] (PyPI) rather than conda-forge. Because `pip`
+is built into Python and is much older than Conda, most packages are released
+on PyPI before conda-forge, and some are never released on conda-forge.
+Fortunately, Pixi can install packages from PyPI.
 
 [pip]: https://pip.pypa.io/en/stable/
+[pypi]: https://pypi.org/
+
+To install a package from PyPI rather than conda-forge, use `pixi add --pypi`
+instead of `pixi add`. For instance, to install `numpy` from PyPI:
+
+```sh
+pixi add --pypi numpy
+```
+
+:::{caution}
+Packages don't always go by the same name on PyPI and conda-forge.
+:::
+
+If you’re planning to package your project for distribution on PyPI, it’s
+currently best to add only PyPI dependencies, since PyPI and `pip` are not
+Conda-aware. In the future, Pixi will add support for packaging projects, and
+will likely provide a way to generate PyPI packages even for projects that
+depend on packages on conda-forge.
+
+If you're not going to distribute your project on PyPI, it’s generally better
+to use packages from conda-forge, since a wider variety of packages (such as
+non-Python packages) are available.
 
 
-There are several options for managing Python virtual environments:
+## Using `pyproject.toml`
 
-* [`venv`][venv] is Python 3's built-in module for managing virtual
-  environments, based on virtualenv.
-* [`virtualenv`][virtualenv] is the most popular tool for managing virtual
-  environments for Python 2, and also supports Python 3. It provides more
-  features than venv.
-* [`pipenv`][pipenv] is an integrated environment and package manager.
-* [`poetry`][poetry] is a relatively new integrated environment and package
-  manager. It also provides tools to create and publish packages.
-* [`conda`][conda] is an integrated environment and package manager originally
-  designed with data science projects in mind.
+Python [officially specifies][pyproject] that metadata about Python projects
+and packages should be placed in a `pyproject.toml` file. Pixi supports using
+`pyproject.toml` rather than `pixi.toml` so that you don't have to maintain
+both files for a project.
 
-Unlike the other tools listed here, conda can manage environments for a variety
-of programming languages, not just Python. This is its standout feature, and
-the reason why the rest of this chapter will focus on conda rather than any of
-the others.
+[pyproject]: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
 
-[venv]: https://docs.python.org/3/library/venv.html
-[virtualenv]: https://virtualenv.pypa.io/
-[pipenv]: https://pipenv.pypa.io/
-[poetry]: https://python-poetry.org/
-[conda]: https://docs.conda.io/projects/conda/
+When you initialize a Pixi project, use `pixi init --format pyproject` instead
+of `pixi init` if you want to use `pyproject.toml` rather than `pixi.toml.` For
+example, try creating a new project called `my_project2`:
+
+```sh
+pixi init --format pyproject my_project2
+```
+
+Open the generated `pyproject.toml` file in a text editor:
+
+```toml
+[project]
+authors = [{name = "YOUR_NAME", email = "YOUR_EMAIL"}]
+dependencies = []
+name = "my_project2"
+requires-python = ">= 3.11"
+version = "0.1.0"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+my_project2 = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+```
+
+The format is slightly different from `pixi.toml`, with the main difference
+being that Pixi-specific tables have the prefix `tool.pixi.`.
+
+When you use `pyproject.toml`, Pixi assumes that you're developing a Python
+package. Because of this, it automatically installs Python and adds a PyPI
+dependency on the project itself. Any `.py` files you place in the project's
+`src/project_name/` directory will be treated as modules in the package, and
+you can `import` them into Python in the project's virtual environment. This is
+convenient even for projects you don't intend to publish as a package.

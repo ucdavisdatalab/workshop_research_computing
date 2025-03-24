@@ -8,13 +8,9 @@ After this lesson, you should be able to:
 * Explain what virtual environments are and why they're useful
 * List popular tools for installing software on POSIX computers
 * Create and organize project directories for projects
-* Explain the difference between conda and mamba
-* Install mamba via miniforge
-* Create virtual environments with mamba
-* Install software with mamba
+* Initialize projects with Pixi
+* Install software with Pixi
 :::
-
-<!-- TODO: Define "computing environment" in the intro -->
 
 This chapter will show you how to set up a computer so that it has the software
 you need. You'll learn how to install software whether or not you have
@@ -28,16 +24,12 @@ associated settings. Whenever you run software (including code) on your
 computer, it runs in a computing environment. Being able to set up, inspect,
 maintain, and document computing environments is important because:
 
-* A computer may not have the software you need pre-installed. Often the best
+* A computer might not have the software you need pre-installed. Often the best
   and sometimes the only solution is to install the software yourself. Doing it
   yourself gives you more control over what's installed and is typically faster
   than asking an administrator to do it for you. For your personal computer,
-  you may be the sole administrator. You can use the same tools to set up and
-  maintain environments on your computer as you do on remote computers.
-
-* Differences between software versions can cause subtle bugs. Specifying a
-  required software environment, with versions, can make it easier to
-  collaborate on, distribute, and revisit research projects.
+  you're probably the sole administrator. You can use the same tools to set up
+  and maintain environments on your computer as you do on remote computers.
 
 * Different projects may require different computing environments, and you may
   need to switch between them frequently. Switching software environments and
@@ -45,28 +37,26 @@ maintain, and document computing environments is important because:
   clusters and cloud computing services, even switching hardware environments
   can be relatively easy.
 
+* Specifying a required software environment, with versions, can make it easier
+  to collaborate on, distribute, revisit, and reproduce research projects.
+  Differences in environment can cause major errors or subtle bugs.
+
 * Inspecting the computing environment is the first step to diagnosing most
   computing problems. If you ask someone for help, they'll likely want to know
   which hardware, software, and settings you're using.
 
-This chapter focuses on software environments and settings, because configuring
-these is often the first thing you'll need to do, and because it's not always
-possible to choose your hardware environment.
+In a high-level programming language like R or Python, details of the hardware
+are mostly hidden away. That is, hardware has limited influence on how you
+write code (with exceptions for a few specific use cases, such as GPU
+computing). Hardware affects how quickly your code runs, but usually not the
+final result. For many research computing projects, hardware is less of a
+concern than software, so this chapter focuses on software environments.
 
 <!--
 Chapter 4 addresses ways to choose the hardware environment on compute clusters
 and cloud computing services.
--->
 
 ---
-
-In a high-level programming language like Python, details of the hardware are
-mostly hidden away. That is, hardware has little to no impact on how you write
-Python code, with the exception of a few specific applications such as GPU
-computing. Hardware may affect how quickly your Python code runs, but usually
-not the final result. As a consequence, for Python projects (and many
-scientific computing projects in general) the hardware environment is generally
-less of a concern than the software environment.
 
 One of the major advantages of Python over other programming languages is the
 massive number of packages developed and published by members the community. As
@@ -75,36 +65,25 @@ need to be edited to continue to work correctly with the newer versions. So for
 most Python projects, keeping track of the software environment means keeping
 track of the specific versions of Python and Python packages for which the code
 was designed.
-
+-->
 
 
 ## Environment Managers
 
-A **package manager** is a program that can install, update, and remove
-packages.
-
-A **virtual environment** is a computing environment with specific software
-versions that can coexist alongside other virtual environments with different
-software versions. Virtual environments make it possible to work on several
-different projects at once, even if they require different computing
-environments.
-
----
-
-A **package manager** is a software tool that downloads and installs software
-packages. If you've used R or Python, you may already be familiar with the
-package managers these languages provide. Many modern operating systems also
+A **package manager** is a tool that can download, install, update, and remove
+software packages. If you've used R or Python, you might already be familiar
+with the package managers they provide. Many modern operating systems also
 provide a package manager, because package managers have several benefits. They
 can:
 
-* Automatically select software compatible with the computing environment
-* Automatically install dependencies for software
-* Update installed software, often automatically or with a single command
-* In some cases, provide guarantees that software packages are not malicious
+* Automatically select packages compatible with the computing environment
+* Automatically install dependencies for packages
+* Update installed packages, often automatically or with a single command
+* In some cases, provide guarantees that packages are not malicious
 
 :::{note}
 Most Linux distributions provide a package manager as the recommended way to
-install software. Nevertheless, it is possible to install software on Linux
+install software. Nevertheless, it's possible to install software on Linux
 without a package manager. One way is to download the source code for the
 software and compile it yourself; another is to download a pre-built binary.
 [FlatPak][] and [AppImage][] are two popular formats for distributing pre-built
@@ -112,37 +91,53 @@ binaries.
 
 Install software via a package manager when possible, but be aware that there
 are alternatives when it's not.
-:::
 
 [FlatPak]: https://flatpak.org/
 [AppImage]: https://appimage.org/
+:::
 
+Some, but not all, package managers can create **virtual environments**:
+self-contained environments that can coexist alongside others, even if they
+contain conflicting packages. You can think of a virtual environment as being
+like a terrarium for a collection of packages.
 
-Sometimes you may need to simultaneously work with several conflicting versions
-of software. For example, suppose you're working on a new project that requires
-Python 3.12 or newer, but you also want to be able to examine results from an
-older project that requires Python 3.9 or older. What should you do?
+Virtual environments make it easier to work on projects with different software
+requirements simultaneously. For example, suppose one of your projects requires
+Python 3.13 or newer, but another uses a package that hasn't been updated since
+Python 3.9. You can work on either project as needed if you create two virtual
+environments and switch between them: one with Python 3.13 and one with Python
+3.9.
 
-A lightweight solution is to use an **environment manager**, a software tool
-that can create **virtual environments**. Each virtual environment behaves like
-an independent software environment, so you can install conflicting software in
-separate virtual environments. Many environment managers have a package manager
-built in.
+In the strictest sense, an **environment manager** is a tool that can create,
+modify, and delete virtual environments. There are environment managers that
+are not package managers (and vice-versa), but from here on we'll use the terms
+somewhat interchangeably.
 
-[Micromamba][mm] is the environment manager we recommend. Micromamba is based
-on the Mamba environment manager, which is, in-turn, based on the [Conda][]
-environment manager. The three tools are drop-in replacements for one another,
-and it's common to refer to the virtual environments created by all three as
-**conda environments**. We recommend Micromamba over Mamba and Conda because it
-is substantially faster and because it eliminates some of the pitfalls of the
-other two. That said, Micromamba is less mature than Mamba and Conda, so you
-may occasionally encounter missing features or bugs. {numref}`micromamba` goes
-into detail about how to install and use micromamba.
+[Pixi][pixi] is the environment manager we recommend and use. Pixi is related
+to the popular environment manager [Conda][]: both install conda packages from
+[conda-forge][], a community-led repository of packages for research computing.
+There are packages on conda-forge for R and Python, as well as other
+programming languages and tools. Pixi can also install packages from other
+sources and repositories (most notably, from the [Python Package Index][pypi]).
 
-[mm]: https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html
-[Conda]: https://docs.conda.io/
-[mamba]: https://mamba.readthedocs.io/
+[pixi]: https://pixi.sh/latest/
+[Conda]: https://conda.org/
+[conda-forge]: https://conda-forge.org/
+[pypi]: https://pypi.org/
 
+We recommend Pixi over Conda because Pixi creates environments that are fully
+reproducible, takes a project-centric approach to environments, is noticeably
+faster, and lacks many of Conda's quirks and pitfalls. That said, Pixi is
+relatively new, so you might occasionally encounter missing features or bugs.
+
+:::{important}
+Pixi is available for Windows, macOS, and Linux, and generally doesn't require
+administrator privileges to install.
+
+Install Pixi by following [the official instructions][pixi].
+:::
+
+:::{note}
 Examples of other popular package and environment managers are:
 
 * [Homebrew][] for macOS and Linux
@@ -157,15 +152,15 @@ Examples of other popular package and environment managers are:
 [Spack]: https://spack.io/
 [Nix]: https://nixos.org/
 [EasyBuild]: https://easybuild.io/
-
+:::
 
 :::{note}
-A more complex solution is to use virtualization tools, such as [Podman][],
-[Docker][], and [VirtualBox][]. These provide complete control over the
-operating system and software in a computing environment, so they provide
-stronger guarantees of reproducibility. The cost is that these tools are often
-slower than environment managers and using them requires more technical
-knowledge.
+Virtualization tools, such as [Podman][], [Docker][], and [VirtualBox][] are a
+different way to create isolated computing environments. They provide complete
+control over the operating system and software in an environment, so they
+provide stronger guarantees of reproducibility. The cost is that these tools
+are often slower than environment managers and using them requires more
+technical knowledge.
 
 For most research projects, using an environment manager provides adequate
 flexibility and reproducibility.
@@ -176,14 +171,26 @@ flexibility and reproducibility.
 [VirtualBox]: https://www.virtualbox.org/
 
 
-## What's a Project Directory?
+## Pixi
 
-Whenever you start a new computing project, no matter how small, I recommend
-that you create a new **project directory** as a centralized place to store all
-of the project's files. As you produce or download new files, make sure that
-they're also stored in the project directory.
+Pixi manages virtual environments on a per-project basis. Each project must
+have its own directory---called a **project directory**---where all of the
+files related to the project are stored. We recommend organizing projects this
+way even when you aren't using Pixi. By using a project directory to centralize
+all of the files in a project, it's easier to:
 
-Some examples of files you should store in a project directory are:
+* Find files, because you know where to look or to run search software
+* Move or copy the project to other computers
+* Share the project with collaborators, colleagues, or the public
+* Create backup copies of the project to protect your work
+* Access and run files with R, Python, and other tools
+* Use version control software to manage different versions of project files
+
+:::{tip}
+Create a new project directory for every project, no matter how small. As you
+produce or acquire new files for the project, make sure that they're stored in
+the directory. Some examples of files you should store in a project directory
+are:
 
 * Documentation, such as a file manifest and instructions for use
 * Code, such as notebooks and scripts
@@ -191,424 +198,477 @@ Some examples of files you should store in a project directory are:
 * Outputs, such as reports, figures, and intermediate data sets
 * License information (if the project will be shared with anyone)
 
-By using a project directory to centralize all of the files in a project, it's
-easier to:
+Give the files descriptive names and create subdirectories to keep the files
+well-organized. The gold standard is for a project directory to be completely
+**portable**, meaning you can copy the directory to another computer, follow
+included instructions to setup necessary software (such as R or Python), and
+then run the code *without any modifications* to get the expected result.
+:::
 
-* Find files, because you know where to look or to run search software
-* Move or copy the project to other computers
-* Share the project with collaborators, colleagues, or the public
-* Create backup copies of the project to protect your work
-* Access and run files with Python and other command-line tools
-* Use version control software to manage different versions of project files
+### Initializing a Project
 
-The gold standard is for a project directory to be completely **portable**,
-meaning you can copy the directory to another computer, follow included
-instructions to setup necessary software (such as Python), and then run the
-code *without any modifications* to get the expected result.
+You can initialize a project to use Pixi with the `pixi init` command. The
+command takes one argument: a path to the project directory. If the directory
+doesn't exist yet, Pixi will create it.
+
+Open a terminal and make a directory where you can try out some commands:
+
+```sh
+mkdir pixi_workshop
+cd pixi_workshop
+```
+
+Initialize a Pixi project called `my_project`:
+
+```sh
+pixi init my_project
+```
+
+```text
+✔ Created /home/nick/pixi_workshop/my_project/pixi.toml
+```
+
+Navigate to the new `my_project/` directory and take a look at the files
+inside:
+
+```sh
+cd my_project
+ls -a
+```
+
+```text
+.  ..  .gitattributes  .gitignore  pixi.toml
+```
+
+The `.gitattributes` and `.gitignore` files are files for [Git][], a version
+control system. If you're not familiar with Git, it's safe to ignore these
+files, and you can skip the rest of this paragraph. The `.gitattributes` file
+tells Git how to handle merges for `pixi.lock`, a file Pixi uses to keep track
+of installed packages. The `.gitignore` file tells Git to ignore the `.pixi/`
+subdirectory, which is where Pixi installs packages.
+
+[Git]: https://git-scm.com/
+
+:::{seealso}
+We recommend using Git for your research computing projects. To learn more,
+check out DataLab's [Introduction to Version Control reader][dl-git].
+
+[dl-git]: https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/
+:::
+
+The `pixi.toml` file identifies the project as a Pixi project. It's also a
+place where you can store metadata about the project (such as its name,
+authors, and version) and where Pixi will store details about the project's
+virtual environments.
+
+Open `pixi.toml` in a text editor (such as `vim`). It will look something like
+this:
+
+```toml
+[project]
+authors = ["YOUR_NAME <YOUR_EMAIL>"]
+channels = ["conda-forge"]
+name = "my_project"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+```
+
+The file is in [TOML][] format, a format designed to be easy for both people
+and computers to read and write. TOML files consist primarily of key-value
+pairs of the form `key = value`. The key-value pairs can be organized into
+named tables with headers of the form `[name]`.
+
+[TOML]: https://toml.io/en/
+
+A `pixi.toml` file always has at least three tables:
+
+* `project` is metadata about the project.
+* `tasks` is a list of project-specific commands.
+* `dependencies` is a list of required packages for the project's default
+  virtual environment, which starts out empty (no packages).
+
+When you initialize a project, Pixi fills in as much of `pixi.toml` as it can.
+For instance, it gets your name and email from Git, if you have Git installed
+and configured. You can edit `pixi.toml` to add or correct details.
+{numref}`editing-pixi.toml` explains more about this file, but first, let's
+install some packages.
 
 
-(micromamba)=
-## Micromamba
+### Adding & Removing Packages
 
-### Installing Micromamba
+You can list a project's packages with `pixi list`. Go ahead and try this for
+the `my_project` project:
 
-The Micromamba documentation includes [official installation
-instructions][mm-install]. We recommend the "install script" method for
-installing Micromamba, which we describe below with slight changes. You can use
-these instructions to install Micromamba on a server or on your personal
-computer.
+```sh
+pixi list
+```
 
-[mm-install]: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
+```text
+✘ No packages found in 'default' environment for 'linux-64' platform.
+```
+
+We haven't installed any packages yet, so there are none to list.
+
+Suppose we want to install Python. Package names are always lowercase and
+usually not surprising, although you can use the `pixi search` command or
+search online if you're not sure about a package's name. Python is in the
+`python` package.
+
+You can install a package with the `pixi add` command. So the command to
+install Python is:
+
+```sh
+pixi add python
+```
+
+```text
+✔ Added python >=3.13.2,<3.14
+```
+
+By default, Pixi installs the most recent compatible version of a package. So
+depending on your computer's operating system and when you run the command,
+Pixi might install a different version of Python.
+
+:::{tip}
+You can use `=`, `<`, `<=`, `>`, and `>=` with `pixi add` to set constraints on
+package versions. For instance, if you want the most recent version of Python
+less than 3.10:
+
+```sh
+pixi add 'python<3.10'
+```
+
+When you set constraints like this, make sure to surround them with single
+quotes (`' '`) or the shell will misunderstand the command.
+:::
+
+:::{caution}
+The `pixi add` command installs packages. Don't confuse it with the `pixi
+install` command, which installs entire virtual environments. You usually won't
+need to run `pixi install`, because Pixi runs it automatically as needed.
+:::
+
+
+The `python` package is now listed in the environment, along with all of its
+dependencies:
+
+```sh
+pixi list
+```
+
+```text
+Package           Version    Build               Size       Kind   Source
+_libgcc_mutex     0.1        conda_forge         2.5 KiB    conda  _libgcc_mutex
+_openmp_mutex     4.5        2_gnu               23.1 KiB   conda  _openmp_mutex
+bzip2             1.0.8      h4bc722e_7          246.9 KiB  conda  bzip2
+ca-certificates   2025.1.31  hbcca054_0          154.4 KiB  conda  ca-certificates
+ld_impl_linux-64  2.43       h712a8e2_4          655.5 KiB  conda  ld_impl_linux-64
+libexpat          2.6.4      h5888daf_0          71.6 KiB   conda  libexpat
+libffi            3.4.6      h2dba641_0          52.2 KiB   conda  libffi
+libgcc            14.2.0     h767d61c_2          828 KiB    conda  libgcc
+libgcc-ng         14.2.0     h69a702a_2          52.5 KiB   conda  libgcc-ng
+libgomp           14.2.0     h767d61c_2          449.1 KiB  conda  libgomp
+liblzma           5.6.4      hb9d3cd8_0          108.7 KiB  conda  liblzma
+libmpdec          4.0.0      h4bc722e_0          87.9 KiB   conda  libmpdec
+libsqlite         3.49.1     hee588c1_2          897.1 KiB  conda  libsqlite
+libuuid           2.38.1     h0b41bf4_0          32.8 KiB   conda  libuuid
+libzlib           1.3.1      hb9d3cd8_2          59.5 KiB   conda  libzlib
+ncurses           6.5        h2d0b736_3          870.7 KiB  conda  ncurses
+openssl           3.4.1      h7b32b05_0          2.8 MiB    conda  openssl
+python            3.13.2     hf636f53_101_cp313  31.7 MiB   conda  python
+python_abi        3.13       5_cp313             6.1 KiB    conda  python_abi
+readline          8.2        h8c095d6_2          275.9 KiB  conda  readline
+tk                8.6.13     noxft_h4845f30_101  3.2 MiB    conda  tk
+tzdata            2025a      h78e105d_0          120 KiB    conda  tzdata
+```
+
+Packages you installed explicitly are printed in bold (although the bold
+doesn't show up in this reader). All of the other packages are dependencies.
+You can use `pixi add` multiple times to install whatever packages you need.
+
+Once you've installed some packages in a virtual environment, you'll probably
+want to use them. You can run a command in the virtual environment with the
+`pixi run` command. So to run `python`:
+
+```sh
+pixi run python
+```
+
+This will open a Python prompt in the virtual environment. You can use Python
+as you would normally at this point.
+
+:::{note}
+On most operating systems, you can use `which` to check which program a command
+will run. For instance, try:
+
+```sh
+pixi run which python
+```
+
+Compare the output to:
+
+```sh
+which python
+```
+The output should be different. The `which` command is a Unix shell tool, not
+part of Pixi.
+:::
+
+If you no longer need a package for your project, you can uninstall it with
+`pixi remove`. Let's remove Python from our project:
+
+```sh
+pixi remove python
+```
+
+```text
+✔ Removed python
+```
+
+The environment is once again empty:
+
+```sh
+pixi list
+```
+```text
+✘ No packages found in 'default' environment for 'linux-64' platform.
+```
+
+With Python uninstalled, let's install another major language of data science:
+R. The package for R is called `r`. We'll also install R's popular ggplot2
+package for data visualization. In conda-forge, R packages have the prefix
+`r-`, so ggplot2 is `r-ggplot2`. We can install both packages in a single `pixi
+add` command:
+
+```sh
+pixi add r r-ggplot2
+```
+
+When you need to run multiple commands in a virtual environment, typing `pixi
+run` in front of each one is inconvenient and tedious. Instead, you can use
+`pixi shell` to launch a subshell in the virtual environment. Any commands you
+enter in the subshell run in the virtual environment.
+
+:::{caution}
+If you're using Windows and Git Bash, the `pixi shell` command is [not yet
+supported][pixi-shell-win].
+
+[pixi-shell-win]: https://github.com/prefix-dev/pixi/issues/417
+:::
+
+Open a subshell:
+
+```sh
+pixi shell
+```
+
+Now try running `R`. You can use R normally, exit, and reopen R again without
+leaving the virtual environment. When you're finished with the subshell, enter
+`exit` to return to your original shell.
+
+
+(editing-pixi.toml)=
+### Editing `pixi.toml`
+
+When you install a package with `pixi add`, Pixi adds the package's name and a
+version constraint to the `pixi.toml` file. Likewise, when you uninstall a
+package with `pixi remove`, Pixi removes the package's name from the file. The
+file is a description of the project and the virtual environment(s) it
+requires.
+
+Open `pixi.toml` in a text editor again:
+
+```toml
+[project]
+authors = ["YOUR_NAME <YOUR_EMAIL>"]
+channels = ["conda-forge"]
+name = "my_project"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+r = ">=4.4,<4.5"
+r-ggplot2 = ">=3.5.1,<4"
+```
+
+The packages we installed in the default virtual environment with `pixi add`
+are listed in the `dependencies` table, along with their version constraints.
+In the constraints, the lower bound comes from the version of the package that
+was actually installed. The upper bound is one minor version higher. We say
+these packages are **pinned** because there are specific constraints on their
+versions. Pixi makes sure constraints on pinned packages are satisfied unless
+you explicitly override them.
+
+In addition to or instead of using `pixi add` and `pixi remove` to manage
+packages, you can do so by editing `pixi.toml` directly. For instance, if you
+want to remove a package, just remove its line from `pixi.toml`. Pixi will
+automatically uninstall the package the next time you run a `pixi` command.
+Similarly, you can add packages by adding a line to `pixi.toml`, and they'll be
+installed the next time you run a command.
+
+Take a look at the files in the `my_project/` directory again now that we've
+added and removed some packages:
+
+```sh
+ls -a
+```
+
+```
+.  ..  .gitattributes  .gitignore  .pixi  pixi.lock  pixi.toml
+```
+
+There's a new directory called `.pixi/`. This is where Pixi installs all of a
+project's virtual environments and packages.
+
+:::{tip}
+If you know you won't work on a project again for a while (or ever), you can
+safely delete `.pixi/` to get back some storage space. All of the information
+needed to reconstruct the virtual environment(s) is in `pixi.toml` and
+`pixi.lock`.
+:::
+
+There's also a new file `pixi.lock`, called a **lockfile**. The lockfile lists
+the exact version and source of every package, including dependencies,
+installed in the project's virtual environments. It's a complete specification,
+in contrast to the flexible specification in `pixi.toml`. Both are useful: the
+lockfile is for reproducing environments exactly, while the `pixi.toml` file is
+for producing compatible environments---as defined by the version
+constraints---that might differ slightly from the originals.
 
 :::{important}
-Before following the instructions below, make sure to review the [official
-installation instructions][mm-install], as they may have changed since this was
-written. At the time of writing, the official installation command was:
-
-```sh
-"${SHELL}" <(curl -L micro.mamba.pm/install.sh)
-```
-
-This command downloads the install script and immediately runs it. In the
-instructions below, we separate the download and install steps, to make it
-easier to troubleshoot problems and because it's generally a good idea to read
-a script you downloaded before running it, to make sure it doesn't do anything
-malicious.
+If you use Git, make sure to commit both `pixi.toml` and `pixi.lock`.
 :::
 
-:::{note}
-On Windows, we recommend installing Micromamba in [Git Bash][git] or the
-[Windows Subsystem for Linux][wsl].
+By default, Pixi will only compute the lockfile for your computer's operating
+system. If you plan to use other operating systems---or share your project with
+people who do---it's a good idea to have Pixi compute the lockfile for all of
+them. You can do this by adding the operating systems to the `platforms` key in
+`pixi.toml`. Some valid operating systems are `linux-64`, `macos-64`,
+`osx-arm64` (for M1, M2, ...), and `win-64`. Computing the lockfile for all of
+the operating systems where your project might be used can help you catch
+problems with virtual environments early, such as packages that are not
+available for some operating systems. For example, if you want to include all
+three operating systems, change the `platforms` key to:
 
-While it is possible to install Micromamba in Windows' native `CMD.exe` or
-PowerShell terminals, these terminals do not support Unix shell commands, so we
-recommend against using them for research computing.
-
-[git]: https://git-scm.com/
-[wsl]: https://learn.microsoft.com/en-us/windows/wsl/about
-:::
-
-
-The first step is to download the install script. The official installation
-instructions suggest using the `curl` command line tool to do this. Since
-`curl` is not pre-installed on some servers, we've also provided instructions
-for how to do it with the `wget` command line tool. In a terminal, run:
-
-::::{tab-set}
-
-:::{tab-item} curl
-
-```sh
-curl -O -L micro.mamba.pm/install.sh
+```toml
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
 ```
 
-The `-O` flag saves the file with the same name it had on the server
-(`install.sh`), while the `-L` flag ensures `curl` follows redirects.
+Pixi searches for and installs packages from the conda-forge repository by
+default. In the jargon of Pixi (and Conda), package repositories are called
+**channels**. You can specify other channels Pixi should search for packages in
+`pixi.toml`'s `channels` key. The channels have highest to lowest priority from
+left to right.
 
-If you see a message like `curl: command not found`, try the `wget` version
-instead.
-:::
+#### Tasks
 
-:::{tab-item} wget
+In addition to being a package and environment manager, Pixi is also a simple
+**task runner**: a tool that can run other commands in a convenient way. Tasks
+make the functionality or workflow of your project easier for other people to
+discover---especially when paired with detailed documentation---and lower the
+cognitive burden on you and your collaborators to remember the syntax for
+specific commands.
 
-```sh
-wget micro.mamba.pm/install.sh
+You can create tasks with the `pixi task` command or by editing the `[tasks]`
+table in `pixi.toml`. In `pixi.toml`, tasks take this form:
+
+```toml
+task_name = { cmd = "commands_to_run", description = "Help for the task." }
 ```
 
-If you see a message like `wget: command not found`, try the `curl` version
-instead.
-:::
+The `description` field is optional and can be omitted, but it's a good habit
+to document your tasks.
 
-::::
+As an example, we use these tasks in the project for this reader:
 
-If the command was successful, you'll have a file `install.sh` in your working
-directory. Take a moment to inspect the script with your preferred text editor.
-If everything looks okay, make the script executable:
-
-```sh
-chmod +x install.sh
+```toml
+[tasks]
+build = { cmd = "jupyter-book build .", description = "Build the reader." }
+publish = { cmd = "ghp-import --no-jekyll --no-history --push _build/html", description = "Publish the reader to the `gh-pages` branch on GitHub." }
+clean = { cmd = "rm -rf _build/", description = "Remove the build directory." }
+rebuild = { depends-on = ["clean", "build"], description = "Remove the build directory and build the reader." }
 ```
 
-Then run the script:
+The `build` task generates the reader from source files, the `publish` task
+uploads the reader to the web, and the `clean` task deletes the built reader
+(in case we want to rebuild it). The `rebuild` task is special: instead of a
+command to run, it specifies that it `depends-on` the `clean` and `build`
+tasks. So Pixi will run both of those tasks when you run `rebuild`.
+
+You can run tasks with the `pixi run` command and the name of the task. So in
+the project for this reader, we can run the `build` task with this command:
 
 ```sh
-./install.sh
+pixi run build
 ```
-
-The script will prompt you about several installation details:
-
-* `Micromamba binary folder`: where the `micromamba` tool will be installed.
-  For most computers, it's fine to accept the default by pressing `Enter`
-  without typing anything.
-* `Init shell`: whether to configure the shell to find the `micromamba` tool.
-  Enter `Y` here unless you know how to configure this yourself.
-* `Configure conda-forge`: whether to default to installing packages from the
-  conda-forge package repository, which provides additional
-  community-maintained packages. Enter `Y` here.
-* `Prefix location`: where environments and packages will be installed. Once
-  again, it's fine to accept the default by pressing `Enter` without typing
-  anything.
-
-Once the script finishes, you must reload your shell's settings before running
-Micromamba. To do so, run this command in the terminal:
-
-```sh
-source ~/.bashrc
-```
-
-{numref}`bash` provides more details about what this command is doing.
-
-Then check that your shell can find Micromamba. In the terminal, run:
-
-```sh
-micromamba --version
-```
-
-If the installation was successful, you should see a version number like
-`1.5.3`. It's okay if you have a different version. If you see an error message
-like `micromamba: command not found`, try running `source ~/.bashrc` and then
-try the command above again. If you still see an error message, some possible
-fixes are to run the install script again or to edit the shell configuration
-files (and check the `PATH` environment variable).
-
-
-### Creating Environments
-
-The [Micromamba documentation][mm] is intended for users already familiar with
-Conda. If you're new to environment management or the Conda family of tools,
-you may find the [Conda documentation][conda-docs] more helpful for
-understanding what commands do and how to use them. There's also a [Conda cheat
-sheet][conda-cheat].
-
-[conda-cheat]: https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf
-[conda-docs]: https://docs.conda.io/projects/conda/en/stable/commands/index.html
-
-:::{tip}
-In almost all cases, Conda commands are the same as Micromamba commands---just
-replace `conda` with `micromamba`.
-:::
 
 :::{caution}
-If you find a different Conda cheat sheet online, make sure it's up-to-date!
-There are a few very old cheat sheets that rank highly in search engines but
-list commands that will not work in Micromamba and recent versions of Conda.
-:::
-
-To practice using Micromamba, let's create a new virtual environment and
-install a few useful command line tools. You can create a new virtual
-environment with the `create` subcommand. Run this command in the terminal
-to create a new virtual evironment called `utils`:
-
-```sh
-micromamba create --name utils
-```
-
-```
-Empty environment created at prefix: /home/USERNAME/micromamba/envs/utils
-```
-
-When the `create` subcommand runs successfully, it prints out `Empty
-environment created at prefix:` and a path. The path is the location where
-packages installed in the environment will be stored.
-
-:::{tip}
-Creating a new virtual environment for each project you work on is a good way
-to avoid software version conflicts and keep track of the software each project
-requires. For some projects, you may need to create multiple virtual
-environments to accommodate distinct research directions and collections of
-software.
-
-Virtual environments are easy to create and remove (aside from the time it
-takes to download and install software), so experiment until you find a
-workflow that works well for you.
-:::
-
-You can list all of the virtual environments Micromamba detects with the `env
-list` subcommand. Try running this command in the terminal:
-
-```sh
-micromamba env list
-```
-
-```
-  Name      Active  Path
-────────────────────────────────────────────────────────────────
-  utils             /home/USERNAME/micromamba/envs/utils
-```
-
-In order to use an environment and its installed packages, you must first
-**activate** the environment. You can activate an environment with the
-`activate` subcommand. Go ahead and activate the `utils` environment:
-
-```sh
-micromamba activate utils
-```
-
-By default, the name of the active virtual environment (if any) is displayed as
-a prefix on the shell prompt. So after running the `activate` subcommand above,
-you should see `(utils)` at the beginning of the shell prompt. The environment
-will remain active as long as your terminal is open. If you close the terminal
-(or log out, for SSH connections) the environment will be deactivated.
-
-:::{note}
-You can also deactivate the currently active environment by running `micromamba
-deactivate`. It is *not* necessary to do this before activating a different
-environment.
-:::
-
-Let's install a file search tool, [ripgrep][rg], in the `utils` environment.
-The ripgrep (`rg`) tool searches for files which contain a given text string
-(or regular expression). You can use the `install` subcommand to install
-packages. The default is to install packages into the active environment. You
-can list any number of packages after `install`. For instance, to install
-ripgrep:
-
-```sh
-micromamba install ripgrep
-```
-
-The subcommand will list the packages that will be installed and prompt you to
-confirm. If you see more than just the requested packages in the listing, it's
-because the requested packages have dependencies.
-
-:::{caution}
-Whenever you run the `install` subcommand, it will also try to update packages
-that are already installed. This is good for keeping your software up-to-date,
-but a problem if your project requires specific versions. You can use the
-`--freeze-installed` flag to prevent updates to packages that are already
-installed.
-:::
-
-:::{tip}
-You can install a specific version of a package by quoting the name of the
-package and using `=`, `<`, `<=`, `>`, or `>=` to indicate the version. For
-instance, to install Python 3.9:
-
-```sh
-micromamba install 'python=3.9'
-```
+Be careful not to give tasks names that conflict with other tools you use. For
+instance, `python` is probably not a good name for a task.
 :::
 
 
-After the installation is complete, try out one of the commands. For example,
-create a file called `foo.txt` with the text `hello world`, and then try
-finding it with `rg`:
+:::{seealso}
+There are many other useful things you can do by editing `pixi.toml`, such as
+setting up multiple virtual environments or specifying minimum hardware
+requirements for a project.
 
-```sh
-echo "hello world" > foo.txt
-rg hello
-```
-
-You can list all of the packages installed in a virtual environment with the
-`list` subcommand. The default is to list packages in the active environment:
-
-```sh
-micromamba list
-```
-
-```
-List of packages in environment: "/home/nick/micromamba/envs/utils"
-
-  Name           Version  Build        Channel
-────────────────────────────────────────────────────
-  _libgcc_mutex  0.1      conda_forge  conda-forge
-  _openmp_mutex  4.5      2_gnu        conda-forge
-  libgcc-ng      13.2.0   h807b86a_5   conda-forge
-  libgomp        13.2.0   h807b86a_5   conda-forge
-  ripgrep        14.1.0   he8a937b_0   conda-forge
-```
-
-The list might differ slightly on your computer because of different operating
-systems and new versions of packages released since this was written. However,
-you should see ripgrep in the list. All of the other packages---which we did
-not request directly---are dependencies.
-
-The `create`, `activate`, and `install` subcommands are fundamental to using
-Micromamba. There are many other subcommands, which you can learn about by
-reading the [Conda documentation][conda-docs].
-
-:::{tip}
-The ripgrep search tool is worth knowing about if you work in the command line
-frequently. It can help you find files quickly. It's a faster, modernized
-versions of the classic `grep` tool.
+See [the Pixi documentation][pixi] for more details.
 :::
 
 
-### Exporting Environments
+### Global Installs
 
-One of the benefits of using conda environments is that they can be exported
-and then recreated later, possibly by other people or on other computers.
-You can export a conda environment with the `env export` subcommand. In most
-cases, you should also use the `--from-history` flag, which exports only the
-packages you installed directly. For example, run this command in the `utils`
-environment:
+Occasionally, you might come across a tool that's broadly useful but not
+required by any particular project. For example, ripgrep (`rg`) is a tool to
+search for files that contain a given text string (or regular expression). It's
+a faster, modernized version of the classic `grep` tool, and worth knowing
+about if you use the command line frequently, because it can help you find
+files quickly. 
 
-```sh
-micromamba env export --from-history
-```
-
-```yaml
-name: utils
-channels:
-- conda-forge
-- pkgs/main
-dependencies:
-- ripgrep
-```
-
-The subcommand prints out the environment specification in [YAML][yaml], a
-human-readable markup language. The `dependencies` section lists the packages
-as you installed them, so each package's version is omitted unless you
-installed a specific version. The `channels` section lists the channels
-(package repositories) from which you downloaded the packages.
-
-[yaml]: https://en.wikipedia.org/wiki/YAML
-
-You'll probably want to save the environment specification rather than just
-print it out. You can use the shell `>` command to pipe the output to a file,
-to save or share with others. It's a good idea to include the environment name
-in the name of the file, and to use a `.yml` or `.yaml` extension. So for the
-`utils` environment:
+You can use the `pixi global install` command to install a package globally, so
+that it's available in all shells without any need to use `pixi run` or `pixi
+shell`. Try installing `ripgrep` this way:
 
 ```sh
-micromamba env export --from-history > utils.yml
+pixi global install ripgrep
 ```
 
-After running the command, there will be a `utils.yml` file in your working
-directory. You can use a text editor to check its contents.
+```text
+Global environments as specified in '/home/nick/.pixi/manifests/pixi-global.toml'
+└── ripgrep: 14.1.1 (installed)
+    └─ exposes: rg
+```
 
-You can recreate an environment from a specification file with the `env create`
-subcommand and the `--file` flag. Let's remove the `utils` environment from
-Micromamba, so that we can recreate it from the `utils.yml` file. To remove the
-environment, run this command:
+Pixi creates a new virtual environment for each package you install this way,
+in order to prevent conflicts. You can use `pixi global list` to see which
+packages you've installed globally:
 
 ```sh
-micromamba env remove --name utils
+pixi global list
 ```
 
-Then recreate the environment from `utils.yml`:
+```text
+Global environments as specified in '/home/nick/.pixi/manifests/pixi-global.toml'
+└── ripgrep: 14.1.1
+    └─ exposes: rg
+```
+
+If you want to uninstall a globally-installed package, use `pixi global
+uninstall`. For example, to uninstall `ripgrep`:
 
 ```sh
-micromamba env create --file utils.yml
+pixi global uninstall ripgrep
 ```
 
-After the packages finish installing, activate the environment and test that
-ripgrep (`rg`) is there.
-
-Keep environment specification files with the code for the project to which
-they belong. For instance, if you version your code with git, version your
-environment file(s) too. Share the environment specification files with anyone
-who needs to work on your project, so that you can make sure their environment
-is set up with the same software as yours.
-
-The environment specification files produced by `env export` with the
-`--from-history` flag do not include version info for most packages. This is by
-design: the format is meant to be cross-platform, and sometimes specific
-versions are not available on all platforms. The tradeoff is that when the
-environment is recreated, Micromamba might install newer versions of packages,
-which might cause compatibility issues. If you know your project depends on
-specific versions of packages, make sure to specify the versions when you
-install the packages. Alternatively, you can export to a specification format
-that has complete version information but is *not* cross-platform by omitting
-the `--from-history` flag. The command to recreate an environment from a
-specification file in this format is the same.
-
-:::{note}
-Environment export is still under development in both the Conda and Mamba
-(which includes Micromamba) projects, and there's no consensus yet. As of
-writing:
-
-* The [conda-lock][] subproject is a relatively mature tool for exporting
-  environments.
-* The Conda developers [might add an option to include version information in
-  the cross-platform format][conda-issue-10345].
-* The Mamba developers [might create a new format][mamba-issue-1209].
-:::
-
-[conda-lock]: https://github.com/conda/conda-lock
-[conda-issue-10345]: https://github.com/conda/conda/issues/10345
-[mamba-issue-1209]: https://github.com/mamba-org/mamba/issues/1209
-
-
-### Managing Storage
-
-Depending on which packages you install, conda environments can potentially use
-10s of gigabytes of storage. Micromamba automatically caches installed packages
-and shares them between environments when possible, but there are also a few
-things you can do to keep storage usage under control.
-
-First, make sure you use `env remove` to remove old environments that you no
-longer use. If you export these environments before removing them, you can
-recreate them if you need them again later.
-
-Second, periodically clean up Micromamba's cache to remove old, unused
-packages. To do this, run:
-
-```sh
-micromamba clean --all
+```text
+✔ Removed environment ripgrep.
 ```
 
-This will remove all packages from the cache that are not installed in any
-environments. Unless you install packages via symlinks, which is beyond the
-scope of this reader, then this is a safe command and will not break your
-environments.
+
