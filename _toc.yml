@@ -14,3 +14,10 @@ parts:
       - file: chapters/reproducibility/03_secondary_practices
       - file: chapters/reproducibility/04_case_by_case_practices
       - file: chapters/reproducibility/references
+  - caption: "Installing Software with Pixi"
+    numbered: true
+    chapters:
+      - file: chapters/installing-software/01_installing-software
+      - file: chapters/installing-software/02_editing-configuration-files
+      - file: chapters/installing-software/03_ucdavis-hpc-modules
+      - file: chapters/installing-software/04_python-projects
