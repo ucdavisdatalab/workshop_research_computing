@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: chapters/index
+
+# Chapters may be written in either Markdown or as Jupyter Notebooks
+parts:
+  - caption: Installing Software with Pixi
+    numbered: true
+    chapters:
+      - file: chapters/01_installing-software
+      - file: chapters/02_editing-configuration-files
+  - caption: Appendices
+    chapters:
+      - file: chapters/03_ucdavis-hpc-modules.md
+      - file: chapters/04_python-projects.md
