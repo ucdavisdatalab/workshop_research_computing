@@ -29,11 +29,11 @@ Chances are good that you're already doing some kind of version control
 yourself. You might have a directory somewhere on your computer that looks
 something like this:
 
-![](/images/mac_finder_1.png)
+![](/images/version-control/mac_finder_1.png)
 
 Or perhaps this:
 
-![](/images/mac_window_2.png)
+![](/images/version-control/mac_window_2.png)
 
 This is a rudimentary form of version control where it's completely up to you
 to name, save, and keep track of multiple versions of a file. This **filesystem
@@ -101,13 +101,13 @@ on how they do this:
 :::::{grid}
 
 ::::{grid-item}
-:::{figure} /images/centralized_network.svg
+:::{figure} /images/version-control/centralized_network.svg
 Centralized (hub and spoke) model
 :::
 ::::
 
 ::::{grid-item}
-:::{figure} /images/distributed_network.svg
+:::{figure} /images/version-control/distributed_network.svg
 Distributed (network) model
 :::
 ::::

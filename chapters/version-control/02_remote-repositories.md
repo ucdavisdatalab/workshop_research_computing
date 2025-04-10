@@ -82,7 +82,7 @@ look for an email from GitHub. Click the "Verify email address" button. Doing
 so will take you to your profile, where, if you'd like, you can add a few
 details about yourself.
 
-![](/images/github_new_homepage.png)
+![](/images/version-control/gh_new_account.png)
 
 You now have a GitHub account!
 
@@ -199,7 +199,7 @@ Open a web browser and go to [GitHub][]. Make sure you're logged in, then click
 the "+" button in the upper-right corner and select the "New repository"
 option. You'll be taken to a page like this:
 
-:::{figure} /images/gh_new_repository.png
+:::{figure} /images/version-control/gh_new_repository.png
 :align: center
 :height: 40em
 :::
@@ -221,7 +221,7 @@ GitHub username). Leave the description blank and make sure the repository is
 public. Because you already initialized the repository locally, leave all of
 the initialization options unchecked. It should look something like this:
 
-:::{figure} /images/gh_new_repository_filled.png
+:::{figure} /images/version-control/gh_new_repository_filled.png
 :align: center
 :height: 40em
 :::
@@ -233,7 +233,7 @@ GitHub will take you to a new page with "Quick setup" and instructions to
 "create a new repository on the command line" or "push an existing repository
 from the command line." The page should look something like this:
 
-:::{figure} /images/gh_new_repository_created.png
+:::{figure} /images/version-control/gh_new_repository_created.png
 :align: center
 :height: 40em
 :::
@@ -284,7 +284,7 @@ You should see the message in your `README.md` file:
 
 <!-- FIXME: update this image -->
 
-:::{figure} /images/gh_new_repository_pushed.png
+:::{figure} /images/version-control/gh_new_repository_pushed.png
 :align: center
 :height: 40em
 :::
@@ -387,7 +387,7 @@ add a reply to the question in the README.
 Open a web browser to *your repository's* main page on GitHub. Click on the
 "Settings" button. You'll be taken to a page that looks like this:
 
-:::{figure} /images/gh_repository_settings.png
+:::{figure} /images/version-control/gh_repository_settings.png
 :align: center
 :height: 40em
 :::
@@ -396,7 +396,7 @@ On the left side, click on "Collaborators". GitHub might ask you to enter your
 password or complete two-factor authentication. Once you've done that, you'll
 end up at a page like this:
 
-:::{figure} /images/gh_repository_collaborators.png
+:::{figure} /images/version-control/gh_repository_collaborators.png
 :align: center
 :height: 40em
 :::
@@ -506,7 +506,7 @@ someone.
 
 ## The Git Workflow
 
-![](/images/git_workflow.svg)
+![](/images/version-control/git_workflow.svg)
 
 A typical Git workflow---as illustrated in the figure above---is:
 
