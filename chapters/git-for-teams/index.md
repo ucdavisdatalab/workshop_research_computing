@@ -1,6 +1,6 @@
 # Overview
 
-```{figure} ../img/git_branching_and_its_options.png
+```{figure} /images/git-for-teams/git_branching_and_its_options.png
 ---
 alt: A diagram of multi-branching in Git
 ---

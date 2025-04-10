@@ -11,7 +11,7 @@ lang: en-us
 
 # Overview
 
-![DataLab logo](img/datalab-logo-full-color-rgb.png)
+![DataLab logo](/images/command-line/datalab-logo-full-color-rgb.png)
 
 Learn and practice how to talk directly to your computer via the command line.
 The Unix shell is a powerful tool for using scientific software, working with

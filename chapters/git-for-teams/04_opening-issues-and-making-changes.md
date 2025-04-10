@@ -47,7 +47,7 @@ the "Issues" tab at
 and click the green "New issue" button. It should take you to the following
 page: 
 
-```{figure} ../img/new_issue.png
+```{figure} /images/git-for-teams/new_issue.png
 ---
 alt: "A new issue template on GitHub."
 ---
@@ -56,7 +56,7 @@ alt: "A new issue template on GitHub."
 You'll be adding your name to the repository's `README.md` file. Your issue's 
 title should reflect this task.
 
-```{figure} ../img/new_issue_title_description.png
+```{figure} /images/git-for-teams/new_issue_title_description.png
 ---
 alt: "A new issue with the title and comment fields filled in."
 ---
@@ -66,7 +66,7 @@ With this information entered, assign yourself to this issue (by clicking the
 little gear button next to "Assignees"). Then, click the green "Submit new
 issue" button. GitHub will take you to a new page:
 
-```{figure} ../img/new_issue_submitted.png
+```{figure} /images/git-for-teams/new_issue_submitted.png
 ---
 alt: "A submitted issue."
 ---
@@ -200,7 +200,7 @@ Now, if you type `git branch -a`, you'll see a remote copy of your branch. You
 can also visit the repository page on GitHub, where you'll see a notice that a
 branch has "recent pushes".
 
-```{figure} ../img/github_recent_pushes.png
+```{figure} /images/git-for-teams/github_recent_pushes.png
 ---
 alt: "The sandbox repository with a message showing recent pushes to the
 tyler_s branch."
@@ -209,7 +209,7 @@ tyler_s branch."
 
 Click on the "branches" icon:
 
-```{figure} ../img/github_recent_pushes_focus.png
+```{figure} /images/git-for-teams/github_recent_pushes_focus.png
 ---
 alt: "The sandbox repository with a red box around the branches
 button."
@@ -223,7 +223,7 @@ branch by 1 commit. You'll also see that your change has appeared down in the
 README view. Finally, you'll see in the commit message view that the message
 has turned your issue number into a hyperlink.
 
-```{figure} ../img/github_pushed_branch_changes.png
+```{figure} /images/git-for-teams/github_pushed_branch_changes.png
 ---
 alt: "The tyler_s branch of the sandbox repository."
 ---

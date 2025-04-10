@@ -28,7 +28,7 @@ Now go to the following link:
 Once there, click on the green "Code" button, which should show the
 following:
 
-```{figure} ../img/clone_repository_github_view.png
+```{figure} /images/git-for-teams/clone_repository_github_view.png
 ---
 alt: "The sandbox repository on GitHub."
 ---

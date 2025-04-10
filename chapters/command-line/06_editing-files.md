@@ -39,7 +39,7 @@ We can see how all this works if we try to open a binary file with an
 application that doesn't expect this kind of format. For example, if you open
 this image:
 
-![Image of the Mac Terminal](img/prompt.png)
+![Image of the Mac Terminal](/images/command-line/prompt.png)
 
 ...with a text editor, you'll see something like this:
 
@@ -63,9 +63,7 @@ the file data itself, since it contains custom encodings that don't correspond
 to plain text characters. If we deleted a snippet of "text" from the output
 above, resaved it, and reopened it in an image viewer...
 
-<center>
-  ![Message showing that the image cannot be opened](img/broken_image.png)
-</center><br>
+![Message showing that the image cannot be opened](/images/command-line/broken_image.png)
 
 ...we'll see that it's been corrupted.
 
@@ -174,7 +172,7 @@ type `vi` in a command line window, followed by the filename. You can also
 create a new file this way, simply by typing the name you'd like to use for
 that file after `vi`.
 
-![Creating a new text file with Vim on the command line](img/new_vim_file.png)
+![Creating a new text file with Vim on the command line](/images/command-line/new_vim_file.png)
 
 Vim works a bit differently than other text editors and word processors. It has
 a number of 'modes,' which provide different forms of interaction with a file's
@@ -189,7 +187,7 @@ To insert text in your document, switch to Insert mode by pressing `i`. You can
 check whether you're in Insert mode by looking at the bottom left hand portion
 of the window. You should see an `-- INSERT --` string.
 
-![Vim text editor with Hello World! written in it](img/hello_world_vim.png)
+![Vim text editor with Hello World! written in it](/images/command-line/hello_world_vim.png)
 
 Once you are done inserting text, pressing `ESC` (the Escape key) will bring
 you back to Normal mode. From here, you can save and quit your file, though
@@ -202,7 +200,7 @@ Note the colon, which must be included. After you've entered this key sequence,
 in the bottom left hand corner of your window you should see "[file name] XL,
 XC written" (*L* stands for "lines" and *C* stands for "characters").
 
-![Saving text with Vim](img/saving_vim.png)
+![Saving text with Vim](/images/command-line/saving_vim.png)
 
 To quit Vim, enter `:q`. This should take you back to your command line and, if
 you have created a new file, you will now see that file in your window.
