@@ -14,6 +14,16 @@ parts:
       - file: chapters/reproducibility/03_secondary_practices
       - file: chapters/reproducibility/04_case_by_case_practices
       - file: chapters/reproducibility/references
+  - caption: "Introduction to the Command Line"
+    numbered: true
+    chapters:
+      - file: chapters/command-line/01_overview
+      - file: chapters/command-line/02_installing-a-cli
+      - file: chapters/command-line/03_interacting-with-our-computers
+      - file: chapters/command-line/04_command-line-basics
+      - file: chapters/command-line/05_navigating-with-the-command-line
+      - file: chapters/command-line/06_editing-files
+      - file: chapters/command-line/07_end
   - caption: "Installing Software with Pixi"
     numbered: true
     chapters:

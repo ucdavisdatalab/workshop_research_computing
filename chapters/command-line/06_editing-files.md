@@ -225,20 +225,23 @@ list may be found on this [cheat sheet][].
 
 [cheat sheet]: https://vim.rtorr.com/
 
-```{r, echo=FALSE}
-vim_command <- c("ESC", "i", ":w", ":q", ":q!")
-vim_explanation <- c(
-  "Enter Normal mode.", 
-  "Enter Insert mdoe.",
-  "Save.",
-  "Quit.",
-  "Quit without saving.")
+:::{list-table}
+:header-rows: 1
 
-vim_command_table <- data.frame(
-  `Command`=vim_command,
-  `Function`=vim_explanation)
-knitr::kable(vim_command_table[,], caption = "")
-```
+* - Command
+  - Description
+* - `Esc`
+  - Enter Normal mode. 
+* - `i`
+  - Enter Insert mode.
+* - `:w`
+  - Save.
+* - `:q`
+  - Quit.
+* - `:q!`
+  - Quit without saving.
+:::
+
 
 Cleaning Up
 -----------

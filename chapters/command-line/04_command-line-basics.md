@@ -217,60 +217,55 @@ Common Command Line Commands (and More!)
 During our hands-on workshop session we will practice using several commands,
 which are listed below (along with a few other supplementary ones).
 
-```{r, echo=FALSE}
-command <- c(
-  "ls",
-  "ls -l",
-  "ls -h",
-  "ls -a",
-  "file",
-  "cat",
-  "pwd",
-  "mkdir",
-  "cd",
-  "mv",
-  "cp",
-  "unzip",
-  "rm",
-  "man")
-command_fullname <- c(
-  "List",
-  "List with Long flag",
-  "List with Human-Readable flag",
-  "List with All flag",
-  "File",
-  "Concatenate",
-  "Print Working Directory",
-  "Make Directory",
-  "Change Directory",
-  "Move",
-  "Copy",
-  "Unzip",
-  "Remove/Delete",
-  "Manual")
-explanation <- c(
-  "Lists all files in the current directory.", 
-  "Lists additional information about each file.",
-  "Lists file information in a human-readable format.",
-  "Lists all files, including hidden files.",
-  "Determines the type of file.",
-  "Prints the contents of a file to screen.",
-  "Prints the current working directory.",
-  "Creates a new file directory.",
-  "Navigates to another directory on the file system.",
-  "Moves files.",
-  "Copies files.",
-  "Decompresses file archives.",
-  "Deletes files.",
-  "Opens the manual page for another command.")
+:::{list-table}
+:header-rows: 1
 
-command_table <- data.frame(
-  `Command`=command, 
-  `Command Name`=command_fullname,
-  `Function`=explanation,
-  check.names=F)
-knitr::kable(command_table[,], caption = "")
-```
+* - Command
+  - Name
+  - Description
+* - `ls`
+  - List
+  - Lists all files in the current directory. 
+* - `ls -l`
+  - List with long flag
+  - Lists additional information about each file.
+* - `ls -h`
+  - List with human-readable flag
+  - Lists file information in a human-readable format.
+* - `ls -a`
+  - List with all flag
+  - Lists all files, including hidden files.
+* - `file`
+  - File
+  - Determines the type of file.
+* - `cat`
+  - Concatenate
+  - Prints the contents of a file to screen.
+* - `pwd`
+  - Print Working Directory
+  - Prints the current working directory.
+* - `mkdir`
+  - Make Directory
+  - Creates a new directory.
+* - `cd`
+  - Change Directory
+  - Navigates to another directory on the file system.
+* - `mv`
+  - Move
+  - Moves files.
+* - `cp`
+  - Copy
+  - Copies files.
+* - `unzip`
+  - Unzip
+  - Decompresses file archives.
+* - `rm`
+  - Remove/Delete
+  - Deletes files.
+* - `man`
+  - Manual
+  - Opens the manual page for another command.
+:::
 
 A more complete list of Unix Commands may be found on Valerie Henderson
 Summet's [Unix Cheat Sheet][]. That said, there are dozens of base commands,
