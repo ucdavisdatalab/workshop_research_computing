@@ -9,10 +9,8 @@ parts:
   - caption: "Reproducibility Principles and Practices"
     numbered: true
     chapters:
-      - file: chapters/01_principles
-      - file: chapters/02_primary_practices
-      - file: chapters/03_secondary_practices
-      - file: chapters/04_case_by_case_practices
-  - caption: Afterword
-    chapters:
-      - file: chapters/references
+      - file: chapters/reproducibility/01_principles
+      - file: chapters/reproducibility/02_primary_practices
+      - file: chapters/reproducibility/03_secondary_practices
+      - file: chapters/reproducibility/04_case_by_case_practices
+      - file: chapters/reproducibility/references
