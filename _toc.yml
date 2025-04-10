@@ -27,3 +27,12 @@ parts:
       - file: chapters/version-control/01_getting-started
       - file: chapters/version-control/02_remote-repositories
       - file: chapters/version-control/references
+  - caption: "Git for Teams"
+    numbered: true
+    chapters:
+      - file: chapters/git-for-teams/01_about-github
+      - file: chapters/git-for-teams/02_pushing-a-repository
+      - file: chapters/git-for-teams/03_cloning-a-repository
+      - file: chapters/git-for-teams/04_opening-issues-and-making-changes
+      - file: chapters/git-for-teams/05_merging-remote-branches
+      - file: chapters/git-for-teams/06_open-and-merge-pull-requests
