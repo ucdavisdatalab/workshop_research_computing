@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Reproducibility Principles and Practices
-author: Nick Ulle
-copyright: "2023"
+title: Reproducible Research Starter Pack
+author: Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+copyright: "2025"
 logo: images/datalab-logo-full-color-rgb.png
 exclude_patterns: [_build, .pixi]
 only_build_toc_files: true
