@@ -359,7 +359,7 @@ software versions. An **environment manager** is a software tool that can
 create virtual environments. Environment managers can usually also install,
 update, and remove software.
 
-```{figure} /img/xkcd_python_environment.png
+```{figure} /images/xkcd_python_environment.png
 ---
 name: xkcd-python
 alt:
