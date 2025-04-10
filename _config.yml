@@ -4,7 +4,7 @@
 title: Reproducibility Principles and Practices
 author: Nick Ulle
 copyright: "2023"
-logo: images/datalab-logo-full-color-rgb-1.png
+logo: images/datalab-logo-full-color-rgb.png
 exclude_patterns: [_build, .pixi]
 only_build_toc_files: true
 
