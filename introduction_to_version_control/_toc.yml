@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: chapters/index
+parts:
+  - caption: Introduction to Version Control
+    numbered: true
+    chapters:
+      - file: chapters/01_getting-started
+      - file: chapters/02_remote-repositories
+  - caption: Back Matter
+    chapters:
+    - file: chapters/assessment
+    - file: chapters/references
+  - caption: Retired
+    chapters:
+    - file: chapters/retired/installing-git
+    - file: chapters/retired/git-branching
