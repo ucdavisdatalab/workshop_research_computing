@@ -1,4 +1,48 @@
+# Jupyter Book
 _build/*
-# pixi environments
+
+
+# Quarto
+.quarto
+
+
+# Pixi
 .pixi
 *.egg-info
+
+
+# DataLab Project Directory Structure
+data/
+outputs/
+
+
+# Python
+__pycache__/
+*.py[cod]
+.python-version
+.ipynb_checkpoints
+
+
+# R
+*.rds
+.RData
+.Rhistory
+
+
+# Operating System Metadata
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+.DS_Store
+.AppleDouble
+.LSOverride
+Network Trash Folder
+Temporary Items
+.apdisk
