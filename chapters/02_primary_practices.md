@@ -440,7 +440,7 @@ following rules for naming files:
 At DataLab, we follow these rules for almost all of our projects, with some
 simplifying exceptions around how we use underscores and dashes.
 
-```{figure} ../img/xkcd_iso_8601.png
+```{figure} /img/xkcd_iso_8601.png
 ---
 name: xkcd-iso-8601
 alt:
@@ -585,7 +585,7 @@ For more examples of directory structures, see:
 (organize-the-code)=
 ### Organize the Code
 
-```{figure} ../img/xkcd_goto.png
+```{figure} /img/xkcd_goto.png
 ---
 name: xkcd-goto
 alt:
@@ -613,7 +613,7 @@ window or file.
 
 ::::{grid}
 :::{grid-item}
-```{image} ../img/logo_rmarkdown.png
+```{image} /img/logo_rmarkdown.png
 :alt:
 :width: 50%
 :align: center
@@ -621,7 +621,7 @@ window or file.
 :::
 
 :::{grid-item}
-```{image} ../img/logo_jupyter.svg
+```{image} /img/logo_jupyter.svg
 :alt:
 :width: 50%
 :align: center
@@ -629,7 +629,7 @@ window or file.
 :::
 
 :::{grid-item}
-```{image} ../img/logo_quarto.svg
+```{image} /img/logo_quarto.svg
 :alt:
 :width: 50%
 :align: center
@@ -741,7 +741,7 @@ yourself---you can reuse someone else's code.
 
 ::::{grid}
 :::{grid-item}
-```{image} ../img/logo_r.png
+```{image} /img/logo_r.png
 :alt:
 :width: 50%
 :align: center
@@ -749,7 +749,7 @@ yourself---you can reuse someone else's code.
 :::
 
 :::{grid-item}
-```{image} ../img/logo_python_device.svg
+```{image} /img/logo_python_device.svg
 :alt:
 :width: 40%
 :align: center
@@ -757,7 +757,7 @@ yourself---you can reuse someone else's code.
 :::
 
 :::{grid-item}
-```{image} ../img/logo_julia.svg
+```{image} /img/logo_julia.svg
 :alt:
 :width: 50%
 :align: center

@@ -75,7 +75,7 @@ Project Organization
 Workflow Automation
 -------------------
 
-```{figure} ../img/xkcd_is_it_worth_the_time.png
+```{figure} /img/xkcd_is_it_worth_the_time.png
 ---
 name: xkcd-worth
 alt:
