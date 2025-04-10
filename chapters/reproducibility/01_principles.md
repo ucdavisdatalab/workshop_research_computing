@@ -43,7 +43,7 @@ One way to think about reproducibility is in terms of five principles:
    usually still a good idea to document it---it's easy to be too optimistic
    about what you'll remember later.
 
-```{figure} /images/phd_scratch.gif
+```{figure} /images/reproducibility/phd_scratch.gif
 ---
 name: phd-scratch
 alt:
@@ -68,7 +68,7 @@ alt:
    Keeping records is a big task, but there are many software tools available
    to automate most of the work.
 
-```{figure} /images/xkcd_documents.png
+```{figure} /images/reproducibility/xkcd_documents.png
 ---
 figclass: margin
 name: xkcd-documents
