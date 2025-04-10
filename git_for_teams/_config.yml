@@ -1,0 +1,54 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Reproducible Research for Teams with GitHub
+author: Carl Stahmer, Tyler Shoemaker, Wesley Brooks, Nick Ulle
+copyright: "2024"
+logo: img/datalab-logo-full-color-rgb.png
+exclude_patterns: [_build, .pixi]
+only_build_toc_files: true
+
+repository:
+  url: https://github.com/ucdavisdatalab/workshop_git_for_teams
+
+parse:
+  myst_enable_extensions:
+    # - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+
+execute:
+  execute_notebooks: auto
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  # JupyterBook defaults to a copyright in the footer. We take this out and use
+  # a custom license badge instead.
+  extra_footer: |
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+      <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+    </a>
+
+sphinx:
+  config:
+    language: en-us
+    # Hide copyright.
+    html_show_copyright: false
+
+# Define the name of the latex output file for PDF builds
+#latex:
+#  latex_documents:
+#    targetname: book.tex
+
+# If desired, add a bibtex file so that we can create citations
+#bibtex_bibfiles:
+#  - references.bib
+
