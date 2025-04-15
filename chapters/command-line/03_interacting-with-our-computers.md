@@ -1,9 +1,7 @@
 Interacting with Our Computers: A Very Brief Primer
 ===================================================
 
-<center>
-  [![Multiple user interfaces methods on a 1980s operating system](/images/command-line/x_window_system.png)](https://en.wikipedia.org/wiki/Shell_(computing)#/media/File:X-Window-System.png)
-</center><br>
+[![Multiple user interfaces methods on a 1980s operating system](/images/command-line/x_window_system.png)](https://en.wikipedia.org/wiki/Shell_(computing)#/media/File:X-Window-System.png)
 
 Most people interact with their computer through a graphical user interface, or
 GUI, which allows them to use a mouse, keyboard, and graphical elements on
