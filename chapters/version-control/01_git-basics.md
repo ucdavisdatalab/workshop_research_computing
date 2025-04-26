@@ -1,4 +1,5 @@
-# Getting Started
+(sec-git-basics)=
+# Git Basics
 
 :::{admonition} Learning Goals
 :class: note
