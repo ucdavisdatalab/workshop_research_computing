@@ -469,45 +469,28 @@ Fast-forward
 When you run `git merge`, Git will try to merge the commits automatically. An
 automatic merge is possible as long as there are not changes to a file on one
 branch that conflict with changes to that file on the other. There are two
-kinds of automatic merges:
+kinds of automatic merges (also see {numref}`fig-merge-vs-ff`):
 
 * A regular merge, for which Git creates a **merge commit** that combines the
-  changes from each branch. See {numref}`fig-branch-merge`.
+  changes from each branch.
 * A **fast-forward merge**, where only one branch has new commits, so Git can
-  apply the new commits without any need for a merge commit. See
-  {numref}`fig-branch-fast-forward`.
+  apply the new commits without any need for a merge commit.
 
 When we merged `my-first-branch` into `demo`, Git did a fast-forward merge,
 since we didn't make any commits to `demo` after creating `my-first-branch`.
 Git notes this in the output. This means that Git did not need to create a
 merge commit.
 
-:::{figure} /images/git-for-teams/branch_merge.svg
-:name: fig-branch-merge
+:::{figure} /images/git-for-teams/merge-vs-fast-forward.svg
+:name: fig-merge-vs-ff
 
-Visualization of merging branch `b` into `a`. Solid arrows show the order of
-commits. Dashed arrows show where the next commit will be on each branch. Each
-circle represents a commit. Commits only on branch `a` are blue <span
-class="blue"></span>, and commits only on branch `b` are yellow <span
-class="yellow"></span>. Commits on both branches before the merge are gray
-<span class="gray"></span>. Commits on both branches after the merge are green
-<span class="green"></span>. The merge commit is white <span
+Visualization of merging and fast-forward merging branch `b` into `a`. Solid
+arrows show the order of commits. Dashed arrows show where the next commit will
+be on each branch. Each circle represents a commit. Commits only on branch `b`
+are yellow <span class="yellow"></span>. Commits on both branches before the
+merge are gray <span class="gray"></span>. Commits on both branches after the
+merge are green <span class="green"></span>. The merge commit is white <span
 class="white"></span>.
-:::
-
-<!-- FIXME: rather than the three figures in this section now, it would
-probably be better to have one figure that compares a regular merge to a
-fast-forward merge for the same starting graph, and another that compares a
-regular merge to a rebase for the same starting graph. -->
-:::{figure} /images/git-for-teams/branch_fast-forward.svg
-:name: fig-branch-fast-forward
-
-Visualization of fast-forward merging branch `b` into `a`. Solid arrows show
-the order of commits. Dashed arrows show where the next commit will be on each
-branch. Each circle represents a commit. Commits only on branch `b` are yellow
-<span class="yellow"></span>. Commits on both branches before the merge are
-gray <span class="gray"></span>. Commits on both branches after the merge are
-green <span class="green"></span>.
 :::
 
 In a regular merge, Git will create a new commit and give you a chance to enter
@@ -527,16 +510,16 @@ harder to fathom, since commits are not necessarily in chronological order and
 information about branches is discarded. You can rebase one branch onto another
 with the `git rebase` command.
 
-:::{figure} /images/git-for-teams/branch_rebase.svg
-:name: fig-branch-rebase
+:::{figure} /images/git-for-teams/merge-vs-rebase.svg
+:name: fig-merge-vs-rebase
 
-Visualization of rebasing branch `a` on `b`. Solid arrows show the order of
-commits. Dashed arrows show where the next commit will be on each branch. Each
-circle represents a commit. Commits only on branch `a` are blue <span
-class="blue"></span>, and commits only on branch `b` are yellow <span
-class="yellow"></span>. Commits on both branches before the rebase are gray
-<span class="gray"></span>. Commits on both branches after the rebase are green
-<span class="green"></span>.
+Visualization of merging branch `b` into `a` and rebasing branch `a` onto `b`.
+Solid arrows show the order of commits. Dashed arrows show where the next
+commit will be on each branch. Each circle represents a commit. Commits only on
+branch `a` are blue <span class="blue"></span>, and commits only on branch `b`
+are yellow <span class="yellow"></span>. Commits on both branches before the
+rebase are gray <span class="gray"></span>. Commits on both branches after the
+rebase are green <span class="green"></span>.
 :::
 
 We recommend merging over rebasing when you're dealing with multiple branches.
