@@ -1,3 +1,4 @@
+(sec-branches-merges)=
 # Branches & Merges
 
 :::{admonition} Learning Goals
@@ -15,8 +16,6 @@ After this lesson, you should be able to:
 * Describe some ways to avoid merge conflicts
 * Resolve a merge conflict
 :::
-
-
 
 <!--
 We usually teach this workshop immediately after the Intro to Command Line and
@@ -62,14 +61,6 @@ Example flow:
 
 * Create merge conflict
 * Resolve merge conflict
-
-* Create a fork of sandbox repo
-* Switch to `main`
-* Create branch `xx-response`
-* Add and commit a response to the prompt
-* Add fork to the remotes
-* Push `xx-response` to the fork
-* Make a pull request from fork to original
 -->
 
 ## What's a Branch?
@@ -372,7 +363,7 @@ When you start working on something new in a repository, like a new feature or
 a bug fix, it's usually a good idea to create a new branch and do the work
 there. Then you can switch back to the original branch any time you need to use
 the repository in the state it was in before you started working. Working on a
-branch also makes collaboration easier (see {ref}`sec-whats-a-pull-request`)
+branch also makes collaboration easier (see {ref}`sec-making-a-pull-request`)
 and can make a repository's history easier to understand.
 
 Branch names should be short but descriptive enough to serve as a reminder
