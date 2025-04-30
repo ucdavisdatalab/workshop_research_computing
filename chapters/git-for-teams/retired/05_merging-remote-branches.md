@@ -14,7 +14,7 @@ A Quick Change of Plans
 First, on the "branches" page, find another branch with which to merge your
 own. You should select a branch made by another workshop participant.
 
-```{figure} /images/git-for-teams/github_branches_page.png
+```{figure} /images/git-for-teams/retired/github_branches_page.png
 ---
 alt: "All available branches on the sandbox repository."
 ---
@@ -24,7 +24,7 @@ When you've decided on a branch, go to your issue and, in a comment, explain
 your change of plans. Tag the person whose branch you'll be merging with using
 "@". Click the green "Comment" button.
 
-```{figure} /images/git-for-teams/github_leave_a_comment.png
+```{figure} /images/git-for-teams/retired/github_leave_a_comment.png
 ---
 alt: "A comment stream below an open issue."
 ---
@@ -172,7 +172,7 @@ nothing to commit, working tree clean
 Go ahead and `push` your changes. If you go back to GitHub, you should now see
 the modified README file rendered to the page.
 
-```{figure} /images/git-for-teams/github_resolved_changes_rendered.png
+```{figure} /images/git-for-teams/retired/github_resolved_changes_rendered.png
 ---
 alt: "A README.md file showing the new changes on GitHub."
 ---
@@ -185,7 +185,7 @@ Your task is done, so you can close your issue. Return to the "Issues" tab,
 find your issue, and close it. If you'd like, you can leave a comment when you
 close. Afterwards, the issue should look like this:
 
-```{figure} /images/git-for-teams/closed_issue.png
+```{figure} /images/git-for-teams/retired/closed_issue.png
 ---
 alt: "A closed issue on GitHub."
 ---

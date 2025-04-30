@@ -24,7 +24,7 @@ Opening a Pull Request
 
 You can open a pull request by clicking on the "Pull requests" tab.
 
-```{figure} /images/git-for-teams/github_pull_requests.png
+```{figure} /images/git-for-teams/retired/github_pull_requests.png
 ---
 alt: "The sandbox repository on GitHub with the pull requests tab activated."
 ---
@@ -38,7 +38,7 @@ branch on the left (i.e., the branch on the right is probably the one you've
 been working on). Once you've made your selection, GitHub will scan through the
 branches and identify any differences between them.
 
-```{figure} /images/git-for-teams/github_compare_changes.png
+```{figure} /images/git-for-teams/retired/github_compare_changes.png
 ---
 alt: "Pull request comparison on GitHub, which shows the listing of the commits
 made to each branch and a side-by-side view of the differences between the
@@ -53,7 +53,7 @@ description. You can assign yourself the role of making the request and, if
 applicable, you can ask someone to review the changes before you implement them
 (using the "Reviewers" function on the right).
 
-```{figure} /images/git-for-teams/github_write_a_pull_request.png
+```{figure} /images/git-for-teams/retired/github_write_a_pull_request.png
 ---
 alt: "Entering information into the pull request template, which includes a
 title and comment."
@@ -72,7 +72,7 @@ there are no conflicts between the branches, you can click "Merge pull
 request". Alternatively, you can merge the pull request on the command line by
 following the instructions listed below.
 
-```{figure} /images/git-for-teams/github_no_conflicts.png
+```{figure} /images/git-for-teams/retired/github_no_conflicts.png
 ---
 alt: "A pull request on GitHub that is ready to be merged."
 ---
@@ -81,7 +81,7 @@ alt: "A pull request on GitHub that is ready to be merged."
 For our purposes, we'll just click the button. GitHub will then register that
 the merge has been made:
 
-```{figure} /images/git-for-teams/github_successful_pull_merge.png
+```{figure} /images/git-for-teams/retired/github_successful_pull_merge.png
 ---
 alt: "A merged pull request on GitHub, showing each of its commits and a
 message saying the pull request was successful."

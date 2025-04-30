@@ -17,7 +17,7 @@ look for an email from GitHub. Click the "Verify email address" button. Doing
 so will take you to your homepage, where, if you'd like, you can add a few
 details about yourself.
 
-```{figure} /images/git-for-teams/github_new_homepage.png
+```{figure} /images/git-for-teams/retired/github_new_homepage.png
 ---
 alt: "A newly created GitHub account page."
 ---

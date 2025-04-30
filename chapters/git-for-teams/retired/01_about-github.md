@@ -15,7 +15,7 @@ down, or **pull** them, onto another. The process would look something like the
 following, where pushing and pulling from a remote branch entails keeping a
 reference point for a project that you're developing locally:
 
-```{figure} /images/git-for-teams/github_workflow.png
+```{figure} /images/git-for-teams/retired/github_workflow.png
 ---
 alt: "Diagram showing the five areas of version control: your working tree,
 index, local branch, remote reference, and remote branch. Git add, commit,
@@ -35,7 +35,7 @@ version control.
 Simultaneously pushing and pulling from multiple computers would look something
 like the following:
 
-```{figure} /images/git-for-teams/github_as_hub.png
+```{figure} /images/git-for-teams/retired/github_as_hub.png
 ---
 alt: "Diagram of two computers linked with GitHub. Each computer has local
 commits that are pushed to GitHub and pulled down to the other computer."
