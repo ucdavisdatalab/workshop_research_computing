@@ -267,12 +267,17 @@ which are listed below (along with a few other supplementary ones).
   - Opens the manual page for another command.
 :::
 
+<!--
 A more complete list of Unix Commands may be found on Valerie Henderson
-Summet's [Unix Cheat Sheet][]. That said, there are dozens of base commands,
-each with their own set of flags, and it's possible to install software that
-will expand that number even more. We can't go over everything in the workshop,
-but familiarizing yourself with the basic command syntax will help you find
-your way around new commands.
+Summet's [Unix Cheat Sheet][]. That said, 
+
+[Unix Cheat Sheet]: cheatsheet.pdf
+-->
+
+There are dozens of base commands, each with their own set of flags, and it's
+possible to install software that will expand that number even more. We can't
+go over everything in the workshop, but familiarizing yourself with the basic
+command syntax will help you find your way around new commands.
 
 One other thing that will help you learn about new commands is `man`
 ("manual"). This opens the manual page for another command:
@@ -347,7 +352,6 @@ engine, or visit Stack Exchange and search there. CLIs are widely used
 software, and chances are incredibly good that someone else has had the same
 question you want to ask.
 
-[Unix Cheat Sheet]: cheatsheet.pdf
 
 When Problems Arise
 -------------------
