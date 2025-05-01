@@ -194,6 +194,7 @@ digital version is available for free on the Git website.
 :::::
 
 
+(sec-configuring-git)=
 ## Configuring Git
 
 <!-- TODO: better intro? -->

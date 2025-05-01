@@ -42,7 +42,7 @@ parts:
     chapters:
       - file: chapters/git-for-teams/01_branches-merges
       - file: chapters/git-for-teams/02_working-with-github
-      - file: chapters/git-for-teams/03_making-git-comfy
+      - file: chapters/git-for-teams/03_making-git-comfortable
   - caption: "Retired"
     chapters:
       - file: chapters/version-control/retired/git-branching
