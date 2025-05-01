@@ -71,8 +71,6 @@ send changes back and forth. If you're using GitHub with Git, it provides a
 variety of tools to organize and coordinate your work. This chapter describes
 some of those tools.
 
-You'll often need to keep track of 
-
 An **issue** or ticket is a description of a specific task to be completed in a
 project. The name "issue" originated in software development, where posting an
 issue is the primary way to report a bug (a literal issue with how the software
