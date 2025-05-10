@@ -36,7 +36,6 @@ parts:
     chapters:
       - file: chapters/version-control/01_git-basics
       - file: chapters/version-control/02_remote-repositories
-      - file: chapters/version-control/references
   - caption: "Git for Teams"
     numbered: true
     chapters:

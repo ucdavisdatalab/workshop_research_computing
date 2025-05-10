@@ -1,4 +1,4 @@
-# Editing Configuration Files
+# Appendix: Editing Configuration Files
 
 :::{admonition} Learning Goals
 :class: note

@@ -1,4 +1,4 @@
-# UC Davis HPC Modules
+# Appendix: UC Davis HPC Modules
 
 :::{important}
 This section is specific to UC Davis HPC clusters. While some other servers and
