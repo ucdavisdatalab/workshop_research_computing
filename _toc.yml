@@ -44,12 +44,12 @@ parts:
       - file: chapters/git-for-teams/01_branches-merges
       - file: chapters/git-for-teams/02_working-with-github
       - file: chapters/git-for-teams/03_making-git-comfortable
-  - caption: "Retired"
-    chapters:
-      - file: chapters/version-control/retired/git-branching
-      - file: chapters/git-for-teams/retired/01_about-github
-      - file: chapters/git-for-teams/retired/02_pushing-a-repository
-      - file: chapters/git-for-teams/retired/03_cloning-a-repository
-      - file: chapters/git-for-teams/retired/04_opening-issues-and-making-changes
-      - file: chapters/git-for-teams/retired/05_merging-remote-branches
-      - file: chapters/git-for-teams/retired/06_open-and-merge-pull-requests
+  # - caption: "Retired"
+  #   chapters:
+  #     - file: chapters/version-control/retired/git-branching
+  #     - file: chapters/git-for-teams/retired/01_about-github
+  #     - file: chapters/git-for-teams/retired/02_pushing-a-repository
+  #     - file: chapters/git-for-teams/retired/03_cloning-a-repository
+  #     - file: chapters/git-for-teams/retired/04_opening-issues-and-making-changes
+  #     - file: chapters/git-for-teams/retired/05_merging-remote-branches
+  #     - file: chapters/git-for-teams/retired/06_open-and-merge-pull-requests
