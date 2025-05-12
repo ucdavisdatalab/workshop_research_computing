@@ -1,5 +1,4 @@
-Navigation
-==========
+# Navigating File Systems
 
 Due to the nature of its stripped down display, the command line interface can
 at times feel a bit static. But it offers much of the same functionality that
@@ -8,8 +7,7 @@ GUIs, we tend to navigate with our mouses; on the command line, we'll use our
 keyboard. The live workshop session will cover this in depth, but for now it's
 important to have a working sense of how your files are structured.
 
-File Paths
-----------
+## File Paths
 
 Broadly speaking, your computer is comprised of **files** (chunks of data) and
 **directories** (or "folders"). The way your computer organizes this
@@ -34,8 +32,7 @@ directories to point directly and specifically at your desired file,
 isn't as important to know for our workshop, but if you use file paths in other
 instances it may factor in to the way you write out a path.
 
-Path Hierarchies
-----------------
+## Path Hierarchies
 
 Importantly, the structure of your computer's directory is **hierarchical**.
 Directories nest inside one another. Each `/` in the path above denotes a new
@@ -99,8 +96,7 @@ The root on Windows machines also refers to the physical drive in which your
 files are stored. Because of this, a computer with multiple drives has multiple
 roots -- something you'd need to be aware of when specifying your file paths.
 
-Absolute vs. Relative Paths
----------------------------
+## Absolute vs. Relative Paths
 
 Regardless of your operating system, there are two different ways to specify a
 file path on the command line. Recall that the Unix-style path above:
@@ -194,8 +190,7 @@ sometimes be a trade-off between using absolute and relative paths, and in the
 workshop, we'll talk about how to weigh such options (particularly when first
 beginning to use the command line).
 
-Moving Data Around
-------------------
+## Moving Data Around
 
 Beyond helping you navigate, file paths also enable you to move information
 around on your computer. Doing so works very much like the above.

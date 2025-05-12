@@ -1,5 +1,4 @@
-Installing a Command Line Interface
-===================================
+# Setup
 
 The following instructions are for **Windows users only**. Mac and Linux both
 come pre-installed with Unix-ready command line interfaces, whereas Windows
@@ -8,8 +7,7 @@ the history of different operating systems.
 
 [This article]: https://www.howtogeek.com/182649/htg-explains-what-is-unix/
 
-Git Bash
---------
+## Git Bash
 
 Windows users may install any one of a number of applications that emulate the
 Unix command line and provide direct access to your normal files. We recommend
@@ -23,8 +21,7 @@ Teams with GitHub][] workshops!).
 
 [Reproducible Research for Teams with GitHub]: https://ucdavisdatalab.github.io/workshop_git_for_teams/
 
-Installing Git and Git Bash
----------------------------
+## Installing Git and Git Bash
 
 The DataLab has a short, 10-minute tutorial on installing Git and Git Bash. It
 walks through some brief configuration options and then shows you how to verify

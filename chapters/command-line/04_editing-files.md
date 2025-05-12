@@ -1,5 +1,4 @@
-Editing Files
-=============
+# Editing Files
 
 Beyond the basic commands and navigation functions we've discussed so far, the
 command line also features the ability to edit files directly, usually by means
@@ -9,8 +8,7 @@ text** files. These editors are only accessible from the command line and it is
 important to know how to use them so that you can open, read, and write
 directly on the command line.
 
-Plain Text vs. Binary Files
----------------------------
+## Plain Text vs. Binary Files
 
 Before continuing on to these editors, we'll briefly distinguish plain text
 from **binary** data. This distinction bears directly on what we can and cannot
@@ -67,8 +65,7 @@ above, resaved it, and reopened it in an image viewer...
 
 ...we'll see that it's been corrupted.
 
-Inspecting Files
-----------------
+## Inspecting Files
 
 If, while working on the command line, you need to get a sense of what kind of
 data is stored in a file, the `file` function is useful. Here's an image:
@@ -161,8 +158,7 @@ like to make your change can be a big pain, so it's often just easier to use an
 application that has been made to interact with them. Welcome to the world of
 proprietary software!
 
-Accessing Command Line Text Editors
------------------------------------
+## Accessing Command Line Text Editors
 
 Now that we know what we can and can't edit on the command line, we can make a
 file. To do so, we'll use a text editor called **Vim**. Macs and Git Bash both
@@ -214,8 +210,7 @@ commands like this in Vim, and the program can be customized far beyond what
 you'll typically need for basic command line usage. More information about this
 text editor can be found [here](https://vim.fandom.com/wiki/Vim_Tips_Wiki).
 
-Basic Vim Commands
-------------------
+## Basic Vim Commands
 
 As before with the CLI commands, we'll only cover a small portion of Vim
 commands in the workshop. The table below summarizes them, but a more complete
@@ -241,8 +236,7 @@ list may be found on this [cheat sheet][].
 :::
 
 
-Cleaning Up
------------
+## Cleaning Up
 
 Assuming we did save our text file, let's clean up our directory another way.
 The last command we'll discuss is `rm` ("remove"). You can use it to delete
@@ -280,3 +274,14 @@ remove moby_dick.txt? <- enter "no" and press Return/Enter
 $ ls
 data.csv  moby_dick.txt
 ```
+
+## A Final Note
+
+While we've only scratched the surface of what you can do on the command line,
+the commands and underlying concepts we've discussed here will prepare you to
+adapt to new ways of using CLIs. With this, our hope is that you'll become a
+more confident and experienced computer user. If questions do arise, DataLab
+offers support across all levels of experience, and we are happy to field
+questions during [our office hours][dl-oh]. Happy scripting!
+
+[dl-oh]: https://datalab.ucdavis.edu/office-hours/

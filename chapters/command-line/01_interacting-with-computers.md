@@ -1,5 +1,4 @@
-Interacting with Our Computers: A Very Brief Primer
-===================================================
+# Interacting with Computers
 
 [![Multiple user interfaces methods on a 1980s operating system](/images/command-line/x_window_system.png)](https://en.wikipedia.org/wiki/Shell_(computing)#/media/File:X-Window-System.png)
 
@@ -38,8 +37,7 @@ PCs. While this is less the case for Linux machines, people are by and large
 locked into the GUIs that come pre-installed on their machines. CLIs are,
 however, available, and some are even installed on popular computer hardware.
 
-To the Command Line: A Mentality Shift
---------------------------------------
+## To the Command Line: A Mentality Shift
 
 The following sections will discuss how to open and use CLIs. Doing so is
 necessarily action-oriented: the workshop covers a host of different commands

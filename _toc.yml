@@ -3,9 +3,10 @@
 
 format: jb-book
 root: chapters/index
-
 # Chapters may be written in either Markdown or as Jupyter Notebooks
 parts:
+  - chapters:
+    - file: chapters/setup
   - caption: "Reproducibility Principles and Practices"
     numbered: true
     chapters:
@@ -17,13 +18,11 @@ parts:
   - caption: "Introduction to the Command Line"
     numbered: true
     chapters:
-      - file: chapters/command-line/01_overview
-      - file: chapters/command-line/02_installing-a-cli
-      - file: chapters/command-line/03_interacting-with-our-computers
-      - file: chapters/command-line/04_command-line-basics
-      - file: chapters/command-line/05_navigating-with-the-command-line
-      - file: chapters/command-line/06_editing-files
-      - file: chapters/command-line/07_end
+      - file: chapters/command-line/01_interacting-with-computers
+      - file: chapters/command-line/02_command-line-basics
+      - file: chapters/command-line/03_navigating-file-systems
+      - file: chapters/command-line/04_editing-files
+      - file: chapters/command-line/references
   - caption: "Installing Software with Pixi"
     numbered: true
     chapters:

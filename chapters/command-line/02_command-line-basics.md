@@ -1,5 +1,4 @@
-Command Line Basics
-===================
+# Command Line Basics
 
 To use the command line, we need to launch a special program. **Mac users**
 will use a terminal application called -- fittingly -- "Terminal." It ships by
@@ -28,8 +27,7 @@ When you launch the application, you will see something like this:
 
 ![Git Bash terminal window](/images/command-line/wsl_command_line.png)
 
-The Anatomy of the Command Line
--------------------------------
+## The Anatomy of the Command Line
 
 While the command line can look intimidating to those raised on a GUI, it's
 important to know that both of the programs above are *interfaces* in the same
@@ -78,8 +76,7 @@ Since you can't click around with a mouse in a CLI, you'll have to use your
 computer's `Left` and `Right` arrows to move the cursor to your desired
 location and make any changes from there.
 
-Interacting with the Command Line
----------------------------------
+## Interacting with the Command Line
 
 Now we can enter some commands, which is simply a matter of typing them in
 after the prompt. For example:
@@ -171,8 +168,7 @@ functionality as described above will be the same. Typing is the predominant
 way of using a CLI, and the results of sending in commands with a CLI are
 text-only representations of your computer and your files.
 
-Command Syntax
---------------
+## Command Syntax
 
 As you can see, the **syntax** of commands is straightforward. Commands use a
 space to delimit their different components, and flags are called with `-` to
@@ -211,8 +207,7 @@ about project organization and documentation.
 
 [section on file names]: https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/#file-names
 
-Common Command Line Commands (and More!)
-----------------------------------------
+## Common Command Line Commands (and More!)
 
 During our hands-on workshop session we will practice using several commands,
 which are listed below (along with a few other supplementary ones).
@@ -353,8 +348,7 @@ software, and chances are incredibly good that someone else has had the same
 question you want to ask.
 
 
-When Problems Arise
--------------------
+## When Problems Arise
 
 Error messages offer another, admittedly less pleasant way to learn about how a
 command works. When you're first starting out with any kind of console-based
