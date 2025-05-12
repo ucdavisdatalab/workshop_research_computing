@@ -1,4 +1,25 @@
-# Appendix: Python Projects
+# Unit C: Python Packages
+
+:::{admonition} Learning Goals
+:class: note
+After this lesson, you should be able to:
+
+* Install packages from PyPI with Pixi
+* Explain the purpose of `pyproject.toml`
+* Create a `pyproject.toml` file
+* Use Pixi with `pyproject.toml` instead of `pixi.toml`
+:::
+
+This unit covers some specific features to be aware of if you plan to use Pixi
+to install software for Python projects.
+
+:::{seealso}
+As a complement to this unit, see DataLab's [Python Basics workshop
+reader][py-basics].
+
+[py-basics]: https://ucdavisdatalab.github.io/workshop_python_basics/
+:::
+
 
 ## PyPI Packages
 

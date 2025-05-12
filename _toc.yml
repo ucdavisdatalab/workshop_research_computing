@@ -28,9 +28,9 @@ parts:
     numbered: true
     chapters:
       - file: chapters/installing-software/01_installing-software
-      - file: chapters/installing-software/02_editing-configuration-files
-      - file: chapters/installing-software/03_ucdavis-hpc-modules
-      - file: chapters/installing-software/04_python-projects
+      - file: chapters/installing-software/a_configuring-the-shell
+      - file: chapters/installing-software/b_ucdavis-hpc-modules
+      - file: chapters/installing-software/c_python-packages
   - caption: "Introduction to Version Control"
     numbered: true
     chapters:

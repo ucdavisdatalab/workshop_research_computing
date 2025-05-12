@@ -101,8 +101,8 @@ workshops are:
   + Initialize projects with Pixi
   + Install software with Pixi
 
-  The second half of this workshop is modular, and which modules are covered is
-  up to the instructor. Each module lists specific learning goals.
+  The second half of this workshop is modular, and which units are covered is
+  up to the instructor. Each unit lists specific learning goals.
   :::
 
 * **Introduction to Version Control** (one 2-hour session)

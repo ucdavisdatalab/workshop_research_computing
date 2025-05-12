@@ -1,4 +1,4 @@
-# Appendix: Editing Configuration Files
+# Unit A: Configuring the Shell
 
 :::{admonition} Learning Goals
 :class: note
@@ -9,15 +9,12 @@ After this lesson, you should be able to:
 * Create and modify environment variables
 :::
 
-This chapter will show you how to make your computer a comfortable place to
-work. You'll learn how to edit configuration files, particularly for the Bash
-shell.
-
 After installing software in your computing environment, you'll likely want to
 configure it. Many software, especially command-line software, read settings
 from a **configuration file** when they run. By editing configuration files,
 you can customize your computing environment to make it do what you want and
-make it more comfortable to use.
+make it more comfortable to use. In this unit, you'll learn how to edit
+configuration files, particularly for the Bash shell.
 
 
 (bash)=

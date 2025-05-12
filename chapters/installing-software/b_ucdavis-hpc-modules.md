@@ -1,13 +1,31 @@
-# Appendix: UC Davis HPC Modules
+# Unit B: UC Davis HPC Modules
 
-:::{important}
-This section is specific to UC Davis HPC clusters. While some other servers and
-clusters may have a similar module system, many do not.
+:::{admonition} Learning Goals
+:class: note
+After this lesson, you should be able to:
+
+* Explain what HPC modules are
+* Determine which software a module contains
+* Load a module
+* Unload a module
 :::
 
-On most of UC Davis' HPC clusters, the HPC Core Facility staff maintain a
-collection of ready-to-use virtual environments called **modules**. These are
-an alternative to setting up environments yourself.
+
+On most of UC Davis' high-performance computing (HPC) clusters, the HPC Core
+Facility staff maintain a collection of ready-to-use virtual environments
+called **modules**. These are an alternative to setting up environments
+yourself. Other clusters and servers may have a similar system, but many do
+not. This unit explains the UC Davis HPC module system.
+
+:::{seealso}
+As a complement to this unit, see DataLab's [Introduction to Remote Computing
+workshop reader][intro-remote].
+
+[intro-remote]: https://ucdavisdatalab.github.io/workshop_intro_to_remote_computing/
+:::
+
+
+## The Module System
 
 :::{note}
 You don't have to use modules just because you're using the HPC clusters. If
