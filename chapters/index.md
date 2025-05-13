@@ -105,6 +105,13 @@ workshops are:
   up to the instructor. Each unit lists specific learning goals.
   :::
 
+  :::{seealso}
+  There's [a recording of an earlier version of this workshop][dl-cmd] on Aggie
+  Video.
+
+  [dl-cmd]: https://video.ucdavis.edu/media/Introduction%20to%20the%20Unix%20Command%20Line%20–%202022-10-06/1_s2usj40j
+  :::
+
 * **Introduction to Version Control** (one 2-hour session)
 
   This workshop covers the fundamentals of using version control systems for
