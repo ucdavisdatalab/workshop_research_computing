@@ -76,6 +76,13 @@ workshops are:
   + Identify where to go for help and to learn more
   :::
 
+  :::{seealso}
+  There's [a recording of an earlier version of this workshop][dl-cmd] on Aggie
+  Video.
+
+  [dl-cmd]: https://video.ucdavis.edu/media/Introduction%20to%20the%20Unix%20Command%20Line%20–%202022-10-06/1_s2usj40j
+  :::
+
 * **Installing Software with Pixi** (one 2-hour session)
 
   Learn how to install and manage open-source software packages for research
@@ -103,13 +110,6 @@ workshops are:
 
   The second half of this workshop is modular, and which units are covered is
   up to the instructor. Each unit lists specific learning goals.
-  :::
-
-  :::{seealso}
-  There's [a recording of an earlier version of this workshop][dl-cmd] on Aggie
-  Video.
-
-  [dl-cmd]: https://video.ucdavis.edu/media/Introduction%20to%20the%20Unix%20Command%20Line%20–%202022-10-06/1_s2usj40j
   :::
 
 * **Introduction to Version Control** (one 2-hour session)
