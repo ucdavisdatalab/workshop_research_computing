@@ -1,5 +1,15 @@
 # Editing Files
 
+:::{admonition} Learning Goals
+:class: note
+After this lesson, you should be able to:
+
+* Explain the difference between binary and plain text files
+* Use shell commands to examine the contents of a file
+* Use a text editor to edit files
+* Use shell commands to remove files and directories
+:::
+
 Beyond the basic commands and navigation functions we've discussed so far, the
 command line also features the ability to edit files directly, usually by means
 of a text editor. These editors are similar in nature to Microsoft Word or Mac
@@ -7,6 +17,7 @@ Pages but they're much more stripped down and tend to work best with **plain
 text** files. These editors are only accessible from the command line and it is
 important to know how to use them so that you can open, read, and write
 directly on the command line.
+
 
 ## Plain Text vs. Binary Files
 
@@ -70,24 +81,33 @@ above, resaved it, and reopened it in an image viewer...
 If, while working on the command line, you need to get a sense of what kind of
 data is stored in a file, the `file` function is useful. Here's an image:
 
+```none
+file broken_image.png
 ```
-$ file broken_image.png
+
+```none
 broken_image.png: PNG image data, 520 x 470, 8-bit/color RGBA, non-interlaced
 ```
 
 Based on this information, we can see that that won't work for us. On the other
 hand, this information:
 
+```none
+file README.md
 ```
-$ file README.md
+
+```none
 01_overview.Rmd: ASCII text
 ```
 
 ...shows us that `README.md` will. The `ASCII text` message lets us know we can
 open it with a text editor. The same goes for a `.csv`:
 
+```none
+file data.csv
 ```
-$ file data.csv
+
+```none
 data.csv: CSV text
 ```
 
@@ -96,19 +116,37 @@ We would be able to open this as well.
 Finally, `file` can also tell us whether a file is in an archive format (like
 `.zip`):
 
+```none
+file archived_file.csv.zip
 ```
-$ file archived_file.csv.zip
+
+```
 archived_file.csv.zip: Zip archive data, at least v2.0 to extract
 ```
 
 Before opening this, we'd need to use the `unzip` command:
 
+```none
+unzip archived_file.csv.zip
 ```
-$ unzip archived_file.csv.zip
+
+```none
   inflating: archived_file.csv.zip
-$ ls
+```
+
+```none
+ls
+```
+
+```none
 archived_file.csv  archived_file.csv.zip
-$ file archived_file.csv
+```
+
+```none
+file archived_file.csv
+```
+
+```none
 archived_file.csv: CSV text
 ```
 
@@ -116,13 +154,19 @@ There are two other commands that are useful for inspecting files on the
 command line. `cat` ("concatenate") will print (or attempt to print) in plain
 text the entirety of a file's contents on screen:
 
+```none
+cat file.txt
 ```
-$ cat file.txt
+
+```none
 I'm written in plain text!
 ```
 
+```none
+cat prompt.png
 ```
-$ cat prompt.png
+
+```none
 ?PNG
 
 IHDR?.???
@@ -133,8 +177,11 @@ IHDR?.???
 On the other hand, `head` will print the first `N` lines on screen (its default 
 is 10 lines):
 
+```none
+head moby_dick.txt
 ```
-$ head moby_dick.txt
+
+```none
 CHAPTER 1. Loomings.
 
 Call me Ishmael. Some years ago—never mind how long precisely—having
@@ -158,15 +205,16 @@ like to make your change can be a big pain, so it's often just easier to use an
 application that has been made to interact with them. Welcome to the world of
 proprietary software!
 
+
 ## Accessing Command Line Text Editors
 
 Now that we know what we can and can't edit on the command line, we can make a
-file. To do so, we'll use a text editor called **Vim**. Macs and Git Bash both
-ship with this application, so there's no need to download it (other command
-line editors include Emacs and Nano). If you'd like to open a file with Vim,
-type `vi` in a command line window, followed by the filename. You can also
-create a new file this way, simply by typing the name you'd like to use for
-that file after `vi`.
+file. To do so, we'll use a text editor called Vim. Macs and Git Bash both ship
+with this application, so there's no need to download it (other command line
+editors include Emacs and Nano). If you'd like to open a file with Vim, type
+`vi` in a command line window, followed by the filename. You can also create a
+new file this way, simply by typing the name you'd like to use for that file
+after `vi`.
 
 ![Creating a new text file with Vim on the command line](/images/command-line/new_vim_file.png)
 
@@ -242,19 +290,32 @@ Assuming we did save our text file, let's clean up our directory another way.
 The last command we'll discuss is `rm` ("remove"). You can use it to delete
 files and from your computer:
 
+```none
+ls
 ```
-$ ls
+
+```none
 data.csv  hello.txt  moby_dick.txt  project_folder
-$ rm hello.txt
-$ ls
+```
+
+```none
+rm hello.txt
+ls
+```
+
+```none
 data.csv  moby_dick.txt  project_folder
 ```
 
-Using the `-r` flag (which stands for "recursive"), you can also delete folders:
+Using the `-r` flag (which stands for "recursive"), you can also delete
+folders:
 
+```none
+rm -r project_folder
+ls
 ```
-$ rm -r project_folder
-$ ls
+
+```none
 data.csv  moby_dick.txt
 ```
 
@@ -266,12 +327,27 @@ consider putting `rm` in interactive mode with `-i`. This will prompt you with
 a yes/no query for every file the command would remove, given the information
 you supplied it with:
 
+```none
+ls 
 ```
-$ ls 
+
+```none
 data.csv  moby_dick.txt
-$ rm -i moby_dick.txt
+```
+
+```none
+rm -i moby_dick.txt
+```
+
+```none
 remove moby_dick.txt? <- enter "no" and press Return/Enter
-$ ls
+```
+
+```none
+ls
+```
+
+```none
 data.csv  moby_dick.txt
 ```
 
