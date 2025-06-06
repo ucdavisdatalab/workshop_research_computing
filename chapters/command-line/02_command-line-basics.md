@@ -1,50 +1,75 @@
 # Command Line Basics
 
-To use the command line, we need to launch a special program. **Mac users**
-will use a terminal application called -- fittingly -- "Terminal." It ships by
-default on macOS.
+:::{admonition} Learning Goals
+:class: note
+After this lesson, you should be able to:
 
-To launch Terminal, go to:
+* Open a terminal
+* Explain what a prompt is
+* Explain the shell command syntax
+* Name some common shell commands
+* Describe how to get help with shell commands
+:::
 
-> Applications -> Utilities -> Terminal
+## Opening a Terminal
 
-When you launch the application, you will see something like this:
+To use the command line, we need to run a terminal program.
 
-![Mac Terminal window](/images/command-line/prompt.png)
+:::::{tab-set}
+::::{tab-item} Windows
+Git Bash is the terminal we recommend on Windows. It is not built into Windows,
+so you have to install it yourself. The {ref}`sec-setup` chapter provides
+instructions.
 
-**Windows** users will use the Git Bash terminal. Instructions for installing
-this program are in the second section of this workshop reader.
+To launch Git Bash, open the start menu and search for "Git Bash" or
+select `Programs -> Git Bash`.
 
-To launch Git Bash, go to:
+When the Git Bash opens, it will look something like this:
 
-> Click on the Windows Start Menu and search for "Git Bash"
+:::{figure} /images/command-line/wsl_command_line.png
+Git Bash on Windows.
+:::
+::::
 
-Alternatively,
+::::{tab-item} macOS
+The built-in Terminal application is what we recommend on macOS.
 
-> Click on the Windows Start Menu, select Programs, and browse to Git Bash
+To launch Terminal, select `Applications -> Utilities -> Terminal`.
 
-When you launch the application, you will see something like this:
+When the Terminal app opens, it will look something like this:
 
-![Git Bash terminal window](/images/command-line/wsl_command_line.png)
+:::{figure} /images/command-line/prompt.png
+The Terminal app on macOS.
+:::
+::::
+
+::::{tab-item} Linux
+Many different terminals are available for Linux. Any are likely okay for this
+workshop, but the examples were only tested in [WezTerm][].
+
+[WezTerm]: https://wezterm.org/
+::::
+
+:::::
+
 
 ## The Anatomy of the Command Line
 
 While the command line can look intimidating to those raised on a GUI, it's
-important to know that both of the programs above are *interfaces* in the same
-way that your computer's default windowing system is an interface. That is,
-even though a CLI is something of a bare bones representation of your computer,
-it too relies on a series of assumptions and metaphors that serve to frame how
-you interact with your computer. Using the CLI may feel strange at first, but
-part of that feeling comes from not being acclimated to the way it *represents*
-a computer.
+important to know that it is nevertheless an *interface* in the same way that
+your computer's default windowing system is an interface. That is, even though
+a CLI is something of a bare-bones representation of your computer, it too
+relies on a series of assumptions and metaphors that serve to frame how you
+interact with your computer. Using the CLI may feel strange at first, but part
+of that feeling comes from not being acclimated to the way it *represents* a
+computer.
 
 For example, instead of pointing and clicking on things in your computer, as
 you'd do with a GUI, you type in your commands with a CLI. In this way, a CLI
 is more like a typewriter than it is a desktop (an even better analogue would
 be a [teleprinter](https://en.wikipedia.org/wiki/Teleprinter)).
 
-To see this, let's return to the window that opens when you start Terminal or
-Ubuntu.
+To see this, return to the terminal window.
 
 ![Mac Terminal window](/images/command-line/prompt.png)
 
@@ -59,14 +84,19 @@ information displayed as a reference point.
 The bit of information after the colon (in this example, the `~` character)
 tells us where in the computer's filesystem we are. We'll discuss this later.
 For now, just keep in mind that you can look here to find your current
-location. In this case, `~` means you are in your **home** directory.
+location. In this case, `~` means you are in your **home directory**.
 
 ![Mac Terminal with the Home symbol highlighted](/images/command-line/prompt_home_highlight.png)
 
 After the location, we see the `$` character. It is an indicator that lets you
-know the command line application is waiting for you to enter something. (Note
-that you do not need to type this character, it will appear automatically, but
-the examples below include it to emulate what you'll see onscreen)
+know the command line application is waiting for you to enter something.
+
+:::{caution}
+You do not need to type `$`, it will appear automatically, but examples online
+sometimes include it to emulate what you'll see onscreen.
+
+We do not include the `$` at the beginning of any commands in this reader.
+:::
 
 Depending on your system and/or command line interface, you may or may not also
 see a solid or flashing box that appears after the prompt character. This is a
@@ -76,40 +106,45 @@ Since you can't click around with a mouse in a CLI, you'll have to use your
 computer's `Left` and `Right` arrows to move the cursor to your desired
 location and make any changes from there.
 
+
 ## Interacting with the Command Line
 
-Now we can enter some commands, which is simply a matter of typing them in
-after the prompt. For example:
+You can run, or *execute*, a command in the terminal by typing the command's
+name---followed by any additional information the command requires---and then
+pressing `Enter` or `Return` on your keyboard.
 
-```
-$ echo
+For example, the `echo` command prints text to the screen. It literally echoes
+your text:
+
+```none
+echo "Hello world!"
 ```
 
-...will print back to screen any text that you supply to the command. It
-literally echoes your text:
-
-```
-$ echo "Hello world!"
+```none
 Hello world!
 ```
 
-To execute this, or any command, you simply hit the `Return`/`Enter` key on
-your keyboard. You'll see that when you execute a command, your computer's
-shell program will interpret and execute the indicated operation, print any
-output from that operation to screen, and deliver a new command line prompt.
+When you enter a command, your computer's shell program interprets and runs the
+command, prints any output from the command to the terminal, and finally prints
+a new command line prompt.
 
-If you want to see what files and folders are in your home directory, you can
-use `ls` ("list"):
+As another example, if you want to *list* the files and folders in the current
+directory, you can run the `ls` command:
 
+```none
+ls
 ```
-$ ls
+
+```none
 backups  data.csv  jupyter_notebook.ipynb  project_folder
 ```
 
 You can also use `ls` on a subfolder to show its contents:
 
+```none
+ls project_folder
 ```
-$ ls project_folder
+```none
 file_1.txt  file_2.txt
 ```
 
@@ -118,15 +153,17 @@ base functionality of the `ls` command -- and in fact you can do this for many
 such commands -- with **flags**. We do this by adding a dash (`-`) and then a
 letter, or a combination of letters, directly after the dash.
 
-```
+```none
 ls -lha
 ```
 
 ...will print out information about the permissions, size, and date of the
 current directory's contents, as well as the user(s) who created them:
 
+```none
+ls -lha
 ```
-$ ls -lha
+```none
 .
 ..
 .config_file
@@ -175,8 +212,8 @@ space to delimit their different components, and flags are called with `-` to
 modify those commands. When put together, we can generalize these components
 look like so:
 
-```
-$ [command] [optional flags] [file, data, or other pointer on which to run the command]
+```none
+[command] [optional flags] [file, data, or other pointer on which to run the command]
 ```
 
 There is one caveat to this: because commands use spaces to delimit their
@@ -188,14 +225,14 @@ you're running a command on a file with a space in its name, you'll need to
 
 This will throw an error:
 
-```
-$ [command] file name.txt
+```none
+[command] file name.txt
 ```
 
 This will not:
 
-```
-$ [command] file\ name.txt
+```none
+[command] file\ name.txt
 ```
 
 While escape characters are perfectly workable, they can be a bit of a pain to
@@ -207,7 +244,8 @@ about project organization and documentation.
 
 [section on file names]: https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/#file-names
 
-## Common Command Line Commands (and More!)
+
+## Common Commands
 
 During our hands-on workshop session we will practice using several commands,
 which are listed below (along with a few other supplementary ones).
@@ -274,16 +312,16 @@ possible to install software that will expand that number even more. We can't
 go over everything in the workshop, but familiarizing yourself with the basic
 command syntax will help you find your way around new commands.
 
+## Getting Help
+
 One other thing that will help you learn about new commands is `man`
 ("manual"). This opens the manual page for another command:
 
-```
-$ man ls
+```none
+man ls
 ```
 
-...opens:
-
-```
+```none
 LS(1)                                               User Commands                                               LS(1)
 
 NAME
@@ -337,8 +375,11 @@ know what version of a command you're using, as commands themselves can be
 updated. You can find this information for some commands with `--version`, or
 `--v`:
 
+```none
+man --v
 ```
-$ man --v
+
+```none
 man, version 1.6g
 ```
 
@@ -360,21 +401,26 @@ thus attempt to supply you with information about what might be going wrong.
 As an example, if you're at your home directory, and it looks like the
 following:
 
+```none
+ls
 ```
-$ ls
+```none
 backups  data.csv  jupyter_notebook.ipynb  project_folder
 ```
 
 ...and you decide to `ls` a folder within this directory that doesn't exist:
 
-```
-$ ls no_name
+```none
+ls no_name
 ```
 
 You'll see this error message:
 
+```none
+ls no_name
 ```
-$ ls no_name
+
+```none
 ls: cannot access 'no_name': No such file or directory
 ```
 
@@ -383,15 +429,17 @@ what you're looking for.
 
 Likewise, forgetting a space:
 
-```
-$ echo"hello"
+```none
+echo"hello"
 ```
 
 ...will produce:
 
+```none
+echo"hello"
 ```
-$ echo"hello"
-zsh: command not found: echohello
+```none
+-bash: echohello: command not found
 ```
 
 Or in other words, you've sent in a command that's either invalid or is

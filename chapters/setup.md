@@ -1,3 +1,4 @@
+(sec-setup)=
 # Setup
 
 The following instructions are for **Windows users only**. Mac and Linux both
