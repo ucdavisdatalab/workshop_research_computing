@@ -26,7 +26,7 @@ select `Programs -> Git Bash`.
 
 When the Git Bash opens, it will look something like this:
 
-:::{figure} /images/command-line/wsl_command_line.png
+:::{figure} /images/command-line/git_bash.png
 Git Bash on Windows.
 :::
 ::::
