@@ -304,8 +304,8 @@ A **Unix shell** is a standardized way of interacting with a computer via text
 commands---that is, via a command line. Unix shells are widely-used for
 research computing. 
 
-See DataLab's [Introduction to the Unix Command Line workshop
-reader][datalab-shell] to get started with the command line and Unix shells.
+See the [Introduction to the Command Line](ch-interacting-with-computers)
+chapters to get started with the command line and Unix shells.
 :::
 
 If you run your workflows in a Unix shell, one way you can automate them is by
@@ -379,12 +379,12 @@ languages such as R and Julia.
 [conda]: https://docs.conda.io/
 
 :::{tip}
-A relatively new package manager, [pixi][], is faster and is better at
+A relatively new package manager, [Pixi][], is faster and is better at
 accurately reproducing environments than conda, while maintaining compatibility
 with conda packages. Pixi also provides several other features that make it
-pleasant to use. At DataLab, we are just starting to switch over to pixi.
+pleasant to use. At DataLab, we are just starting to switch over to Pixi.
 
-[pixi]: https://pixi.sh/
+[Pixi]: https://pixi.sh/
 :::
 
 :::{note}

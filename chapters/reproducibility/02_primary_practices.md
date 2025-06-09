@@ -371,24 +371,22 @@ you'll need to re-run an old experiment or hit a dead end on a particular line
 of investigation.
 
 Many different version control systems exist, but a [recent StackOverflow
-survey][so-vcs-survey] found that about 93% of developers use [git][], an
-open-source distributed version control system. "Distributed" means that git is
+survey][so-vcs-survey] found that about 93% of developers use [Git][], an
+open-source distributed version control system. "Distributed" means that Git is
 flexible about where you store your code: there can be copies of the code on
 your laptop, on a private server, on a hosting service like [GitHub][], and on
-your collaborators' laptops, and git will help you keep all of them in
-sync---if that's what you want. DataLab uses git for all of our projects, and
+your collaborators' laptops, and Git will help you keep all of them in
+sync---if that's what you want. DataLab uses Git for all of our projects, and
 recommends that you do too.
 
 [so-vcs-survey]: https://stackoverflow.blog/2023/01/09/beyond-git-the-other-version-control-systems-developers-use/
-[git]: https://git-scm.com/
+[Git]: https://git-scm.com/
 
 
 :::{seealso}
-See DataLab's [Introduction to Version Control workshop reader][datalab-git]
-for a technical introduction to version control with git.
+See the [Introduction to Version Control](ch-version-control-systems) chapters
+for a technical introduction to version control with Git.
 :::
-
-[datalab-git]: https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/
 
 
 Project Organization

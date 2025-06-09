@@ -251,9 +251,8 @@ subdirectory, which is where Pixi installs packages.
 
 :::{seealso}
 We recommend using Git for your research computing projects. To learn more,
-check out DataLab's [Introduction to Version Control reader][dl-git].
-
-[dl-git]: https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/
+check out the [Introduction to Version Control](ch-version-control-systems)
+chapters.
 :::
 
 The `pixi.toml` file identifies the project as a Pixi project. It's also a
