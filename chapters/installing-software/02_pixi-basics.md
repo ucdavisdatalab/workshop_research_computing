@@ -412,6 +412,8 @@ requirements for a project.
 See [the Pixi documentation][pixi] for more details.
 :::
 
+[pixi]: https://pixi.sh/
+
 
 ## Global Installs
 
