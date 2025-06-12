@@ -27,10 +27,12 @@ parts:
   - caption: "Installing Software with Pixi"
     numbered: true
     chapters:
-      - file: chapters/installing-software/01_installing-software
+      - file: chapters/installing-software/01_environment-managers
+      - file: chapters/installing-software/02_pixi-basics
       - file: chapters/installing-software/a_configuring-the-shell
       - file: chapters/installing-software/b_ucdavis-hpc-modules
       - file: chapters/installing-software/c_python-packages
+      - file: chapters/installing-software/d_tasks
   - caption: "Introduction to Version Control"
     numbered: true
     chapters:
