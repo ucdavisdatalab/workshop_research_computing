@@ -98,11 +98,11 @@ do. Leave the rest of your `.bash_profile` blank.
 (aliases)=
 ### Aliases
 
-While learning about Micromamba, did you ever feel like typing out `micromamba`
-for every command was a little bit tedious? One way you can customize the shell 
-is by creating **aliases** for commands that are long or hard to remember.
-Let's create an alias `mm` for the `micromamba` command, so that you can just
-type `mm` instead of typing `micromamba`.
+While learning about Pixi, did you ever feel like typing out `pixi run` to run
+a command was a little bit tedious? One way you can customize the shell is by
+creating **aliases** for commands that are long or hard to remember. Let's
+create an alias `pxr` for the `pixi run` command, so that you can just type
+`pxr` instead of typing `pixi run`.
 
 The command to create an alias is `alias`, followed by a space, the name of the
 alias, an equals sign, and then the aliased command in quotes.
@@ -110,7 +110,7 @@ alias, an equals sign, and then the aliased command in quotes.
 For example, try adding this code to your `.bashrc`:
 
 ```bash
-alias mm='micromamba'
+alias pxr='pixi run'
 ```
 
 :::{important}
@@ -127,23 +127,23 @@ source ~/.bashrc
 
 Alternatively, you can restart or open a new terminal, since `.bashrc` runs
 every time you open a new interactive shell. Then try using the alias to
-list your conda environments:
+run something in a Pixi environment:
 
 ```sh
-mm env list
+pxr python
 ```
 
-This should print a list of environments. Notice that you can add arguments as
-you would normally after the aliased command.
+This should start Python. Notice that you can add arguments as you would
+normally after the aliased command.
 
 :::{note}
-If the alias doesn't work, or the shell prints `mm: command not found`,
+If the alias doesn't work, or the shell prints `pxr: command not found`,
 double-check that your saved the `alias` command in `~/.bashrc` and that you
 ran the `source` command.
 :::
 
 If you ever decide you don't like an alias, you can use the `unalias` command
-to unset aliases in your current shell (for example, `unalias mm`). Make sure
+to unset aliases in your current shell (for example, `unalias pxr`). Make sure
 to remove the alias from `.bashrc` as well, or else it will return next time
 you open a new shell.
 
