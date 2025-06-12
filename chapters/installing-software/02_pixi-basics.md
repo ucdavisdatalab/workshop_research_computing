@@ -415,6 +415,36 @@ See [the Pixi documentation][pixi] for more details.
 [pixi]: https://pixi.sh/
 
 
+## Updating Packages
+
+You can update packages in an environment with the `pixi update` command. This
+command respects the version constraints in `pixi.toml`, so it will not upgrade
+any packages to versions that don't satisfy the constraints. If you only want
+to update one package, pass the command the name of the package. For example,
+to update the R package:
+
+```none
+pixi update r
+```
+
+In contrast, the `pixi upgrade` command upgrades packages to the newest
+available version that's compatible with the other packages in the environment.
+This command ignores the constraints in `pixi.toml` and will even change them
+to match the new versions.
+
+:::{tip}
+It's a good idea to update your Pixi environments occasionally, since anyone
+else who installs the environment will get the newest versions of the packages
+(within the constraints in `pixi.toml`). Minor versions of packages usually
+contain bug and security fixes rather than breaking changes.
+
+On the other hand, be cautious about *upgrading* your Pixi environments.
+There's a chance that new versions of packages will break your code---major
+versions of packages often introduce breaking changes.
+:::
+
+
+
 ## Global Installs
 
 Occasionally, you might come across a tool that's broadly useful but not
