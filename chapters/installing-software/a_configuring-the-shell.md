@@ -76,7 +76,7 @@ names that begin with a dot.
 
 We recommend setting up the Bash configuration files so that `.bash_profile`
 always runs `.profile` and `.bashrc`. Then use `.profile` to set environment
-variables ({numref}`environment-variables`) and use `.bashrc` for everything
+variables (see {ref}`environment-variables`) and use `.bashrc` for everything
 else. This approach ensures that your environment variables are loaded whenever
 you use any `sh`-compatible shell and that your Bash configuration is loaded
 whenever you use Bash. To set this up, use a text editor (such as `vi`) to add
@@ -357,8 +357,8 @@ environment variables.
 
 ## Other Configuration Files
 
-{numref}`bash` focuses on Bash configuration files, but software such as git,
-tmux, R, Python, and Vim can also be customized through configuration files.
-For software you use frequently, learning to edit the configuration file(s) is
-often a worthwhile investment because allows you to tailor the software to your
-specific needs and workflows.
+The {ref}`bash` section focuses on Bash configuration files, but software such
+as Git, tmux, R, Python, and Vim can also be customized through configuration
+files. For software you use frequently, learning to edit the configuration
+file(s) is often a worthwhile investment because allows you to tailor the
+software to your specific needs and workflows.

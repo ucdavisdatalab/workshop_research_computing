@@ -28,6 +28,7 @@ execute:
   execute_notebooks: auto
 
 html:
+  use_multitoc_numbering: false
   use_issues_button: true
   use_repository_button: true
   # JupyterBook defaults to a copyright in the footer. We take this out and use
