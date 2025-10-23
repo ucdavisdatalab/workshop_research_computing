@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Editing Files &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/command-line/04_editing-files';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Appendix: References" href="references.html" />
+    <link rel="prev" title="3. Navigating File Systems" href="03_navigating-file-systems.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_command-line-basics.html">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/command-line/04_editing-files.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/command-line/04_editing-files.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Editing Files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-text-vs-binary-files">4.1. Plain Text vs. Binary Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-files">4.2. Inspecting Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-command-line-text-editors">4.3. Accessing Command Line Text Editors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-vim-commands">4.4. Basic Vim Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">4.5. Cleaning Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-final-note">4.6. A Final Note</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="editing-files">
+<h1><span class="section-number">4. </span>Editing Files<a class="headerlink" href="#editing-files" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain the difference between binary and plain text files</p></li>
+<li><p>Use shell commands to examine the contents of a file</p></li>
+<li><p>Use a text editor to edit files</p></li>
+<li><p>Use shell commands to remove files and directories</p></li>
+</ul>
+</div>
+<p>Beyond the basic commands and navigation functions we’ve discussed so far, the
+command line also features the ability to edit files directly, usually by means
+of a text editor. These editors are similar in nature to Microsoft Word or Mac
+Pages but they’re much more stripped down and tend to work best with <strong>plain
+text</strong> files. These editors are only accessible from the command line and it is
+important to know how to use them so that you can open, read, and write
+directly on the command line.</p>
+<section id="plain-text-vs-binary-files">
+<h2><span class="section-number">4.1. </span>Plain Text vs. Binary Files<a class="headerlink" href="#plain-text-vs-binary-files" title="Link to this heading">#</a></h2>
+<p>Before continuing on to these editors, we’ll briefly distinguish plain text
+from <strong>binary</strong> data. This distinction bears directly on what we can and cannot
+edit using a text editor. In computing, plain text has multiple fuzzy,
+interlocking meanings, but generally it refers to some kind of data that is
+stored in a <em>human readable</em> form, which is to say, it is comprised of a
+collection of text characters (usually ASCII, but increasingly UTF-8). A common
+way to store this data is with a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file, though code files (<code class="docutils literal notranslate"><span class="pre">.py</span></code>, <code class="docutils literal notranslate"><span class="pre">.R</span></code>)
+and tabular data (<code class="docutils literal notranslate"><span class="pre">.csv</span></code>) also fall under the heading of plain text.</p>
+<p>Binary data, on the other hand, is not human-readable. It is not stored in a
+way that cleanly translates to various alphanumeric characters; rather, it
+stores data as sequences of 0/1 bits without reference to characters. Often
+such representations are used for data storage. Common file types for binary
+data include ones for images (<code class="docutils literal notranslate"><span class="pre">.jpg</span></code>, <code class="docutils literal notranslate"><span class="pre">.png</span></code>), for sound (<code class="docutils literal notranslate"><span class="pre">.mp3</span></code>), and for
+various executables (<code class="docutils literal notranslate"><span class="pre">.exe</span></code>).</p>
+<p>We should note however that, at base, this distinction is somewhat false, in
+that all files are ultimately just binary data. The plain text/binary
+distinction is thus more a matter of how computers <em>represent</em> data: bits in
+plain text represent characters, while bits in binary files represent some kind
+of custom data format, which often requires special encoding/decoding protocols
+to use it.</p>
+<p>We can see how all this works if we try to open a binary file with an
+application that doesn’t expect this kind of format. For example, if you open
+this image:</p>
+<p><img alt="Image of the Mac Terminal" src="../../_images/prompt.png" /></p>
+<p>…with a text editor, you’ll see something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;89&gt;PNG^M
+^Z
+^@^@^@^MIHDR^@^@^F&lt;86&gt;^@^@^C&lt;9e&gt;^H^F^@^@^@.¡¢¹^@^@^LliCCPICC
+Profile^@^@H&lt;89&gt;&lt;95&gt;W^GXSÉ^V&lt;9e&gt;[RIh&lt;81&gt;P¤&lt;84&gt;Þ^DéUJ^H-&lt;82&gt;&lt;80&gt;TÁFH^B    
+%Æ&lt;84&gt; bg]Tpí&quot;&lt;8a&gt;^U]^UQt-&lt;80&gt;,*b/             
+&lt;8b&gt;bï&lt;8b&gt;^E&lt;95&gt;&lt;95&gt;u± (*oB^Bºî+ß;ß7wþ{æÌ^?Ê&lt;9d&gt;¹÷^N^@Z½&lt;©4^OÕ^F _R K&lt;88&gt;^Le&lt;8d&gt;MKg&lt;91&gt;:^@^Y0^@^S&lt;98&gt;^C?^^_.
+eÇÇÇ^@(&lt;83&gt;ýßåÝ^M&lt;80&gt;(û«ÎJ®^?&lt;8e&gt;ÿWÑ^U^Hå|^@&lt;90&gt;ñ^Pg
+[...]
+</pre></div>
+</div>
+<p>A complete mess! We’re seeing this because text editors aren’t able to
+interpret data streams from binary files. They’ll do their best to try and
+parse the stream, but that process won’t ultimately work. There is thus no way
+to edit this kind of file in a text editor – you’d simply have no idea where
+to start. And more, making any such changes would likely cause problems with
+the file data itself, since it contains custom encodings that don’t correspond
+to plain text characters. If we deleted a snippet of “text” from the output
+above, resaved it, and reopened it in an image viewer…</p>
+<p><img alt="Message showing that the image cannot be opened" src="images/command-line/broken_image.png" /></p>
+<p>…we’ll see that it’s been corrupted.</p>
+</section>
+<section id="inspecting-files">
+<h2><span class="section-number">4.2. </span>Inspecting Files<a class="headerlink" href="#inspecting-files" title="Link to this heading">#</a></h2>
+<p>If, while working on the command line, you need to get a sense of what kind of
+data is stored in a file, the <code class="docutils literal notranslate"><span class="pre">file</span></code> function is useful. Here’s an image:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file broken_image.png
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>broken_image.png: PNG image data, 520 x 470, 8-bit/color RGBA, non-interlaced
+</pre></div>
+</div>
+<p>Based on this information, we can see that that won’t work for us. On the other
+hand, this information:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file README.md
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>01_overview.Rmd: ASCII text
+</pre></div>
+</div>
+<p>…shows us that <code class="docutils literal notranslate"><span class="pre">README.md</span></code> will. The <code class="docutils literal notranslate"><span class="pre">ASCII</span> <span class="pre">text</span></code> message lets us know we can
+open it with a text editor. The same goes for a <code class="docutils literal notranslate"><span class="pre">.csv</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file data.csv
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data.csv: CSV text
+</pre></div>
+</div>
+<p>We would be able to open this as well.</p>
+<p>Finally, <code class="docutils literal notranslate"><span class="pre">file</span></code> can also tell us whether a file is in an archive format (like
+<code class="docutils literal notranslate"><span class="pre">.zip</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file archived_file.csv.zip
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">archived_file</span><span class="o">.</span><span class="n">csv</span><span class="o">.</span><span class="n">zip</span><span class="p">:</span> <span class="n">Zip</span> <span class="n">archive</span> <span class="n">data</span><span class="p">,</span> <span class="n">at</span> <span class="n">least</span> <span class="n">v2</span><span class="mf">.0</span> <span class="n">to</span> <span class="n">extract</span>
+</pre></div>
+</div>
+<p>Before opening this, we’d need to use the <code class="docutils literal notranslate"><span class="pre">unzip</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unzip archived_file.csv.zip
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  inflating: archived_file.csv.zip
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>archived_file.csv  archived_file.csv.zip
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file archived_file.csv
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>archived_file.csv: CSV text
+</pre></div>
+</div>
+<p>There are two other commands that are useful for inspecting files on the
+command line. <code class="docutils literal notranslate"><span class="pre">cat</span></code> (“concatenate”) will print (or attempt to print) in plain
+text the entirety of a file’s contents on screen:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat file.txt
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I&#39;m written in plain text!
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat prompt.png
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>?PNG
+
+IHDR?.???
+         liCCPICC ProfileH??WXS??[RIh?P????U-??T?FH	%Ƅ?bg]Tp?&quot;?]Qt-?,*b/?b???u??(*oB??+?;?7w?{??ʝ??Z?&lt;?4? _R K?
+[...]
+</pre></div>
+</div>
+<p>On the other hand, <code class="docutils literal notranslate"><span class="pre">head</span></code> will print the first <code class="docutils literal notranslate"><span class="pre">N</span></code> lines on screen (its default
+is 10 lines):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>head moby_dick.txt
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CHAPTER 1. Loomings.
+
+Call me Ishmael. Some years ago—never mind how long precisely—having
+little or no money in my purse, and nothing particular to interest me
+on shore, I thought I would sail about a little and see the watery part
+of the world. It is a way I have of driving off the spleen and
+regulating the circulation. Whenever I find myself growing grim about
+the mouth; whenever it is a damp, drizzly November in my soul; whenever
+I find myself involuntarily pausing before coffin warehouses, and
+bringing up the rear of every funeral I meet; and especially whenever
+</pre></div>
+</div>
+<p>Both commands offer you a method to get an easy glimpse at the contents of
+files on your computer.</p>
+<p><strong>Note:</strong> common word processing software like Microsoft Word poses an
+interesting complication to all of the above. Word docs are actually comprised
+of a number of different, associated files under the hood. It’s technically
+possible to alter the text of such files, but finding the location where you’d
+like to make your change can be a big pain, so it’s often just easier to use an
+application that has been made to interact with them. Welcome to the world of
+proprietary software!</p>
+</section>
+<section id="accessing-command-line-text-editors">
+<h2><span class="section-number">4.3. </span>Accessing Command Line Text Editors<a class="headerlink" href="#accessing-command-line-text-editors" title="Link to this heading">#</a></h2>
+<p>Now that we know what we can and can’t edit on the command line, we can make a
+file. To do so, we’ll use a text editor called Vim. Macs and Git Bash both ship
+with this application, so there’s no need to download it (other command line
+editors include Emacs and Nano). If you’d like to open a file with Vim, type
+<code class="docutils literal notranslate"><span class="pre">vi</span></code> in a command line window, followed by the filename. You can also create a
+new file this way, simply by typing the name you’d like to use for that file
+after <code class="docutils literal notranslate"><span class="pre">vi</span></code>.</p>
+<p><img alt="Creating a new text file with Vim on the command line" src="images/command-line/new_vim_file.png" /></p>
+<p>Vim works a bit differently than other text editors and word processors. It has
+a number of ‘modes,’ which provide different forms of interaction with a file’s
+data. We will focus on two modes, <strong>Normal</strong> mode and <strong>Insert</strong>. When you open
+a file with Vim, the program starts in Normal mode. This mode is command-based
+and, somewhat strangely, it doesn’t let you insert text directly in the
+document (the reasons for this have to do with Vim’s underlying design
+philosophy: we’re more likely to edit text on the command line than we are to
+write it).</p>
+<p>To insert text in your document, switch to Insert mode by pressing <code class="docutils literal notranslate"><span class="pre">i</span></code>. You can
+check whether you’re in Insert mode by looking at the bottom left hand portion
+of the window. You should see an <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">INSERT</span> <span class="pre">--</span></code> string.</p>
+<p><img alt="Vim text editor with Hello World! written in it" src="images/command-line/hello_world_vim.png" /></p>
+<p>Once you are done inserting text, pressing <code class="docutils literal notranslate"><span class="pre">ESC</span></code> (the Escape key) will bring
+you back to Normal mode. From here, you can save and quit your file, though
+these actions differ from other text editors and word processors: saving and
+quitting with Vim works through a sequence of key commands (or chords), which
+you enter from Normal mode.</p>
+<p>To save a file in Vim, make sure you are in Normal mode and then enter <code class="docutils literal notranslate"><span class="pre">:w</span></code>.
+Note the colon, which must be included. After you’ve entered this key sequence,
+in the bottom left hand corner of your window you should see “[file name] XL,
+XC written” (<em>L</em> stands for “lines” and <em>C</em> stands for “characters”).</p>
+<p><img alt="Saving text with Vim" src="images/command-line/saving_vim.png" /></p>
+<p>To quit Vim, enter <code class="docutils literal notranslate"><span class="pre">:q</span></code>. This should take you back to your command line and, if
+you have created a new file, you will now see that file in your window.</p>
+<p>If you don’t want to save the changes you’ve made in a file, you can toss them
+out by typing <code class="docutils literal notranslate"><span class="pre">:q!</span></code> in place of <code class="docutils literal notranslate"><span class="pre">:w</span></code> and then <code class="docutils literal notranslate"><span class="pre">:q</span></code>. Also, in Vim key sequences
+for save, quit, and hundreds of other commands can be chained together. For
+example, instead of separately inputting <code class="docutils literal notranslate"><span class="pre">:w</span></code> and <code class="docutils literal notranslate"><span class="pre">:q</span></code> to save and quit a file,
+you can use <code class="docutils literal notranslate"><span class="pre">:wq</span></code>, which will produce the same effect. There are dozens of base
+commands like this in Vim, and the program can be customized far beyond what
+you’ll typically need for basic command line usage. More information about this
+text editor can be found <a class="reference external" href="https://vim.fandom.com/wiki/Vim_Tips_Wiki">here</a>.</p>
+</section>
+<section id="basic-vim-commands">
+<h2><span class="section-number">4.4. </span>Basic Vim Commands<a class="headerlink" href="#basic-vim-commands" title="Link to this heading">#</a></h2>
+<p>As before with the CLI commands, we’ll only cover a small portion of Vim
+commands in the workshop. The table below summarizes them, but a more complete
+list may be found on this <a class="reference external" href="https://vim.rtorr.com/">cheat sheet</a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Esc</span></code></p></td>
+<td><p>Enter Normal mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">i</span></code></p></td>
+<td><p>Enter Insert mode.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:w</span></code></p></td>
+<td><p>Save.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:q</span></code></p></td>
+<td><p>Quit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">:q!</span></code></p></td>
+<td><p>Quit without saving.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cleaning-up">
+<h2><span class="section-number">4.5. </span>Cleaning Up<a class="headerlink" href="#cleaning-up" title="Link to this heading">#</a></h2>
+<p>Assuming we did save our text file, let’s clean up our directory another way.
+The last command we’ll discuss is <code class="docutils literal notranslate"><span class="pre">rm</span></code> (“remove”). You can use it to delete
+files and from your computer:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data.csv  hello.txt  moby_dick.txt  project_folder
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm hello.txt
+ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data.csv  moby_dick.txt  project_folder
+</pre></div>
+</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag (which stands for “recursive”), you can also delete
+folders:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm -r project_folder
+ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data.csv  moby_dick.txt
+</pre></div>
+</div>
+<p>Please note that this command, like many such commands on the command line, has
+no undo. It’s also a particularly mute command, giving little in the way of an
+indication about what it’s doing. If you have multiple files to delete, or if
+you’re worried that it might delete something you don’t want to remove, you may
+consider putting <code class="docutils literal notranslate"><span class="pre">rm</span></code> in interactive mode with <code class="docutils literal notranslate"><span class="pre">-i</span></code>. This will prompt you with
+a yes/no query for every file the command would remove, given the information
+you supplied it with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data.csv  moby_dick.txt
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm -i moby_dick.txt
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>remove moby_dick.txt? &lt;- enter &quot;no&quot; and press Return/Enter
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data.csv  moby_dick.txt
+</pre></div>
+</div>
+</section>
+<section id="a-final-note">
+<h2><span class="section-number">4.6. </span>A Final Note<a class="headerlink" href="#a-final-note" title="Link to this heading">#</a></h2>
+<p>While we’ve only scratched the surface of what you can do on the command line,
+the commands and underlying concepts we’ve discussed here will prepare you to
+adapt to new ways of using CLIs. With this, our hope is that you’ll become a
+more confident and experienced computer user. If questions do arise, DataLab
+offers support across all levels of experience, and we are happy to field
+questions during <a class="reference external" href="https://datalab.ucdavis.edu/office-hours/">our office hours</a>. Happy scripting!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/command-line"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_navigating-file-systems.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Navigating File Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Appendix: References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-text-vs-binary-files">4.1. Plain Text vs. Binary Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-files">4.2. Inspecting Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-command-line-text-editors">4.3. Accessing Command Line Text Editors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-vim-commands">4.4. Basic Vim Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-up">4.5. Cleaning Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-final-note">4.6. A Final Note</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

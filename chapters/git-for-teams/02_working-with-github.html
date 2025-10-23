@@ -1,0 +1,993 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Working with GitHub &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/git-for-teams/02_working-with-github';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Making Git Comfortable" href="03_making-git-comfortable.html" />
+    <link rel="prev" title="1. Branches &amp; Merges" href="01_branches-merges.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/02_command-line-basics.html">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/git-for-teams/02_working-with-github.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/git-for-teams/02_working-with-github.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with GitHub</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-issue">2.1. What’s an Issue?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forks-remotes">2.2. Forks &amp; Remotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-pull-request">2.3. Making a Pull Request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-flow">2.4. GitHub Flow</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-github">
+<h1><span class="section-number">2. </span>Working with GitHub<a class="headerlink" href="#working-with-github" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain what an issue is</p></li>
+<li><p>Create an issue</p></li>
+<li><p>Explain what a fork is</p></li>
+<li><p>List a repository’s remotes</p></li>
+<li><p>Add a remote to a repository</p></li>
+<li><p>Remove a remote from a repository</p></li>
+<li><p>Explain what a pull request is</p></li>
+<li><p>Create a pull request</p></li>
+<li><p>Merge a pull request</p></li>
+<li><p>Use GitHub Flow to contribute to projects</p></li>
+</ul>
+</div>
+<!--
+Example flow:
+
+* Create a fork of sandbox repo
+* Switch to `main`
+* Create branch `xx-response`
+* Add and commit a response to the prompt
+* Add fork to the remotes
+* Push `xx-response` to the fork
+* Make a pull request from fork to original
+-->
+<p>What makes GitHub special is the fact that, more than being simply a place to
+store files, it is above all a <em>communication channel</em>. Where GitHub extends
+the functionality of version control is not just where it offers various forms
+of cloud hosting; it is also where GitHub provides tools that let people talk
+about the code they’re working on. It’s a place where team members can propose
+and explain the changes they make, look at changes others have made, track and
+discuss any bugs that might come up, get feedback from others, and plan for any
+future changes the team intends to make.</p>
+<p>Learning how to use GitHub, then, is as much about learning how to communicate
+effectively through the different facets of the service as it is about
+acquainting yourself with new technical skills (i.e., using your computer to
+track code remotely). In this chapter, we’ll discuss both parts of using the
+service and do so with an eye toward how GitHub can facilitate collaborative
+and reproducible research. Although we focus on GitHub, many of the concepts
+and workflows presented also apply to other Git hosting services, such as
+GitLab and Bitbucket.</p>
+<p>A short summary of the different facets of communication GitHub provides
+includes:</p>
+<ul class="simple">
+<li><p>Documentation, often through README files</p></li>
+<li><p>Issue tracking for bug reporting and assigning tasks</p></li>
+<li><p>Pull requests for proposing and discussing changes</p></li>
+<li><p>Wikis, which may feature additional documentation, tutorials, etc.</p></li>
+<li><p>Project boards for long-term planning</p></li>
+<li><p>Various graph visualizations for project overview</p></li>
+</ul>
+<p>Additionally, GitHub users can monitor and modify other projects’ code using
+“Watch”, “Star”, and “Fork” functionalities. The service also provides teams
+with the ability to specify licensing information for their projects.</p>
+<section id="what-s-an-issue">
+<span id="sec-whats-an-issue"></span><h2><span class="section-number">2.1. </span>What’s an Issue?<a class="headerlink" href="#what-s-an-issue" title="Link to this heading">#</a></h2>
+<!-- TODO: redraft -->
+<p>When you’re working collaboratively, you and your collaborators can use Git to
+send changes back and forth. If you’re using GitHub with Git, it provides a
+variety of tools to organize and coordinate your work. This chapter describes
+some of those tools.</p>
+<p>An <strong>issue</strong> or ticket is a description of a specific task to be completed in a
+project. The name “issue” originated in software development, where posting an
+issue is the primary way to report a bug (a literal issue with how the software
+works). Nowadays, most projects use issues to keep track of all development
+tasks, not just those related to bugs. An <strong>issue tracker</strong> is a website where
+people can create, view, and comment on issues for a project.</p>
+<p>We recommend that researchers use issues in two ways. First, issues are a great
+way to plan, discuss, and coordinate a project, even if computing is only a
+small part of it. Think of the issue tracker as a to-do list. GitHub provides a
+variety of features for organizing issues, such as tags, deadlines, assigned
+owners, checklists, sub-issues, and more.</p>
+<p>Second, for any project that depends on open-source software, the issue
+trackers for those software can be a good source of information when trying to
+diagnose problems. You can search the issue tracker for related issues, which
+might include workarounds to use until the problem is fixed. If there isn’t an
+issue for the problem, and you’re confident it’s a bug, you can create an issue
+to (hopefully) get help from the developers. In the event that you fix a bug or
+add a feature to the software yourself, the issue tracker is also the first
+place to go to get your contributions officially added.</p>
+<p>Let’s practice using issues on GitHub. Make sure you’re logged in to GitHub,
+then go to the page for DataLab’s <a class="reference external" href="https://github.com/ucdavisdatalab/sandbox_git">Git sandbox repository</a>.
+Click on the “Issues” tab near the top of the page. You should see a page like
+the one in <a class="reference internal" href="#fig-gh-issues"><span class="std std-numref">Fig. 2.5</span></a>. This is the issue tracker for the
+repository. In the screenshot, there are no issues shown, but you might see
+issues in the tracker on your screen.</p>
+<figure class="align-default" id="fig-gh-issues">
+<img alt="../../_images/gh_issues.png" src="../../_images/gh_issues.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.5 </span><span class="caption-text">The issue tracker for DataLab’s Git sandbox repository.</span><a class="headerlink" href="#fig-gh-issues" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>An issue can be open or closed; an open issue is one that is still in progress,
+while a closed issue is one that’s not, typically because it’s either complete
+or canceled. By default, GitHub issue trackers only show open issues. You can
+see closed issues instead by clicking on the “Closed” tab.</p>
+<p>Click on the green “New Issue” button to create a new issue on the repository.
+You’ll be taken to a page like the one in <a class="reference internal" href="#fig-gh-new-issue"><span class="std std-numref">Fig. 2.6</span></a>.</p>
+<figure class="align-default" id="fig-gh-new-issue">
+<img alt="../../_images/gh_new_issue.png" src="../../_images/gh_new_issue.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">GitHub’s new issue page.</span><a class="headerlink" href="#fig-gh-new-issue" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Let’s fill in the issue with a title and a description. In the title, put a
+non-invasive question for your fellow learners. For example, you could put a
+question like, “What’s your favorite tree on campus?”. Try to think of a unique
+question. In the description, state the question again, and write 1-2 sentences
+explaining why you think it’s an interesting question. You can use Markdown to
+format the description of an issue.</p>
+<p>When you’re done writing, click on the green “Create” button. GitHub will
+create the new issue and take you to its page, as in
+<a class="reference internal" href="#fig-gh-issue-created"><span class="std std-numref">Fig. 2.7</span></a>. Notice that GitHub assigns a unique number to
+each issue in a repository, so that you can easily cross-reference issues. The
+issue in the screenshot is number 19. GitHub also allows you to comment on your
+issue, which is a great way to post follow-up information (for corrections to
+the issue description, it’s usually better to use the “Edit” option in the
+issue’s “…” menu).</p>
+<figure class="align-default" id="fig-gh-issue-created">
+<img alt="../../_images/gh_issue_created.png" src="../../_images/gh_issue_created.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.7 </span><span class="caption-text">An issue just after being created.</span><a class="headerlink" href="#fig-gh-issue-created" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now that you’ve created an issue on the sandbox repository, find a partner and
+exchange issue numbers. Then find your partner’s issue on the tracker. When
+writing an issue description or comment, you can reference another issue by
+typing a number sign (<code class="docutils literal notranslate"><span class="pre">#</span></code>) and the issue number. GitHub will automatically
+create a link with the issue’s title. Try this out by replying to your
+partner’s issue. Answer their question and mention your issue, as in
+<a class="reference internal" href="#fig-gh-issue-comment"><span class="std std-numref">Fig. 2.8</span></a>.</p>
+<figure class="align-default" id="fig-gh-issue-comment">
+<img alt="../../_images/gh_issue_comment.png" src="../../_images/gh_issue_comment.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.8 </span><span class="caption-text">A comment on an issue.</span><a class="headerlink" href="#fig-gh-issue-comment" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Finally, go back to the issue your created and read your partner’s comment.
+Then close the issue by pressing the “Close issue” button. You can close any
+issue you create, as well as any issue anyone creates on your repositories.
+Generally, you shouldn’t close an issue unless you feel it’s been completed or
+resolved.</p>
+<p>On public-facing open-source projects, issues are the primary way to report
+bugs and request features. On research projects, issues are a good way to plan
+next steps, document your work as you go, and coordinate with collaborators.
+Issues are only public on public repositories, so if you choose to work in a
+private repository, your issues will be private as well.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When you create an issue on someone else’s repository, especially if it’s an
+open-source project and you want to report a bug, craft the description
+carefully. Make sure to include information about the context in which you
+encountered the problem and details about how to reproduce it, such as your
+operating system, version of the software, and the steps you took that led to
+the problem. Be polite and remember that developers of open-source projects are
+usually unpaid volunteers, so they might not be able to address your issue
+right away. If it’s urgent, consider trying to fix it yourself and if you
+succeed, contribute the fix to the project.</p>
+<p>See <a class="reference external" href="https://github.com/kltm/how-to-write-an-awesome-issue">this guide</a> for more advice about how to write a good
+issue.</p>
+</div>
+</section>
+<section id="forks-remotes">
+<h2><span class="section-number">2.2. </span>Forks &amp; Remotes<a class="headerlink" href="#forks-remotes" title="Link to this heading">#</a></h2>
+<p>A <strong>fork</strong> is a copy <em>on GitHub</em> of some other repository on GitHub. Forking a
+repository has two purposes:</p>
+<ol class="arabic simple">
+<li><p>The fork is your copy, so you can make whatever changes you want (as long as
+you satisfy the project’s license agreement). If you develop a bug fix or a
+cool new feature on the fork, you can contribute it back to the original
+repository. If the original developers are not interested or don’t respond
+to communications, you can still work on your fork.</p></li>
+<li><p>The fork serves as a backup in case the original repository is deleted.</p></li>
+</ol>
+<p>As an example, suppose you want to contribute a change to DataLab’s <a class="reference external" href="https://github.com/ucdavisdatalab/sandbox_git">Git
+sandbox repository</a>. Since you don’t own the repository, you
+can’t push changes to it directly. If you know the owner and they trust you,
+you can ask them to give you access as a collaborator (as in
+<a class="reference internal" href="../version-control/03_remote-repositories.html#sec-collaborating"><span class="std std-ref">Collaborating</span></a>). But that won’t be the case for most projects.</p>
+<p>Instead, you can get your changes on GitHub by forking the repository. Once
+they’re on GitHub, you can, if you want, make a request to the owner of the
+original repository to incorporate your changes (more about this in
+<a class="reference internal" href="#sec-making-a-pull-request"><span class="std std-ref">Making a Pull Request</span></a>). Let’s do this with the <a class="reference external" href="https://github.com/ucdavisdatalab/sandbox_git">Git sandbox
+repository</a>.</p>
+<p>Make sure you’re logged in to GtiHub and open the repository’s GitHub page in
+your web browser. In the row of buttons in the top right part of the page,
+click on “Fork”. GitHub will take you to a page like the one shown in
+<a class="reference internal" href="#fig-gh-create-fork"><span class="std std-numref">Fig. 2.9</span></a>, where you can edit the name and description for
+the fork. Leave the name and description as-is, and click on the “Create fork”
+button.</p>
+<figure class="align-default" id="fig-gh-create-fork">
+<img alt="../../_images/gh_fork.png" src="../../_images/gh_fork.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.9 </span><span class="caption-text">GitHub’s “Create a new fork” page.</span><a class="headerlink" href="#fig-gh-create-fork" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After clicking the button, GitHub will take you to the page for the new fork,
+as in <a class="reference internal" href="#fig-gh-fork"><span class="std std-numref">Fig. 2.10</span></a>. Notice that the owner of the repository is you
+rather than <code class="docutils literal notranslate"><span class="pre">ucdavisdatalab</span></code>. There are also two special buttons on the page:
+“Contribute” and “Sync fork”. We’ll explain more about the “Contribute” button
+soon. The “Sync fork” button merges the latest commits from the original
+repository into your fork—you can use it to update your fork if the original
+repository changes.</p>
+<figure class="align-default" id="fig-gh-fork">
+<img alt="../../_images/gh_fork_repo.png" src="../../_images/gh_fork_repo.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.10 </span><span class="caption-text">The fork’s GitHub page.</span><a class="headerlink" href="#fig-gh-fork" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If you’ve been following along with the examples, at this point you’ve worked
+with three different copies of the Git sandbox repository:</p>
+<ol class="arabic simple">
+<li><p>DataLab’s original repository on GitHub</p></li>
+<li><p>The local copy you cloned in <a class="reference internal" href="01_branches-merges.html#sec-branches-merges"><span class="std std-ref">Branches &amp; Merges</span></a></p></li>
+<li><p>The fork you just created</p></li>
+</ol>
+<p>Most of the time, if you want to make changes to a repository, it’s easiest to
+do so with a local copy. So go back to your terminal and the local copy. Switch
+to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch main
+</pre></div>
+</div>
+<p>Change to the directory with the current date in <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> format, or use
+<code class="docutils literal notranslate"><span class="pre">2025-05-01</span></code> if you don’t see a directory for the current date. Inside the
+directory there’s a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file. Open the file in a text editor. It should
+look something like this, but might have a different date and question:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># 2025-05-01</span>
+
+What are your 3 favorite places to eat in Davis, CA?
+</pre></div>
+</div>
+<p>Close <code class="docutils literal notranslate"><span class="pre">README.md</span></code> without saving. In the same directory, use a text editor to
+make a new file called <code class="docutils literal notranslate"><span class="pre">USERNAME.md</span></code>, where <code class="docutils literal notranslate"><span class="pre">USERNAME</span></code> is your GitHub username.
+In the file, answer the question (one answer per line). Save the file, then
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> the changes.</p>
+<p>Now that we’ve changed the local repository, we need to get the changes to
+GitHub. The local repository already knows about DataLab’s repository on
+GitHub, since it was cloned from there. More precisely, Git knows that
+DataLab’s repository is a remote for the local repository. You can see all of
+the remotes for a repository with the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>origin
+</pre></div>
+</div>
+<p>When you clone a repository, Git names the remote <code class="docutils literal notranslate"><span class="pre">origin</span></code> by default.</p>
+<p>Most of the time, it’s best to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code> with the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag (short for
+<code class="docutils literal notranslate"><span class="pre">--verbose</span></code>), so that you can also see the URLs for each remote:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote -v
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>origin  git@github.com:ucdavisdatalab/sandbox_git.git (fetch)
+origin  git@github.com:ucdavisdatalab/sandbox_git.git (push)
+</pre></div>
+</div>
+<p>In the verbose output, Git prints each remote twice, since remotes can have
+different URLs for fetching and pushing commits (although this is uncommon).
+More importantly, we can see that <code class="docutils literal notranslate"><span class="pre">origin</span></code> does indeed refer to DataLab’s
+repository.</p>
+<p>In order to push changes from the local repository to the fork, you first need
+to let Git know that the fork exists by adding it as a remote. On the fork’s
+GitHub page, click on the green “Code” button, and copy the URL under the SSH
+tab. Then go back to the terminal, type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">fork</span></code>, and paste the
+URL after the command. The full command should look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote add fork git@github.com:nick-ulle/sandbox_git.git
+</pre></div>
+</div>
+<p>This command tells Git to add a new remote named <code class="docutils literal notranslate"><span class="pre">fork</span></code> to the repository, with
+the provided URL. Check the repository’s remotes one more time:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote -v
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fork    git@github.com:nick-ulle/sandbox_git.git (fetch)
+fork    git@github.com:nick-ulle/sandbox_git.git (push)
+origin  git@github.com:ucdavisdatalab/sandbox_git.git (fetch)
+origin  git@github.com:ucdavisdatalab/sandbox_git.git (push)
+</pre></div>
+</div>
+<p>We didn’t have to call the new remote <code class="docutils literal notranslate"><span class="pre">fork</span></code>, but it’s a good name here because
+it makes it clear which remote is which. When dealing with multiple remotes,
+try to choose descriptive, unambiguous names.</p>
+<p>With the remote added, you can push your changes there. Push the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch
+to the remote <code class="docutils literal notranslate"><span class="pre">fork</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git push fork main
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 1.58 KiB | 1.58 MiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:nick-ulle/sandbox_git.git
+   f1976a1..6bebf75  main -&gt; main
+</pre></div>
+</div>
+<p>Refresh the GitHub page for your fork to make sure you can see the changes
+there. The page should look something like <a class="reference internal" href="#fig-gh-fork-commit"><span class="std std-ref">The fork after pushing a commit.</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can remove remotes you’re no longer using from a repository with the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">remove</span></code> command. For instance, if you no longer want to use the <code class="docutils literal notranslate"><span class="pre">fork</span></code>
+remote:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote remove fork
+</pre></div>
+</div>
+</div>
+</section>
+<section id="making-a-pull-request">
+<span id="sec-making-a-pull-request"></span><h2><span class="section-number">2.3. </span>Making a Pull Request<a class="headerlink" href="#making-a-pull-request" title="Link to this heading">#</a></h2>
+<p>A <strong>pull request</strong> is a request <em>in GitHub</em> to merge one branch into another.
+Pull requests provide a way to contribute changes back to a repository you
+don’t control. You can also use pull requests in your own repositories to
+discuss and refine work, manage contributions from collaborators, and document
+major changes.</p>
+<figure class="align-default" id="fig-gh-fork-commit">
+<img alt="../../_images/gh_fork_commit.png" src="../../_images/gh_fork_commit.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.11 </span><span class="caption-text">The fork after pushing a commit.</span><a class="headerlink" href="#fig-gh-fork-commit" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The changes you made to the Git sandbox repository are now online on your fork,
+but they’re still not in DataLab’s original repository. You can contribute your
+changes by making a pull request. GitHub provides several different ways to
+create a pull request; one is to click the “Contribute” button on a fork’s
+GitHub page (as in <a class="reference internal" href="#fig-gh-fork-commit"><span class="std std-numref">Fig. 2.11</span></a>).</p>
+<p>On your fork of the sandbox, go ahead and click the “Contribute” button, and
+click the green “Open pull request” button in the pop-up box. GitHub will take
+you to a “Comparing changes” page like the one in
+<a class="reference internal" href="#fig-gh-create-pull-request"><span class="std std-numref">Fig. 2.12</span></a>. The page has spaces for a title and
+description, similar to when we created an issue in <a class="reference internal" href="#sec-whats-an-issue"><span class="std std-ref">What’s an Issue?</span></a>.
+In fact, pull requests are just a special kind of issue.</p>
+<figure class="align-default" id="fig-gh-create-pull-request">
+<img alt="../../_images/gh_create_pull_request.png" src="../../_images/gh_create_pull_request.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.12 </span><span class="caption-text">GitHub’s “Comparing changes” page, to create a new pull request.</span><a class="headerlink" href="#fig-gh-create-pull-request" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When you create a pull request, GitHub automatically fills in the title with
+the commit message from the source branch’s most recent commit. If the branch
+has multiple new commits, it’s a good practice to change the title to something
+that summarizes the overall effect of the pull request. You should also fill in
+the description with a longer explanation of what your pull request
+does—don’t leave it blank!</p>
+<p>Once you’ve filled in the title and description, click the green “Create pull
+request” button. GitHub will take you to the page for the new pull request, as
+in <a class="reference internal" href="#fig-gh-pull-request"><span class="std std-numref">Fig. 2.13</span></a>.</p>
+<figure class="align-default" id="fig-gh-pull-request">
+<img alt="../../_images/gh_pull_request.png" src="../../_images/gh_pull_request.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.13 </span><span class="caption-text">The new pull request.</span><a class="headerlink" href="#fig-gh-pull-request" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A pull request stays open until it is merged or closed without merging. While a
+pull request is open, anyone with access to the source branch can push changes,
+and GitHub will automatically update the request. This way the author of the
+request can address feedback, or collaborators can even jump in and make
+corrections themselves.</p>
+<p>The tabs along the top of the pull request page show information about the
+changes to be merged. On the “Conversation” tab, you and your collaborators can
+comment on the request just like you would on an issue.</p>
+<p>Under the “Files changed” tab, you can see diffs for all of the files changed
+by the pull request, as in <a class="reference internal" href="#fig-gh-pr-files-changed"><span class="std std-numref">Fig. 2.14</span></a>. You can also add
+comments on specific lines. Examining the files changed is a great way to make
+sense of what a pull request will actually do, and commenting on lines is a
+convenient way to provide feedback to collaborators.</p>
+<figure class="align-default" id="fig-gh-pr-files-changed">
+<img alt="../../_images/gh_pr_files_changed.png" src="../../_images/gh_pr_files_changed.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.14 </span><span class="caption-text">The “Files changed” tab on a pull request.</span><a class="headerlink" href="#fig-gh-pr-files-changed" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The “Files changed” tab is also the main interface for reviewing a pull
+request. Reviewing pull requests is generally the responsibility of the owner
+of the destination branch. The can choose to either accept the pull request,
+marking it as ready to merge, or flag it as in need of more work. In the latter
+case, the author can push new commits to their branch and then request another
+review.</p>
+<p>With a pull request open, now you have to wait until your request is approved.
+Congratulations on making your first pull request!</p>
+</section>
+<section id="github-flow">
+<h2><span class="section-number">2.4. </span>GitHub Flow<a class="headerlink" href="#github-flow" title="Link to this heading">#</a></h2>
+<p>Pull requests are the foundation of <strong>GitHub flow</strong>, a workflow for
+collaborating on repositories and projects on GitHub. To follow GitHub flow for
+a repository, first you need to do some setup:</p>
+<ol class="arabic simple">
+<li><p>If you don’t have write access to the repository, create a fork.</p></li>
+<li><p>Clone a copy of the repository (if you have write access) or your fork (if
+you don’t).</p></li>
+</ol>
+<p>Once you’re set up, each time you want to make a new contribution, the steps in
+GitHub flow are:</p>
+<ol class="arabic simple">
+<li><p>Create a new, local branch with a short, descriptive name.</p></li>
+<li><p>Commit changes on the branch.</p></li>
+<li><p>Push your changes to GitHub.</p></li>
+<li><p>Create a pull request when you’re ready to contribute the changes back to
+the original repository.</p></li>
+<li><p>Address feedback from reviewers through discussion on the pull request
+and/or by pushing additional changes.</p></li>
+<li><p>Merge the pull request.</p></li>
+<li><p>Delete the branch.</p></li>
+</ol>
+<p>You can read more about GitHub flow in <a class="reference external" href="https://docs.github.com/en/get-started/using-github/github-flow">the official documentation</a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>GitHub flow is simplification of <a class="reference external" href="https://nvie.com/posts/a-successful-git-branching-model/">Git flow</a>, a workflow designed for
+collaboratively developing software for a large audience, where maintaining
+stability and rolling out changes gradually is paramount.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/git-for-teams"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_branches-merges.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Branches &amp; Merges</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_making-git-comfortable.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Making Git Comfortable</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-issue">2.1. What’s an Issue?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forks-remotes">2.2. Forks &amp; Remotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-pull-request">2.3. Making a Pull Request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-flow">2.4. GitHub Flow</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

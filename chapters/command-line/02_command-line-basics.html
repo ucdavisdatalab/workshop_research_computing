@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Command Line Basics &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/command-line/02_command-line-basics';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Navigating File Systems" href="03_navigating-file-systems.html" />
+    <link rel="prev" title="1. Interacting with Computers" href="01_interacting-with-computers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/command-line/02_command-line-basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/command-line/02_command-line-basics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Command Line Basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-a-terminal">2.1. Opening a Terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anatomy-of-the-command-line">2.2. The Anatomy of the Command Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-the-command-line">2.3. Interacting with the Command Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-syntax">2.4. Command Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">2.5. Common Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">2.6. Getting Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-problems-arise">2.7. When Problems Arise</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="command-line-basics">
+<h1><span class="section-number">2. </span>Command Line Basics<a class="headerlink" href="#command-line-basics" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Open a terminal</p></li>
+<li><p>Explain what a prompt is</p></li>
+<li><p>Explain the shell command syntax</p></li>
+<li><p>Name some common shell commands</p></li>
+<li><p>Describe how to get help with shell commands</p></li>
+</ul>
+</div>
+<section id="opening-a-terminal">
+<h2><span class="section-number">2.1. </span>Opening a Terminal<a class="headerlink" href="#opening-a-terminal" title="Link to this heading">#</a></h2>
+<p>To use the command line, we need to run a terminal program.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Windows</label><div class="sd-tab-content docutils">
+<p>Git Bash is the terminal we recommend on Windows. It is not built into Windows,
+so you have to install it yourself. The <a class="reference internal" href="../setup.html#sec-setup"><span class="std std-ref">Setup</span></a> chapter provides
+instructions.</p>
+<p>To launch Git Bash, open the start menu and search for “Git Bash” or
+select <code class="docutils literal notranslate"><span class="pre">Programs</span> <span class="pre">-&gt;</span> <span class="pre">Git</span> <span class="pre">Bash</span></code>.</p>
+<p>When the Git Bash opens, it will look something like this:</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/git_bash.png" src="../../_images/git_bash.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Git Bash on Windows.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+macOS</label><div class="sd-tab-content docutils">
+<p>The built-in Terminal application is what we recommend on macOS.</p>
+<p>To launch Terminal, select <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-&gt;</span> <span class="pre">Utilities</span> <span class="pre">-&gt;</span> <span class="pre">Terminal</span></code>.</p>
+<p>When the Terminal app opens, it will look something like this:</p>
+<figure class="align-default" id="id2">
+<img alt="../../_images/prompt.png" src="../../_images/prompt.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">The Terminal app on macOS.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Linux</label><div class="sd-tab-content docutils">
+<p>Many different terminals are available for Linux. Any are likely okay for this
+workshop, but the examples were only tested in <a class="reference external" href="https://wezterm.org/">WezTerm</a>.</p>
+</div>
+</div>
+</section>
+<section id="the-anatomy-of-the-command-line">
+<h2><span class="section-number">2.2. </span>The Anatomy of the Command Line<a class="headerlink" href="#the-anatomy-of-the-command-line" title="Link to this heading">#</a></h2>
+<p>While the command line can look intimidating to those raised on a GUI, it’s
+important to know that it is nevertheless an <em>interface</em> in the same way that
+your computer’s default windowing system is an interface. That is, even though
+a CLI is something of a bare-bones representation of your computer, it too
+relies on a series of assumptions and metaphors that serve to frame how you
+interact with your computer. Using the CLI may feel strange at first, but part
+of that feeling comes from not being acclimated to the way it <em>represents</em> a
+computer.</p>
+<p>For example, instead of pointing and clicking on things in your computer, as
+you’d do with a GUI, you type in your commands with a CLI. In this way, a CLI
+is more like a typewriter than it is a desktop (an even better analogue would
+be a <a class="reference external" href="https://en.wikipedia.org/wiki/Teleprinter">teleprinter</a>).</p>
+<p>To see this, return to the terminal window.</p>
+<p><img alt="Mac Terminal window" src="../../_images/prompt.png" /></p>
+<p>Everything that will happen in this window happens on a line-by-line basis.
+Here, we see the command line <strong>prompt</strong>, where you’ll type your commands. The
+prompt itself offers valuable information about your computer. The beginning of
+the line, <code class="docutils literal notranslate"><span class="pre">tshoe&#64;ds</span></code>, tells us the current user (<code class="docutils literal notranslate"><span class="pre">tshoe</span></code>) and current computer
+(<code class="docutils literal notranslate"><span class="pre">ds</span></code>). This may seem redundant, but with the command line it is possible to
+interact with remote computers via a network, so it can be helpful to have this
+information displayed as a reference point.</p>
+<p>The bit of information after the colon (in this example, the <code class="docutils literal notranslate"><span class="pre">~</span></code> character)
+tells us where in the computer’s filesystem we are. We’ll discuss this later.
+For now, just keep in mind that you can look here to find your current
+location. In this case, <code class="docutils literal notranslate"><span class="pre">~</span></code> means you are in your <strong>home directory</strong>.</p>
+<p><img alt="Mac Terminal with the Home symbol highlighted" src="../../_images/prompt_home_highlight.png" /></p>
+<p>After the location, we see the <code class="docutils literal notranslate"><span class="pre">$</span></code> character. It is an indicator that lets you
+know the command line application is waiting for you to enter something.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>You do not need to type <code class="docutils literal notranslate"><span class="pre">$</span></code>, it will appear automatically, but examples online
+sometimes include it to emulate what you’ll see onscreen.</p>
+<p>We do not include the <code class="docutils literal notranslate"><span class="pre">$</span></code> at the beginning of any commands in this reader.</p>
+</div>
+<p>Depending on your system and/or command line interface, you may or may not also
+see a solid or flashing box that appears after the prompt character. This is a
+<strong>cursor position indicator</strong> and it tells you where the current cursor is in
+the terminal. This is useful if you need to go back and correct and error.
+Since you can’t click around with a mouse in a CLI, you’ll have to use your
+computer’s <code class="docutils literal notranslate"><span class="pre">Left</span></code> and <code class="docutils literal notranslate"><span class="pre">Right</span></code> arrows to move the cursor to your desired
+location and make any changes from there.</p>
+</section>
+<section id="interacting-with-the-command-line">
+<h2><span class="section-number">2.3. </span>Interacting with the Command Line<a class="headerlink" href="#interacting-with-the-command-line" title="Link to this heading">#</a></h2>
+<p>You can run, or <em>execute</em>, a command in the terminal by typing the command’s
+name—followed by any additional information the command requires—and then
+pressing <code class="docutils literal notranslate"><span class="pre">Enter</span></code> or <code class="docutils literal notranslate"><span class="pre">Return</span></code> on your keyboard.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command prints text to the screen. It literally echoes
+your text:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;Hello world!&quot;
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hello world!
+</pre></div>
+</div>
+<p>When you enter a command, your computer’s shell program interprets and runs the
+command, prints any output from the command to the terminal, and finally prints
+a new command line prompt.</p>
+<p>As another example, if you want to <em>list</em> the files and folders in the current
+directory, you can run the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>backups  data.csv  jupyter_notebook.ipynb  project_folder
+</pre></div>
+</div>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">ls</span></code> on a subfolder to show its contents:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls project_folder
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file_1.txt  file_2.txt
+</pre></div>
+</div>
+<p>Want some more information about your files and folders? You can modify the
+base functionality of the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command – and in fact you can do this for many
+such commands – with <strong>flags</strong>. We do this by adding a dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>) and then a
+letter, or a combination of letters, directly after the dash.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls -lha
+</pre></div>
+</div>
+<p>…will print out information about the permissions, size, and date of the
+current directory’s contents, as well as the user(s) who created them:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls -lha
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.
+..
+.config_file
+drwxrwxr-x 2 tshoe staff 4.0K Jun 21 23:30 backups
+-rw-rw-r-- 1 tshoe staff  28K Oct  4 20:42 data.csv
+-rw-rw-r-- 1 tshoe staff 6.2K Aug 27 22:44 jupyter_notebook.ipynb
+drwxrwxr-x 8 root  root  4.0K Oct  4 21:44 project_folder
+</pre></div>
+</div>
+<p>It’s worth walking through this output, because it demonstrates how we can
+bring important information into view with just a few keystrokes. For
+beginners, the most relevant portions of <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lha</span></code> are likely to be toward the
+end of the output, where the file sizes are listed along with the date each
+file was last modified. To the left of this information are listings for the
+file owner/file group (respectively, <code class="docutils literal notranslate"><span class="pre">tshoe</span></code>/<code class="docutils literal notranslate"><span class="pre">staff</span></code> and <code class="docutils literal notranslate"><span class="pre">root</span></code>/<code class="docutils literal notranslate"><span class="pre">root</span></code>). These
+listings help us make some sense of the most confusing part of the above
+output: those strings of <code class="docutils literal notranslate"><span class="pre">r</span></code>’s, <code class="docutils literal notranslate"><span class="pre">w</span></code>’s, and <code class="docutils literal notranslate"><span class="pre">x</span></code>’s. These represent the various
+<strong>permissions</strong> for each file. Permissions are specific file attributes that
+control which users can read (<code class="docutils literal notranslate"><span class="pre">r</span></code>), change (<code class="docutils literal notranslate"><span class="pre">w</span></code>), or execute (<code class="docutils literal notranslate"><span class="pre">x</span></code>) a file.
+Depending on what level of permissions you, or the user group to which you
+belong, have been assigned, you may or may not be able to work with certain
+files (if you’re on your personal computer, you likely have full permissions).</p>
+<p>Besides outputting file information, <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lha</span></code> also shows us three things in
+our folder that were otherwise hidden with just <code class="docutils literal notranslate"><span class="pre">ls</span></code>: <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">..</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">.config_file</span></code>. The first two are special notation for navigating your
+computer, which we’ll discuss in a later section. The last, <code class="docutils literal notranslate"><span class="pre">.config_file</span></code>, is
+a <strong>dotfile</strong>. Dotfiles (named for the <code class="docutils literal notranslate"><span class="pre">.</span></code> that prefaces them) are hidden by
+default on your computer. They often contain various configuration settings
+that people use to customize their computers. Some will also log the history of
+commands you’ve sent via a CLI (for example, <code class="docutils literal notranslate"><span class="pre">.bash_history</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.python_history</span></code>). We can’t discuss these files in depth, but for the moment
+it’s worth recognizing that they exist and that you’ll occasionally encounter
+them when working on the command lie.</p>
+<p>Depending on your particular system and/or CLI, all of the above might look
+slightly different on your computer. However, the basic presentation and
+functionality as described above will be the same. Typing is the predominant
+way of using a CLI, and the results of sending in commands with a CLI are
+text-only representations of your computer and your files.</p>
+</section>
+<section id="command-syntax">
+<h2><span class="section-number">2.4. </span>Command Syntax<a class="headerlink" href="#command-syntax" title="Link to this heading">#</a></h2>
+<p>As you can see, the <strong>syntax</strong> of commands is straightforward. Commands use a
+space to delimit their different components, and flags are called with <code class="docutils literal notranslate"><span class="pre">-</span></code> to
+modify those commands. When put together, we can generalize these components
+look like so:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[command] [optional flags] [file, data, or other pointer on which to run the command]
+</pre></div>
+</div>
+<p>There is one caveat to this: because commands use spaces to delimit their
+components, you can run into problems when running commands on files with
+spaces in their names. Your command line interface program will interpret that
+file’s spaces as separate components and an error will almost surely result. If
+you’re running a command on a file with a space in its name, you’ll need to
+<strong>escape</strong> that space with <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p>
+<p>This will throw an error:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[command] file name.txt
+</pre></div>
+</div>
+<p>This will not:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[command] file\ name.txt
+</pre></div>
+</div>
+<p>While escape characters are perfectly workable, they can be a bit of a pain to
+type over and over. For this reason, people who use the command line in their
+daily work often avoid spaces altogether when naming their files. If you’re
+interested to learn more about what conventions you might use in place of
+spaces, see this <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/#file-names">section on file names</a> in the DataLab’s workshop reader
+about project organization and documentation.</p>
+</section>
+<section id="common-commands">
+<h2><span class="section-number">2.5. </span>Common Commands<a class="headerlink" href="#common-commands" title="Link to this heading">#</a></h2>
+<p>During our hands-on workshop session we will practice using several commands,
+which are listed below (along with a few other supplementary ones).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span></code></p></td>
+<td><p>List</p></td>
+<td><p>Lists all files in the current directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code></p></td>
+<td><p>List with long flag</p></td>
+<td><p>Lists additional information about each file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-h</span></code></p></td>
+<td><p>List with human-readable flag</p></td>
+<td><p>Lists file information in a human-readable format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code></p></td>
+<td><p>List with all flag</p></td>
+<td><p>Lists all files, including hidden files.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">file</span></code></p></td>
+<td><p>File</p></td>
+<td><p>Determines the type of file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cat</span></code></p></td>
+<td><p>Concatenate</p></td>
+<td><p>Prints the contents of a file to screen.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+<td><p>Print Working Directory</p></td>
+<td><p>Prints the current working directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span></code></p></td>
+<td><p>Make Directory</p></td>
+<td><p>Creates a new directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></td>
+<td><p>Change Directory</p></td>
+<td><p>Navigates to another directory on the file system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mv</span></code></p></td>
+<td><p>Move</p></td>
+<td><p>Moves files.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cp</span></code></p></td>
+<td><p>Copy</p></td>
+<td><p>Copies files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unzip</span></code></p></td>
+<td><p>Unzip</p></td>
+<td><p>Decompresses file archives.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rm</span></code></p></td>
+<td><p>Remove/Delete</p></td>
+<td><p>Deletes files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">man</span></code></p></td>
+<td><p>Manual</p></td>
+<td><p>Opens the manual page for another command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--
+A more complete list of Unix Commands may be found on Valerie Henderson
+Summet's [Unix Cheat Sheet][]. That said, 
+
+[Unix Cheat Sheet]: cheatsheet.pdf
+-->
+<p>There are dozens of base commands, each with their own set of flags, and it’s
+possible to install software that will expand that number even more. We can’t
+go over everything in the workshop, but familiarizing yourself with the basic
+command syntax will help you find your way around new commands.</p>
+</section>
+<section id="getting-help">
+<h2><span class="section-number">2.6. </span>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p>One other thing that will help you learn about new commands is <code class="docutils literal notranslate"><span class="pre">man</span></code>
+(“manual”). This opens the manual page for another command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>man ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>LS(1)                                               User Commands                                               LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of
+       -cftuvSUX nor --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+              with -l, print the author of each file
+
+       -b, --escape
+              print C-style escapes for nongraphic characters
+
+       --block-size=SIZE
+              with -l, scale sizes by SIZE when printing them; e.g., &#39;--block-size=M&#39;; see SIZE format below
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+
+       -c     with -lt: sort by, and show, ctime (time of last modification of file  status  information);  with  -l:
+              show ctime and sort by name; otherwise: sort by ctime, newest first
+
+       -C     list entries by columns
+
+       --color[=WHEN]
+              colorize the output; WHEN can be &#39;always&#39; (default if omitted), &#39;auto&#39;, or &#39;never&#39;; more info below
+
+       -d, --directory
+              list directories themselves, not their contents
+[...]
+</pre></div>
+</div>
+<p>As opposed to the usually mute, minimalist disposition of a CLI, here you can
+see thorough documentation for a given command and its various flags. A
+visually condensed version of this information is also accessible by flagging a
+command with <code class="docutils literal notranslate"><span class="pre">--help</span></code>, as in <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">--help</span></code>. Sometimes it can also be helpful to
+know what version of a command you’re using, as commands themselves can be
+updated. You can find this information for some commands with <code class="docutils literal notranslate"><span class="pre">--version</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">--v</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>man --v
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>man, version 1.6g
+</pre></div>
+</div>
+<p>Still unclear about what a command does? Look it up with your favorite search
+engine, or visit Stack Exchange and search there. CLIs are widely used
+software, and chances are incredibly good that someone else has had the same
+question you want to ask.</p>
+</section>
+<section id="when-problems-arise">
+<h2><span class="section-number">2.7. </span>When Problems Arise<a class="headerlink" href="#when-problems-arise" title="Link to this heading">#</a></h2>
+<p>Error messages offer another, admittedly less pleasant way to learn about how a
+command works. When you’re first starting out with any kind of console-based
+software (whether it be a CLI or writing code), one of the most important
+skills you can learn is how to read an error message. For the most part, such
+messages are quite clear; they’re intended to help you debug your problem and
+thus attempt to supply you with information about what might be going wrong.</p>
+<p>As an example, if you’re at your home directory, and it looks like the
+following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>backups  data.csv  jupyter_notebook.ipynb  project_folder
+</pre></div>
+</div>
+<p>…and you decide to <code class="docutils literal notranslate"><span class="pre">ls</span></code> a folder within this directory that doesn’t exist:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls no_name
+</pre></div>
+</div>
+<p>You’ll see this error message:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls no_name
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls: cannot access &#39;no_name&#39;: No such file or directory
+</pre></div>
+</div>
+<p>This tells you that, while you’ve sent in a valid <code class="docutils literal notranslate"><span class="pre">ls</span></code> command, it can’t find
+what you’re looking for.</p>
+<p>Likewise, forgetting a space:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo&quot;hello&quot;
+</pre></div>
+</div>
+<p>…will produce:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo&quot;hello&quot;
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-bash: echohello: command not found
+</pre></div>
+</div>
+<p>Or in other words, you’ve sent in a command that’s either invalid or is
+unavailable. These messages are both fairly clear, but if you’re ever confused,
+or if you simply want to find out more about an error, a search engine is once
+again your friend. Sometimes simply copy/pasting the error message and
+searching on that alone will lead directly to information about what went
+wrong.</p>
+<p>That all said, sometimes you need to stop a CLI process immediately. Did you,
+for example, do something that causes your computer to print a million lines on
+screen? Did you decide you don’t want a file copied to a new location, and it’s
+still in the midst of transferring? You can <strong>interrupt</strong> any command with
+<code class="docutils literal notranslate"><span class="pre">CTRL+C</span></code>. This will stop whatever current process is running in your interface.</p>
+<p>While you can stop a command, for the most part <em>it isn’t possible to undo a
+command</em>. Please take care to know exactly what you’re running and what you’re
+running it on, especially when it comes to modifying or deleting things on your
+computer.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/command-line"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_interacting-with-computers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Interacting with Computers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_navigating-file-systems.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Navigating File Systems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-a-terminal">2.1. Opening a Terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anatomy-of-the-command-line">2.2. The Anatomy of the Command Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-the-command-line">2.3. Interacting with the Command Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-syntax">2.4. Command Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-commands">2.5. Common Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">2.6. Getting Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-problems-arise">2.7. When Problems Arise</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

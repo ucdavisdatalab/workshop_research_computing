@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Making Git Comfortable &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/git-for-teams/03_making-git-comfortable';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="2. Working with GitHub" href="02_working-with-github.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/02_command-line-basics.html">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/git-for-teams/03_making-git-comfortable.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/git-for-teams/03_making-git-comfortable.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Making Git Comfortable</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-files">3.1. Ignoring Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-git">3.2. Configuring Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliases">3.2.1. Aliases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">3.3. Getting Help</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="making-git-comfortable">
+<h1><span class="section-number">3. </span>Making Git Comfortable<a class="headerlink" href="#making-git-comfortable" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file to make Git ignore specific files</p></li>
+<li><p>Describe some popular Git configuration changes</p></li>
+<li><p>Create Git aliases</p></li>
+<li><p>Describe some strategies to fix problems with repositories</p></li>
+<li><p>Name some references to turn to for help with Git</p></li>
+</ul>
+</div>
+<section id="ignoring-files">
+<h2><span class="section-number">3.1. </span>Ignoring Files<a class="headerlink" href="#ignoring-files" title="Link to this heading">#</a></h2>
+<p>Let’s briefly consider files that you <em>don’t</em> want Git to track. These are
+typically:</p>
+<ul class="simple">
+<li><p>Private files that shouldn’t be shared. Examples in this category include
+configuration files with passwords, authentication tokens, SSH keys, and data
+sets with personally identifiable information or other sensitive information.</p></li>
+<li><p>Nuisance files that aren’t a meaningful part of your project. Examples
+include hidden files created automatically by your computer’s operating
+system and intermediate files generated by your project’s workflows.</p></li>
+<li><p>Large files (over 1-10 MB), because most Git hosting services have repository
+size limits and large files tend to slow down Git. Examples in this category
+include data sets and outputs. It’s usually easiest to store these files on a
+private server or a regular file hosting service, such as <a class="reference external" href="https://drive.google.com/">Google
+Drive</a> or <a class="reference external" href="https://www.box.com/">Box</a>. If you need to distribute large files with your
+repository, consider using tools such as <a class="reference external" href="https://git-lfs.com/">Git Large File Storage</a>
+and <a class="reference external" href="https://dvc.org/">Data Version Control</a>.</p></li>
+</ul>
+<p>As an example, here’s a file listing for a directory containing resources for a
+workshop about text mining in R that DataLab offers:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls -a
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.   .DS_Store   D3VIS   gephi_tutorial   r_networks   scraping
+..  .git        data    kumu_tutorial    readme.txt   text_mining
+</pre></div>
+</div>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> file and <code class="docutils literal notranslate"><span class="pre">.git/</span></code> directory. These are hidden
+configuration files for macOS and Git, respectively. Git is pretty smart, and
+it knows to ignore its own hidden configuration files, but we need to tell it
+explicitly to ignore the other one using a special file called <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+<p>You can create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file from scratch with a text editor. In the
+file, simply add the names of files and directories that you want Git to
+ignore, putting one per line. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.httr-oauth
+.DS_Store
+.config
+data/*
+</pre></div>
+</div>
+<p>Note in this example that we’ve also added the <code class="docutils literal notranslate"><span class="pre">data/</span></code> folder and any of its
+contents to <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>. This is for two reasons, which we discussed
+earlier: 1) it’s usually not a good idea to track data files with Git; 2) the
+free version of GitHub (which you’re probably using) puts a cap on the total
+size of a repository. It would be a waste of space to have data eating away at
+that size limit.</p>
+<p>Generally speaking, you should place your <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file in the root of your
+repository, where it will control Git behavior for the repository. GitHub
+provides a nice repository of template <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> files for various types of
+development <a class="reference external" href="https://github.com/github/gitignore">here</a>.</p>
+</section>
+<section id="configuring-git">
+<h2><span class="section-number">3.2. </span>Configuring Git<a class="headerlink" href="#configuring-git" title="Link to this heading">#</a></h2>
+<p>Proper configuration can make Git more comfortable and convenient to use. The
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> <a class="reference external" href="https://git-scm.com/docs/git-config">manual page</a> lists Git’s many configuration
+options. You can set options globally or per-repository; in practice, we’ve
+found the former more useful. To set an option, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">set</span> <span class="pre">--global</span></code>
+with the option’s name and setting, as explained in <a class="reference internal" href="../version-control/02_git-basics.html#sec-configuring-git"><span class="std std-ref">Configuring Git</span></a>.
+Settings are stored in a configuration file, so if you prefer, you can edit the
+file directly. To open the global configuration file in Git’s default text
+editor, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="n">edit</span> <span class="o">--</span><span class="k">global</span>
+</pre></div>
+</div>
+<p>The file contains sections with key-value pairs. Each section begins with a
+header in square brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>. Key-value pairs are indented within each
+section and written <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">=</span> <span class="pre">value</span></code>. Lines beginning with the number sign <code class="docutils literal notranslate"><span class="pre">#</span></code> are
+ignored as comments. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Name and email.
+[user]
+  name = Nick Ulle
+  email = naulle@ucdavis.edu
+</pre></div>
+</div>
+<p>Options listed in the manual always have two parts separated by a dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>);
+these are the section and key. For instance, the option <code class="docutils literal notranslate"><span class="pre">user.name</span></code> corresponds
+to the section <code class="docutils literal notranslate"><span class="pre">user</span></code> and key <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>Git’s default text editor is usually <code class="docutils literal notranslate"><span class="pre">vi</span></code>, but if you don’t like <code class="docutils literal notranslate"><span class="pre">vi</span></code> you can
+set it to something else with the <code class="docutils literal notranslate"><span class="pre">core.editor</span></code> option. For example, if you
+prefer <a class="reference external" href="https://micro-editor.github.io/">micro</a>, you can set:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[core]
+  editor = micro
+</pre></div>
+</div>
+<p>The setting should either be the name of a program you can run from the
+terminal (that is, in the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>; see <a class="reference internal" href="../installing-software/a_configuring-the-shell.html#environment-variables"><span class="std std-ref">Environment Variables</span></a>) or the
+absolute path to a program.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Two settings we recommend for a smoother Git experience are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[push]
+  autoSetupRemote = true
+[pull]
+  ff = only
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">push.autoSetupRemote</span></code> option controls whether Git automatically sets a
+local branch’s upstream when you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>. With the option set to <code class="docutils literal notranslate"><span class="pre">true</span></code>,
+the first time you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> on a branch, its upstream will be set to the
+specified remote.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pull.ff</span></code> option controls what Git does when you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>. With
+<code class="docutils literal notranslate"><span class="pre">pull.ff</span></code> set to <code class="docutils literal notranslate"><span class="pre">only</span></code>, Git will abort any pull that requires a regular (not
+fast-forward) merge. This is helpful for avoiding accidental merge commits, and
+you can still run a regular merge when needed with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>.</p>
+</div>
+<section id="aliases">
+<h3><span class="section-number">3.2.1. </span>Aliases<a class="headerlink" href="#aliases" title="Link to this heading">#</a></h3>
+<p>In Git, an <strong>alias</strong> is a name for another command. Aliases are great shortcuts
+for commands that are long or difficult to remember. You can set aliases in the
+<code class="docutils literal notranslate"><span class="pre">alias</span></code> section of Git’s configuration file; the key should be whatever you
+want the alias’ name to be. The value of the alias should be a Git command
+without <code class="docutils literal notranslate"><span class="pre">git</span></code> at the beginning. For example, to make an alias <code class="docutils literal notranslate"><span class="pre">unstage</span></code> that
+runs <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--</span></code> to remove a change from the staging area:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[alias]
+  unstage = reset --
+</pre></div>
+</div>
+<p>You can also set aliases with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">set</span> <span class="pre">--global</span></code>.</p>
+<p>After setting an alias, you can use it like any other Git command. So to use
+the unstage alias <em>in a repository</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git unstage
+</pre></div>
+</div>
+<p>Any arguments you pass to an alias are appended to the end of the command. For
+instance, if you only want to remove changes to <code class="docutils literal notranslate"><span class="pre">README.md</span></code> from the staging
+area, you can specify this when you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">unstage</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git unstage README.md
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Here are a few more useful aliases:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[alias]
+  # Show a diff for changes in the staging area.
+  staged = diff --staged
+
+  # Show a graph of the repository&#39;s 10 most recent commits.
+  ls = log --graph --oneline --all -10
+
+  # Show the first commit for a file or directory.
+  origin = log --follow --diff-filter=A --
+
+  # Show number of commits per author for a file or directory.
+  authors = shortlog --numbered --summary --
+
+  # Print the path to the top level of a repository.
+  root = rev-parse --show-toplevel
+</pre></div>
+</div>
+<p>With the <code class="docutils literal notranslate"><span class="pre">root</span></code> alias, to quickly change to the top level of a repository from
+any of its subdirectories, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd `git root`
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="getting-help">
+<h2><span class="section-number">3.3. </span>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p>Git has a well-deserved reputation as a tool that’s difficult to learn and use.
+One of the reasons for this is the minimal design of Git’s original command
+line interface. Since Git’s first release in 2005, contributors have made
+several improvements to the interface, but it still has rough edges. Hopefully
+it will continue to improve.</p>
+<p>In this reader, we’ve focused a small set of tasks we consider important, and
+where the Git interface provides multiple ways to do something, we’ve attempted
+to choose the simplest (which is generally the newest). Nevertheless, if you
+continue using Git, you’ll eventually encounter a problem or need to do
+something that we didn’t explain.</p>
+<p>There’s a wealth of information about Git online. The book <em><a class="reference external" href="https://git-scm.com/book/en/v2">Pro Git</a></em> by
+Chacon and Straub is a great reference to learn more and look for help. The
+website <a class="reference external" href="https://dangitgit.com/">Dangit, Git!?!</a> explains how to solve several
+frequently-encountered problems, and Julia Evans’ blog post <a class="reference external" href="https://jvns.ca/blog/2023/11/01/confusing-git-terminology/">Confusing Git
+Terminology</a> explains Git jargon. <a class="reference external" href="https://stackoverflow.com/">Stack Overflow</a>, a
+programming question and answer site, contains many questions and answers about
+Git, and if you can’t find one that helps you, you can post a new question.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/git-for-teams"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_working-with-github.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Working with GitHub</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-files">3.1. Ignoring Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-git">3.2. Configuring Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliases">3.2.1. Aliases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">3.3. Getting Help</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

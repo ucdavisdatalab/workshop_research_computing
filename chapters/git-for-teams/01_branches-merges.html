@@ -1,0 +1,1205 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Branches &amp; Merges &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/git-for-teams/01_branches-merges';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. Working with GitHub" href="02_working-with-github.html" />
+    <link rel="prev" title="Git for Teams" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/02_command-line-basics.html">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/git-for-teams/01_branches-merges.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/git-for-teams/01_branches-merges.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Branches & Merges</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-a-branch">1.1. What’s a Branch?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switching-branches">1.2. Switching Branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-branch">1.3. Creating a Branch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-a-merge">1.4. What’s a Merge?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflicts">1.5. Merge Conflicts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-remote-branches">1.6. Merging Remote Branches</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="branches-merges">
+<span id="sec-branches-merges"></span><h1><span class="section-number">1. </span>Branches &amp; Merges<a class="headerlink" href="#branches-merges" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain what a branch is</p></li>
+<li><p>Describe some ways in which branches are useful</p></li>
+<li><p>Explain how local branches and remote branches are different</p></li>
+<li><p>List the branches in a repository</p></li>
+<li><p>Switch between branches in a repository</p></li>
+<li><p>Explain what a merge is</p></li>
+<li><p>Merge one branch into another</p></li>
+<li><p>Explain what a merge conflict is</p></li>
+<li><p>Describe some ways to avoid merge conflicts</p></li>
+<li><p>Resolve a merge conflict</p></li>
+</ul>
+</div>
+<!--
+We usually teach this workshop immediately after the Intro to Command Line and
+Intro to Version Control workshops. At that point, many learners are relatively
+new to programming and might not be able to imagine ways in which concepts like
+branches, issues, pull requests, and .gitignore will apply to their projects.
+They're also probably not working on a project with hundreds or thousands of
+collaborators (graduate research tends to be solitary or within a single lab).
+So to reach the most learners, the focus should probably be on how these
+concepts can benefit small projects with 1-3 contributors. That is, if I'm
+working alone or on a small team, for what would I use issues? Pull requests?
+Etc.
+
+A natural starting point is merge conflicts, because they can arise any time
+there are multiple copies of a repository (or even branches within a
+repository). Beginners can even create merge conflicts with themselves.
+
+Merges might be easier to understand in the context of branches, because if you
+understand branches then you're already part of the way to understanding
+diverging histories (and branches are very visual). On the other hand,
+beginners probably aren't going to be using branches frequently, so in practice
+they're more likely to encounter a merge conflict when they pull from a remote.
+
+We could follow the example in Intro to Version Control: have the learners work
+in pairs, each committing to a single repository, and lead them to a merge
+conflict. This is nice for continuity between workshops and -
+-->
+<!--
+Example flow:
+
+* Clone sandbox repo
+* Switch to `demo`
+* Make changes
+* Switch to `main`, discarding changes
+
+* Switch to `demo`
+* Create branch `xx-foo`
+* Switch to `xx-demo`
+* Make changes, add, commit
+* Switch to `demo`
+* Merge `xx-demo` into `demo`
+
+* Create merge conflict
+* Resolve merge conflict
+-->
+<section id="what-s-a-branch">
+<h2><span class="section-number">1.1. </span>What’s a Branch?<a class="headerlink" href="#what-s-a-branch" title="Link to this heading">#</a></h2>
+<p>As you make commits to a Git repository, the commits become that repository’s
+history. You can explore the history with commands like <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> (see <a class="reference internal" href="../version-control/02_git-basics.html#sec-exploring-history"><span class="std std-ref">Exploring History</span></a>). For many repositories, the history
+is linear—each commit has one commit before it and possibly one after it, as
+in <a class="reference internal" href="#fig-history-linear"><span class="std std-numref">Fig. 1.6</span></a>.</p>
+<figure class="align-default" id="fig-history-linear">
+<img alt="../../_images/history_linear.svg" src="../../_images/history_linear.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Visualization of a Git repository with a linear history. There is exactly one
+branch, named <code class="docutils literal notranslate"><span class="pre">a</span></code>. Solid arrows show the order of commits. Dashed arrows show
+where the next commit will be on each branch. Each circle represents a commit.</span><a class="headerlink" href="#fig-history-linear" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A <strong>branch</strong> is a distinct path through a repository’s history, usually formed
+by branching off of or splitting the history at a particular commit, as in
+<a class="reference internal" href="#fig-history-branched"><span class="std std-numref">Fig. 1.7</span></a>. When a repository’s history is completely
+linear, the repository has just one branch.</p>
+<style type="text/css">
+    .blue, .yellow, .green, .gray, .white {
+        display: inline-block;
+        vertical-align: sub;
+        width: 1em;
+        height: 1em;
+        border: 1px solid;
+    }
+    .blue   { background-color: #7dbee0 }
+    .yellow { background-color: #f3d06f }
+    .green  { background-color: #b8c7a8 }
+    .gray   { background-color: #b3b3b3 }
+    .white  { background-color: #fff }
+</style>
+<figure class="align-default" id="fig-history-branched">
+<img alt="../../_images/history_branch.svg" src="../../_images/history_branch.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Visualization of a Git repository with two branches, <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>. Solid arrows
+show the order of commits. Dashed arrows show where the next commit will be on
+each branch. Each circle represents a commit. Commits only on branch <code class="docutils literal notranslate"><span class="pre">a</span></code> are
+blue <span class="blue"></span>, and commits only on branch <code class="docutils literal notranslate"><span class="pre">b</span></code> are yellow
+<span class="yellow"></span>. Commits on both branches before the merge are
+gray <span class="gray"></span>.</span><a class="headerlink" href="#fig-history-branched" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Branches are really useful! With branches, you can:</p>
+<ul class="simple">
+<li><p><strong>Try something that might not work out.</strong> Suppose you get an idea for a new
+feature to add to your lab’s analysis package, but developing it will take
+time and might temporarily break the package. You also need to use the
+package for your day-to-day work. By developing the new feature on a branch,
+you can switch between the stable branch and the development branch whenever
+you need. This makes it easy to keep using the package while you develop the
+new feature, to test the new feature, and to pause or abandon the new feature
+if it doesn’t work out (just stop working on the branch).</p></li>
+<li><p><strong>Temporarily store some work.</strong> If you start working on something but get
+interrupted, you can store your work on a branch until you’re ready to come
+back to it.</p></li>
+<li><p><strong>Explore an earlier version of the repository.</strong> If you need to look at an
+earlier version of a single file, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code> are great. But
+what if you want to know what the entire repository was like in the past or
+don’t know which file you need? You can make a branch at the commit in which
+you’re interested, switch to the branch, and then explore the repository
+without need for any special tools or Git commands.</p></li>
+<li><p><strong>Control when conflicting changes are resolved.</strong> When multiple people work
+on a repository, sharing work frequently makes it easier to get feedback and
+coordinate everyone’s efforts. By having each person work on a separate
+branch, they can share their work at any time, even if changes they made to a
+particular file conflict with changes someone else made. Resolving the
+conflicts can wait until everyone is ready to combine their work.</p></li>
+<li><p><strong>Present a repository differently to different audiences.</strong> For instance, if
+your repository contains a package, you can use the default branch for files
+users of the package need and a separate development branch for files
+contributors to the package need.</p></li>
+</ul>
+<p>These are just a few ways to use branches. Git wasn’t the first version
+control system to support branches, but it does make using them especially
+quick and easy.</p>
+</section>
+<section id="switching-branches">
+<h2><span class="section-number">1.2. </span>Switching Branches<a class="headerlink" href="#switching-branches" title="Link to this heading">#</a></h2>
+<p>Let’s explore Git’s commands for working with branches. Along the way, we’ll
+also review some of the fundamental Git commands we explained in
+<a class="reference internal" href="../version-control/02_git-basics.html#sec-git-basics"><span class="std std-ref">Git Basics</span></a>. As an example, we’ll use DataLab’s <a class="reference external" href="https://github.com/ucdavisdatalab/sandbox_git">Git sandbox
+repository</a>.</p>
+<p>To get started, clone a copy of the repository from GitHub to your computer.
+Open a terminal and navigate to your home directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd
+</pre></div>
+</div>
+<p>Go to the repository’s page on GitHub, click the green “Code” button, and copy
+the URL under the SSH tab. Then go back to the terminal, type the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>
+command, and paste the URL after the command. The full command should look like
+this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:ucdavisdatalab/sandbox_git.git
+</pre></div>
+</div>
+<p>Run the command, wait for Git to clone the repository, and then change
+directories into it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd sandbox_git
+</pre></div>
+</div>
+<p>Take a moment to explore the files in the repository.</p>
+<p>At any given time, the working tree (the collection of actual files and
+directories) in a repository corresponds to a single branch. We call this the
+<strong>current branch</strong>, and say that the current branch is <strong>checked out</strong> or that
+the repository is “on” the current branch. When you clone a repository, Git
+automatically checks out the default branch.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> command lists the current branch in its output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>The repository is on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, which makes sense you just cloned the
+repository, and <code class="docutils literal notranslate"><span class="pre">main</span></code> is the default branch.</p>
+<p>On GitHub, the repository has two branches: the default branch <code class="docutils literal notranslate"><span class="pre">main</span></code> and
+another branch called <code class="docutils literal notranslate"><span class="pre">demo</span></code>. You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> to list the branches in
+a repository:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git branch
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* main
+</pre></div>
+</div>
+<p>The active branch (<code class="docutils literal notranslate"><span class="pre">main</span></code> in this case) is marked with a star <code class="docutils literal notranslate"><span class="pre">*</span></code>. But where’s
+the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch? By default, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> only lists branches you create or
+switch to locally. Each of these is called a <strong>local branch</strong>. The <code class="docutils literal notranslate"><span class="pre">demo</span></code>
+branch exists on the remote (GitHub), but you’ve never switched to a local
+copy, so it’s a <strong>remote branch</strong>. You can use the <code class="docutils literal notranslate"><span class="pre">-a</span></code> flag (short for
+<code class="docutils literal notranslate"><span class="pre">--all</span></code>) to make the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> command show all branches, local and remote:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git branch -a
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/demo
+  remotes/origin/main
+</pre></div>
+</div>
+<!-- FIXME: explain HEAD -->
+<p>In the output, remote branches are prefixed with <code class="docutils literal notranslate"><span class="pre">remotes/</span></code> and the name of the
+remote (in this case, <code class="docutils literal notranslate"><span class="pre">origin</span></code>). You should see one local branch, <code class="docutils literal notranslate"><span class="pre">main</span></code>, and
+three remote branches.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag (short for <code class="docutils literal notranslate"><span class="pre">--verbose</span></code>) to make the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>
+command show more information about each branch.</p>
+</div>
+<p>Let’s take a look at the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch. To switch to a different branch, use
+the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span></code> command with the name of the branch you want:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch demo
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>branch &#39;demo&#39; set up to track &#39;origin/demo&#39;.
+Switched to a new branch &#39;demo&#39;
+</pre></div>
+</div>
+<!-- TODO: explain that Git automatically creates a local branch -->
+<p>Open the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file in a text editor. You should now see a message in the
+file that wasn’t there on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gs">**You&#39;re probably on the `demo` branch!**</span>
+
+What&#39;s your favorite color?
+</pre></div>
+</div>
+<p>Answer the question in <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and save the file. Don’t worry about
+committing your answer. Git will now say that you’ve made some changes to
+<code class="docutils literal notranslate"><span class="pre">README.md</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On branch demo
+Your branch is up to date with &#39;origin/demo&#39;.
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</pre></div>
+</div>
+<p>Try switching back to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch main
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>error: Your local changes to the following files would be overwritten by checkout:
+        README.md
+Please commit your changes or stash them before you switch branches.
+Aborting
+</pre></div>
+</div>
+<p>Git refuses to switch branches because doing so would overwrite the changes you
+made to <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. You haven’t committed the changes, so there wouldn’t be
+any way to restore them later. There are several different ways to handle this:</p>
+<!-- FIXME: maybe encourage --force instead of -f? -->
+<ul class="simple">
+<li><p><strong>Keep the changes on the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch.</strong> To do this, add the changes to the
+staging area, make a commit, and then switch branches.</p></li>
+<li><p><strong>Move the changes to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</strong> To do this, switch branches with
+the <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag (short for <code class="docutils literal notranslate"><span class="pre">--merge</span></code>).</p></li>
+<li><p><strong>Discard the changes.</strong> To do this, switch branches with the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag
+(short for <code class="docutils literal notranslate"><span class="pre">--force</span></code>).</p></li>
+</ul>
+<p>For the sake of this example, take the third option and throw away the changes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch -f main
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;main&#39;
+Your branch is up to date with &#39;origin/main&#39;.
+</pre></div>
+</div>
+<p>Check that the changes you made to <code class="docutils literal notranslate"><span class="pre">README.md</span></code> are gone:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On branch main
+Your branch is up to date with &#39;origin/main&#39;.
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>Then switch back to the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch demo
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;demo&#39;
+Your branch is up to date with &#39;origin/demo&#39;.
+</pre></div>
+</div>
+<p>Notice that your changes are gone on this branch too:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On branch demo
+Your branch is up to date with &#39;origin/demo&#39;.
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>Since we didn’t commit the changes, Git has no record of them.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Only use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span></code> with <code class="docutils literal notranslate"><span class="pre">-f</span></code> when you’re absolutely sure you want to discard
+your changes. There’s no undo.</p>
+</div>
+</section>
+<section id="creating-a-branch">
+<h2><span class="section-number">1.3. </span>Creating a Branch<a class="headerlink" href="#creating-a-branch" title="Link to this heading">#</a></h2>
+<p>When you start working on something new in a repository, like a new feature or
+a bug fix, it’s usually a good idea to create a new branch and do the work
+there. Then you can switch back to the original branch any time you need to use
+the repository in the state it was in before you started working. Working on a
+branch also makes collaboration easier (see <a class="reference internal" href="02_working-with-github.html#sec-making-a-pull-request"><span class="std std-ref">Making a Pull Request</span></a>)
+and can make a repository’s history easier to understand.</p>
+<p>Branch names should be short but descriptive enough to serve as a reminder
+about the purpose of the branch. Git allows a wide variety of characters in
+branch names, but using only lowercase letters, numbers, underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>), and
+dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) ensures that your branch name is safe for Git-related tools and
+easy to type. Branch names cannot contain spaces or begin with a dash. See
+<a class="reference external" href="https://stackoverflow.com/a/3651867">this StackOverflow post</a> for the exact rules.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For branches where you’ll work mostly or entirely alone, we recommend names of
+the form <code class="docutils literal notranslate"><span class="pre">XX-DESCRIPTION</span></code>, where <code class="docutils literal notranslate"><span class="pre">XX</span></code> are your initials and <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> is a
+short description of the branch. For instance, <code class="docutils literal notranslate"><span class="pre">nu-fix-indexing</span></code> is a good
+branch name for a branch about fixing an indexing bug.</p>
+</div>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> command to create a new branch. Branches
+almost always start from an existing commit in the repository’s history; the
+default is the most recent commit on the current branch. Make sure that you’re
+on the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch, and then create a new branch called <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git branch my-first-branch
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> command doesn’t print anything when it successfully creates a
+branch. Switch to the new branch:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch my-first-branch
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;my-first-branch&#39;
+</pre></div>
+</div>
+<p>Examine <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and the most recent commit in the Git log on this branch.
+They’re identical to <code class="docutils literal notranslate"><span class="pre">demo</span></code>, since this is a branch off of the most recent
+commit to <code class="docutils literal notranslate"><span class="pre">demo</span></code>.</p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and answer the question again. For instance, you might answer:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>My favorite color is blue.
+</pre></div>
+</div>
+<p>Save the file, then add the changes to the staging area:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add README.md
+</pre></div>
+</div>
+<p>Then commit the changes, making sure to write a descriptive commit message:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git commit
+</pre></div>
+</div>
+<p>With your changes committed, you can safely switch back to the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch demo
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;demo&#39;
+Your branch is up to date with &#39;origin/demo&#39;.
+</pre></div>
+</div>
+<p>You can switch back to <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code> any time you want to work on that
+version of the repository.</p>
+</section>
+<section id="what-s-a-merge">
+<h2><span class="section-number">1.4. </span>What’s a Merge?<a class="headerlink" href="#what-s-a-merge" title="Link to this heading">#</a></h2>
+<p>After working on a branch for a while, you might reach a point where you feel
+like your work is ready to copy back to the original branch. You can do this
+with a <strong>merge</strong>, which applies commits from one branch onto another.</p>
+<p>To practice merging, let’s merge the <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code> branch into the <code class="docutils literal notranslate"><span class="pre">demo</span></code>
+branch. You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">BRANCH</span></code> to merge the branch <code class="docutils literal notranslate"><span class="pre">BRANCH</span></code> into the
+current branch. Make sure the repository is on the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch, and then run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git merge my-first-branch
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Updating d734c25..7d96756
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+</pre></div>
+</div>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>, Git will try to merge the commits automatically. An
+automatic merge is possible as long as there are not changes to a file on one
+branch that conflict with changes to that file on the other. There are two
+kinds of automatic merges (also see <a class="reference internal" href="#fig-merge-vs-ff"><span class="std std-numref">Fig. 1.8</span></a>):</p>
+<ul class="simple">
+<li><p>A regular merge, for which Git creates a <strong>merge commit</strong> that combines the
+changes from each branch.</p></li>
+<li><p>A <strong>fast-forward merge</strong>, where only one branch has new commits, so Git can
+apply the new commits without any need for a merge commit.</p></li>
+</ul>
+<p>When we merged <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code> into <code class="docutils literal notranslate"><span class="pre">demo</span></code>, Git did a fast-forward merge,
+since we didn’t make any commits to <code class="docutils literal notranslate"><span class="pre">demo</span></code> after creating <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code>.
+Git notes this in the output. This means that Git did not need to create a
+merge commit.</p>
+<figure class="align-default" id="fig-merge-vs-ff">
+<img alt="../../_images/merge-vs-fast-forward.svg" src="../../_images/merge-vs-fast-forward.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.8 </span><span class="caption-text">Visualization of merging and fast-forward merging branch <code class="docutils literal notranslate"><span class="pre">b</span></code> into <code class="docutils literal notranslate"><span class="pre">a</span></code>. Solid
+arrows show the order of commits. Dashed arrows show where the next commit will
+be on each branch. Each circle represents a commit. Commits only on branch <code class="docutils literal notranslate"><span class="pre">b</span></code>
+are yellow <span class="yellow"></span>. Commits on both branches before the
+merge are gray <span class="gray"></span>. Commits on both branches after the
+merge are green <span class="green"></span>. The merge commit is white <span
+class="white"></span>.</span><a class="headerlink" href="#fig-merge-vs-ff" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In a regular merge, Git will create a new commit and give you a chance to enter
+a commit message (similar to when you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>). Git will automatically
+fill in a commit message describing the merge, and in most cases it’s best to
+accept the default message.</p>
+<div class="note admonition">
+<p class="admonition-title">Merge versus Rebase</p>
+<p>There’s another way to apply commits from one branch onto another: a <strong>rebase</strong>
+updates a collection of commits so that they appear as if they were made after
+any new commits on the original branch, and then applies them. Rebasing makes a
+repository’s history linear (and thus simpler) even if most work was done on
+branches. On the other hand, rebasing can make the actual development process
+harder to fathom, since commits are not necessarily in chronological order and
+information about branches is discarded. You can rebase one branch onto another
+with the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> command.</p>
+<figure class="align-default" id="fig-merge-vs-rebase">
+<img alt="../../_images/merge-vs-rebase.svg" src="../../_images/merge-vs-rebase.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.9 </span><span class="caption-text">Visualization of merging branch <code class="docutils literal notranslate"><span class="pre">b</span></code> into <code class="docutils literal notranslate"><span class="pre">a</span></code> and rebasing branch <code class="docutils literal notranslate"><span class="pre">a</span></code> onto <code class="docutils literal notranslate"><span class="pre">b</span></code>.
+Solid arrows show the order of commits. Dashed arrows show where the next
+commit will be on each branch. Each circle represents a commit. Commits only on
+branch <code class="docutils literal notranslate"><span class="pre">a</span></code> are blue <span class="blue"></span>, and commits only on branch <code class="docutils literal notranslate"><span class="pre">b</span></code>
+are yellow <span class="yellow"></span>. Commits on both branches before the
+rebase are gray <span class="gray"></span>. Commits on both branches after the
+rebase are green <span class="green"></span>.</span><a class="headerlink" href="#fig-merge-vs-rebase" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We recommend merging over rebasing when you’re dealing with multiple branches.
+That said, learning to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> can be beneficial for managing commits
+within a single branch—you can use the command to reorganize or combine
+commits <em>before</em> you share them with anyone else, so that the history of your
+work is well-organized even if your development process is messy.</p>
+</div>
+</section>
+<section id="merge-conflicts">
+<h2><span class="section-number">1.5. </span>Merge Conflicts<a class="headerlink" href="#merge-conflicts" title="Link to this heading">#</a></h2>
+<p>Branches can have commits that change files in different ways. For example, you
+might answer the favorite color question with “red” on the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch and
+save and commit your work. Later, you switch to <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code>, think about
+how your favorite color is actually more of an “orange”, and answer the
+question again, saving and committing your new answer to the branch. The commit
+on <code class="docutils literal notranslate"><span class="pre">demo</span></code> changes <code class="docutils literal notranslate"><span class="pre">README.md</span></code> to mention “red”, while the commit on
+<code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code> changes <code class="docutils literal notranslate"><span class="pre">README.md</span></code> to mention “orange”.</p>
+<p>The example is a bit silly, but in a repository with many files, it’s easy to
+accidentally change a file in different ways on different branches. You might
+also do it intentionally, perhaps because the branches originally had separate
+purposes. When you’re working collaboratively, you and your collaborator might
+both decide to make changes to the same file, unaware of what the other is
+doing.</p>
+<p>We say branches like the two in the example have <strong>diverged</strong>: a file is
+changed in a different way by the commits on each branch. Git can’t merge
+divergent branches automatically. Instead, when you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>, Git will
+report that there’s a <strong>merge conflict</strong> and ask you to resolve the conflict
+manually. In other words, it’s up to you to decide what the contents of the
+file should be after the merge. That might mean keeping the changes from one
+branch and discarding the changes from the other, or it might mean combining
+the changes from both. What’s correct depends on the file, the conflicting
+changes, and the reason for the merge. Git can’t guess your intent, so you have
+to resolve the conflict.</p>
+<p>To practice resolving a merge conflict, let’s deliberately create the one in
+the example. Make sure the repository is on the <code class="docutils literal notranslate"><span class="pre">demo</span></code> branch. Open <code class="docutils literal notranslate"><span class="pre">README.md</span></code>
+with a text editor and edit it so that the last line is:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>My favorite color is red.
+</pre></div>
+</div>
+<p>Save the file, then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> the changes.</p>
+<p>Next, switch to the <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code> branch:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git switch my-first-branch
+</pre></div>
+</div>
+<p>Once again, open <code class="docutils literal notranslate"><span class="pre">README.md</span></code> with a text editor. This time, edit it so that the
+last line is:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>I really like orange.
+</pre></div>
+</div>
+<p>Save the file, then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> the changes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">demo</span></code> and <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code> branches have now diverged. Each has different
+changes to <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. Let’s merge <code class="docutils literal notranslate"><span class="pre">demo</span></code> into <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code> so that we
+can resolve the merge conflict. Make sure the repository is on
+<code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code>, then run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git merge demo
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+</pre></div>
+</div>
+<p>As expected, Git reports that there’s a merge conflict in <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. At this
+point, the branches are partially merged, but Git is waiting for you to fix the
+conflict. You can see more information about this by checking the repository’s
+status:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On branch my-first-branch
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+  (use &quot;git merge --abort&quot; to abort the merge)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+        both modified:   README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</pre></div>
+</div>
+<p>The “unmerged paths” mentioned in the output are the files with conflicts,
+where Git was unable to merge the changes automatically. To resolve the
+conflicts and complete the merge, edit each file with a text editor, then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> your changes. To cancel the merge instead, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code>.</p>
+<p>Let’s fix the conflict. Open <code class="docutils literal notranslate"><span class="pre">README.md</span></code> with a text editor. The last few lines
+should look something like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>What&#39;s your favorite color?
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+I really like orange.
+=======
+My favorite color is red.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; demo
+</pre></div>
+</div>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> and there are merge conflicts, Git adds markers to the
+associated files to indicate the conflicts. The markers have this form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; a
+
+=======
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; b
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="pre">a</span></code> line shows where the conflict begins and the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></code> line
+shows where it ends. Each also names one of the two branches being merged. The
+<code class="docutils literal notranslate"><span class="pre">=======</span></code> line separates the conflicting changes on each branch. So Git puts
+changes only on branch <code class="docutils literal notranslate"><span class="pre">a</span></code> between these markers:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; a
+
+=======
+</pre></div>
+</div>
+<p>And puts changes only on branch <code class="docutils literal notranslate"><span class="pre">b</span></code> between these markers:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>=======
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; b
+</pre></div>
+</div>
+<p>Everything outside of conflict markers is the same on both branches.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file, the first part of the conflict is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+I really like orange.
+=======
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is a special name Git uses to refer to the current branch. The current
+branch is <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code>, since we switched to it before starting the merge.
+So this part shows the conflicting changes on <code class="docutils literal notranslate"><span class="pre">my-first-branch</span></code>. And sure
+enough, <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">really</span> <span class="pre">like</span> <span class="pre">orange.</span></code> is what we committed there.</p>
+<p>The second part of the conflict is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>=======
+My favorite color is red.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; demo
+</pre></div>
+</div>
+<p>This part shows the conflicting changes on <code class="docutils literal notranslate"><span class="pre">demo</span></code>. That’s where we committed
+<code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">favorite</span> <span class="pre">color</span> <span class="pre">is</span> <span class="pre">red.</span></code>.</p>
+<p>To fix a conflict, delete the conflict markers and edit the associated lines to
+be the way you want. For instance, we can edit the last few lines of
+<code class="docutils literal notranslate"><span class="pre">README.md</span></code> to be:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>What&#39;s your favorite color?
+
+I really like orange, but I also really like red.
+</pre></div>
+</div>
+<p>This combines the changes from each branch nicely. Save the file and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>
+the changes. Take a look at the status now:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On branch my-first-branch
+All conflicts fixed but you are still merging.
+  (use &quot;git commit&quot; to conclude merge)
+
+Changes to be committed:
+        modified:   README.md
+</pre></div>
+</div>
+<p>There are no longer any unmerged paths, meaning there are no more conflicts to
+resolve. With all of the conflicts resolved, we can complete the merge with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git commit
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[my-first-branch fbadd8f] Merge branch &#39;demo&#39; into my-first-branch
+</pre></div>
+</div>
+<p>Because this is a merge, Git creates a merge commit and automatically provides
+a commit message. Congratulations, you’ve just resolved your first merge
+conflict! 🎉</p>
+</section>
+<section id="merging-remote-branches">
+<h2><span class="section-number">1.6. </span>Merging Remote Branches<a class="headerlink" href="#merging-remote-branches" title="Link to this heading">#</a></h2>
+<p>You’ve probably used the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> command to pull changes from a repository.
+The command is actually just a shortcut for running two simpler commands:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> to download branches from a remote</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> to merge a remote branch onto the current local branch</p></li>
+</ol>
+<p>For each local branch, the remote branch that <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> merges is called the
+<strong>upstream</strong> or <strong>tracking</strong> branch. You can set or change a local branch’s
+upstream branch by running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> with the <code class="docutils literal notranslate"><span class="pre">-u</span></code> (short for
+<code class="docutils literal notranslate"><span class="pre">--set-upstream</span></code>) flag and the name of a remote branch. You can also configure
+Git to automatically set an upstream branch for each local branch your create.</p>
+<p>Understanding how <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> works might help you simplify your mental model of
+Git: every copy of a repository is just a collection of branches, and getting
+commits from a remote just means downloading a branch—often with the same
+name as a local branch—and merging it.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/git-for-teams"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Git for Teams</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_working-with-github.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Working with GitHub</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-a-branch">1.1. What’s a Branch?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switching-branches">1.2. Switching Branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-branch">1.3. Creating a Branch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-a-merge">1.4. What’s a Merge?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflicts">1.5. Merge Conflicts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-remote-branches">1.6. Merging Remote Branches</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

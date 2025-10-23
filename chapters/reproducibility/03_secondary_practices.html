@@ -1,0 +1,959 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Secondary Practices &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/reproducibility/03_secondary_practices';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Case-by-case Practices" href="04_case_by_case_practices.html" />
+    <link rel="prev" title="2. Primary Practices" href="02_primary_practices.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/02_command-line-basics.html">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/reproducibility/03_secondary_practices.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/reproducibility/03_secondary_practices.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Secondary Practices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">3.1. Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-the-data">3.1.1. Document the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-every-experiment">3.1.2. Document Every Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-license">3.1.3. Choose a License</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-preservation">3.2. Artifact Preservation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-configuration-files">3.2.1. Use Configuration Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#release-the-data">3.2.2. Release the Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-organization">3.3. Project Organization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save-clean-data">3.3.1. Save Clean Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-file-formats-effectively">3.3.2. Use File Formats Effectively</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#databases">3.3.2.1. Databases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-automation">3.4. Workflow Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orchestrate-with-shell-scripts">3.4.1. Orchestrate with Shell Scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.5. Environment Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-an-environment-manager">3.5.1. Use an Environment Manager</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="secondary-practices">
+<h1><span class="section-number">3. </span>Secondary Practices<a class="headerlink" href="#secondary-practices" title="Link to this heading">#</a></h1>
+<p>This chapter covers secondary practices for reproducibility. These are
+practices which don’t apply to every project, but are beneficial or even
+essential when they do apply. For instance, projects that will never be
+distributed do not necessarily need a license, so choosing a license is listed
+here. DataLab adopts these practices for all projects for which they are
+relevant, and we recommend you do too.</p>
+<section id="documentation">
+<h2><span class="section-number">3.1. </span>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h2>
+<section id="document-the-data">
+<h3><span class="section-number">3.1.1. </span>Document the Data<a class="headerlink" href="#document-the-data" title="Link to this heading">#</a></h3>
+<p>In a perfect world, every data set would come with detailed documentation or
+<strong>metadata</strong> about how the data were collected, what assumptions were made,
+what biases might be present, any ethical concerns, the overall structure, what
+each observation means, what each feature means, and more. Good data
+documentation guides researchers towards appropriate, responsible use of the
+data.</p>
+<p>Collecting data as part of a project gives you and your collaborators control
+over how the data are documented, so you can ensure there are no gaps. If your
+project uses data collected earlier or by someone else, it’s a good practice to
+fill gaps in the existing documentation with your own. Thorough documentation
+isn’t just beneficial to other researchers, it’s also beneficial to future
+you—small details you notice and document about features could be important
+later in the project.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See DataLab’s <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/">README, Write Me! workshop reader</a> for more
+about how to document data.</p>
+</div>
+</section>
+<section id="document-every-experiment">
+<span id="id1"></span><h3><span class="section-number">3.1.2. </span>Document Every Experiment<a class="headerlink" href="#document-every-experiment" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An “experiment” doesn’t necessarily have to be an experiment done in a lab.
+Doing an experiment could mean running a simulation, testing a model, or
+something else.</p>
+</div>
+<p>Keep a record of every experiment that you do. Document parameters, the
+results, and anything else you think is relevant for:</p>
+<ul class="simple">
+<li><p>Repeating experiments in the future. Research projects are often
+iterative—you may need to repeat an experiment to make adjustments to a few
+parameters or because you discovered a bug in your code.</p></li>
+<li><p>Comparing across experiments. Think of the documentation as a high-level
+overview of your project. Use it to get a sense of which experiments had
+promising results, which didn’t, and which you might want to try next.</p></li>
+<li><p>Avoiding redundant work. By keeping track of what’s already been done, you
+can avoid accidentally and unnecessarily repeating an experiment that you or
+your collaborators have already done.</p></li>
+</ul>
+<p>Get in the habit of recording experiments as soon as you start to plan them,
+and recording the results as soon as they finish. Assign a unique name or
+number to each experiment so that you can reference specific experiments in
+your other notes and files. If you have collaborators, make sure they can
+access the documentation and understand how to use it.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Spreadsheets are often a good format for this kind of documentation, since
+they’re convenient for data entry.</p>
+</div>
+</section>
+<section id="choose-a-license">
+<span id="id2"></span><h3><span class="section-number">3.1.3. </span>Choose a License<a class="headerlink" href="#choose-a-license" title="Link to this heading">#</a></h3>
+<p>A <strong>license</strong> is a legal document that grants others permission to do, use, or
+possess something. If you plan to make your project widely or publicly
+available, it’s a good idea to select a license so that you can retain some
+control over how it’s used and protect yourself against certain kinds of legal
+claims.</p>
+<p>Different kinds of licenses are appropriate for different kinds of content.
+There are licenses designed specifically for software and code, as well as
+licenses for other media.</p>
+<p>An <strong>open-source</strong> license is one that mandates access to or distribution of
+original sources for any derivative products. For software, this means that the
+original source code must be accessible. Open-source licenses ensure that
+software can continue to be maintained and extended even if the original
+developers cease development. They also benefit transparency and collaboration,
+since anyone with the software can inspect and modify the code.</p>
+<p>DataLab uses open-source licenses for a majority of our projects, whether they
+consist of software or other materials (like this reader).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For licensing software, see <a class="reference external" href="https://choosealicense.com/">choosealicense.com</a> (maintained by GitHub)
+or the Open Source Initiative’s <a class="reference external" href="https://opensource.org/faq/#which-license">FAQ answer about which license to
+choose</a>.</p>
+<p>For licensing data, writing, art, or other materials, see Creative Commons’
+<a class="reference external" href="https://creativecommons.org/choose/">Choose a License page</a>.</p>
+</div>
+</section>
+</section>
+<section id="artifact-preservation">
+<h2><span class="section-number">3.2. </span>Artifact Preservation<a class="headerlink" href="#artifact-preservation" title="Link to this heading">#</a></h2>
+<section id="use-configuration-files">
+<h3><span class="section-number">3.2.1. </span>Use Configuration Files<a class="headerlink" href="#use-configuration-files" title="Link to this heading">#</a></h3>
+<p>A <strong>configuration file</strong> is a file that stores accessory parameters for a
+computation. Configuration files are distinct from data sets in that the data
+they contain is usually under your control and not of primary interest. For
+example, a configuration file for code that trains a statistical model might
+specify where to find training data, where to find test data, which features to
+include in the model, and where to save predictions. All of these could be
+embedded in the code, but using a configuration file makes the code more
+flexible.</p>
+<p>Configuration files also have another benefit: they serve as a record of your
+parameter settings. When parameter settings are embedded in code, then you have
+to edit the code each time you want to run it with different settings. Unless
+you’re meticulous about version control, it may be difficult to determine which
+settings you used for past computations. Configuration files eliminate this
+problem: when you want to use a new settings, create a new configuration file
+(possibly by copying one you already have). Then you can easily find the
+settings for any computation in its respective configuration file.</p>
+<!-- also hard to share with collaborators and may introduce bugs -->
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you also <a class="reference internal" href="#document-every-experiment"><span class="std std-ref">Document Every Experiment</span></a>, include the name of the
+configuration file(s) for each experiment in your documentation.</p>
+</div>
+<p>Plain-text formats are a good choice for configuration files because they can
+be edited by anyone with a text editor. At DataLab, we particularly like to use
+<a class="reference external" href="https://toml.io/">TOML</a> and <a class="reference external" href="https://yaml.org/">YAML</a> formats for configuration files because they’re
+widely-used, human-readable, and there are well-supported functions for reading
+them in R, Python, and Julia.</p>
+</section>
+<section id="release-the-data">
+<h3><span class="section-number">3.2.2. </span>Release the Data<a class="headerlink" href="#release-the-data" title="Link to this heading">#</a></h3>
+<p>Publish or share your research data, so that other researchers can use it to
+reproduce your work and possibly even do new work. In 2016, <a class="reference external" href="https://doi.org/10.1038/sdata.2016.18">Wilkinson et
+al</a> suggested researchers should make their data <strong>FAIR</strong>:</p>
+<ul class="simple">
+<li><p>Findable: uniquely identifiable and citable, such as with a DOI</p></li>
+<li><p>Accessible: freely and publicly available</p></li>
+<li><p>Interoperable: saved in open, non-proprietary formats</p></li>
+<li><p>Reusable: well-documented and with a clear license</p></li>
+</ul>
+<p>The FAIR standards are now widely recommended as best practices.</p>
+<p>You can satisfy the “F” and “A” standards by publishing your data to an
+<a class="reference external" href="https://en.wikipedia.org/wiki/Open-access_repository">open-access repository</a>. For example, UC Davis is a partner of the
+<a class="reference external" href="https://datadryad.org/stash">Dryad</a> open-access repository, and all UC Davis researchers can use Dryad
+for free to publish their data.</p>
+<p>To satisfy the “I” standard, <a class="reference internal" href="#use-file-formats-effectively"><span class="std std-ref">Use File Formats Effectively</span></a>. To satisfy
+the “R” standard, a good start is to <a class="reference internal" href="02_primary_practices.html#keep-running-notes"><span class="std std-ref">Keep Running Notes</span></a>,
+<a class="reference internal" href="02_primary_practices.html#write-readmes"><span class="std std-ref">Write READMEs</span></a> and <a class="reference internal" href="#choose-a-license"><span class="std std-ref">Choose a License</span></a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See UC Davis Library’s <a class="reference external" href="https://library.ucdavis.edu/data-analysis-and-management/publish-share-and-preserve-your-data/">Publish, Share, and Preserve Your Data
+guide</a> to learn more about how to release your data.</p>
+</div>
+</section>
+</section>
+<section id="project-organization">
+<h2><span class="section-number">3.3. </span>Project Organization<a class="headerlink" href="#project-organization" title="Link to this heading">#</a></h2>
+<section id="save-clean-data">
+<h3><span class="section-number">3.3.1. </span>Save Clean Data<a class="headerlink" href="#save-clean-data" title="Link to this heading">#</a></h3>
+<p>Treat data cleaning and data analysis as distinct and equally important steps
+in the research process. Write code to clean the data, and document <em>why</em> each
+cleaning step was taken, so that cleaning is reproducible. Save a copy of the
+clean data to use in analyses. This way:</p>
+<ul class="simple">
+<li><p>Cleaning is consistent across all analyses.</p></li>
+<li><p>You only need to run the cleaning step once. For some data sets, cleaning is
+a time-consuming and expensive computation.</p></li>
+<li><p>Cleaning and analysis concerns are kept separate, which makes it easier to
+write simple code with clear goals.</p></li>
+<li><p>You can use different languages or software for the cleaning step and the
+analyses.</p></li>
+</ul>
+<p>What it means for data to be “clean” will depend on your project’s specific
+data sources and analysis goals. Nevertheless, here are some things you should
+almost always do:</p>
+<ul class="simple">
+<li><p>Check that the structure of the data is appropriate. For instance, many tools
+for analyzing tabular data require <strong>tidy data</strong>, where each row is an
+observation and each column is a feature.</p></li>
+<li><p>Check that the types of the data are appropriate. In other words, make sure
+the language or software you plan to use recognizes data for what they are.
+For instance, dates often need to be explicitly converted to a date type.</p></li>
+<li><p>Investigate missing data. It’s crucial to have a thorough understanding of
+what’s missing before moving to analysis. If you decide to remove or fill in
+missing data, do so cautiously; it’s not always necessary and can bias
+analyses.</p></li>
+<li><p>Investigate extreme data and erroneous data. As with missing data, it’s
+important to understand the outliers in your data.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See DataLab’s <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_intermediate_r/string-date-processing.html">Intermediate R: Cleaning &amp; Reshaping Data workshop
+reader</a> to learn how to clean data in R.</p>
+</div>
+</section>
+<section id="use-file-formats-effectively">
+<span id="id3"></span><h3><span class="section-number">3.3.2. </span>Use File Formats Effectively<a class="headerlink" href="#use-file-formats-effectively" title="Link to this heading">#</a></h3>
+<p>Store data sets in file formats that:</p>
+<ul class="simple">
+<li><p>Are accessible to you, your collaborators, and other researchers across a
+variety of software</p></li>
+<li><p>Preserve the data set’s structure and types (including categories, dates, and
+times)</p></li>
+<li><p>Can be read and written efficiently</p></li>
+</ul>
+<p>Plain-text formats—such as comma-separated values (CSV)—satisfy the
+accessibility requirement, and also have the advantage of being human-readable,
+but usually fail on preservation and efficiency. Binary formats usually fare
+better for preserving data set structure and types, as well as for fast read
+and write times.</p>
+<p>For tabular data sets, both <a class="reference external" href="https://arrow.apache.org/">Apache Arrow</a> (also known as <a class="reference external" href="https://arrow.apache.org/docs/python/feather.html">Feather</a>)
+and <a class="reference external" href="https://parquet.apache.org/">Apache Parquet</a> satisfy all three requirements. Arrow and Parquet
+are binary formats, so they aren’t human-readable, but they are open standards,
+so support for them can be implemented in any software. R, Python, and Julia
+all already support both through various packages. The Arrow standard is
+simpler but changes more frequently than the Parquet standard. As a result,
+Arrow is faster to read and write and a good choice for short-term storage.
+Parquet is a better choice for long-term storage because the standard is more
+stable.</p>
+<section id="databases">
+<span id="id4"></span><h4><span class="section-number">3.3.2.1. </span>Databases<a class="headerlink" href="#databases" title="Link to this heading">#</a></h4>
+<p>A <strong>database</strong> is a data set together with specialized software to help you
+organize, query, and update that data set. Databases are usually more
+computationally efficient than languages like R and Python. Most databases also
+support querying large data sets (hundreds of gigabytes) without any extra
+setup. Some databases support multiple users, which can be convenient for
+collaborative work (this is also one reason why databases are widely used for
+data storage in web applications).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See DataLab’s <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_intro_to_databases/">An Overview of Databases and Data Storage workshop
+reader</a> for an introduction to the topic. Then see DataLab’s
+<a class="reference external" href="https://ucdavisdatalab.github.io/workshop_intro_to_sql/">Introduction to SQL for Querying Databases workshop reader</a> to
+learn how to query data in databases.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="workflow-automation">
+<h2><span class="section-number">3.4. </span>Workflow Automation<a class="headerlink" href="#workflow-automation" title="Link to this heading">#</a></h2>
+<section id="orchestrate-with-shell-scripts">
+<h3><span class="section-number">3.4.1. </span>Orchestrate with Shell Scripts<a class="headerlink" href="#orchestrate-with-shell-scripts" title="Link to this heading">#</a></h3>
+<p>Even if you <a class="reference internal" href="02_primary_practices.html#organize-the-code"><span class="std std-ref">Organize the Code</span></a> carefully, it’s likely you’ll end up with
+workflows that consist of running several commands in a specific order and with
+specific settings. It’s also likely you’ll need to re-run these workflows many
+times as you incrementally improve, extend, and adapt the code. To make this
+more convenient and ensure that you don’t accidentally skip commands or use the
+incorrect settings, it’s a good idea to automate your most frequently used
+workflows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A <strong>Unix shell</strong> is a standardized way of interacting with a computer via text
+commands—that is, via a command line. Unix shells are widely-used for
+research computing.</p>
+<p>See the <a class="reference internal" href="../command-line/01_interacting-with-computers.html#ch-interacting-with-computers"><span class="std std-ref">Introduction to the Command Line</span></a>
+chapters to get started with the command line and Unix shells.</p>
+</div>
+<p>If you run your workflows in a Unix shell, one way you can automate them is by
+writing <strong>shell scripts</strong>. A shell script is a plain-text file with a sequence
+of Unix shell commands (akin to scripts for other languages, such as R or
+Python). You can create separate shell script for each workflow that you run
+frequently. The technical effort is low, since this just amounts to writing
+down the commands that you already run in a text file. Besides making it easier
+to run specific workflows, you can also share shell scripts with your
+collaborators or other researchers. This helps to ensure that they also run the
+workflow correctly.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See DataLab’s and DIB Lab’s <a class="reference external" href="https://ngs-docs.github.io/2021-august-remote-computing/automating-your-analyses-and-executing-long-running-analyses-on-remote-computers.html">Automating Your Analyses and Executing
+Long-running Analyses on Remote Computers workshop
+reader</a> for the technical details of writing shell
+scripts.</p>
+</div>
+</section>
+</section>
+<section id="environment-management">
+<h2><span class="section-number">3.5. </span>Environment Management<a class="headerlink" href="#environment-management" title="Link to this heading">#</a></h2>
+<section id="use-an-environment-manager">
+<h3><span class="section-number">3.5.1. </span>Use an Environment Manager<a class="headerlink" href="#use-an-environment-manager" title="Link to this heading">#</a></h3>
+<p>A <strong>computing environment</strong> is a collection of hardware and software used to
+run computations. Whether a computation runs correctly or at all depends on the
+computing environment, so an important part of making a project reproducible is
+documenting the environment where the code was originally developed and tested.</p>
+<p>In high-level programming languages like R and Python, details of the hardware
+are mostly hidden away. That is, hardware has little to no impact on how you
+write code, with only a few exceptions. Hardware may affect how quickly your
+code runs, but usually not the final result. As a consequence, for many
+research computing projects, the hardware environment is of less concern than
+the software environment.</p>
+<p>One of the major advantages of the open-source and open-science ecosystem is
+the trove of packages and other software developed and published by members of
+the community. As these are updated, projects that rely on older versions may
+cease to work correctly unless they are also updated. So for most projects,
+keeping track of the software environment means keeping track of the specific
+versions of packages and other software with which the project was carried out.</p>
+<p>A <strong>virtual environment</strong> is a computing environment with specific software
+versions that can coexist alongside other virtual environments with different
+software versions. An <strong>environment manager</strong> is a software tool that can
+create virtual environments. Environment managers can usually also install,
+update, and remove software.</p>
+<figure class="align-default" id="xkcd-python">
+<img alt="" src="../../_images/xkcd_python_environment.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">“Python Environment” from <a class="reference external" href="https://xkcd.com/">“xkcd”</a> by Randall Munroe
+(<a class="reference external" href="https://xkcd.com/license.html">license</a>).</span><a class="headerlink" href="#xkcd-python" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Many different open-source environment managers exist. Among those explicitly
+designed for research computing, <a class="reference external" href="https://docs.conda.io/">conda</a> is the de facto standard. Conda was
+originally developed to manage Python environments, but now supports other
+languages such as R and Julia.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A relatively new package manager, <a class="reference external" href="https://pixi.sh/">Pixi</a>, is faster and is better at
+accurately reproducing environments than conda, while maintaining compatibility
+with conda packages. Pixi also provides several other features that make it
+pleasant to use. At DataLab, we are just starting to switch over to Pixi.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you exclusively use R and prefer to use an environment manager developed
+specifically for R, check out the <a class="reference external" href="https://rstudio.github.io/renv/">renv</a> package.</p>
+</div>
+<p>By using an environment manager like conda, you can ensure that the versions of
+packages and software your projects depend on are recorded. Generally you
+should create a new virtual environment for each project, and switch between
+them as needed. Environment managers provide tools to save a description of a
+virtual environment to a file and to recreate an environment from such a file.
+This way you and your collaborators can set up a project on a new computer and
+make sure it has the correct software environment.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_intro_to_remote_computing/chapters/02_environment-setup.html">the Setting Up Software chapter</a> in DataLab’s
+Introduction to Remote Computing workshop reader for a technical introduction
+to micromamba, a fast and efficient drop-in replacement for conda.</p>
+<p>If you prefer to use the original conda, instead see DataLab’s <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_intermediate_python/chapters/02_reproducible.html">Making Python
+Projects &amp; Environments Reproducible workshop reader</a>. Then see
+DataLab’s and DIB Lab’s <a class="reference external" href="https://ngs-docs.github.io/2021-august-remote-computing/installing-software-on-remote-computers-with-conda.html">Installing Software on Remote Computers with Conda
+workshop reader</a> for even more technical details.</p>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/reproducibility"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_primary_practices.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Primary Practices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_case_by_case_practices.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Case-by-case Practices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">3.1. Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-the-data">3.1.1. Document the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-every-experiment">3.1.2. Document Every Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-license">3.1.3. Choose a License</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-preservation">3.2. Artifact Preservation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-configuration-files">3.2.1. Use Configuration Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#release-the-data">3.2.2. Release the Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-organization">3.3. Project Organization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save-clean-data">3.3.1. Save Clean Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-file-formats-effectively">3.3.2. Use File Formats Effectively</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#databases">3.3.2.1. Databases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-automation">3.4. Workflow Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orchestrate-with-shell-scripts">3.4.1. Orchestrate with Shell Scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.5. Environment Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-an-environment-manager">3.5.1. Use an Environment Manager</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

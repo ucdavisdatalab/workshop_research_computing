@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit A: Configuring the Shell &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/installing-software/a_configuring-the-shell';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Unit B: UC Davis HPC Modules" href="b_ucdavis-hpc-modules.html" />
+    <link rel="prev" title="2. Pixi Basics" href="02_pixi-basics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/02_command-line-basics.html">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/installing-software/a_configuring-the-shell.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/installing-software/a_configuring-the-shell.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Unit A: Configuring the Shell</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash">Bash</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliases">Aliases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-configuration-files">Other Configuration Files</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-a-configuring-the-shell">
+<h1>Unit A: Configuring the Shell<a class="headerlink" href="#unit-a-configuring-the-shell" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain the difference between <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.profile</span></code>, and <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code></p></li>
+<li><p>Create shell aliases</p></li>
+<li><p>Create and modify environment variables</p></li>
+</ul>
+</div>
+<p>After installing software in your computing environment, you’ll likely want to
+configure it. Many software, especially command-line software, read settings
+from a <strong>configuration file</strong> when they run. By editing configuration files,
+you can customize your computing environment to make it do what you want and
+make it more comfortable to use. In this unit, you’ll learn how to edit
+configuration files, particularly for the Bash shell.</p>
+<section id="bash">
+<span id="id1"></span><h2>Bash<a class="headerlink" href="#bash" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> is a <strong>shell</strong>: a programming language and prompt that serves as a
+command line interface for computers. Bash is widely used, and is the default
+shell for most Linux distributions. Knowing how to configure Bash can make it
+much easier to work in a terminal.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This section is about configuring Bash, but some POSIX computers default to
+other shells (such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Z_shell">Z Shell (Zsh)</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Fish_(Unix_shell)">Fish</a>). These shells
+can also be configured, but the files and commands needed to do so may be
+different; see their documentation for details.</p>
+<p>You can check the default shell on a POSIX computer with this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $SHELL
+</pre></div>
+</div>
+<p>On macOS, the default shell for versions 10.3 through 10.14 is Bash. Beginning
+with version 10.15, the default shell is Zsh.</p>
+</div>
+<p>Three files in your home directory are especially important for configuring
+Bash. Each one is a script, which means they contain commands for Bash (<code class="docutils literal notranslate"><span class="pre">bash</span></code>)
+or its predecessor, the <a class="reference external" href="https://en.wikipedia.org/wiki/Bourne_shell">Bourne shell</a> (<code class="docutils literal notranslate"><span class="pre">sh</span></code>). The files are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> runs every time you log in (to a server, for example).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.profile</span></code> also runs every time you log in, but only if <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>
+doesn’t exist. It can only contain <code class="docutils literal notranslate"><span class="pre">sh</span></code> commands, not <code class="docutils literal notranslate"><span class="pre">bash</span></code> commands.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> runs every time you open a shell when you’re <em>already logged in</em>.</p></li>
+</ul>
+<p>When these files don’t exist or are empty, Bash uses default settings. If they
+alredy exist on your computer and contain commands, they may have been set up
+by your operating system or by your computer’s administrator. Leave them intact
+until you have enough experience to know what the commands do—they might be
+important. You can still add your own settings to the files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can learn more about how Bash reads configuration files at startup in the
+<a class="reference external" href="https://www.gnu.org/software/bash/manual/bash.html#Bash-Startup-Files">Bash Startup Files</a> section of the Bash manual.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Configuration files are also called <strong>dotfiles</strong>, because they usually have
+names that begin with a dot.</p>
+</div>
+<p>We recommend setting up the Bash configuration files so that <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>
+always runs <code class="docutils literal notranslate"><span class="pre">.profile</span></code> and <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. Then use <code class="docutils literal notranslate"><span class="pre">.profile</span></code> to set environment
+variables (see <a class="reference internal" href="#environment-variables"><span class="std std-ref">Environment Variables</span></a>) and use <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> for everything
+else. This approach ensures that your environment variables are loaded whenever
+you use any <code class="docutils literal notranslate"><span class="pre">sh</span></code>-compatible shell and that your Bash configuration is loaded
+whenever you use Bash. To set this up, use a text editor (such as <code class="docutils literal notranslate"><span class="pre">vi</span></code>) to add
+these lines to your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># .bash_profile</span>
+<span class="c1">#</span>
+<span class="c1"># This file is runs on login to a Bash shell.</span>
+
+<span class="o">[[</span><span class="w"> </span>-r<span class="w"> </span>~/.profile<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.profile
+<span class="o">[[</span><span class="w"> </span>-r<span class="w"> </span>~/.bashrc<span class="w">  </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+<p>These commands check that <code class="docutils literal notranslate"><span class="pre">.profile</span></code> and <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> exist, and run them if they
+do. Leave the rest of your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> blank.</p>
+<section id="aliases">
+<span id="id2"></span><h3>Aliases<a class="headerlink" href="#aliases" title="Link to this heading">#</a></h3>
+<p>While learning about Pixi, did you ever feel like typing out <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code> to run
+a command was a little bit tedious? One way you can customize the shell is by
+creating <strong>aliases</strong> for commands that are long or hard to remember. Let’s
+create an alias <code class="docutils literal notranslate"><span class="pre">pxr</span></code> for the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code> command, so that you can just type
+<code class="docutils literal notranslate"><span class="pre">pxr</span></code> instead of typing <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code>.</p>
+<p>The command to create an alias is <code class="docutils literal notranslate"><span class="pre">alias</span></code>, followed by a space, the name of the
+alias, an equals sign, and then the aliased command in quotes.</p>
+<p>For example, try adding this code to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">pxr</span><span class="o">=</span><span class="s1">&#39;pixi run&#39;</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Be careful to match the spacing and quotes exactly. In Bash, spacing often
+matters and single quotes have a distinct meaning from double quotes.</p>
+</div>
+<p>After adding the <code class="docutils literal notranslate"><span class="pre">alias</span></code> command to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, save and close the file. You can
+make Bash “reload” the settings in <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> with this command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+<p>Alternatively, you can restart or open a new terminal, since <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> runs
+every time you open a new interactive shell. Then try using the alias to
+run something in a Pixi environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pxr<span class="w"> </span>python
+</pre></div>
+</div>
+<p>This should start Python. Notice that you can add arguments as you would
+normally after the aliased command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the alias doesn’t work, or the shell prints <code class="docutils literal notranslate"><span class="pre">pxr:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>,
+double-check that your saved the <code class="docutils literal notranslate"><span class="pre">alias</span></code> command in <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> and that you
+ran the <code class="docutils literal notranslate"><span class="pre">source</span></code> command.</p>
+</div>
+<p>If you ever decide you don’t like an alias, you can use the <code class="docutils literal notranslate"><span class="pre">unalias</span></code> command
+to unset aliases in your current shell (for example, <code class="docutils literal notranslate"><span class="pre">unalias</span> <span class="pre">pxr</span></code>). Make sure
+to remove the alias from <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> as well, or else it will return next time
+you open a new shell.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For many shell commands, you can set an argument several times and only the
+last setting applies. As a result, you can use aliases to set your preferred
+defaults for a command, and then override them as needed.</p>
+<p>For example, to make the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command color-code file names and display file
+sizes in human-readable units by default, add this alias to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls --color=auto --human-readable&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>You can find many examples of helpful aliases online; try searching for <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">aliases</span></code> or <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">dotfiles</span></code>.</p>
+</section>
+<section id="environment-variables">
+<span id="id3"></span><h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h3>
+<p>You can assign variables in your shell just like in most other programming
+languages. Typically, some variables are assigned automatically when the shell
+starts.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable contains a colon-separated list of paths where
+the shell should search for commands (software programs). Without <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, you’d
+have to type the full path to every command.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">which</span></code> command to check where the shell found a command. For
+instance, to check where the <code class="docutils literal notranslate"><span class="pre">git</span></code> command is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>git
+</pre></div>
+</div>
+</div>
+<p>In the shell, the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command prints things, and you can get the value of a
+variable by putting a dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code> in front of its name. Put these two ideas
+together to print the value of <code class="docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">nick</span><span class="o">/.</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span>
+</pre></div>
+</div>
+<p>You should see a colon-separated list of directories, like the one above. Some
+of the directories listed will probably be different on your computer.</p>
+<p>You can assign a variable by typing a name, an equals sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>), and then a
+value. The equals sign <em>must not</em> have spaces around it, and if the value
+contains spaces, it must be quoted. By convention, names of shell variables
+should be all uppercase. Here’s how to assign a variable <code class="docutils literal notranslate"><span class="pre">FOO</span></code> with the value
+<code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world!</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">FOO</span><span class="o">=</span><span class="s1">&#39;Hello world!&#39;</span>
+</pre></div>
+</div>
+<p>Try printing <code class="docutils literal notranslate"><span class="pre">FOO</span></code> with <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can delete a variable with the <code class="docutils literal notranslate"><span class="pre">unset</span></code> command. For instance, to delete
+<code class="docutils literal notranslate"><span class="pre">FOO</span></code>, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">unset</span><span class="w"> </span>FOO
+</pre></div>
+</div>
+<p>If you try this, make sure to reassign <code class="docutils literal notranslate"><span class="pre">FOO</span></code> again, as we’ll use it in a
+subsequent example.</p>
+</div>
+<p>An <strong>environment variable</strong> is a shell variable that’s shared with other
+programs (including other shells). Environment variables are typically used to
+configure the computing environment. As it turns out, <code class="docutils literal notranslate"><span class="pre">PATH</span></code> is an environment
+variable.</p>
+<p>You can get a list of all environment variables with the <code class="docutils literal notranslate"><span class="pre">env</span></code> command. Here’s
+an example of a few lines of output from the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>env
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SHELL</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="n">SESSION_MANAGER</span><span class="o">=</span><span class="n">local</span><span class="o">/</span><span class="n">zen</span><span class="p">:</span><span class="o">@/</span><span class="n">tmp</span><span class="o">/.</span><span class="n">ICE</span><span class="o">-</span><span class="n">unix</span><span class="o">/</span><span class="mi">579</span><span class="p">,</span><span class="n">unix</span><span class="o">/</span><span class="n">zen</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">/.</span><span class="n">ICE</span><span class="o">-</span><span class="n">unix</span><span class="o">/</span><span class="mi">579</span>
+<span class="n">R_PROFILE_USER</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">nick</span><span class="o">/.</span><span class="n">config</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">rprofile</span>
+<span class="n">LESSHISTFILE</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">nick</span><span class="o">/.</span><span class="n">config</span><span class="o">/</span><span class="n">less</span><span class="o">/</span><span class="n">history</span>
+<span class="n">COLORTERM</span><span class="o">=</span><span class="n">truecolor</span>
+</pre></div>
+</div>
+<p>On your computer, you’ll probably see some environment variables with different
+names and values.</p>
+<p>Shell variables are not automatically environment variables. Notice that the
+variable <code class="docutils literal notranslate"><span class="pre">FOO</span></code>, created above, is not in the output from <code class="docutils literal notranslate"><span class="pre">env</span></code>. To assign an
+environment variable, you can use the <code class="docutils literal notranslate"><span class="pre">export</span></code> command. To make <code class="docutils literal notranslate"><span class="pre">FOO</span></code> an
+environment variable, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span>FOO
+</pre></div>
+</div>
+<p>Now <code class="docutils literal notranslate"><span class="pre">FOO</span></code> is an environment variable and will appear in the output of <code class="docutils literal notranslate"><span class="pre">env</span></code>.</p>
+<p>Variables you assign interactively will be deleted when you close the shell. If
+you want to automatically assign or modify a variable every time you open a
+shell, put the assignment in your <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code> file.</p>
+<p>As an example, let’s make an executable script that prints <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world!</span></code> and
+add it to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. To start, create and navigate to a directory called
+<code class="docutils literal notranslate"><span class="pre">~/scripts</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/scripts
+<span class="nb">cd</span><span class="w"> </span>~/scripts
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">hello.sh</span></code> in a text editor (for example, <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">hello.sh</span></code>), enter the
+following, and save the file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nb">echo</span><span class="w"> </span>Hello<span class="w"> </span>world!
+</pre></div>
+</div>
+<p>Then make the script executable:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>hello.sh
+</pre></div>
+</div>
+<p>Try running the script to make sure it works:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">hello</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>If you want to run the script from any other directory, you’ll have to tell the
+shell where to find the script by typing the full path <code class="docutils literal notranslate"><span class="pre">~/scripts/hello.sh</span></code>.</p>
+<p>For instance, navigate back to your home directory and try running <code class="docutils literal notranslate"><span class="pre">hello.sh</span></code>
+without the full path:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
+hello.sh
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">bash</span><span class="p">:</span> <span class="n">hello</span><span class="o">.</span><span class="n">sh</span><span class="p">:</span> <span class="n">command</span> <span class="ow">not</span> <span class="n">found</span>
+</pre></div>
+</div>
+<p>The shell is unable to find <code class="docutils literal notranslate"><span class="pre">hello.sh</span></code>. You can tell the shell where to look by
+adding <code class="docutils literal notranslate"><span class="pre">~/scripts</span></code> to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. The command is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/scripts:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>This prepends <code class="docutils literal notranslate"><span class="pre">~/scripts</span></code> (<code class="docutils literal notranslate"><span class="pre">$HOME/scripts</span></code>) and a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Be careful not to overwrite the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, as this can break your shell. Instead,
+prepend or append directories to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<p>If you do accidentally overwrite the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, you can usually reset it by
+closing and reopening the shell. On a server, you can do this by logging out
+and then logging in again.</p>
+</div>
+<p>Now try running <code class="docutils literal notranslate"><span class="pre">hello.sh</span></code> again:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>hello.sh
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello world!
+</pre></div>
+</div>
+<p>As it stands, <code class="docutils literal notranslate"><span class="pre">~/scripts</span></code> will only stay on the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> until the shell is
+closed. You can make the change persistent by adding the <code class="docutils literal notranslate"><span class="pre">export</span></code> command above
+to <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>. Open <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code> in a text editor and add this line:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/scripts:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Now <code class="docutils literal notranslate"><span class="pre">~/scripts</span></code> will be on the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> even if you close and reopen the shell.</p>
+<p>Besides the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, there are many other environment variables you might want
+to customize. For instance, you can assign <code class="docutils literal notranslate"><span class="pre">EDITOR</span></code> to specify your preferred
+text editor or assign <code class="docutils literal notranslate"><span class="pre">R_LIBS_USER</span></code> to control where R stores packages. Check
+the documentation for your favorite software to learn more about how they use
+environment variables.</p>
+<!--
+## Shell Tips
+-->
+</section>
+</section>
+<section id="other-configuration-files">
+<h2>Other Configuration Files<a class="headerlink" href="#other-configuration-files" title="Link to this heading">#</a></h2>
+<p>The <a class="reference internal" href="#bash"><span class="std std-ref">Bash</span></a> section focuses on Bash configuration files, but software such
+as Git, tmux, R, Python, and Vim can also be customized through configuration
+files. For software you use frequently, learning to edit the configuration
+file(s) is often a worthwhile investment because allows you to tailor the
+software to your specific needs and workflows.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/installing-software"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_pixi-basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Pixi Basics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="b_ucdavis-hpc-modules.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit B: UC Davis HPC Modules</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash">Bash</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliases">Aliases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-configuration-files">Other Configuration Files</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

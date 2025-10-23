@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Pixi Basics &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/installing-software/02_pixi-basics';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Unit A: Configuring the Shell" href="a_configuring-the-shell.html" />
+    <link rel="prev" title="1. Environment Managers" href="01_environment-managers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/02_command-line-basics.html">2. Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/03_navigating-file-systems.html">3. Navigating File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line/04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../command-line/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/installing-software/02_pixi-basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/installing-software/02_pixi-basics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pixi Basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-directories">2.1. Project Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializing-a-project">2.2. Initializing a Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-removing-packages">2.3. Adding &amp; Removing Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-pixi-toml">2.4. Editing <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-packages">2.5. Updating Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-installs">2.6. Global Installs</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pixi-basics">
+<h1><span class="section-number">2. </span>Pixi Basics<a class="headerlink" href="#pixi-basics" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Create and organize project directories for projects</p></li>
+<li><p>Initialize projects with Pixi</p></li>
+<li><p>Install software with Pixi</p></li>
+</ul>
+</div>
+<section id="project-directories">
+<h2><span class="section-number">2.1. </span>Project Directories<a class="headerlink" href="#project-directories" title="Link to this heading">#</a></h2>
+<p>Pixi manages virtual environments on a per-project basis. Each project must
+have its own directory—called a <strong>project directory</strong>—where all of the
+files related to the project are stored. We recommend organizing projects this
+way even when you aren’t using Pixi. By using a project directory to centralize
+all of the files in a project, it’s easier to:</p>
+<ul class="simple">
+<li><p>Find files, because you know where to look or to run search software</p></li>
+<li><p>Move or copy the project to other computers</p></li>
+<li><p>Share the project with collaborators, colleagues, or the public</p></li>
+<li><p>Create backup copies of the project to protect your work</p></li>
+<li><p>Access and run files with R, Python, and other tools</p></li>
+<li><p>Use version control software to manage different versions of project files</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Create a new project directory for every project, no matter how small. As you
+produce or acquire new files for the project, make sure that they’re stored in
+the directory. Some examples of files you should store in a project directory
+are:</p>
+<ul class="simple">
+<li><p>Documentation, such as a file manifest and instructions for use</p></li>
+<li><p>Code, such as notebooks and scripts</p></li>
+<li><p>Inputs, such as data sets and configuration files</p></li>
+<li><p>Outputs, such as reports, figures, and intermediate data sets</p></li>
+<li><p>License information (if the project will be shared with anyone)</p></li>
+</ul>
+<p>Give the files descriptive names and create subdirectories to keep the files
+well-organized. The gold standard is for a project directory to be completely
+<strong>portable</strong>, meaning you can copy the directory to another computer, follow
+included instructions to setup necessary software (such as R or Python), and
+then run the code <em>without any modifications</em> to get the expected result.</p>
+</div>
+</section>
+<section id="initializing-a-project">
+<h2><span class="section-number">2.2. </span>Initializing a Project<a class="headerlink" href="#initializing-a-project" title="Link to this heading">#</a></h2>
+<p>You can initialize a project to use Pixi with the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">init</span></code> command. The
+command takes one argument: a path to the project directory. If the directory
+doesn’t exist yet, Pixi will create it.</p>
+<p>Open a terminal and make a directory where you can try out some commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>pixi_workshop
+<span class="nb">cd</span><span class="w"> </span>pixi_workshop
+</pre></div>
+</div>
+<p>Initialize a Pixi project called <code class="docutils literal notranslate"><span class="pre">my_project</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>init<span class="w"> </span>my_project
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>✔ Created /home/nick/pixi_workshop/my_project/pixi.toml
+</pre></div>
+</div>
+<p>Navigate to the new <code class="docutils literal notranslate"><span class="pre">my_project/</span></code> directory and take a look at the files
+inside:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>my_project
+ls<span class="w"> </span>-a
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.  ..  .gitattributes  .gitignore  pixi.toml
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code> and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> files are files for <a class="reference external" href="https://git-scm.com/">Git</a>, a version
+control system. If you’re not familiar with Git, it’s safe to ignore these
+files, and you can skip the rest of this paragraph. The <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code> file
+tells Git how to handle merges for <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, a file Pixi uses to keep track
+of installed packages. The <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file tells Git to ignore the <code class="docutils literal notranslate"><span class="pre">.pixi/</span></code>
+subdirectory, which is where Pixi installs packages.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>We recommend using Git for your research computing projects. To learn more,
+check out the <a class="reference internal" href="../version-control/01_version-control-systems.html#ch-version-control-systems"><span class="std std-ref">Introduction to Version Control</span></a>
+chapters.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> file identifies the project as a Pixi project. It’s also a
+place where you can store metadata about the project (such as its name,
+authors, and version) and where Pixi will store details about the project’s
+virtual environments.</p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> in a text editor (such as <code class="docutils literal notranslate"><span class="pre">vim</span></code>). It will look something like
+this:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;YOUR_NAME &lt;YOUR_EMAIL&gt;&quot;</span><span class="p">]</span>
+<span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conda-forge&quot;</span><span class="p">]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_project&quot;</span>
+<span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;linux-64&quot;</span><span class="p">]</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+
+<span class="k">[tasks]</span>
+
+<span class="k">[dependencies]</span>
+</pre></div>
+</div>
+<p>The file is in <a class="reference external" href="https://toml.io/en/">TOML</a> format, a format designed to be easy for both people
+and computers to read and write. TOML files consist primarily of key-value
+pairs of the form <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">=</span> <span class="pre">value</span></code>. The key-value pairs can be organized into
+named tables with headers of the form <code class="docutils literal notranslate"><span class="pre">[name]</span></code>.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> file always has at least three tables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">project</span></code> is metadata about the project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tasks</span></code> is a list of project-specific commands.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dependencies</span></code> is a list of required packages for the project’s default
+virtual environment, which starts out empty (no packages).</p></li>
+</ul>
+<p>When you initialize a project, Pixi fills in as much of <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> as it can.
+For instance, it gets your name and email from Git, if you have Git installed
+and configured. You can edit <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> to add or correct details.
+<a class="reference internal" href="#editing-pixi-toml"><span class="std std-numref">Section 2.4</span></a> explains more about this file, but first, let’s
+install some packages.</p>
+</section>
+<section id="adding-removing-packages">
+<h2><span class="section-number">2.3. </span>Adding &amp; Removing Packages<a class="headerlink" href="#adding-removing-packages" title="Link to this heading">#</a></h2>
+<p>You can list a project’s packages with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">list</span></code>. Go ahead and try this for
+the <code class="docutils literal notranslate"><span class="pre">my_project</span></code> project:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>list
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>✘ No packages found in &#39;default&#39; environment for &#39;linux-64&#39; platform.
+</pre></div>
+</div>
+<p>We haven’t installed any packages yet, so there are none to list.</p>
+<p>Suppose we want to install Python. Package names are always lowercase and
+usually not surprising, although you can use the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">search</span></code> command or
+search online if you’re not sure about a package’s name. Python is in the
+<code class="docutils literal notranslate"><span class="pre">python</span></code> package.</p>
+<p>You can install a package with the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code> command. So the command to
+install Python is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>add<span class="w"> </span>python
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>✔ Added python &gt;=3.13.2,&lt;3.14
+</pre></div>
+</div>
+<p>By default, Pixi installs the most recent compatible version of a package. So
+depending on your computer’s operating system and when you run the command,
+Pixi might install a different version of Python.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code> to set constraints on
+package versions. For instance, if you want the most recent version of Python
+less than 3.10:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>add<span class="w"> </span><span class="s1">&#39;python&lt;3.10&#39;</span>
+</pre></div>
+</div>
+<p>When you set constraints like this, make sure to surround them with single
+quotes (<code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>) or the shell will misunderstand the command.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code> command installs packages. Don’t confuse it with the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">install</span></code> command, which installs entire virtual environments. You usually won’t
+need to run <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">install</span></code>, because Pixi runs it automatically as needed.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">python</span></code> package is now listed in the environment, along with all of its
+dependencies:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>list
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Package           Version    Build               Size       Kind   Source
+_libgcc_mutex     0.1        conda_forge         2.5 KiB    conda  _libgcc_mutex
+_openmp_mutex     4.5        2_gnu               23.1 KiB   conda  _openmp_mutex
+bzip2             1.0.8      h4bc722e_7          246.9 KiB  conda  bzip2
+ca-certificates   2025.1.31  hbcca054_0          154.4 KiB  conda  ca-certificates
+ld_impl_linux-64  2.43       h712a8e2_4          655.5 KiB  conda  ld_impl_linux-64
+libexpat          2.6.4      h5888daf_0          71.6 KiB   conda  libexpat
+libffi            3.4.6      h2dba641_0          52.2 KiB   conda  libffi
+libgcc            14.2.0     h767d61c_2          828 KiB    conda  libgcc
+libgcc-ng         14.2.0     h69a702a_2          52.5 KiB   conda  libgcc-ng
+libgomp           14.2.0     h767d61c_2          449.1 KiB  conda  libgomp
+liblzma           5.6.4      hb9d3cd8_0          108.7 KiB  conda  liblzma
+libmpdec          4.0.0      h4bc722e_0          87.9 KiB   conda  libmpdec
+libsqlite         3.49.1     hee588c1_2          897.1 KiB  conda  libsqlite
+libuuid           2.38.1     h0b41bf4_0          32.8 KiB   conda  libuuid
+libzlib           1.3.1      hb9d3cd8_2          59.5 KiB   conda  libzlib
+ncurses           6.5        h2d0b736_3          870.7 KiB  conda  ncurses
+openssl           3.4.1      h7b32b05_0          2.8 MiB    conda  openssl
+python            3.13.2     hf636f53_101_cp313  31.7 MiB   conda  python
+python_abi        3.13       5_cp313             6.1 KiB    conda  python_abi
+readline          8.2        h8c095d6_2          275.9 KiB  conda  readline
+tk                8.6.13     noxft_h4845f30_101  3.2 MiB    conda  tk
+tzdata            2025a      h78e105d_0          120 KiB    conda  tzdata
+</pre></div>
+</div>
+<p>Packages you installed explicitly are printed in bold (although the bold
+doesn’t show up in this reader). All of the other packages are dependencies.
+You can use <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code> multiple times to install whatever packages you need.</p>
+<p>Once you’ve installed some packages in a virtual environment, you’ll probably
+want to use them. You can run a command in the virtual environment with the
+<code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code> command. So to run <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>run<span class="w"> </span>python
+</pre></div>
+</div>
+<p>This will open a Python prompt in the virtual environment. You can use Python
+as you would normally at this point.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On most operating systems, you can use <code class="docutils literal notranslate"><span class="pre">which</span></code> to check which program a command
+will run. For instance, try:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>run<span class="w"> </span>which<span class="w"> </span>python
+</pre></div>
+</div>
+<p>Compare the output to:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>python
+</pre></div>
+</div>
+<p>The output should be different. The <code class="docutils literal notranslate"><span class="pre">which</span></code> command is a Unix shell tool, not
+part of Pixi.</p>
+</div>
+<p>If you no longer need a package for your project, you can uninstall it with
+<code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">remove</span></code>. Let’s remove Python from our project:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>remove<span class="w"> </span>python
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>✔ Removed python
+</pre></div>
+</div>
+<p>The environment is once again empty:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>list
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>✘ No packages found in &#39;default&#39; environment for &#39;linux-64&#39; platform.
+</pre></div>
+</div>
+<p>With Python uninstalled, let’s install another major language of data science:
+R. The package for R is called <code class="docutils literal notranslate"><span class="pre">r</span></code>. We’ll also install R’s popular ggplot2
+package for data visualization. In conda-forge, R packages have the prefix
+<code class="docutils literal notranslate"><span class="pre">r-</span></code>, so ggplot2 is <code class="docutils literal notranslate"><span class="pre">r-ggplot2</span></code>. We can install both packages in a single <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code> command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>add<span class="w"> </span>r<span class="w"> </span>r-ggplot2
+</pre></div>
+</div>
+<p>When you need to run multiple commands in a virtual environment, typing <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code> in front of each one is inconvenient and tedious. Instead, you can use
+<code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">shell</span></code> to launch a subshell in the virtual environment. Any commands you
+enter in the subshell run in the virtual environment.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If you’re using Windows and Git Bash, the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">shell</span></code> command is <a class="reference external" href="https://github.com/prefix-dev/pixi/issues/417">not yet
+supported</a>.</p>
+</div>
+<p>Open a subshell:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>shell
+</pre></div>
+</div>
+<p>Now try running <code class="docutils literal notranslate"><span class="pre">R</span></code>. You can use R normally, exit, and reopen R again without
+leaving the virtual environment. When you’re finished with the subshell, enter
+<code class="docutils literal notranslate"><span class="pre">exit</span></code> to return to your original shell.</p>
+</section>
+<section id="editing-pixi-toml">
+<span id="id1"></span><h2><span class="section-number">2.4. </span>Editing <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code><a class="headerlink" href="#editing-pixi-toml" title="Link to this heading">#</a></h2>
+<p>When you install a package with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code>, Pixi adds the package’s name and a
+version constraint to the <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> file. Likewise, when you uninstall a
+package with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">remove</span></code>, Pixi removes the package’s name from the file. The
+file is a description of the project and the virtual environment(s) it
+requires.</p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> in a text editor again:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;YOUR_NAME &lt;YOUR_EMAIL&gt;&quot;</span><span class="p">]</span>
+<span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conda-forge&quot;</span><span class="p">]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_project&quot;</span>
+<span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;linux-64&quot;</span><span class="p">]</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+
+<span class="k">[tasks]</span>
+
+<span class="k">[dependencies]</span>
+<span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=4.4,&lt;4.5&quot;</span>
+<span class="n">r-ggplot2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.5.1,&lt;4&quot;</span>
+</pre></div>
+</div>
+<p>The packages we installed in the default virtual environment with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code>
+are listed in the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> table, along with their version constraints.
+In the constraints, the lower bound comes from the version of the package that
+was actually installed. The upper bound is one minor version higher. We say
+these packages are <strong>pinned</strong> because there are specific constraints on their
+versions. Pixi makes sure constraints on pinned packages are satisfied unless
+you explicitly override them.</p>
+<p>In addition to or instead of using <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">remove</span></code> to manage
+packages, you can do so by editing <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> directly. For instance, if you
+want to remove a package, just remove its line from <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>. Pixi will
+automatically uninstall the package the next time you run a <code class="docutils literal notranslate"><span class="pre">pixi</span></code> command.
+Similarly, you can add packages by adding a line to <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, and they’ll be
+installed the next time you run a command.</p>
+<p>Take a look at the files in the <code class="docutils literal notranslate"><span class="pre">my_project/</span></code> directory again now that we’ve
+added and removed some packages:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-a
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>  <span class="o">..</span>  <span class="o">.</span><span class="n">gitattributes</span>  <span class="o">.</span><span class="n">gitignore</span>  <span class="o">.</span><span class="n">pixi</span>  <span class="n">pixi</span><span class="o">.</span><span class="n">lock</span>  <span class="n">pixi</span><span class="o">.</span><span class="n">toml</span>
+</pre></div>
+</div>
+<p>There’s a new directory called <code class="docutils literal notranslate"><span class="pre">.pixi/</span></code>. This is where Pixi installs all of a
+project’s virtual environments and packages.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you know you won’t work on a project again for a while (or ever), you can
+safely delete <code class="docutils literal notranslate"><span class="pre">.pixi/</span></code> to get back some storage space. All of the information
+needed to reconstruct the virtual environment(s) is in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>.</p>
+</div>
+<p>There’s also a new file <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, called a <strong>lockfile</strong>. The lockfile lists
+the exact version and source of every package, including dependencies,
+installed in the project’s virtual environments. It’s a complete specification,
+in contrast to the flexible specification in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>. Both are useful: the
+lockfile is for reproducing environments exactly, while the <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> file is
+for producing compatible environments—as defined by the version
+constraints—that might differ slightly from the originals.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you use Git, make sure to commit both <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> and <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>.</p>
+</div>
+<p>By default, Pixi will only compute the lockfile for your computer’s operating
+system. If you plan to use other operating systems—or share your project with
+people who do—it’s a good idea to have Pixi compute the lockfile for all of
+them. You can do this by adding the operating systems to the <code class="docutils literal notranslate"><span class="pre">platforms</span></code> key in
+<code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>. Some valid operating systems are <code class="docutils literal notranslate"><span class="pre">linux-64</span></code>, <code class="docutils literal notranslate"><span class="pre">macos-64</span></code>,
+<code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> (for M1, M2, …), and <code class="docutils literal notranslate"><span class="pre">win-64</span></code>. Computing the lockfile for all of
+the operating systems where your project might be used can help you catch
+problems with virtual environments early, such as packages that are not
+available for some operating systems. For example, if you want to include all
+three operating systems, change the <code class="docutils literal notranslate"><span class="pre">platforms</span></code> key to:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;linux-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;osx-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;osx-arm64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;win-64&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Pixi searches for and installs packages from the conda-forge repository by
+default. In the jargon of Pixi (and Conda), package repositories are called
+<strong>channels</strong>. You can specify other channels Pixi should search for packages in
+<code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>’s <code class="docutils literal notranslate"><span class="pre">channels</span></code> key. The channels have highest to lowest priority from
+left to right.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>There are many other useful things you can do by editing <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, such as
+setting up multiple virtual environments or specifying minimum hardware
+requirements for a project.</p>
+<p>See <a class="reference external" href="https://pixi.sh/">the Pixi documentation</a> for more details.</p>
+</div>
+</section>
+<section id="updating-packages">
+<h2><span class="section-number">2.5. </span>Updating Packages<a class="headerlink" href="#updating-packages" title="Link to this heading">#</a></h2>
+<p>You can update packages in an environment with the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">update</span></code> command. This
+command respects the version constraints in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, so it will not upgrade
+any packages to versions that don’t satisfy the constraints. If you only want
+to update one package, pass the command the name of the package. For example,
+to update the R package:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pixi update r
+</pre></div>
+</div>
+<p>In contrast, the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">upgrade</span></code> command upgrades packages to the newest
+available version that’s compatible with the other packages in the environment.
+This command ignores the constraints in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> and will even change them
+to match the new versions.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It’s a good idea to update your Pixi environments occasionally, since anyone
+else who installs the environment will get the newest versions of the packages
+(within the constraints in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>). Minor versions of packages usually
+contain bug and security fixes rather than breaking changes.</p>
+<p>On the other hand, be cautious about <em>upgrading</em> your Pixi environments.
+There’s a chance that new versions of packages will break your code—major
+versions of packages often introduce breaking changes.</p>
+</div>
+</section>
+<section id="global-installs">
+<h2><span class="section-number">2.6. </span>Global Installs<a class="headerlink" href="#global-installs" title="Link to this heading">#</a></h2>
+<p>Occasionally, you might come across a tool that’s broadly useful but not
+required by any particular project. For example, ripgrep (<code class="docutils literal notranslate"><span class="pre">rg</span></code>) is a tool to
+search for files that contain a given text string (or regular expression). It’s
+a faster, modernized version of the classic <code class="docutils literal notranslate"><span class="pre">grep</span></code> tool, and worth knowing
+about if you use the command line frequently, because it can help you find
+files quickly.</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">install</span></code> command to install a package globally, so
+that it’s available in all shells without any need to use <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code> or <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">shell</span></code>. Try installing <code class="docutils literal notranslate"><span class="pre">ripgrep</span></code> this way:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>global<span class="w"> </span>install<span class="w"> </span>ripgrep
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Global environments as specified in &#39;/home/nick/.pixi/manifests/pixi-global.toml&#39;
+└── ripgrep: 14.1.1 (installed)
+    └─ exposes: rg
+</pre></div>
+</div>
+<p>Pixi creates a new virtual environment for each package you install this way,
+in order to prevent conflicts. You can use <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">list</span></code> to see which
+packages you’ve installed globally:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>global<span class="w"> </span>list
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Global environments as specified in &#39;/home/nick/.pixi/manifests/pixi-global.toml&#39;
+└── ripgrep: 14.1.1
+    └─ exposes: rg
+</pre></div>
+</div>
+<p>If you want to uninstall a globally-installed package, use <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">uninstall</span></code>. For example, to uninstall <code class="docutils literal notranslate"><span class="pre">ripgrep</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>global<span class="w"> </span>uninstall<span class="w"> </span>ripgrep
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>✔ Removed environment ripgrep.
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/installing-software"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_environment-managers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Environment Managers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="a_configuring-the-shell.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit A: Configuring the Shell</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-directories">2.1. Project Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializing-a-project">2.2. Initializing a Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-removing-packages">2.3. Adding &amp; Removing Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-pixi-toml">2.4. Editing <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-packages">2.5. Updating Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-installs">2.6. Global Installs</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
