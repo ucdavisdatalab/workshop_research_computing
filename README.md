@@ -1,11 +1,11 @@
-# Workshop Series: Reproducible Research Starter Pack
+# Workshop Series: Research Computing Starter Pack
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 _[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
 _Maintainer: Nick Ulle <<naulle@ucdavis.edu>>_  
 
-* [Reader](https://ucdavisdatalab.github.io/workshop_reproducible_research/)
+* [Reader](https://ucdavisdatalab.github.io/workshop_research_computing/)
 
 
 ## Contributing

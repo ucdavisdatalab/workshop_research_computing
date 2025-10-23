@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Reproducible Research Starter Pack
+title: Research Computing Starter Pack
 author: Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
 copyright: "2025"
 logo: images/datalab-logo-full-color-rgb.png
@@ -9,7 +9,7 @@ exclude_patterns: [_build, .pixi]
 only_build_toc_files: true
 
 repository:
-  url: https://github.com/ucdavisdatalab/workshop_reproducible_research
+  url: https://github.com/ucdavisdatalab/workshop_research_computing
 
 parse:
   myst_enable_extensions:

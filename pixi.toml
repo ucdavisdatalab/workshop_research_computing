@@ -1,7 +1,7 @@
 [project]
-name = "workshop_reproducible_research"
-version = "2025.spring.0"  # <year>.<quarter>.<revision #>
-description = "Reader for the Reproducible Research Starter Pack workshops."
+name = "workshop_research_computing"
+version = "2025.fall.0"  # <year>.<quarter>.<revision #>
+description = "Reader for the Research Computing Starter Pack workshops."
 authors = [
   "Nick Ulle <naulle@ucdavis.edu>",
   "Carl Stahmer",
