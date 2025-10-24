@@ -6,7 +6,6 @@ root: chapters/index
 # Chapters may be written in either Markdown or as Jupyter Notebooks
 parts:
   - chapters:
-    - file: chapters/prerequisites
     - file: chapters/setup
 
   - caption: "Reproducibility Principles and Practices"

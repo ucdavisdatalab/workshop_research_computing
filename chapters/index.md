@@ -10,6 +10,9 @@ workshops are:
 * Introduction to Version Control (one 2-hour session)
 * Git for Teams (one 2-hour session)
 
+No prior programming experience is required for this workshop series, assuming
+you complete the series in order.
+
 Open-source tools are an integral part of many research projects. Contributing
 to these projects ensures they continue to be sustainable, and releasing
 research-related code under open-source licenses ensures computational research
