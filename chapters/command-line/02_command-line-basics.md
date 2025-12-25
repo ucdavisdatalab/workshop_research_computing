@@ -12,7 +12,12 @@ After this lesson, you should be able to:
 
 ## Opening a Terminal
 
-To use the command line, we need to run a terminal program.
+To use the command line, we first need to open a terminal program.
+
+::::::{important}
+
+Terminals are available for Windows, macOS, and Linux. Follow the instructions
+for your computer's operating system:
 
 :::::{tab-set}
 ::::{tab-item} Windows
@@ -50,6 +55,7 @@ workshop, but the examples were only tested in [WezTerm][].
 ::::
 
 :::::
+::::::
 
 
 ## The Anatomy of the Command Line
@@ -65,15 +71,14 @@ computer.
 
 For example, instead of pointing and clicking on things in your computer, as
 you'd do with a GUI, you type in your commands with a CLI. In this way, a CLI
-is more like a typewriter than it is a desktop (an even better analogue would
-be a [teleprinter](https://en.wikipedia.org/wiki/Teleprinter)).
+is more like a typewriter (or teleprinter) than it is a desktop.
 
 To see this, return to the terminal window.
 
 ![Mac Terminal window](/images/command-line/prompt.png)
 
 Everything that will happen in this window happens on a line-by-line basis.
-Here, we see the command line **prompt**, where you'll type your commands. The
+Here, we see the command line prompt, where you'll type your commands. The
 prompt itself offers valuable information about your computer. The beginning of
 the line, `tshoe@ds`, tells us the current user (`tshoe`) and current computer
 (`ds`). This may seem redundant, but with the command line it is possible to
@@ -91,10 +96,11 @@ After the location, we see the `$` character. It is an indicator that lets you
 know the command line application is waiting for you to enter something.
 
 :::{caution}
-You do not need to type `$`, it will appear automatically, but examples online
-sometimes include it to emulate what you'll see onscreen.
+You do not need to type `$`. It will appear automatically.
 
-We do not include the `$` at the beginning of any commands in this reader.
+Examples online sometimes include `$` at the beginning of commands to mimic
+what you'll see onscreen. We do not include the `$` at the beginning of any
+commands in this reader.
 :::
 
 Depending on your system and/or command line interface, you may or may not also
