@@ -8,6 +8,7 @@ After this lesson, you should be able to:
 * Explain what a graphical user interface is
 * Explain what a command line interface is
 * Describe the components of a command line interface
+* Explain what a prompt is
 :::
 
 
@@ -32,45 +33,43 @@ several windows open, including a command line interface. Image from
 [wiki-x]: https://en.wikipedia.org/wiki/Shell_(computing)#/media/File:X-Window-System.png
 :::
 
-One such method is the **command line interface** (CLI). The command line
-offers a text-only means of interacting with your computer, acting somewhat
-like a typewriter (rather than a *window* or *desktop*, as the prevailing
-metaphors for GUIs go). You can think of this interface as having three main
-parts:
+One such method, the **command line interface** (CLI), offers a text-only means
+of interacting with your computer. The CLI acts somewhat like a typewriter
+rather than a *desktop* with *windows* (as the prevailing metaphors for GUIs
+go). You can think of this interface as having three main parts:
 
-1. A **terminal**: an environment (like a window) with which to send/receive
-information to/from your computer
+1. A **terminal**: a window (or originally, a [teleprinter][]) with which to
+   send/receive text to/from a computer.
 2. A **shell**: a program that interprets and executes commands you enter into
-the terminal (common programs include Bash and Zsh)
-3. The **command line**: where you enter commands that a shell interprets and
-executes; a form of interaction that involves typing commands into a terminal
+   the terminal (common shells include Bash, Fish, and Zsh).
+3. A **command line** or **prompt**: a line in the terminal where you'll type
+   in commands for the shell to interpret and execute.
 
-In the early days of computing, all user interaction with your computer
-happened at the command line. But during the 1980s, computer
-manufacturers---with Apple at the lead---made a big push to convert their
-machines to the windowing systems we know today. A CLI, they felt, was too
-difficult for users to understand and this, in turn, would hamper computer
-sales. Nowadays there are few viable (and at present, almost no commercially
-available) programs that can compete with the predominant systems of Macs and
-PCs. While this is less the case for Linux machines, people are by and large
-locked into the GUIs that come pre-installed on their machines. CLIs are,
-however, available, and some are even installed on popular computer hardware.
+[teleprinter]: https://en.wikipedia.org/wiki/Teleprinter
+
+In the early days of computing, all user interaction with computers happened at
+the command line. But during the 1980s, computer manufacturers---with Apple at
+the lead---made a big push to convert their machines to the windowing systems
+we know today. A CLI, they felt, was too difficult for users to understand, and
+this, in turn, would hamper computer sales. Nowadays there are few viable (and
+at present, almost no commercially available) programs that can compete with
+the predominant systems of Macs and PCs. While this is less the case for Linux
+machines, people are by and large locked into the GUIs that come pre-installed
+on their machines. CLIs are, however, available, and some are even installed on
+popular computer hardware.
+
 
 ## To the Command Line: A Mentality Shift
 
-The following chapters will discuss how to open and use CLIs. Doing so is
-necessarily action-oriented: the workshop covers a host of different commands
-that will help you in your day-to-day work on a computer. But knowing the
-pragmatics of using a CLI is only one part of a broader change in the mentality
-we bring to interacting with our computers beyond the GUI. When we work on the
-command line, we find ourselves doing things computers typically _do for us_.
-Because of this, we need to know more about how our computers work than we
-would if we only used a GUI.
+The following chapters are a hands-on introduction to the CLI. They explain how
+to open the CLI and cover a host of different commands that will help you in
+your day-to-day work on a computer. That said, knowing the pragmatics of using
+the CLI is only one part of a broader change of mentality in interacting with
+computers that we hope to instill.
 
-This workshop only covers a small part of that knowledge, but the commands and
-conventions we'll discuss tend to generalize to other activities like writing
-code or tracking files with version control. Learning this material, then, is
-in part about preparing yourself to learn more advanced computing skills later
-on. As such, this workshop---and with it, our live session---will cover broader
-concepts and conventions in computing as much as it will show you how to use
-the command line.
+In order to use the CLI effectively, you'll need to understand more about how
+computers work than you would if you only used a GUI. As such, we'll cover
+several concepts and conventions in computing that generalize beyond the CLI.
+Thus learning this material is in part about preparing yourself to learn more
+advanced computing skills in the future, such as tracking changes to files with
+version control and writing code.

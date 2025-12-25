@@ -5,7 +5,6 @@
 After this lesson, you should be able to:
 
 * Open a terminal
-* Explain what a prompt is
 * Explain the shell command syntax
 * Name some common shell commands
 * Describe how to get help with shell commands
