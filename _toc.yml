@@ -28,8 +28,8 @@ parts:
   -  numbered: true
      chapters:
       - file: chapters/command-line/01_interacting-with-computers
-      - file: chapters/command-line/02_command-line-basics
-      - file: chapters/command-line/03_navigating-file-systems
+      - file: chapters/command-line/02_browsing-files
+      - file: chapters/command-line/03_other-commands
       - file: chapters/command-line/04_editing-files
   -  chapters:
       - file: chapters/command-line/references
