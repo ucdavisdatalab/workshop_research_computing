@@ -103,7 +103,7 @@ Open `pixi.toml` in a text editor (such as `vim`). It will look something like
 this:
 
 ```toml
-[project]
+[workspace]
 authors = ["YOUR_NAME <YOUR_EMAIL>"]
 channels = ["conda-forge"]
 name = "my_project"
@@ -124,7 +124,7 @@ named tables with headers of the form `[name]`.
 
 A `pixi.toml` file always has at least three tables:
 
-* `project` is metadata about the project.
+* `workspace` is metadata about the project.
 * `tasks` is a list of project-specific commands.
 * `dependencies` is a list of required packages for the project's default
   virtual environment, which starts out empty (no packages).
@@ -321,7 +321,7 @@ requires.
 Open `pixi.toml` in a text editor again:
 
 ```toml
-[project]
+[workspace]
 authors = ["YOUR_NAME <YOUR_EMAIL>"]
 channels = ["conda-forge"]
 name = "my_project"
