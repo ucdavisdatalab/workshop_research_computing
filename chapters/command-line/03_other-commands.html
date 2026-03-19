@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Going Beyond Browsing &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/command-line/03_other-commands';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Editing Files" href="04_editing-files.html" />
+    <link rel="prev" title="2. Browsing Files" href="02_browsing-files.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark pst-js-only" alt="Research Computing Starter Pack - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_browsing-files.html">2. Browsing Files</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Going Beyond Browsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_tasks.html">Unit D: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/command-line/03_other-commands.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/command-line/03_other-commands.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Going Beyond Browsing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-syntax">3.1. Command Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">3.2. Getting Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-problems-arise">3.3. When Problems Arise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-downloading-inspecting-files">3.4. Example: Downloading &amp; Inspecting Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-common-commands">3.5. Reference: Common Commands</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="going-beyond-browsing">
+<h1><span class="section-number">3. </span>Going Beyond Browsing<a class="headerlink" href="#going-beyond-browsing" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Describe the syntax of shell commands</p></li>
+<li><p>List several ways to get help with shell commands</p></li>
+<li><p>In the CLI:</p>
+<ul>
+<li><p>Download a file</p></li>
+<li><p>Extract the contents of a ZIP archive</p></li>
+<li><p>Examine the contents of a file</p></li>
+</ul>
+</li>
+<li><p>Explain what a file extension is</p></li>
+</ul>
+</div>
+<p>The CLI is more than a mere a file browser. With the right commands, you can
+download files from the internet, edit text, install new software, run
+sophisticated computations, connect to remote computers, and more. This chapter
+introduces a few more commands that are especially useful. It also explains the
+syntax shared by most commands, and describes how to get help as you learn and
+use the CLI.</p>
+<section id="command-syntax">
+<h2><span class="section-number">3.1. </span>Command Syntax<a class="headerlink" href="#command-syntax" title="Link to this heading">#</a></h2>
+<p>Most, if not all, shell commands follow a standard syntax. Commands always
+begin with the name of a particular command. So, using the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command as an
+example, you can write:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p>Some commands require or accept additional information. For instance, you can
+give the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command the path to a particular directory, such as <code class="docutils literal notranslate"><span class="pre">~</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls ~
+</pre></div>
+</div>
+<p>We call these inputs to a command <strong>arguments</strong>. The shell treats spaces as
+delimiters between a command’s name and each of its arguments.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>File and directory names with spaces can cause problems, because the shell will
+split the name at each space. Whatever command you’re trying to run will then
+treat each piece as a separate and unrelated argument. This typically causes
+the command to do something different from what you intended or to print an
+error message.</p>
+<p>If you need to work with a name that has spaces, there are a few ways to work
+around this limitation:</p>
+<ul>
+<li><p>Put single (<code class="docutils literal notranslate"><span class="pre">'</span></code>) or double (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) quotation marks around the name. For
+example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls &quot;My Directory&quot;
+</pre></div>
+</div>
+</li>
+<li><p><strong>Escape</strong> each space by putting a backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) in front of it. For
+example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">My</span>\ <span class="n">Directory</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>These workarounds can be a bit of a pain to type over and over. For this
+reason, people who use the command line in their daily work tend to avoid
+spaces altogether when naming files and directories. At DataLab, we use
+underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) and dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) rather than spaces in names.</p>
+<p>If you want to learn more about naming conventions, see <a class="reference external" href="https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/#file-names">this
+section</a> of DataLab’s README, Write Me! workshop reader.</p>
+</div>
+<p>Many commands also accept special arguments called <strong>flags</strong> that modify
+something about what the command does. Flags begin with a dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>), usually
+followed by a single letter. For example, the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command’s <code class="docutils literal notranslate"><span class="pre">-a</span></code> flag makes
+the command print out all files in a directory, even files that are hidden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>Some flags can also be written in long form, as a word, to make it clearer how
+they modify the command. In long form, flags conventionally begin with two
+dashes (<code class="docutils literal notranslate"><span class="pre">--</span></code>). For the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command, the long form of <code class="docutils literal notranslate"><span class="pre">-a</span></code> is <code class="docutils literal notranslate"><span class="pre">--all</span></code>. So
+another way to print all files in a directory is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls --all
+</pre></div>
+</div>
+<p>Without the <code class="docutils literal notranslate"><span class="pre">-a</span></code> or <code class="docutils literal notranslate"><span class="pre">--all</span></code> flag, the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command does not print any files or
+directories whose names begin with a dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>). Because of this, we call these
+files <strong>hidden files</strong> or <strong>dotfiles</strong>.</p>
+<p>Hidden files typically contain settings or metadata for your computer’s
+operating system, for the shell, or for other programs. Sometimes you might
+want to edit a hidden file to configure your computer or even create a new
+hidden file for your own use.</p>
+<p>Does your home directory contain any hidden files? First print the visible
+files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls ~
+</pre></div>
+</div>
+<p>Then try prining all of the files, for comparison:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls -a ~
+</pre></div>
+</div>
+<!--
+### Example: More About Files
+
+As another example, if you want to *list* the files and folders in the current
+directory, you can run the `ls` command:
+
+```none
+ls
+```
+
+```none
+backups  data.csv  jupyter_notebook.ipynb  project_folder
+```
+
+You can also use `ls` on a subfolder to show its contents:
+
+```none
+ls project_folder
+```
+```none
+file_1.txt  file_2.txt
+```
+
+Want some more information about your files and folders? You can modify the
+base functionality of the `ls` command -- and in fact you can do this for many
+such commands -- with **flags**. We do this by adding a dash (`-`) and then a
+letter, or a combination of letters, directly after the dash.
+
+```none
+ls -lha
+```
+
+...will print out information about the permissions, size, and date of the
+current directory's contents, as well as the user(s) who created them:
+
+```none
+ls -lha
+```
+```none
+.
+..
+.config_file
+drwxrwxr-x 2 tshoe staff 4.0K Jun 21 23:30 backups
+-rw-rw-r-- 1 tshoe staff  28K Oct  4 20:42 data.csv
+-rw-rw-r-- 1 tshoe staff 6.2K Aug 27 22:44 jupyter_notebook.ipynb
+drwxrwxr-x 8 root  root  4.0K Oct  4 21:44 project_folder
+```
+
+It's worth walking through this output, because it demonstrates how we can
+bring important information into view with just a few keystrokes. For
+beginners, the most relevant portions of `ls -lha` are likely to be toward the
+end of the output, where the file sizes are listed along with the date each
+file was last modified. To the left of this information are listings for the
+file owner/file group (respectively, `tshoe`/`staff` and `root`/`root`). These
+listings help us make some sense of the most confusing part of the above
+output: those strings of `r`'s, `w`'s, and `x`'s. These represent the various
+**permissions** for each file. Permissions are specific file attributes that
+control which users can read (`r`), change (`w`), or execute (`x`) a file.
+Depending on what level of permissions you, or the user group to which you
+belong, have been assigned, you may or may not be able to work with certain
+files (if you're on your personal computer, you likely have full permissions).
+
+Besides outputting file information, `ls -lha` also shows us three things in
+our folder that were otherwise hidden with just `ls`: `.`, `..`, and
+`.config_file`. The first two are special notation for navigating your
+computer, which we'll discuss in a later section. The last, `.config_file`, is
+a **dotfile**. Dotfiles (named for the `.` that prefaces them) are hidden by
+default on your computer. They often contain various configuration settings
+that people use to customize their computers. Some will also log the history of
+commands you've sent via a CLI (for example, `.bash_history` or
+`.python_history`). We can't discuss these files in depth, but for the moment
+it's worth recognizing that they exist and that you'll occasionally encounter
+them when working on the command lie.
+
+Depending on your particular system and/or CLI, all of the above might look
+slightly different on your computer. However, the basic presentation and
+functionality as described above will be the same. Typing is the predominant
+way of using a CLI, and the results of sending in commands with a CLI are
+text-only representations of your computer and your files.
+-->
+</section>
+<section id="getting-help">
+<h2><span class="section-number">3.2. </span>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p>Many commands have a <code class="docutils literal notranslate"><span class="pre">--help</span></code> flag that makes them print out some basic
+documentation. For example, to get help with the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pwd --help
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pwd: pwd [-LP]
+    Print the name of the current working directory.
+
+    Options:
+      -L	print the value of $PWD if it names the current working
+    		directory
+      -P	print the physical directory, without any symbolic links
+
+    By default, `pwd&#39; behaves as if `-L&#39; were specified.
+
+    Exit Status:
+    Returns 0 unless an invalid option is given or the current directory
+    cannot be read.
+</pre></div>
+</div>
+<p>Most commands also provide detailed documentation in the form of a manual page.
+On macOS and Linux, you can use the <code class="docutils literal notranslate"><span class="pre">man</span></code> command to open the manual page for
+another command. For instance:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>man ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>LS(1)                                               User Commands                                               LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of
+       -cftuvSUX nor --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+              with -l, print the author of each file
+
+       -b, --escape
+              print C-style escapes for nongraphic characters
+
+       --block-size=SIZE
+              with -l, scale sizes by SIZE when printing them; e.g., &#39;--block-size=M&#39;; see SIZE format below
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+
+       -c     with -lt: sort by, and show, ctime (time of last modification of file  status  information);  with  -l:
+              show ctime and sort by name; otherwise: sort by ctime, newest first
+
+       -C     list entries by columns
+
+       --color[=WHEN]
+              colorize the output; WHEN can be &#39;always&#39; (default if omitted), &#39;auto&#39;, or &#39;never&#39;; more info below
+
+       -d, --directory
+              list directories themselves, not their contents
+[...]
+</pre></div>
+</div>
+<p>As opposed to the usually mute, minimalist disposition of a CLI, here you can
+see thorough documentation for a given command and its various flags.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Windows, Git Bash does not include the <code class="docutils literal notranslate"><span class="pre">man</span></code> command. Instead, you can look
+up manual pages for commands by searching online. Try searching for <code class="docutils literal notranslate"><span class="pre">man</span></code> and
+the name of the command.</p>
+</div>
+<p>Sometimes it can also be helpful to know what version of a command you’re
+using, as commands themselves can be updated. You can find this information for
+some commands with <code class="docutils literal notranslate"><span class="pre">--version</span></code> or <code class="docutils literal notranslate"><span class="pre">-v</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file -v
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file-5.46
+magic file from /usr/share/file/misc/magic
+seccomp support included
+</pre></div>
+</div>
+<p>Still unclear about what a command does? Look it up with your favorite search
+engine, or visit Stack Exchange and search there. CLIs are widely used
+software, and chances are incredibly good that someone else has had the same
+question you want to ask.</p>
+</section>
+<section id="when-problems-arise">
+<h2><span class="section-number">3.3. </span>When Problems Arise<a class="headerlink" href="#when-problems-arise" title="Link to this heading">#</a></h2>
+<p>Error messages offer another, admittedly less pleasant way to learn about how a
+command works. When you’re first starting out with any kind of console-based
+software (whether it be a CLI or writing code), one of the most important
+skills you can learn is how to read an error message. For the most part, such
+messages are quite clear; they’re intended to help you debug your problem and
+thus attempt to supply you with information about what might be going wrong.</p>
+<p>As an example, if you’re at your home directory, and it looks like the
+following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>backups  data.csv  jupyter_notebook.ipynb  project_folder
+</pre></div>
+</div>
+<p>And you decide to <code class="docutils literal notranslate"><span class="pre">ls</span></code> a folder within this directory that doesn’t exist:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls no_name
+</pre></div>
+</div>
+<p>You’ll see this error message:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls: cannot access &#39;no_name&#39;: No such file or directory
+</pre></div>
+</div>
+<p>This tells you that, while you’ve sent in a valid <code class="docutils literal notranslate"><span class="pre">ls</span></code> command, it can’t find
+what you’re looking for.</p>
+<p>Likewise, forgetting a space:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo&quot;hello&quot;
+</pre></div>
+</div>
+<p>Leads to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-bash: echohello: command not found
+</pre></div>
+</div>
+<p>In other words, you’ve sent in a command that’s either invalid or is
+unavailable. These error messages are both fairly clear, but if you’re ever
+confused, or if you simply want to find out more about an error, a search
+engine is once again your friend. Sometimes simply copy/pasting the error
+message and searching on that alone will lead directly to information about
+what went wrong.</p>
+<p>That all said, sometimes you need to stop a CLI process immediately. Did you,
+for example, do something that causes your computer to print a million lines on
+screen? Did you decide you don’t want a file copied to a new location, and it’s
+still in the midst of transferring? You can <strong>interrupt</strong> any command with
+<code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">c</span></code> (on macOS: <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> + <code class="docutils literal notranslate"><span class="pre">c</span></code>). This will stop whatever current process
+is running in your interface.</p>
+<p>While you can stop a command, for the most part <em>it isn’t possible to undo a
+command</em>. Please take care to know exactly what you’re running and what you’re
+running it on, especially when it comes to modifying or deleting things on your
+computer.</p>
+</section>
+<section id="example-downloading-inspecting-files">
+<span id="sec-example-downloading-inspecting-files"></span><h2><span class="section-number">3.4. </span>Example: Downloading &amp; Inspecting Files<a class="headerlink" href="#example-downloading-inspecting-files" title="Link to this heading">#</a></h2>
+<p>To practice using the CLI and learn some new commands, let’s download a file
+from the Internet.</p>
+<p>The file we’ll download is called <code class="docutils literal notranslate"><span class="pre">example-files.zip</span></code>. It’s an <strong>archive</strong>,
+meaning it contains several other files. Specifically, it’s a <strong>ZIP archive</strong>
+(<code class="docutils literal notranslate"><span class="pre">.zip</span></code>), a format that uses compression to minimize the file size. This makes
+ZIP files great for exchanging data online, although other compressed archive
+formats (such as <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>) are also popular. The file contains several of the
+files from the Ada and Charles example (<a class="reference internal" href="02_browsing-files.html#sec-file-systems"><span class="std std-numref">Section 2.1</span></a>).</p>
+<p>To prepare, change the working directory to the <code class="docutils literal notranslate"><span class="pre">2026_intro-cmd/</span></code> directory you
+created in <a class="reference internal" href="02_browsing-files.html#sec-making-removing-directories"><span class="std std-numref">Section 2.4</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/2026_intro-cmd
+</pre></div>
+</div>
+<p>Rather than downloading the file with a web browser, we’ll download it with the
+CLI. To do this, you can use the <code class="docutils literal notranslate"><span class="pre">curl</span></code> command together with the URL for the
+file. The file is at this URL:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://ucdavis.box.com/shared/static/8nybft8ysh90vuqureczugueruhfm1lp.zip
+</pre></div>
+</div>
+<p>And this is the command to download the file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>curl -L -o example-files.zip https://ucdavis.box.com/shared/static/8nybft8ysh90vuqureczugueruhfm1lp.zip
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+100     5   0     5   0     0     4     0  --:--:--  0:00:01 --:--:--     0
+100 71957 100 71957   0     0 49205     0   0:00:01  0:00:01 --:--:-- 49205
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-L</span></code> flag tells <code class="docutils literal notranslate"><span class="pre">curl</span></code> to follow redirects and is necessary because Box,
+the website where the file is hosted, does not provide direct links to files.
+The <code class="docutils literal notranslate"><span class="pre">-o</span></code> flag tells <code class="docutils literal notranslate"><span class="pre">curl</span></code> where to save the downloaded file; in this case, we
+save it to <code class="docutils literal notranslate"><span class="pre">example-files.zip</span></code>.</p>
+<p>Confirm that the file is in the working directory with the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data  example-files.zip
+</pre></div>
+</div>
+<p>In order to use the contents of the file, we have to decompress it. You can
+decompress (“unzip”) a ZIP archive with the <code class="docutils literal notranslate"><span class="pre">unzip</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unzip example-files.zip
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Archive:  example-files.zip
+   creating: example-files/
+  inflating: example-files/README.md
+   creating: example-files/charles/
+  inflating: example-files/charles/cool_hair_selfie.jpg
+   creating: example-files/ada/
+  inflating: example-files/ada/analysis.ipynb
+  inflating: example-files/ada/cats.csv
+</pre></div>
+</div>
+<p>Unzipping the file creates a new directory called <code class="docutils literal notranslate"><span class="pre">example-files</span></code> in the
+working directory. Change to the <code class="docutils literal notranslate"><span class="pre">example-files</span></code> directory and list the files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd example-files
+ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ada  charles  README.md
+</pre></div>
+</div>
+<p>Archives and projects often include a file named <code class="docutils literal notranslate"><span class="pre">README</span></code>, or some variation of
+this, intended as documentation to be read before doing anything else. You can
+print out the first 10 lines of a file with the <code class="docutils literal notranslate"><span class="pre">head</span></code> command. Take a look at
+the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>head README.md
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># README
+
+This archive contains some of the files from the Ada and Charles example in
+DataLab&#39;s [Introduction to the Command Line][cmd] workshop reader.
+
+[cmd]: https://ucdavisdatalab.github.io/workshop_research_computing/chapters/command-line/
+</pre></div>
+</div>
+<p>From the output, we can see that this file contains text. In this case, the
+file is written in <a class="reference external" href="https://commonmark.org/help/">Markdown</a>, a formatting language designed to be easy to
+read but convenient for adding formatting like italics and hyperlinks to text.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cat</span></code> (“concatenate”) command is similar to <code class="docutils literal notranslate"><span class="pre">head</span></code>, but prints out an
+entire file rather than just the first 10 lines. Use the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command with
+care, since some files are very large (and thus take a long time to print).</p>
+<p>If you want to view the contents of a large file, it’s better to use a text
+editor, which we introduce in the next chapter.</p>
+</div>
+<p>The README file is named <code class="docutils literal notranslate"><span class="pre">README.md</span></code>. The part after the dot, <code class="docutils literal notranslate"><span class="pre">md</span></code>, is called a
+<strong>file extension</strong>. Extensions are a convention for describing the formats of
+files and are usually, but not always, 1-3 characters long. In this case, <code class="docutils literal notranslate"><span class="pre">.md</span></code>
+is the standard extension for a Markdown file. A few other common extensions
+include <code class="docutils literal notranslate"><span class="pre">.txt</span></code> for text files, <code class="docutils literal notranslate"><span class="pre">.zip</span></code> for ZIP archives, and <code class="docutils literal notranslate"><span class="pre">.png</span></code> for PNG
+image files.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Some operating systems hide extensions in their GUI file browsers by default.
+We recommend configuring your GUI file browser to always display extensions. If
+you’re not sure how, try searching for instructions online.</p>
+</div>
+<p>Sometimes the extension for a file will be missing or incorrect. If, while
+working with the CLI, you need to get a sense of what kind of data is stored in
+a file, you should use the <code class="docutils literal notranslate"><span class="pre">file</span></code> command. Let’s take a look at the output from
+the command for a few files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file README.md
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>README.md: ASCII text
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">file</span></code> command recognizes that the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file contains text. The ZIP
+archive doesn’t:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file ../example-files.zip
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>../example-files.zip: Zip archive data, made by v4.6 UNIX, extract using at least v2.0, last modified, last modified Sun, Jan 07 2026 03:59:54, uncompressed size 0, method=store
+</pre></div>
+</div>
+<p>For this file, the command indicates that it’s a ZIP archive and prints out
+some metadata about how and when it was created.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">file</span></code> command and the commands for browsing files from
+<a class="reference internal" href="02_browsing-files.html#sec-browsing-files"><span class="std std-numref">Section 2</span></a> to inspect the files in the <code class="docutils literal notranslate"><span class="pre">example-files</span></code>
+directory and its subdirectories.</p>
+</section>
+<section id="reference-common-commands">
+<h2><span class="section-number">3.5. </span>Reference: Common Commands<a class="headerlink" href="#reference-common-commands" title="Link to this heading">#</a></h2>
+<p>The commands introduced in this chapter, as well as a few other common
+commands, are listed in the following table:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">man</span></code></p></td>
+<td><p>Opens the manual page for another command.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">curl</span></code></p></td>
+<td><p>Downloads a file from the internet.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">https://datalab.ucdavis.edu/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tar</span></code></p></td>
+<td><p>Compresses/decompresses files into/from a <code class="docutils literal notranslate"><span class="pre">.tar</span></code> or <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> file.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">my_file.tar</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zip</span></code></p></td>
+<td><p>Compresses files into a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">my_files.zip</span> <span class="pre">my_files/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unzip</span></code></p></td>
+<td><p>Decompresses (“unzips”) files from a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">my_file.zip</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">head</span></code></p></td>
+<td><p>Prints the first 10 lines of a file to the screen.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">README.md</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cat</span></code></p></td>
+<td><p>Prints the entirety of a file to the screen.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">README.md</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">file</span></code></p></td>
+<td><p>Prints the type of a file.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">my_dataset.csv</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--
+* - `mv`
+  - Moves files.
+  -
+* - `cp`
+  - Copies files.
+  -
+* - `rm`
+  - Deletes files.
+-->
+<!--
+A more complete list of Unix Commands may be found on Valerie Henderson
+Summet's [Unix Cheat Sheet][]. That said, 
+
+[Unix Cheat Sheet]: cheatsheet.pdf
+-->
+<p>There are dozens of shell commands, each with their own set of flags, and it’s
+possible to install even more. We can’t go over everything in one workshop, but
+by knowing the shell command syntax and how to get help, you’ll be able to
+figure out how to use new commands.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/command-line"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_browsing-files.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Browsing Files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_editing-files.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Editing Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-syntax">3.1. Command Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">3.2. Getting Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-problems-arise">3.3. When Problems Arise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-downloading-inspecting-files">3.4. Example: Downloading &amp; Inspecting Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-common-commands">3.5. Reference: Common Commands</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
