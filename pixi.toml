@@ -1,4 +1,4 @@
-[project]
+[workspace]
 name = "workshop_research_computing"
 version = "2025.fall.0"  # <year>.<quarter>.<revision #>
 description = "Reader for the Research Computing Starter Pack workshops."
@@ -18,6 +18,6 @@ clean = { cmd = "rm -rf _build/", description = "Remove the build directory." }
 rebuild = { depends-on = ["clean", "build"], description = "Remove the build directory and build the reader." }
 
 [dependencies]
-python = ">=3.13.2,<3.14"
-jupyter-book = ">=1.0.4.post1,<2"
+python = ">=3.14.2,<3.15"
+jupyter-book = "<2"
 ghp-import = ">=2.1.0,<3"

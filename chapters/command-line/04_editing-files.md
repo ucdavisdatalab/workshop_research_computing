@@ -5,359 +5,324 @@
 After this lesson, you should be able to:
 
 * Explain the difference between binary and plain text files
-* Use shell commands to examine the contents of a file
-* Use a text editor to edit files
-* Use shell commands to remove files and directories
+* Explain what a text editor is
+* In the CLI:
+    * Edit files with a text editor
+    * Copy, move, and delete files
 :::
 
-Beyond the basic commands and navigation functions we've discussed so far, the
-command line also features the ability to edit files directly, usually by means
-of a text editor. These editors are similar in nature to Microsoft Word or Mac
-Pages but they're much more stripped down and tend to work best with **plain
-text** files. These editors are only accessible from the command line and it is
-important to know how to use them so that you can open, read, and write
-directly on the command line.
+The shell commands we've covered so far give you ways to navigate between
+directories and inspect the contents of files. You can also use the CLI to edit
+files directly. This chapter explains one way to edit files with the CLI. It
+also introduces the final piece of the file browsing experience: how to copy,
+move, and delete files.
 
 
-## Plain Text vs. Binary Files
+## Text Editors
 
-Before continuing on to these editors, we'll briefly distinguish plain text
-from **binary** data. This distinction bears directly on what we can and cannot
-edit using a text editor. In computing, plain text has multiple fuzzy,
-interlocking meanings, but generally it refers to some kind of data that is
-stored in a *human readable* form, which is to say, it is comprised of a
-collection of text characters (usually ASCII, but increasingly UTF-8). A common
-way to store this data is with a `.txt` file, though code files (`.py`, `.R`)
-and tabular data (`.csv`) also fall under the heading of plain text.
+A **text editor** is a computer program designed to edit files that contain
+**plain text**, free of images and other kinds of data. This reflects the fact
+that text editors originated in the CLI, although now text editors for GUIs are
+also available.
 
-Binary data, on the other hand, is not human-readable. It is not stored in a
-way that cleanly translates to various alphanumeric characters; rather, it
-stores data as sequences of 0/1 bits without reference to characters. Often
-such representations are used for data storage. Common file types for binary
-data include ones for images (`.jpg`, `.png`), for sound (`.mp3`), and for
-various executables (`.exe`).
+Text editors display the contents of a file faithfully and efficiently, with
+minimal processing. They stand in contrast to word processors (such as
+Microsoft Word), where you can freely mix text with graphical formatting,
+images, and other data, but what you see on the screen is a heavily processed
+version of what's actually stored in the file. This minimalisim makes text
+editors useful for editing files that do not normally include formatting, such
+as code, and for examining the true contents of files, especially if their
+format is intended to be human-readable.
 
-We should note however that, at base, this distinction is somewhat false, in
-that all files are ultimately just binary data. The plain text/binary
-distinction is thus more a matter of how computers *represent* data: bits in
-plain text represent characters, while bits in binary files represent some kind
-of custom data format, which often requires special encoding/decoding protocols
-to use it.
+:::{admonition} Plain Text vs. Binary
+:class: note
 
-We can see how all this works if we try to open a binary file with an
-application that doesn't expect this kind of format. For example, if you open
-this image:
+Ultimately, computers represent all data as numbers. They use a **binary**
+number system, where numbers are made up of the **bits** 0 and 1 rather than
+the digits 0 through 9 in the familiar decimal number system.
 
-![Image of the Mac Terminal](/images/command-line/prompt.png)
+To represent text on a computer, we can **encode** each symbol as a specific
+number; the number represents the symbol. People have come up with many
+different standards for doing this. For instance, in the [ASCII][] standard,
+which was designed for languages that use the Latin alphabet, 65 represents the
+letter `A`, 66 represents the letter `B`, 97 represents the letter `a`, and so
+on. Nowadays, most people use the [UTF-8][] standard, a superset of ASCII
+designed to support all languages.
 
-...with a text editor, you'll see something like this:
+[ASCII]: https://en.wikipedia.org/wiki/ASCII
+[UTF-8]: https://en.wikipedia.org/wiki/UTF-8
 
-```
-<89>PNG^M
-^Z
-^@^@^@^MIHDR^@^@^F<86>^@^@^C<9e>^H^F^@^@^@.¡¢¹^@^@^LliCCPICC
-Profile^@^@H<89><95>W^GXSÉ^V<9e>[RIh<81>P¤<84>Þ^DéUJ^H-<82><80>TÁFH^B    
-%Æ<84> bg]Tpí"<8a>^U]^UQt-<80>,*b/             
-<8b>bï<8b>^E<95><95>u± (*oB^Bºî+ß;ß7wþ{æÌ^?Ê<9d>¹÷^N^@Z½<©4^OÕ^F _R K<88>^Le<8d>MKg<91>:^@^Y0^@^S<98>^C?^^_.
-eÇÇÇ^@(<83>ýßåÝ^M<80>(û«ÎJ®^?<8e>ÿWÑ^U^Hå|^@<90>ñ^Pg
-[...]
-```
+When we say that files or data are "plain text," we mean that they can be
+decoded with some well-known standard into text that's intelligible. We refer
+to files and data that cannot be decoded this way as "binary." Note that this
+is a reuse of the word in a closely related but distinct way from how we
+defined it previously.
 
-A complete mess! We're seeing this because text editors aren't able to
-interpret data streams from binary files. They'll do their best to try and
-parse the stream, but that process won't ultimately work. There is thus no way
-to edit this kind of file in a text editor -- you'd simply have no idea where
-to start. And more, making any such changes would likely cause problems with
-the file data itself, since it contains custom encodings that don't correspond
-to plain text characters. If we deleted a snippet of "text" from the output
-above, resaved it, and reopened it in an image viewer...
+Examples of plain text files include text files (`.txt`), Markdown files
+(`.md`), source code files for most programming languages (`.R`, `.py`, and
+many more), and human-readable data files (`.csv`, `.json`, and more). Plain
+text files can be opened in any text editor.
 
-![Message showing that the image cannot be opened](/images/command-line/broken_image.png)
+Examples of binary files include image files (`.jpg`, `.png`, and more), audio
+and video files (`.mp3`, `.mp4`, and more), data files (`.rds`, `.pickle`,
+`.hd5`, and more), and executable programs (`.exe`, `.o`, `.so`, and more). To
+open a binary file, you generally need to have special software to decode the
+contents into something meaningful.
 
-...we'll see that it's been corrupted.
-
-## Inspecting Files
-
-If, while working on the command line, you need to get a sense of what kind of
-data is stored in a file, the `file` function is useful. Here's an image:
+You can see how all of this works if you try to open a binary file with a text
+editor. For example, if you open the `cool_hair_selfie.jpg` image included with
+the files from {numref}`sec-example-downloading-inspecting-files` in a text
+editor, you'll see something like this:
 
 ```none
-file broken_image.png
+ÿØÿà^@^PJFIF^@^A^A^A^D°^D°^@^@ÿþ^@^SCreated with GIMPÿÛ^@C^@^C^B^B^C^B^B^C^C^C^C^    D^C^C^D^E^H^E^E^D^D^E
+^G^G^F^H^L
+^L^L^K
+^K^K^M^N^R^P^M^N^Q^N^K^K^P^V^P^Q^S^T^U^U^U^L^O^W^X^V^T^X^R^T^U^TÿÛ^@C^A^C^D^D^E^D    ^E▷^E^E▷ ^T^M^K^M^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T    ^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^T^TÿÂ^@^Q^H^Bw^AÃ^C^A^Q^@^B^Q^A^C^Q^AÿÄ^@^\^@^@^    B^C^A^A^A^A^@^@^@^@^@^@^@^@^@^B^C^A^D^E^F^@^G^HÿÄ^@^X^A^@^C^A^A^@^@^@^@^@^@^@^@^@    ^@^@^@^@^A^B^C^DÿÚ^@^L^C^A^@^B^P^C^P^@^@^Aø¶W^C<94>*<84>1^R<85>(^BcSv<94>é+Ä¾ª%^P    *ß<99>^S/L4j<89>ò^\é<93>0ß¥<90><96>;6ê¥,(<97>'6áµ^H^PÊg^HÓ]<8c>^KPï§KD¬ä<82>F<9a>    ^BÝ¼<87>'êuÃR^DQ<83>yØÑÖ<90>&@$^VÆ[<98>^nÖ­^PNQ-<94><9e>°Ósj<88><86>EÑ0^A²NkÉ<9d>    ¶hV<97>(ò<98>³Ù«2>ê«^ZÅ#Ò<9a><9f><98>Z^A<8a>0³uêe<8c><9c>¯hêS<9b>g<98>Cn<8d>^Y<8f    >ÎHxºAh^B^Nd-<9b>`<97><91>^R<84>^[»^DÇ9$6<98>Êrs½BG<94><82>@Ø!<92>7J^hÁì¬Ü6É<95>k    P¦ä6^N$
+```
+
+It's a complete mess! It looks like this because the text editor does its best
+to decode the file as text, but since (most of) the file isn't text, most of
+the decoded symbols actually represent something else. As a result, it's
+generally not a good idea to edit binary files with a text editor.
+
+As a final note, word processors, like Microsoft Word, add an interesting twist
+to all of the above. Word documents are actually comprised of a number of
+different, associated files under the hood. It's technically possible to alter
+the text of such files with a text editor, but finding the right place to make
+a change is difficult, and it's more convenient to use a program made to to
+interact with them.
+:::
+
+Many different text editors exist, including several free and open-source
+options. A few popular CLI text editors are:
+
+* nano (and its predecessor Pico), a straightforward text editor with few
+  features beyond displaying and editing text.
+* Vim (and its predecessor vi), a text editor designed to be customizable and
+  extensible. It has many features that make it easier to edit code, such as
+  search-and-replace, keyboard shortcuts, and syntax highlighting. Vim is also
+  infamous for being difficult to learn because its interface consists of
+  several different "modes."
+* Emacs, another text editor designed to be customizable and extensible. It has
+  many of the same features as Vim, and is also somewhat difficult to learn,
+  although its interface is more like a word processor.
+
+For the remainder of this reader, we'll focus on nano (and Pico).
+
+
+### Nano & Pico
+
+:::{important}
+On Windows, nano is included with Git Bash.
+
+On macOS, some versions have nano and some versions have Pico. You can use
+either one to follow along with the subsequent sections.
+
+On Linux, nano is included with most distributions. If it's missing, you can
+install it with your distribution's package manager.
+:::
+
+Let's use nano to create a new text file in the `2026_intro-cmd` directory you
+created in {numref}`sec-making-removing-directories`. To get started, change
+the working directory to that directory:
+
+```none
+cd ~/2026_intro-cmd
+```
+
+We'll make a file called `hello.txt`. You can open a file with nano by putting
+the name of or path to the file after the `nano` command. This will work even
+for files that don't exist yet. Most other CLI text editors also work this way.
+Go ahead and open `hello.txt` with nano:
+
+```none
+nano hello.txt
+```
+
+Once nano opens the file, you can type in or delete text, and use the arrow
+keys to move the cursor, as you would in a word processor. For this example,
+type in `Hello world!` on the first line of the file.
+
+When you're done editing, you can press `Ctrl` + `o` to save the file. nano
+will ask you to confirm that you want to save the file by pressing `Enter` or
+`Return`. After saving the file, you can press `Ctrl` + `x` to exit nano.
+
+:::{tip}
+nano displays all of its keyboard shortcuts at the bottom of the screen. In the
+dislpay, it uses `^` to mean the `Ctrl` key. The keyboard shortcuts in nano are
+not case-sensitive.
+:::
+
+Back at the CLI, use the `head` or `cat` command to check that the new
+`hello.txt` file contains what you wrote:
+
+```none
+cat hello.txt
 ```
 
 ```none
-broken_image.png: PNG image data, 520 x 470, 8-bit/color RGBA, non-interlaced
+Hello world!
 ```
 
-Based on this information, we can see that that won't work for us. On the other
-hand, this information:
+As another example, let's look at the `README.md` file included in
+`example-files.zip` ({numref}`sec-example-downloading-inspecting-files`). To
+open the file in nano:
 
 ```none
-file README.md
+nano example-files/README.md
 ```
+
+The contents should look familiar from when you printed the file with `head`,
+but now you can edit the file if you'd like.
+
+A text editor is an essential tool for anyone working with the CLI. It not only
+provides a way to edit text files, but also a way to inspect files whether or
+not they contain text. After file browsing commands, your text editor is likely
+the CLI command you will use the most.
+
+:::{tip}
+If you want a text editor that's full-featured but not much harder to learn
+than nano, check out [Micro][].
+
+[Micro]: https://micro-editor.github.io/
+:::
+
+
+## Moving & Deleting Files
+
+{numref}`sec-browsing-files` explained how to use the CLI to browse through
+files and directories on your computer, but we left out one important detail:
+how to copy, move, and delete things. We'll cover commands for all of those in
+this section.
+
+Let's make a copy of the `hello.txt` file you just created. You can use the
+`cp` command to make a copy. It requires two arguments: the path to the
+original file and the path to the copy (which the command will create). For the
+copy of `hello.txt`, let's use the name `another_hello.txt`. So the command to
+make the copy is:
 
 ```none
-01_overview.Rmd: ASCII text
+cp hello.txt another_hello.txt
 ```
 
-...shows us that `README.md` will. The `ASCII text` message lets us know we can
-open it with a text editor. The same goes for a `.csv`:
-
-```none
-file data.csv
-```
-
-```none
-data.csv: CSV text
-```
-
-We would be able to open this as well.
-
-Finally, `file` can also tell us whether a file is in an archive format (like
-`.zip`):
-
-```none
-file archived_file.csv.zip
-```
-
-```
-archived_file.csv.zip: Zip archive data, at least v2.0 to extract
-```
-
-Before opening this, we'd need to use the `unzip` command:
-
-```none
-unzip archived_file.csv.zip
-```
-
-```none
-  inflating: archived_file.csv.zip
-```
+Check with `ls` that there's now a new file in the directory called
+`another_hello.txt`:
 
 ```none
 ls
 ```
 
 ```none
-archived_file.csv  archived_file.csv.zip
+another_hello.txt  data  example-files  example-files.zip  hello.txt
+```
+
+If you open `another_hello.txt` with a text editor or print it with `head` or
+`cat`, you should see that it's exactly the same as `hello.txt`.
+Congratulations, you've made a copy!
+
+The `mv` command moves a file to a different place. Note that renaming a file
+is equivalent to moving the file, so this command is also useful for renaming
+files. The syntax of the `mv` command is similar to the `cp` command. It
+requires two arguments: the path to the original file and the path to the
+destination. Try moving `another_hello.txt` to `a_sincere_hello.txt`:
+
+```none
+mv another_hello.txt a_sincere_hello.txt
+```
+
+Now the directory looks like this:
+
+```none
+ls
 ```
 
 ```none
-file archived_file.csv
+a_sincere_hello.txt  data  example-files  example-files.zip  hello.txt
+```
+
+If you want, you can also inspect `a_sincere_hello.txt` to make sure that its
+contents are the same.
+
+Finally, let's clean up by removing the `a_sincere_hello.txt` file. You can
+remove a file with the `rm` command. Be careful with this command, as there is
+no undo---removing a file is permanent and irreversible. Go ahead and remove
+`a_sincere_hello.txt`:
+
+```none
+rm a_sincere_hello.txt`
+```
+
+Take one last look at the contents of the directory:
+
+```none
+ls
 ```
 
 ```none
-archived_file.csv: CSV text
+data  example-files  example-files.zip  hello.txt
 ```
 
-There are two other commands that are useful for inspecting files on the
-command line. `cat` ("concatenate") will print (or attempt to print) in plain
-text the entirety of a file's contents on screen:
+The `a_sincere_hello.txt` file is gone.
 
-```none
-cat file.txt
-```
+:::{caution}
+Like many shell commands, there's no undo for the `cp`, `mv`, and `rm`
+commands. They're also relatively mute, printing nothing or little to indicate
+what they're doing. These characteristics make it easy to accidentally
+overwrite or delete a file.
 
-```none
-I'm written in plain text!
-```
+If you're worried about making mistakes, you can put these commands in
+interactive mode by passing the `-i` or `--interactive` flag. In interactive
+mode, the commands will prompt you with a yes/no question any time they might
+overwrite or delete a file.
+:::
 
-```none
-cat prompt.png
-```
+:::{note}
+The `cp`, `mv`, and `rm` commands can also copy, move, and remove directories.
+The `mv` command can do this by default. For the `cp` and `rm` commands, you
+have to set the `-r` or `--recursive` flag in order for them to operate on
+directories.
 
-```none
-?PNG
-
-IHDR?.???
-         liCCPICC ProfileH??WXS??[RIh?P????U-??T?FH	%Ƅ?bg]Tp?"?]Qt-?,*b/?b???u??(*oB??+?;?7w?{??ʝ??Z?<?4? _R K?
-[...]
-```
-
-On the other hand, `head` will print the first `N` lines on screen (its default 
-is 10 lines):
-
-```none
-head moby_dick.txt
-```
-
-```none
-CHAPTER 1. Loomings.
-
-Call me Ishmael. Some years ago—never mind how long precisely—having
-little or no money in my purse, and nothing particular to interest me
-on shore, I thought I would sail about a little and see the watery part
-of the world. It is a way I have of driving off the spleen and
-regulating the circulation. Whenever I find myself growing grim about
-the mouth; whenever it is a damp, drizzly November in my soul; whenever
-I find myself involuntarily pausing before coffin warehouses, and
-bringing up the rear of every funeral I meet; and especially whenever
-```
-
-Both commands offer you a method to get an easy glimpse at the contents of
-files on your computer.
-
-**Note:** common word processing software like Microsoft Word poses an
-interesting complication to all of the above. Word docs are actually comprised
-of a number of different, associated files under the hood. It's technically
-possible to alter the text of such files, but finding the location where you'd
-like to make your change can be a big pain, so it's often just easier to use an
-application that has been made to interact with them. Welcome to the world of
-proprietary software!
+Unlike `rmdir`, the `rm -r` command can delete directories even if they contain
+files.
+:::
 
 
-## Accessing Command Line Text Editors
+## Reference: Editing Commands
 
-Now that we know what we can and can't edit on the command line, we can make a
-file. To do so, we'll use a text editor called Vim. Macs and Git Bash both ship
-with this application, so there's no need to download it (other command line
-editors include Emacs and Nano). If you'd like to open a file with Vim, type
-`vi` in a command line window, followed by the filename. You can also create a
-new file this way, simply by typing the name you'd like to use for that file
-after `vi`.
-
-![Creating a new text file with Vim on the command line](/images/command-line/new_vim_file.png)
-
-Vim works a bit differently than other text editors and word processors. It has
-a number of 'modes,' which provide different forms of interaction with a file's
-data. We will focus on two modes, **Normal** mode and **Insert**. When you open
-a file with Vim, the program starts in Normal mode. This mode is command-based
-and, somewhat strangely, it doesn't let you insert text directly in the
-document (the reasons for this have to do with Vim's underlying design
-philosophy: we're more likely to edit text on the command line than we are to
-write it).
-
-To insert text in your document, switch to Insert mode by pressing `i`. You can
-check whether you're in Insert mode by looking at the bottom left hand portion
-of the window. You should see an `-- INSERT --` string.
-
-![Vim text editor with Hello World! written in it](/images/command-line/hello_world_vim.png)
-
-Once you are done inserting text, pressing `ESC` (the Escape key) will bring
-you back to Normal mode. From here, you can save and quit your file, though
-these actions differ from other text editors and word processors: saving and
-quitting with Vim works through a sequence of key commands (or chords), which
-you enter from Normal mode.
-
-To save a file in Vim, make sure you are in Normal mode and then enter `:w`.
-Note the colon, which must be included. After you've entered this key sequence,
-in the bottom left hand corner of your window you should see "[file name] XL,
-XC written" (*L* stands for "lines" and *C* stands for "characters").
-
-![Saving text with Vim](/images/command-line/saving_vim.png)
-
-To quit Vim, enter `:q`. This should take you back to your command line and, if
-you have created a new file, you will now see that file in your window.
-
-If you don't want to save the changes you've made in a file, you can toss them
-out by typing `:q!` in place of `:w` and then `:q`. Also, in Vim key sequences
-for save, quit, and hundreds of other commands can be chained together. For
-example, instead of separately inputting `:w` and `:q` to save and quit a file,
-you can use `:wq`, which will produce the same effect. There are dozens of base
-commands like this in Vim, and the program can be customized far beyond what
-you'll typically need for basic command line usage. More information about this
-text editor can be found [here](https://vim.fandom.com/wiki/Vim_Tips_Wiki).
-
-## Basic Vim Commands
-
-As before with the CLI commands, we'll only cover a small portion of Vim
-commands in the workshop. The table below summarizes them, but a more complete
-list may be found on this [cheat sheet][].
-
-[cheat sheet]: https://vim.rtorr.com/
+Here's a summary of the commands we covered in this chapter:
 
 :::{list-table}
 :header-rows: 1
 
 * - Command
   - Description
-* - `Esc`
-  - Enter Normal mode. 
-* - `i`
-  - Enter Insert mode.
-* - `:w`
-  - Save.
-* - `:q`
-  - Quit.
-* - `:q!`
-  - Quit without saving.
+  - Examples
+* - `nano`
+  - Opens the nano text editor.
+  - `nano my_file.txt`
+* - `cp`
+  - Makes a copy of a file or directory.
+  - `cp my_file.txt my_copy.txt`
+* - `mv`
+  - Moves (or renames) a file or directory.
+  - `mv my_file.txt my_file_renamed.txt`
+* - `rm`
+  - Removes a file or directory.
+  - `rm my_file.txt`
 :::
 
 
-## Cleaning Up
-
-Assuming we did save our text file, let's clean up our directory another way.
-The last command we'll discuss is `rm` ("remove"). You can use it to delete
-files and from your computer:
-
-```none
-ls
-```
-
-```none
-data.csv  hello.txt  moby_dick.txt  project_folder
-```
-
-```none
-rm hello.txt
-ls
-```
-
-```none
-data.csv  moby_dick.txt  project_folder
-```
-
-Using the `-r` flag (which stands for "recursive"), you can also delete
-folders:
-
-```none
-rm -r project_folder
-ls
-```
-
-```none
-data.csv  moby_dick.txt
-```
-
-Please note that this command, like many such commands on the command line, has
-no undo. It's also a particularly mute command, giving little in the way of an
-indication about what it's doing. If you have multiple files to delete, or if
-you're worried that it might delete something you don't want to remove, you may
-consider putting `rm` in interactive mode with `-i`. This will prompt you with
-a yes/no query for every file the command would remove, given the information
-you supplied it with:
-
-```none
-ls 
-```
-
-```none
-data.csv  moby_dick.txt
-```
-
-```none
-rm -i moby_dick.txt
-```
-
-```none
-remove moby_dick.txt? <- enter "no" and press Return/Enter
-```
-
-```none
-ls
-```
-
-```none
-data.csv  moby_dick.txt
-```
-
 ## A Final Note
 
-While we've only scratched the surface of what you can do on the command line,
-the commands and underlying concepts we've discussed here will prepare you to
-adapt to new ways of using CLIs. With this, our hope is that you'll become a
-more confident and experienced computer user. If questions do arise, DataLab
-offers support across all levels of experience, and we are happy to field
-questions during [our office hours][dl-oh]. Happy scripting!
+Although we've only scratched the surface of what you can do with the command
+line, the commands and underlying concepts we've discussed here should prepare
+you to continue using and learning about the CLI. In doing so, our hope is that
+you'll become a more confident and experienced computer user. If questions do
+arise, DataLab offers support across all levels of experience. See [our
+website][dl] for details about office hours, as well as other resources and
+events for learners. Happy scripting!
 
-[dl-oh]: https://datalab.ucdavis.edu/office-hours/
+[dl]: https://datalab.ucdavis.edu/office-hours/
+
+

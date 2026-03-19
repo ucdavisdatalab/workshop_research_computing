@@ -1,23 +1,29 @@
-# Navigating File Systems
+(sec-browsing-files)=
+# Browsing Files
 
 :::{admonition} Learning Goals
 :class: note
 After this lesson, you should be able to:
 
-* Describe a file system, directory, and working directory
+* Define file system, directory, and path
 * Write paths to files or directories
-* Get or set the working directory
-* Move files and directories
+* Explain what a working directory is
+* In the CLI:
+    - Print and change the shell's working directory
+    - Print the contents of a directory
+    - Create and remove directories
 :::
 
-Due to the nature of its stripped down display, the command line interface can
-at times feel a bit static. But it offers much of the same functionality that
-modern GUIs offer, including the ability to move around your computer. With
-GUIs, we tend to navigate with our mouses; on the command line, we'll use our
-keyboard. This chapter is intended to give you a working sense of how your
-files are structured.
+
+A key feature of the CLI is that you can browse through and inspect the files
+and directories on your computer. With GUIs, we tend to navigate with our
+mouses; on the command line, we'll use our keyboard. This chapter begins with
+some background information and vocabulary about how computers organize files,
+then gives a hands-on introduction to working with files and directories in the
+CLI.
 
 
+(sec-file-systems)=
 ## File Systems
 
 Your computer's **file system** consists of **files** (chunks of data) and
@@ -93,7 +99,7 @@ different set of commands).
 
 
 (sec-absolute-relative-paths)=
-### Absolute & Relative Paths
+## Absolute & Relative Paths
 
 A path that starts from the root directory, like all of the ones we've seen so
 far, is called an **absolute path**. The path is "absolute" because it
@@ -194,40 +200,70 @@ this text.
 
 ## The Working Directory
 
+Opening a directory with a graphical file browser (such as Explorer or Finder)
+is probably one of the things you do most frequently on your computer. File
+browsers generally open one directory at a time and display the contents. The
+CLI, or more specifically, the shell, works the same way. The shell always has
+a directory open. This is called the **working directory**. Think of the
+working directory as the directory the shell is currently "at" or watching.
+
 {ref}`sec-absolute-relative-paths` explained that relative paths have a
-starting point that depends on the context where the path is used. The
-**working directory** is the starting point the shell uses for relative paths.
-Think of the working directory as the directory the shell is currently "at" or
-watching.
+starting point that depends on the context where the path is used. The shell
+uses the working directory as the starting point for relative paths. 
 
 The shell provides commands to manipulate the working directory. The command
-`pwd` returns the absolute path for the current working directory, as a string.
-It doesn't require any arguments:
+`pwd` prints the absolute path for the working directory. It doesn't require
+any arguments:
 
 ```none
 pwd
 ```
 
 ```none
-/home/nick/
+/home/nick
 ```
 
-On your computer, the output from `pwd` will likely be different. This is a
-very useful function for getting your bearings when you write relative paths.
-If you write a relative path and it doesn't work as expected, the first thing
-to do is check the working directory.
+On your computer, the output from `pwd` will likely be different.
 
-The related `cd` function changes the working directory. It takes one argument:
-a path to the new working directory. Here's an example:
+:::{tip}
+The `pwd` command is very useful for getting your bearings. Run it any time
+you're uncertain about what the working directory is.
+
+If you write a relative path and it doesn't work as expected, the first thing
+to do is run `pwd` to check the working directory.
+:::
+
+The related `cd` command changes the working directory. Without any arguments,
+it changes the working directory to your home directory. Go ahead and try
+changing to the home directory and printing its path:
+
+```none
+cd
+pwd
+```
+
+```none
+/home/nick
+```
+
+You can change the working directory to a specific directory by putting the
+path to the directory after the `cd` command. Go to the directory above the
+home directory:
 
 ```none
 cd ..
-pwd
 ```
 
+Now print the path again:
+
 ```none
-/home/
+pwd
 ```
+```none
+/home
+```
+
+The `cd` command understands both absolute and relative paths.
 
 <!--
 :::{warning}
@@ -241,7 +277,7 @@ Python console), but avoid making your saved code dependent on it.
 -->
  
 Another command that's useful for dealing with the working directory and file
-system is `ls`. The `ls` command returns the names of all of the files and
+system is `ls`. The `ls` command lists the names of all of the files and
 directories inside of a directory. It accepts a path to a directory as an
 argument, or assumes the working directory if you don't pass a path. For
 instance:
@@ -275,49 +311,100 @@ ls /this/path/is/fake/
 "/this/path/is/fake/": No such file or directory (os error 2)
 ```
 
+(sec-making-removing-directories)=
+## Making & Removing Directories
 
-## Moving Data Around
+When you start working on a project (whether it's academic, personal, or
+something else), it's a good habit to make a new directory, called a **project
+directory** or **repository**, where you'll keep all of the project's files.
+This way you can easily find, back up, and share the files.
 
-Beyond helping you navigate, file paths also enable you to move information
-around on your computer. Doing so works very much like the above.
+:::{tip}
+Give each project directory a descriptive name. This will make it easier for
+you to find the project in the future. At DataLab, we typically use names that
+include the year (or date) and title of the project. Use underscores (`_`) or
+dashes (`-`) to separate words and components in the name rather than spaces.
+:::
 
-To move a file, we use `mv`, which has the following syntax:
+At the command line, you can use the `mkdir` command to make a directory.
+Navigate back to your home directory, then use `mkdir` to make a directory
+called `2026_intro-cmd`:
 
 ```none
-mv [location/of/file] [location/where/you/want/to/move/the/file]
+cd
+mkdir 2026_intro-cmd
 ```
 
-If we're in a directory that looks like so:
+Check that the new directory is there with the `ls` command:
 
 ```none
 ls
 ```
 
 ```none
-file.txt  subdirectory
+2026_intro-cmd  archive  depot  go  haven  mill  notes.md  wharf  woods  Zotero
 ```
 
-...and we want to move `file.txt` into `subdirectory`, we can use:
+Change to the new directory and check that it's empty:
 
 ```none
-mv ./file.txt ./subdirectory/file.txt
-```
-
-Note here that we've used `./` to specify that `file.txt` is in the *current*
-directory. Note too that we wrote out the *full filename* of `file.txt` after
-`subdirectory`. If you didn't write out the full filename after `subdirectory`
-or use `./`, your CLI is usually smart enough to infer what you meant and would
-move `file.txt` to `subdirectory`:
-
-```none
-mv file.txt subdirectory
-cd subdirectory
+cd 2026_intro-cmd
 ls
 ```
+
+You can make subdirectories to further organize your project directories. Try
+making a subdirectories called `data` and `figures`:
+
 ```none
-file.txt
+mkdir data
+mkdir figures
+ls
 ```
 
-However, it's better to be as specific as possible so as to ensure you've moved
-your file exactly where you want it. Many a file has gotten lost on computers
-because of inexact commands.
+```none
+data  figures
+```
+
+Sometimes you might make a directory and then decide later that you don't need
+it. The `rmdir` command removes an empty directory. Go ahead and remove the
+`figures` directory, since we're not going to make any figures:
+
+```
+rmdir figures
+```
+
+The `rmdir` command will only remove empty directories, so there's no risk of
+accidentally removing important files. Later on, we'll explain how to remove
+files (and directories that contain files).
+
+
+## Reference: Browsing Commands
+
+This chapter introduced five different commands you can use to browse files at
+the command line:
+
+:::{list-table}
+:header-rows: 1
+
+* - Command
+  - Description 
+  - Examples
+* - `pwd`
+  - Prints the working directory
+  - `pwd`
+* - `cd`
+  - Changes the working directory
+  - `cd`; `cd my_directory`
+* - `ls`
+  - Lists the contents of a directory
+  - `ls`; `ls my_directory`
+* - `mkdir`
+  - Makes a new directory
+  - `mkdir my_directory`
+* - `rmdir`
+  - Removes an empty directory
+  - `rmdir my_directory`
+:::
+
+Make sure you understand these commands before moving on, since it's likely
+you'll use them more frequently than any others.
