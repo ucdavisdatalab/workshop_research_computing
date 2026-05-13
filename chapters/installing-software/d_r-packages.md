@@ -109,4 +109,45 @@ QUARTO_R = "$CONDA_PREFIX/bin/R"
 :::
 
 
+(sec-alternatives-to-pixi)=
 ## Alternatives to Pixi
+
+If Pixi's current R support doesn't meet the needs of your project, there are
+some alternatives to consider. As of writing, there are two R packages
+specifically designed for managing the R package environment:
+
+* The [renv][] package provides reproducible environments for R projects. You
+  can use its `snapshot` function to record the R packages your project uses to
+  a file, then use its `restore` function later to (re)install those packages.
+  The package also has several other features, such as Python support. The
+  package only tracks and installs R packages, not system-level dependencies,
+  so it can't reproduce many kinds of environments.
+* The [rix][] package provides reproducible environments for R projects via
+  [Nix][]. Nix is an system-level environment manager for Linux and macOS,
+  which uses a domain-specific programming language to describe fully
+  reproducible environments. The rix package generates Nix code automatically,
+  so that you can benefit from Nix without learning the language. This approach
+  is excellent for making projects reproducible, but it's also complicated and
+  requires you to install Nix separately.
+
+[renv]: https://rstudio.github.io/renv/
+[rix]: https://docs.ropensci.org/rix/
+[Nix]: https://nixos.org/
+
+:::{tip}
+If renv sounds like a good fit for your project, but you also need to work with
+several different versions of R, take a look at [rig][], a standalone tool for
+installing multiple versions of R side-by-side.
+
+[rig]: https://github.com/r-lib/rig
+:::
+
+:::{tip}
+Several DataLab staff tried using renv for real projects for about a year, but
+found it to be less convenient and reliable than tools like Pixi (and Conda).
+
+We have not tried to use rix for real projects, since installing Nix is a
+non-starter for many of our collaborators.
+
+So we recommend using Pixi, but you should choose whatever works best for you.
+:::
