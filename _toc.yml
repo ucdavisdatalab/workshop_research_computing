@@ -46,7 +46,8 @@ parts:
       - file: chapters/installing-software/a_configuring-the-shell
       - file: chapters/installing-software/b_ucdavis-hpc-modules
       - file: chapters/installing-software/c_python-packages
-      - file: chapters/installing-software/d_tasks
+      - file: chapters/installing-software/d_r-packages
+      - file: chapters/installing-software/e_tasks
 
   - caption: "Introduction to Version Control"
     chapters:
