@@ -156,6 +156,12 @@ usually not surprising, although you can use the `pixi search` command or
 search online if you're not sure about a package's name. Python is in the
 `python` package.
 
+:::{tip}
+You can also browse for packages on [the prefix.dev website][prefix].
+
+[prefix]: https://prefix.dev/channels
+:::
+
 You can install a package with the `pixi add` command. So the command to
 install Python is:
 
