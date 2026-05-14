@@ -297,13 +297,6 @@ run` in front of each one is inconvenient and tedious. Instead, you can use
 `pixi shell` to launch a subshell in the virtual environment. Any commands you
 enter in the subshell run in the virtual environment.
 
-:::{caution}
-If you're using Windows and Git Bash, the `pixi shell` command is [not yet
-supported][pixi-shell-win].
-
-[pixi-shell-win]: https://github.com/prefix-dev/pixi/issues/417
-:::
-
 Open a subshell:
 
 ```sh
