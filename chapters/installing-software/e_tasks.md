@@ -4,10 +4,9 @@
 :class: note
 After this lesson, you should be able to:
 
-* Install packages from PyPI with Pixi
-* Explain the purpose of `pyproject.toml`
-* Create a `pyproject.toml` file
-* Use Pixi with `pyproject.toml` instead of `pixi.toml`
+* Explain what a task runner is
+* Describe how to use Pixi to run tasks
+* Create a task in `pixi.toml`
 :::
 
 ## Tasks
