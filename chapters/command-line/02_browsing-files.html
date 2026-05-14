@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Browsing Files &#8212; Research Computing Starter Pack</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dddfd265"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/command-line/02_browsing-files';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Going Beyond Browsing" href="03_other-commands.html" />
+    <link rel="prev" title="1. Interacting with Computers" href="01_interacting-with-computers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-light" alt="Research Computing Starter Pack - Home"/>
+    <script>document.write(`<img src="../../_static/datalab-logo-full-color-rgb.png" class="logo__image only-dark" alt="Research Computing Starter Pack - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Research Computing Starter Pack
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reproducibility Principles and Practices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/01_principles.html">1. Principles of Reproducibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/02_primary_practices.html">2. Primary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/03_secondary_practices.html">3. Secondary Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/04_case_by_case_practices.html">4. Case-by-case Practices</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to the Command Line</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_interacting-with-computers.html">1. Interacting with Computers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Browsing Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_other-commands.html">3. Going Beyond Browsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_editing-files.html">4. Editing Files</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing Software with Pixi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/01_environment-managers.html">1. Environment Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/02_pixi-basics.html">2. Pixi Basics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/a_configuring-the-shell.html">Unit A: Configuring the Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/b_ucdavis-hpc-modules.html">Unit B: UC Davis HPC Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/c_python-packages.html">Unit C: Python Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/d_r-packages.html">Unit D: R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-software/e_tasks.html">Unit E: Tasks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Version Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/01_version-control-systems.html">1. Version Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/02_git-basics.html">2. Git Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/03_remote-repositories.html">3. Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/04_the-git-workflow.html">4. The Git Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Git for Teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/index.html">Overview</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/01_branches-merges.html">1. Branches &amp; Merges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/02_working-with-github.html">2. Working with GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-for-teams/03_making-git-comfortable.html">3. Making Git Comfortable</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_research_computing/issues/new?title=Issue%20on%20page%20%2Fchapters/command-line/02_browsing-files.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/command-line/02_browsing-files.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Browsing Files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-systems">2.1. File Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-relative-paths">2.2. Absolute &amp; Relative Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-working-directory">2.3. The Working Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-removing-directories">2.4. Making &amp; Removing Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-browsing-commands">2.5. Reference: Browsing Commands</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="browsing-files">
+<span id="sec-browsing-files"></span><h1><span class="section-number">2. </span>Browsing Files<a class="headerlink" href="#browsing-files" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Learning Goals</p>
+<p>After this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Define file system, directory, and path</p></li>
+<li><p>Write paths to files or directories</p></li>
+<li><p>Explain what a working directory is</p></li>
+<li><p>In the CLI:</p>
+<ul>
+<li><p>Print and change the shell’s working directory</p></li>
+<li><p>Print the contents of a directory</p></li>
+<li><p>Create and remove directories</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>A key feature of the CLI is that you can browse through and inspect the files
+and directories on your computer. With GUIs, we tend to navigate with our
+mouses; on the command line, we’ll use our keyboard. This chapter begins with
+some background information and vocabulary about how computers organize files,
+then gives a hands-on introduction to working with files and directories in the
+CLI.</p>
+<section id="file-systems">
+<span id="sec-file-systems"></span><h2><span class="section-number">2.1. </span>File Systems<a class="headerlink" href="#file-systems" title="Link to this heading">#</a></h2>
+<p>Your computer’s <strong>file system</strong> consists of <strong>files</strong> (chunks of data) and
+<strong>directories</strong> (or “folders”) to organize those files. For instance, the file
+system on a computer shared by <a class="reference external" href="https://en.wikipedia.org/wiki/Ada_Lovelace">Ada</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Charles_Babbage">Charles</a>, two pioneers of
+computing, might look like this:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/filesystem.png"><img alt="Directories and files laid out in a hierarchical structure. At the top, the root directory, denoted by a forward slash, contains all other directories. Some of the directories below the root directory contain other directories or files." src="../../_images/filesystem.png" style="height: 24em;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">An example of a file system.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Don’t worry if your file system looks a bit different from the picture.</p>
+<p>File systems have a tree-like structure, with a top-level directory called the
+<strong>root directory</strong>. On Ada and Charles’ computer, the root is called <code class="docutils literal notranslate"><span class="pre">/</span></code>, which
+is also what it’s called on all macOS and Linux computers. On Windows, the root
+is usually called <code class="docutils literal notranslate"><span class="pre">C:/</span></code>, but sometimes other letters, like <code class="docutils literal notranslate"><span class="pre">D:/</span></code>, are also used
+depending on the computer’s hardware.</p>
+<p>A <strong>path</strong> is a list of directories that leads to a specific file or directory
+on a file system (imagine giving directions to someone as they walk through the
+file system). Use forward slashes <code class="docutils literal notranslate"><span class="pre">/</span></code> to separate the directories in a path,
+rather than commas or spaces. The root directory includes a forward slash as
+part of its name, and doesn’t need an extra one.</p>
+<p>For example, suppose Ada wants to write a path to the file <code class="docutils literal notranslate"><span class="pre">cats.csv</span></code>. She can
+write the path like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/ada/cats.csv
+</pre></div>
+</div>
+<p>You can read this path from left-to-right as, “Starting from the root
+directory, go to the <code class="docutils literal notranslate"><span class="pre">Users</span></code> directory, then from there go to the <code class="docutils literal notranslate"><span class="pre">ada</span></code>
+directory, and from there go to the file <code class="docutils literal notranslate"><span class="pre">cats.csv</span></code>.” Alternatively, you can
+read the path from right-to-left as, “The file <code class="docutils literal notranslate"><span class="pre">cats.csv</span></code> inside of the <code class="docutils literal notranslate"><span class="pre">ada</span></code>
+directory, which is inside of the <code class="docutils literal notranslate"><span class="pre">Users</span></code> directory, which is in the root
+directory.”</p>
+<p>As another example, suppose Charles wants a path to the <code class="docutils literal notranslate"><span class="pre">Programs</span></code> directory.
+He can write:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/Programs/
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">/</span></code> at the end of this path is reminder that <code class="docutils literal notranslate"><span class="pre">Programs</span></code> is a directory, not
+a file. Charles could also write the path like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/Programs
+</pre></div>
+</div>
+<p>This is still correct, but it’s not as obvious that <code class="docutils literal notranslate"><span class="pre">Programs</span></code> is a directory.
+In other words, when a path leads to a directory, including a <strong>trailing
+slash</strong> is optional, but makes the meaning of the path clearer. Paths that lead
+to files never have a trailing slash.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On Windows computers, the components of a path are usually separated with
+backslashes <code class="docutils literal notranslate"><span class="pre">\</span></code> instead of forward slashes <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>Git Bash is an exception: the shell commands you’ve learned so far expect and
+understand paths separated with forward slashes. If you instead use Windows’
+built-in terminal, you’ll need to use paths separated with backslashes (and a
+different set of commands).</p>
+</div>
+</section>
+<section id="absolute-relative-paths">
+<span id="sec-absolute-relative-paths"></span><h2><span class="section-number">2.2. </span>Absolute &amp; Relative Paths<a class="headerlink" href="#absolute-relative-paths" title="Link to this heading">#</a></h2>
+<p>A path that starts from the root directory, like all of the ones we’ve seen so
+far, is called an <strong>absolute path</strong>. The path is “absolute” because it
+unambiguously describes where a file or directory is located. The downside is
+that absolute paths usually don’t work well if you share your code.</p>
+<p>For example, suppose Ada uses the path <code class="docutils literal notranslate"><span class="pre">/Programs/ada/cats.csv</span></code> to load the
+<code class="docutils literal notranslate"><span class="pre">cats.csv</span></code> file in her code. If she shares her code with another pioneer of
+computing, say <a class="reference external" href="https://en.wikipedia.org/wiki/Gladys_West">Gladys</a>, who also has a copy of <code class="docutils literal notranslate"><span class="pre">cats.csv</span></code>, it might
+not work. Even though Gladys has the file, she might not have it in a directory
+called <code class="docutils literal notranslate"><span class="pre">ada</span></code>, and might not even have a directory called <code class="docutils literal notranslate"><span class="pre">ada</span></code> on her computer.
+Because Ada used an absolute path, her code works on her own computer, but
+isn’t portable to others.</p>
+<p>On the other hand, a <strong>relative path</strong> is one that doesn’t start from the root
+directory. The path is “relative” to an unspecified starting point, which
+usually depends on the context.</p>
+<p>For instance, suppose Ada’s code is saved in the file <code class="docutils literal notranslate"><span class="pre">analysis.ipynb</span></code>, which
+is in the same directory as <code class="docutils literal notranslate"><span class="pre">cats.csv</span></code> on her computer. Then instead of an
+absolute path, she can use a relative path in her code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cats.csv
+</pre></div>
+</div>
+<p>The context is the location of <code class="docutils literal notranslate"><span class="pre">analysis.ipynb</span></code>, the file that contains the
+code. In other words, the starting point on Ada’s computer is the <code class="docutils literal notranslate"><span class="pre">ada</span></code>
+directory. On other computers, the starting point will be different, depending
+on where the code is stored.</p>
+<p>Now suppose Ada sends her corrected code in <code class="docutils literal notranslate"><span class="pre">analysis.ipynb</span></code> to Gladys, and
+tells Gladys to put it in the same directory as <code class="docutils literal notranslate"><span class="pre">cats.csv</span></code>. Since the path
+<code class="docutils literal notranslate"><span class="pre">cats.csv</span></code> is relative, the code will still work on Gladys’ computer, as long
+as the two files are in the same directory. The name of that directory and its
+location in the file system don’t matter, and don’t have to be the same as on
+Ada’s computer. Gladys can put the files in a directory
+<code class="docutils literal notranslate"><span class="pre">/Users/gladys/from_ada/</span></code> and the path (and code) will still work.</p>
+<p>Relative paths can include directories. For example, suppose that Charles wants
+to write a relative path from the <code class="docutils literal notranslate"><span class="pre">Users</span></code> directory to a cool selfie he took.
+Then he can write:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>charles/cool_hair_selfie.jpg
+</pre></div>
+</div>
+<p>You can read this path as, “Starting from wherever you are, go to the <code class="docutils literal notranslate"><span class="pre">charles</span></code>
+directory, and from there go to the <code class="docutils literal notranslate"><span class="pre">cool_hair_selfie.jpg</span></code> file.” In other
+words, the relative path depends on the context of the code or program that
+uses it.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When you use paths in code, they should almost always be relative paths. This
+ensures that the code is portable to other computers, which is an important
+aspect of reproducibility. Another benefit is that relative paths tend to be
+shorter, making your code easier to read (and write).</p>
+</div>
+<p>When you write paths, there are three shortcuts you can use. These are most
+useful in relative paths, but also work in absolute paths:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> means the current directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code> means the directory above the current directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> means the <strong>home directory</strong>. Each user has their own home directory,
+whose location depends on the operating system and their username. Home
+directories are typically found inside <code class="docutils literal notranslate"><span class="pre">C:/Users/</span></code> on Windows, <code class="docutils literal notranslate"><span class="pre">/Users/</span></code> on
+macOS, and <code class="docutils literal notranslate"><span class="pre">/home/</span></code> on Linux.</p></li>
+</ul>
+<p>As an example, suppose Ada wants to write a (relative) path from the <code class="docutils literal notranslate"><span class="pre">ada</span></code>
+directory to Charles’ cool selfie. Using these shortcuts, she can write:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>../charles/cool_hair_selfie.jpg
+</pre></div>
+</div>
+<p>Read this as, “Starting from wherever you are, go up one directory, then go to
+the <code class="docutils literal notranslate"><span class="pre">charles</span></code> directory, and then go to the <code class="docutils literal notranslate"><span class="pre">cool_hair_selfie.jpg</span></code> file.” Since
+<code class="docutils literal notranslate"><span class="pre">/Users/ada</span></code> is Ada’s home directory, she could also write the path as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>~/../charles/cool_hair_selfie.jpg
+</pre></div>
+</div>
+<p>This path has the same effect, but the meaning is slightly different. You can
+read it as “Starting from your home directory, go up one directory, then go to
+the <code class="docutils literal notranslate"><span class="pre">charles</span></code> directory, and then go to the <code class="docutils literal notranslate"><span class="pre">cool_hair_selfie.jpg</span></code> file.”</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">..</span></code> and <code class="docutils literal notranslate"><span class="pre">~</span></code> shortcut are frequently used and worth remembering. The <code class="docutils literal notranslate"><span class="pre">.</span></code>
+shortcut is included here in case you see it in someone else’s code. Since it
+means the current directory, a path like <code class="docutils literal notranslate"><span class="pre">./cats.csv</span></code> is identical to
+<code class="docutils literal notranslate"><span class="pre">cats.csv</span></code>, and the latter is preferable for being simpler. There are a few
+specific situations where <code class="docutils literal notranslate"><span class="pre">.</span></code> is necessary, but they fall outside the scope of
+this text.</p>
+</section>
+<section id="the-working-directory">
+<h2><span class="section-number">2.3. </span>The Working Directory<a class="headerlink" href="#the-working-directory" title="Link to this heading">#</a></h2>
+<p>Opening a directory with a graphical file browser (such as Explorer or Finder)
+is probably one of the things you do most frequently on your computer. File
+browsers generally open one directory at a time and display the contents. The
+CLI, or more specifically, the shell, works the same way. The shell always has
+a directory open. This is called the <strong>working directory</strong>. Think of the
+working directory as the directory the shell is currently “at” or watching.</p>
+<p><a class="reference internal" href="#sec-absolute-relative-paths"><span class="std std-ref">Absolute &amp; Relative Paths</span></a> explained that relative paths have a
+starting point that depends on the context where the path is used. The shell
+uses the working directory as the starting point for relative paths.</p>
+<p>The shell provides commands to manipulate the working directory. The command
+<code class="docutils literal notranslate"><span class="pre">pwd</span></code> prints the absolute path for the working directory. It doesn’t require
+any arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pwd
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/home/nick
+</pre></div>
+</div>
+<p>On your computer, the output from <code class="docutils literal notranslate"><span class="pre">pwd</span></code> will likely be different.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command is very useful for getting your bearings. Run it any time
+you’re uncertain about what the working directory is.</p>
+<p>If you write a relative path and it doesn’t work as expected, the first thing
+to do is run <code class="docutils literal notranslate"><span class="pre">pwd</span></code> to check the working directory.</p>
+</div>
+<p>The related <code class="docutils literal notranslate"><span class="pre">cd</span></code> command changes the working directory. Without any arguments,
+it changes the working directory to your home directory. Go ahead and try
+changing to the home directory and printing its path:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd
+pwd
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/home/nick
+</pre></div>
+</div>
+<p>You can change the working directory to a specific directory by putting the
+path to the directory after the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. Go to the directory above the
+home directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ..
+</pre></div>
+</div>
+<p>Now print the path again:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pwd
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/home
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">cd</span></code> command understands both absolute and relative paths.</p>
+<!--
+:::{warning}
+Generally, you should avoid using calls to `os.chdir` in your Jupyter notebooks
+and Python scripts. Calling `os.chdir` makes your code more difficult to
+understand, and can always be avoided by using appropriate relative paths. If
+you call `os.chdir` with an absolute path, it also makes your code less
+portable to other computers. It's fine to use `os.chdir` interactively (in the
+Python console), but avoid making your saved code dependent on it.
+:::
+-->
+<p>Another command that’s useful for dealing with the working directory and file
+system is <code class="docutils literal notranslate"><span class="pre">ls</span></code>. The <code class="docutils literal notranslate"><span class="pre">ls</span></code> command lists the names of all of the files and
+directories inside of a directory. It accepts a path to a directory as an
+argument, or assumes the working directory if you don’t pass a path. For
+instance:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls /
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bin   dev  etc   lib    lost+found  opt   root  sbin  swapfile  tmp  var
+boot  efi  home  lib64  mnt         proc  run   srv   sys       usr  windows
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>archive  depot  go  haven  mill  notes.md  wharf  woods  Zotero
+</pre></div>
+</div>
+<p>As usual, since you have a different computer, you’re likely to see different
+output if you run this code. If you run <code class="docutils literal notranslate"><span class="pre">ls</span></code> with an invalid path, the shell
+emits an error:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls /this/path/is/fake/
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;/this/path/is/fake/&quot;: No such file or directory (os error 2)
+</pre></div>
+</div>
+</section>
+<section id="making-removing-directories">
+<span id="sec-making-removing-directories"></span><h2><span class="section-number">2.4. </span>Making &amp; Removing Directories<a class="headerlink" href="#making-removing-directories" title="Link to this heading">#</a></h2>
+<p>When you start working on a project (whether it’s academic, personal, or
+something else), it’s a good habit to make a new directory, called a <strong>project
+directory</strong> or <strong>repository</strong>, where you’ll keep all of the project’s files.
+This way you can easily find, back up, and share the files.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Give each project directory a descriptive name. This will make it easier for
+you to find the project in the future. At DataLab, we typically use names that
+include the year (or date) and title of the project. Use underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) or
+dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) to separate words and components in the name rather than spaces.</p>
+</div>
+<p>At the command line, you can use the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command to make a directory.
+Navigate back to your home directory, then use <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to make a directory
+called <code class="docutils literal notranslate"><span class="pre">2026_intro-cmd</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd
+mkdir 2026_intro-cmd
+</pre></div>
+</div>
+<p>Check that the new directory is there with the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2026_intro-cmd  archive  depot  go  haven  mill  notes.md  wharf  woods  Zotero
+</pre></div>
+</div>
+<p>Change to the new directory and check that it’s empty:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd 2026_intro-cmd
+ls
+</pre></div>
+</div>
+<p>You can make subdirectories to further organize your project directories. Try
+making a subdirectories called <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">figures</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir data
+mkdir figures
+ls
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data  figures
+</pre></div>
+</div>
+<p>Sometimes you might make a directory and then decide later that you don’t need
+it. The <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> command removes an empty directory. Go ahead and remove the
+<code class="docutils literal notranslate"><span class="pre">figures</span></code> directory, since we’re not going to make any figures:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmdir</span> <span class="n">figures</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> command will only remove empty directories, so there’s no risk of
+accidentally removing important files. Later on, we’ll explain how to remove
+files (and directories that contain files).</p>
+</section>
+<section id="reference-browsing-commands">
+<h2><span class="section-number">2.5. </span>Reference: Browsing Commands<a class="headerlink" href="#reference-browsing-commands" title="Link to this heading">#</a></h2>
+<p>This chapter introduced five different commands you can use to browse files at
+the command line:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+<td><p>Prints the working directory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></td>
+<td><p>Changes the working directory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cd</span></code>; <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">my_directory</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span></code></p></td>
+<td><p>Lists the contents of a directory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ls</span></code>; <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">my_directory</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span></code></p></td>
+<td><p>Makes a new directory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">my_directory</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rmdir</span></code></p></td>
+<td><p>Removes an empty directory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rmdir</span> <span class="pre">my_directory</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Make sure you understand these commands before moving on, since it’s likely
+you’ll use them more frequently than any others.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/command-line"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_interacting-with-computers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Interacting with Computers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_other-commands.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Going Beyond Browsing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-systems">2.1. File Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-relative-paths">2.2. Absolute &amp; Relative Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-working-directory">2.3. The Working Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-removing-directories">2.4. Making &amp; Removing Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-browsing-commands">2.5. Reference: Browsing Commands</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nick Ulle, Carl Stahmer, Tyler Shoemaker, and Wesley Brooks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg">
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
