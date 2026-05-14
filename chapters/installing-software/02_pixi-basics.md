@@ -156,6 +156,12 @@ usually not surprising, although you can use the `pixi search` command or
 search online if you're not sure about a package's name. Python is in the
 `python` package.
 
+:::{tip}
+You can also browse for packages on [the prefix.dev website][prefix].
+
+[prefix]: https://prefix.dev/channels
+:::
+
 You can install a package with the `pixi add` command. So the command to
 install Python is:
 
@@ -290,13 +296,6 @@ When you need to run multiple commands in a virtual environment, typing `pixi
 run` in front of each one is inconvenient and tedious. Instead, you can use
 `pixi shell` to launch a subshell in the virtual environment. Any commands you
 enter in the subshell run in the virtual environment.
-
-:::{caution}
-If you're using Windows and Git Bash, the `pixi shell` command is [not yet
-supported][pixi-shell-win].
-
-[pixi-shell-win]: https://github.com/prefix-dev/pixi/issues/417
-:::
 
 Open a subshell:
 
